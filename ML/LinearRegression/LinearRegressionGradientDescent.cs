@@ -39,13 +39,13 @@ namespace ML.LinearRegression
       throw new ApplicationException("Did not converge.");
     }
 
-    // θj := θj - α * (∂/∂θj J(Θ))
+    // θⱼ := θⱼ - α * (∂/∂θj J(Θ))
     private double GetNextθj(double θj, int j)
     {
       return θj - Alpha * Derivative(j);
     }
 
-    // θj := θj - α/m * ∑₁.m ((x(i)) - y(i)) * x(i)
+    // θⱼ := θⱼ - α/m * ∑₁.m ((x⁽ⁱ⁾) - y⁽ⁱ⁾) * x⁽ⁱ⁾
     private double Derivative(int j)
     {
       return (1.0/training.Count) *

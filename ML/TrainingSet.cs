@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace ML
 {
@@ -18,21 +19,29 @@ namespace ML
     }
 
     /// <summary>
-    /// Will get every feature into a -1 ≤ xi ≤ 1 range. This done by
-    /// xi = (xi-μi)/range(xs)
+    /// Will get every feature into a -1 ≤ xᵢ ≤ 1 range. This done by
+    /// xᵢ = (xᵢ-μᵢ)/range(xs)
     /// </summary>
     public TrainingSet Scale()
     {
-      var e1 = this.First();
-      var n = e1.xi.Length;
       var μs = new double[n];
       var rs = new double[n];
-      for (int i = 0; i < n; i++)
+      for (var i = 0; i < n; i++)
       {
         μs[i] = this.Average(e => e.xi[i]);
         rs[i] = this.Max(e => e.xi[i]) - this.Min(e => e.xi[i]);
       }
       return new TrainingSet(this.Select(e => e.Scale(μs, rs)).ToArray());
+    }
+
+    public DenseMatrix ToFeatureMatrix()
+    {
+      return DenseMatrix.OfRows(m, n, this.Select(t => t.xi));
+    }
+
+    public DenseVector ToOutputVector()
+    {
+      return DenseVector.OfEnumerable(this.Select(t => t.yi));
     }
   }
 }

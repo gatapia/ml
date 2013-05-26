@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85EBC1E3-232F-4BB7-B702-2C449F195BAE}</ProjectGuid>
+    <ProjectGuid>{B9EBF3A7-B469-4471-92A4-5D9C21823C65}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ML</RootNamespace>
-    <AssemblyName>ML</AssemblyName>
+    <RootNamespace>ML.Tests</RootNamespace>
+    <AssemblyName>ML.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,16 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge">
-      <HintPath>..\lib\AForge.Net\AForge.dll</HintPath>
-    </Reference>
-    <Reference Include="MathNet.Numerics">
-      <HintPath>..\lib\Math.Net\MathNet.Numerics.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>..\lib\NUnit\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,23 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LinearRegression\NormalEquation.cs" />
-    <Compile Include="LogisticRegression\LogisticRegression.cs" />
-    <Compile Include="Stats\Helpers.cs" />
-    <Compile Include="Stats\Significance.cs" />
-    <Compile Include="Stats\Statistics.cs" />
-    <Compile Include="Stats\Transformations.cs" />
-    <Compile Include="Stats\TwoMeans.cs" />
-    <Compile Include="Stats\TwoProportions.cs" />
-    <Compile Include="TrainingExample.cs" />
-    <Compile Include="LinearRegression\LinearRegression.cs" />
-    <Compile Include="LinearRegression\LinearRegressionGradientDescent.cs" />
-    <Compile Include="MachineLearning.cs" />
+    <Compile Include="ML\LinearRegression\GradientDescentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrainingSet.cs" />
-    <Compile Include="Utils\ArrayHelpers.cs" />
+    <Compile Include="Stats\HelperTests.cs" />
+    <Compile Include="Stats\SignificanceTests.cs" />
+    <Compile Include="Stats\StatisticsTests.cs" />
+    <Compile Include="Stats\TestHelpers.cs" />
+    <Compile Include="Stats\TransformationTests.cs" />
+    <Compile Include="Stats\TwoMeansTests.cs" />
+    <Compile Include="Stats\TwoProportionsTests.cs" />
+    <Compile Include="Utils\ArrayHelpersTest.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ML\ML.csproj">
+      <Project>{85ebc1e3-232f-4bb7-b702-2c449f195bae}</Project>
+      <Name>ML</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

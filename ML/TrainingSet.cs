@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using ML.Utils;
 using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace ML
@@ -17,6 +19,26 @@ namespace ML
       if (Count == 0) throw new ApplicationException("Empty TrainingSet is not supported.");
       NumFeatures = this.First().xi.Length;
     }
+
+    /// <summary>
+    /// Creates a TrainingSet from the specified output variables and input features.
+    /// </summary>
+    /// <param name="ys">The output variables for each training example.</param>
+    /// <param name="injectx0">Wether to add one more column to the features array (all 1s)</param>
+    /// <param name="features">The features.  If this is a univariate training set then this is an array with 1 column and ys.Length rows.</param>
+    /// <returns>The created TrainingSet.</returns>
+    public static TrainingSet FromOutputsAndFeatures(double[] ys, bool injectx0 = true, params double[][] features) {      
+      Trace.Assert(ys.Length > 0);
+      Trace.Assert(features.All(xi => xi.Length == ys.Length));
+      if (injectx0) {
+        IList<double[]> tmp = new List<double[]>(features);
+        tmp.Insert(0, Enumerable.Repeat(1.0, ys.Length).ToArray());
+        features = tmp.ToArray();
+      }
+      var featuresT = ArrayHelpers.Transpose(features);
+      return new TrainingSet(ys.Select((y, i) => new TrainingExample(y, featuresT[i])));
+    }    
+
 
     /// <summary>
     /// Will get every feature into a -1 ≤ xᵢ ≤ 1 range. This done by

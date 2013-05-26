@@ -11,11 +11,13 @@ namespace ML.LinearRegression
     private double α = 1e-6;
 
     private double[] Θ;
-    private readonly TrainingSet training;
+    private readonly TrainingSet t;
 
-    public LinearRegressionGradientDescent(TrainingSet training, double[] Θ)
+    public LinearRegressionGradientDescent(TrainingSet t, double[] Θ)
     {
-      this.training = training;
+      if(!t.All(e => Equals(e.xi[0], 1.0))) throw new ApplicationException("It is expected that all x₀ be 1."); 
+
+      this.t = t;
       this.Θ = Θ;
     }
 
@@ -23,13 +25,13 @@ namespace ML.LinearRegression
     public double Precision { get { return precision; } set { precision = value; } }
     public double Alpha { get { return α; } set { α = value; } }
 
-    public void Optimize()
+    public double[] Optimize()
     {
       double min = Double.MaxValue;
       for (int i = 0; i < Max; i++)
       {
-        double cost = LinearRegression.CostFunction(training, Θ);
-        if (Math.Abs(cost - min) <= Precision) return;
+        double cost = LinearRegression.CostFunction(t, Θ);
+        if (Math.Abs(cost - min) <= Precision) return Θ;
         Trace.Assert(cost <= min, "Cost should decrease after every iteration. Try smaller α [" + α + "]");
         min = cost;
 
@@ -38,6 +40,8 @@ namespace ML.LinearRegression
       }
       throw new ApplicationException("Did not converge.");
     }
+
+    public double[] Parameters { get { return Θ; } }
 
     // θⱼ := θⱼ - α * (∂/∂θj J(Θ))
     private double GetNextθj(double θj, int j)
@@ -48,8 +52,8 @@ namespace ML.LinearRegression
     // θⱼ := θⱼ - α/m * ∑₁.m ((x⁽ⁱ⁾) - y⁽ⁱ⁾) * x⁽ⁱ⁾
     private double Derivative(int j)
     {
-      return (1.0/training.Count) *
-             training.Sum(ei => 
+      return (1.0/t.Count) *
+             t.Sum(ei => 
                           (ei.xi[j]) * ErrorFunction(ei.xi, ei.yi));
     }
 

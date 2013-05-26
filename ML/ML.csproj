@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\lib\AForge.Net\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\lib\Math.Net\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LinearRegression\NormalEquation.cs" />
+    <Compile Include="TrainingExample.cs" />
+    <Compile Include="LinearRegression\LinearRegression.cs" />
+    <Compile Include="LinearRegression\LinearRegressionGradientDescent.cs" />
     <Compile Include="MachineLearning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrainingSet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LogisticRegression\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

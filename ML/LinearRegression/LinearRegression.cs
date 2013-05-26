@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace ML
+namespace ML.LinearRegression
 {
   public static class LinearRegression
   {

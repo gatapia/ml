@@ -1,17 +1,18 @@
 ﻿namespace ML
 {
   /// <summary>
-  /// Notation:
+  /// 
+  /// Generic Notation:
   /// m = Number of training examples
   /// x's -> "input" variables/features
   /// y's -> "output"/"target" vartiable
-  /// x⁽i⁾ -> Ith input variable, e.g.: x⁽³⁾ -> The 3rd input variable.
-  /// (x⁽i⁾, y⁽i⁾) -> Ith training example, e.g.: x⁽³⁾, y⁽³⁾ -> The 3rd training example
+  /// x⁽ⁱ⁾ -> Ith input variable, e.g.: x⁽³⁾ -> The 3rd input variable.
+  /// (x⁽ⁱ⁾, y⁽ⁱ⁾) -> Ith training example, e.g.: x⁽³⁾, y⁽³⁾ -> The 3rd training example
   /// hθ(x) -> The hypothesis (maps x's to y's)
-  /// θi -> The ith parameters
+  /// θᵢ -> The ith parameters
   /// (x) = θ₀ + θ₁x -> univariate linear regression
   /// J(θ₀, θ₁) -> Cost function
-  /// J(θ₀, θ₁) -> 1/2m ∑₁.m ((x(i)) - y(i))²
+  /// J(θ₀, θ₁) -> 1/2m ∑₁.m ((x(ⁱ)) - y(ⁱ))²
   /// 
   /// Multivariate:
   /// n -> Number of features

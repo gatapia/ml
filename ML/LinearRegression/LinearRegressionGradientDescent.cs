@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace ML
+namespace ML.LinearRegression
 {
   public class LinearRegressionGradientDescent
   {

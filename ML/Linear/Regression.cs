@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace ML.LinearRegression
+namespace ML.Linear
 {
   public static class Regression
   {

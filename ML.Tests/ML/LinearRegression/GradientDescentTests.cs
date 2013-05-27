@@ -1,4 +1,5 @@
-﻿using ML.LinearRegression;
+﻿using ML.Linear;
+using ML.Optimisation;
 using NUnit.Framework;
 
 namespace ML.Tests.ML.LinearRegression

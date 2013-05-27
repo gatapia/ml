@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using MathNet.Numerics.LinearAlgebra.Double;
 
-namespace ML.LinearRegression
+namespace ML.Linear
 {
   /// <summary>
   /// Θ := (XᵀX)⁻¹ * Xᵀy

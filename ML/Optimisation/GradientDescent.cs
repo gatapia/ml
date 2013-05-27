@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace ML
+namespace ML.Optimisation
 {
   public class GradientDescent
   {
@@ -13,7 +13,7 @@ namespace ML
     private double[] Θ;
     private readonly TrainingSet t;
     private readonly Func<TrainingSet, double[], double> costfn;
-    private readonly Func<double[], double[], double> hypothesis;
+    protected readonly Func<double[], double[], double> hypothesis;
 
     public GradientDescent(TrainingSet t, double[] Θ, Func<TrainingSet, 
           double[], double> costfn, Func<double[], double[], double> hypothesis)
@@ -54,7 +54,7 @@ namespace ML
 
     
     // θj := θj - α/m * ∑₁.m ((x⁽ⁱ⁾) - y⁽ⁱ⁾) * x⁽ⁱ⁾
-    public double Derivative(TrainingSet t, double[] Θ, int j)
+    public virtual double Derivative(TrainingSet t, double[] Θ, int j)
     {
       return (1.0/t.Count) * t.Sum(ei => (hypothesis(ei.xi, Θ) - ei.yi) * ei.xi[j]);
     }

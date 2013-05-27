@@ -48,7 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinearRegression\NormalEquation.cs" />
-    <Compile Include="LogisticRegression\LogisticRegression.cs" />
+    <Compile Include="LogisticRegression\Regression.cs" />
+    <Compile Include="NeuralNet\NeuralNetworks.cs" />
     <Compile Include="Stats\Helpers.cs" />
     <Compile Include="Stats\Significance.cs" />
     <Compile Include="Stats\Statistics.cs" />
@@ -56,8 +57,8 @@
     <Compile Include="Stats\TwoMeans.cs" />
     <Compile Include="Stats\TwoProportions.cs" />
     <Compile Include="TrainingExample.cs" />
-    <Compile Include="LinearRegression\LinearRegression.cs" />
-    <Compile Include="LinearRegression\LinearRegressionGradientDescent.cs" />
+    <Compile Include="LinearRegression\Regression.cs" />
+    <Compile Include="GradientDescent.cs" />
     <Compile Include="MachineLearning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrainingSet.cs" />

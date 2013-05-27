@@ -15,7 +15,7 @@ namespace ML.Tests.ML.LinearRegression
     }
 
     [Test] public void TestFromPoints() {      
-      var gd = new LinearRegressionGradientDescent(t, new [] {0.0, 0.0});      
+      var gd = new GradientDescent(t, new [] {0.0, 0.0}, Regression.CostFunction, Regression.Hypothesis);      
       gd.Alpha = 1e-5;
       gd.Precision = 1e-4;
       ValidateParameters(gd.Optimize());

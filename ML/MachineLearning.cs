@@ -12,7 +12,7 @@
   /// θᵢ -> The ith parameters
   /// hθ(x) = θ₀ + θ₁x -> univariate linear regression
   /// J(θ₀, θ₁) -> Cost function
-  /// J(θ₀, θ₁) -> 1/2m ∑₁..ₘ ((x⁽ⁱ⁾) - y⁽ⁱ⁾)²
+  /// J(θ₀, θ₁) -> 1/2m ∑₁..m ((x⁽ⁱ⁾) - y⁽ⁱ⁾)²
   /// 
   /// Multivariate:
   /// n -> Number of features

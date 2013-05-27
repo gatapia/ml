@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ML.LinearRegression
 {
-  public static class LinearRegression
+  public static class Regression
   {
 
     /// <summary>

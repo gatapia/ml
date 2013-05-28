@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML", "ML\ML.csproj", "{85EB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Tests", "ML.Tests\ML.Tests.csproj", "{B9EBF3A7-B469-4471-92A4-5D9C21823C65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weka", "Weka\Weka.csproj", "{2C9FA409-7208-4C37-A707-CCCFAC9E9020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weka.Tests", "Weka.Tests\Weka.Tests.csproj", "{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{B9EBF3A7-B469-4471-92A4-5D9C21823C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9EBF3A7-B469-4471-92A4-5D9C21823C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9EBF3A7-B469-4471-92A4-5D9C21823C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9FA409-7208-4C37-A707-CCCFAC9E9020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9FA409-7208-4C37-A707-CCCFAC9E9020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9FA409-7208-4C37-A707-CCCFAC9E9020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9FA409-7208-4C37-A707-CCCFAC9E9020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

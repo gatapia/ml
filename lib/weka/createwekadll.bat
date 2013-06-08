@@ -1,1 +1,2 @@
-j:\dev\tools\ikvm\bin\ikvmc -target:library j:\dev\tools\weka\weka\weka.jar -out:weka.dll
+c:\dev\tools\ikvm\bin\ikvmc -target:library c:\dev\lib\weka\weka\weka.jar
+

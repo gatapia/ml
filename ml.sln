@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML", "ML\ML.csproj", "{85EB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Tests", "ML.Tests\ML.Tests.csproj", "{B9EBF3A7-B469-4471-92A4-5D9C21823C65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weka", "Weka\Weka.csproj", "{2C9FA409-7208-4C37-A707-CCCFAC9E9020}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ml2", "Ml2\Ml2.csproj", "{2C9FA409-7208-4C37-A707-CCCFAC9E9020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weka.Tests", "Weka.Tests\Weka.Tests.csproj", "{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ml2.Tests", "Ml2.Tests\Ml2.Tests.csproj", "{88A25C84-FBCA-4C04-A0EE-E23A308E58E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

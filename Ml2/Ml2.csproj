@@ -131,15 +131,17 @@
     <Compile Include="Arff\ILoader.cs" />
     <Compile Include="Arff\ILoaderFactory.cs" />
     <Compile Include="Arff\LoaderFactory.cs" />
+    <Compile Include="AttrSel\Algs\Generated\Algorithms.cs" />
+    <Compile Include="AttrSel\Algs\Generated\BestFirst.cs" />
+    <Compile Include="AttrSel\Algs\Generated\GreedyStepwise.cs" />
+    <Compile Include="AttrSel\Algs\Generated\Ranker.cs" />
     <Compile Include="AttrSel\AttributeSelection.cs" />
-    <Compile Include="AttrSel\Algs\Algorithms.cs" />
-    <Compile Include="AttrSel\Algs\BestFirst.cs" />
     <Compile Include="AttrSel\Evals\Generated\CfsSubset.cs" />
     <Compile Include="AttrSel\EDirection.cs" />
+    <Compile Include="AttrSel\Evals\Generated\Evaluators.cs" />
     <Compile Include="AttrSel\Evals\Generated\InfoGainAttribute.cs" />
     <Compile Include="AttrSel\Evals\Generated\GainRatioAttribute.cs" />
     <Compile Include="AttrSel\Evals\Generated\CorrelationAttribute.cs" />
-    <Compile Include="AttrSel\Evals\Evaluators.cs" />
     <Compile Include="AttrSel\Evals\Generated\OneRAttribute.cs" />
     <Compile Include="AttrSel\Evals\Generated\PrincipalComponents.cs" />
     <Compile Include="AttrSel\Evals\Generated\ReliefFAttribute.cs" />
@@ -152,6 +154,7 @@
     <Compile Include="Runtime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

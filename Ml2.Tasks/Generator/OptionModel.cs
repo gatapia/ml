@@ -2,20 +2,35 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Ml2.Tasks.Generator.AttrSelEval
+namespace Ml2.Tasks.Generator
 {
   public class OptionModel
   {
+    private readonly Type t;
     private readonly MethodInfo method;
 
-    public OptionModel(MethodInfo method)
+    public OptionModel(Type t, MethodInfo method)
     {
+      this.t = t;
       this.method = method;
     }
 
     public string OptionName
     {
       get { return method.Name.Substring(3); }
+    }
+
+    public string OptionDescription
+    {
+      get
+      {
+        var tiptextmname = OptionName + "TipText";
+        tiptextmname = Char.ToLower(tiptextmname[0]) + tiptextmname.Substring(1);
+        var mi = t.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
+        if (mi == null) return String.Empty;
+        var desc = (string) mi.Invoke(Activator.CreateInstance(t), null);
+        return String.Join("\n    /// ", Utils.SplitIntoChunks(desc, 75));
+      }
     }
 
     public bool IsSupported

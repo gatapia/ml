@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Ml2.Tasks.Generator.AttrSelEval
+namespace Ml2.Tasks.Generator.AttrSel
 {
   public partial class AttributeSelectionEvaluator : IMl2CodeGenerator
   {
@@ -13,20 +13,7 @@ namespace Ml2.Tasks.Generator.AttrSelEval
       this.impl = impl;
     }
 
-    public bool IsSupported
-    {
-      get { return impl.Name != "DummySubsetEvaluator"; }
-    }
-
-    public string TypeName
-    {
-      get
-      {
-        var idx = impl.Name.IndexOf("Eval");
-        if (idx < 0) return impl.Name;
-        return impl.Name.Substring(0, idx);
-      }
-    }
+    public string TypeName { get { return Utils.GetMl2EvalTypeName(impl); } }    
 
     public string ImplTypeName
     {
@@ -43,7 +30,7 @@ namespace Ml2.Tasks.Generator.AttrSelEval
       {
         return impl.GetMethods(BindingFlags.Instance | BindingFlags.Public).
           Where(m => m.Name.StartsWith("set") && m.Name != "setOptions").
-          Select(m => new OptionModel(m)).
+          Select(m => new OptionModel(impl, m)).
           Where(o => o.IsSupported).
           ToArray();
       }

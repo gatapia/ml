@@ -48,21 +48,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Generator\AttrSelEval\AttributeSelectionEvaluator.cs">
+    <Compile Include="Generator\AttrSel\EvaluatorsModel.cs" />
+    <Compile Include="Generator\AttrSel\Evaluators.cs">
+      <DependentUpon>Evaluators.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\AttrSel\AttributeSelectionEvaluator.cs">
       <DependentUpon>AttributeSelectionEvaluator.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Generator\AttrSelEval\AttributeSelectionEvaluatorModel.cs" />
+    <Compile Include="Generator\AttrSel\AttributeSelectionEvaluatorModel.cs" />
+    <Compile Include="Generator\Utils.cs" />
+    <Compile Include="Generator\AttrSel\AttributeSelectionAlgorithm.cs">
+      <DependentUpon>AttributeSelectionAlgorithm.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\AttrSel\AttributeSelectionAlgorithmModel.cs" />
+    <Compile Include="Generator\AttrSel\Algorithms.cs">
+      <DependentUpon>Algorithms.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\AttrSel\AlgorithmsModel.cs" />
     <Compile Include="Generator\CodeGenerator.cs" />
-    <Compile Include="Generator\AttrSelEval\OptionModel.cs" />
+    <Compile Include="Generator\OptionModel.cs" />
     <Compile Include="Generator\IMl2CodeGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Generator\AttrSelEval\AttributeSelectionEvaluator.tt">
+    <None Include="Generator\AttrSel\Evaluators.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Evaluators.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\AttrSel\AttributeSelectionEvaluator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AttributeSelectionEvaluator.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\AttrSel\AttributeSelectionAlgorithm.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AttributeSelectionAlgorithm.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\AttrSel\Algorithms.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Algorithms.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

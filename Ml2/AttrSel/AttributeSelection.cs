@@ -6,18 +6,13 @@ namespace Ml2.AttrSel
 {
   public class AttributeSelection
   {
-    private readonly Instances inst;    
-    public AttributeSelection(Instances inst) { this.inst = inst; }   
-
-    public Algorithms Algorithms
+    public AttributeSelection(Instances inst)
     {
-      get { return new Algorithms(inst); }
+      Algorithms = new Algorithms(inst);
+      Evaluators = new Evaluators();
     }
 
-    public Evaluators Evaluators
-    {
-      get { return new Evaluators(inst); }
-    }
-
+    public Algorithms Algorithms { get; private set; }
+    public Evaluators Evaluators { get; private set; }
   }
 }

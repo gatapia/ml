@@ -1,0 +1,34 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using Ml2.AttrSel.Evals;
+using weka.core;
+
+namespace Ml2.AttrSel.Algs
+{
+  /// <summary>
+  /// <#= ClassDescription #>
+  /// </summary>
+  public class <#= TypeName #>
+  {
+    private readonly <#= ImplTypeName #> impl = new <#= ImplTypeName #>();
+    private readonly Instances inst;
+    
+    public <#= TypeName #>(Instances inst) { this.inst = inst; }
+
+<# Array.ForEach(Options, o => { #>
+    /// <summary>
+    /// <#= o.OptionDescription #>
+    /// </summary>
+    public <#= TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
+      impl.<#= o.OptionImplSetterName #>(value);
+      return this;
+    }
+
+<# }); #>
+        
+    public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
+  }
+}

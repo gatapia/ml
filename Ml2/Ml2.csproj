@@ -125,11 +125,21 @@
     <Compile Include="Arff\ArffInstanceBuilder.cs" />
     <Compile Include="Arff\CsvRow.cs" />
     <Compile Include="Arff\CsvLoader.cs" />
+    <Compile Include="Arff\EAttributeType.cs" />
     <Compile Include="Arff\EnumCsvConverter.cs" />
     <Compile Include="Arff\IArffInstanceBuilder.cs" />
     <Compile Include="Arff\ILoader.cs" />
     <Compile Include="Arff\ILoaderFactory.cs" />
     <Compile Include="Arff\LoaderFactory.cs" />
+    <Compile Include="AttributeSelection\Algorithms.cs" />
+    <Compile Include="AttributeSelection\BestFirstMl2.cs" />
+    <Compile Include="AttributeSelection\CfsSubsetEvalMl2.cs" />
+    <Compile Include="AttributeSelection\EDirection.cs" />
+    <Compile Include="AttributeSelection\Evaluations.cs" />
+    <Compile Include="AttributeSelection\IAttributeSelectionEvaluation.cs" />
+    <Compile Include="Arff\ClassifierAttribute.cs" />
+    <Compile Include="Misc\ClassifierIndexInferer.cs" />
+    <Compile Include="Misc\IClassifierIndexInferer.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

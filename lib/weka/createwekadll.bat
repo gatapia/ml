@@ -1,2 +1,3 @@
-c:\dev\tools\ikvm\bin\ikvmc -target:library c:\dev\lib\weka\weka\weka.jar
+REM DOWNLOAD FROM: http://www.cs.waikato.ac.nz/ml/weka/snapshots/developer-branch.zip
+c:\dev\tools\ikvm\bin\ikvmc -target:library weka.jar
 

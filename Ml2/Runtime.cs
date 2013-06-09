@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using Ml2.Arff;
-using Ml2.AttributeSelection;
+using Ml2.AttrSel;
 using Ml2.Misc;
 using weka.core;
 using weka.core.converters;
@@ -15,16 +15,11 @@ namespace Ml2
 
     public Instances Instances { get; private set; }
 
-    public Algorithms AttributeSelectionAlgorithms
+    public AttributeSelection AttributeSelection
     {
-      get { return new Algorithms(Instances); }
+      get { return new AttributeSelection(Instances); }
     }
-
-    public Evaluations AttributeSelectionEvaluations
-    {
-      get { return new Evaluations(Instances); }
-    }
-
+    
     public Runtime Load<T>(params string[] files)
     {
       Instances = arff.Build(loaderFactory.Get<T>().Load<T>(files));

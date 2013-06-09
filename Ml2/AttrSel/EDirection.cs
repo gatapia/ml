@@ -1,4 +1,4 @@
-namespace Ml2.AttributeSelection
+namespace Ml2.AttrSel
 {
   public enum EDirection
   {

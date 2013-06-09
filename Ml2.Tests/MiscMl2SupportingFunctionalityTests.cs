@@ -1,5 +1,4 @@
 ﻿using System;
-using Ml2.AttributeSelection;
 using Ml2.Tests.Kaggle.Titanic;
 using NUnit.Framework;
 
@@ -26,11 +25,11 @@ namespace Ml2.Tests
 
     [Test] public void Test_evaluation_and_best_first()
     {
-      var csfsubset = rt.AttributeSelectionEvaluations.
-          CfsSubsetEval().
+      var csfsubset = rt.AttributeSelection.Evaluators.
+          CfsSubset().
               TreatMissingAsSeparate(true);
 
-      var indexes = rt.AttributeSelectionAlgorithms.
+      var indexes = rt.AttributeSelection.Algorithms.
           BestFirst().Search(csfsubset);
       Console.WriteLine("Indexes: " + String.Join(", ", indexes));
     }

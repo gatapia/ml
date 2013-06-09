@@ -2,11 +2,20 @@ using System;
 using weka.attributeSelection;
 using weka.core;
 
-namespace Ml2.AttributeSelection
+namespace Ml2.AttrSel.Algs
 {
-  public class BestFirstMl2
+  /// <summary>
+  /// Searches the space of attribute subsets by greedy hillclimbing augmented 
+  /// with a backtracking facility. Setting the number of consecutive 
+  /// non-improving nodes allowed controls the level of backtracking done. 
+  /// Best first may start with the empty set of attributes and search forward, 
+  /// or start with the full set of attributes and search backward, or start 
+  /// at any point and search in both directions (by considering all possible 
+  /// single attribute additions and deletions at a given point).
+  /// </summary>
+  public class BestFirst
   {    
-    private readonly BestFirst impl = new BestFirst();    
+    private readonly weka.attributeSelection.BestFirst impl = new weka.attributeSelection.BestFirst();    
 
     private readonly Instances inst;
     private int[] startset;
@@ -14,7 +23,7 @@ namespace Ml2.AttributeSelection
     private int numnodes;
     private EDirection direction = EDirection.Forward;
 
-    public BestFirstMl2(Instances inst) { this.inst = inst; }
+    public BestFirst(Instances inst) { this.inst = inst; }
 
 
     /// <summary>
@@ -76,7 +85,7 @@ namespace Ml2.AttributeSelection
     private void FlushOptions()
     {
       impl.setStartSet(String.Join(",", startset));
-      impl.setDirection(new SelectedTag((int) Direction, BestFirst.TAGS_SELECTION));
+      impl.setDirection(new SelectedTag((int) Direction, weka.attributeSelection.BestFirst.TAGS_SELECTION));
       impl.setSearchTermination(numnodes);
       impl.setLookupCacheSize(lookupsize);      
     }

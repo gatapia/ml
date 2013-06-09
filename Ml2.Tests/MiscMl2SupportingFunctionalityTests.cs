@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Linq;
 using Ml2.Tests.Kaggle.Titanic;
 using NUnit.Framework;
 
@@ -23,10 +25,11 @@ namespace Ml2.Tests
       Assert.AreEqual(0, rt.Instances.classIndex());
     }
 
-    [Test] public void Test_evaluation_and_best_first()
+    [Test] public void Test_csfsubset_evaluator_and_best_first()
     {
-      var csfsubset = rt.AttributeSelection.Evaluators.
+      var eval = rt.AttributeSelection.Evaluators.
           CfsSubset().
+              LocallyPredictive(true).
               MissingSeparate(true);
 
       var indexes = rt.AttributeSelection.Algorithms.
@@ -34,8 +37,21 @@ namespace Ml2.Tests
               LookupCacheSize(1).
               SearchTermination(1).
               StartSet("2-11").
-          Search(csfsubset);      
-      Console.WriteLine("Indexes: " + String.Join(", ", indexes));
+          Search(eval);
+      CollectionAssert.AreEqual(Enumerable.Range(1, 10), indexes);
+    }
+
+    [Test] public void Test_corr_evaluator_and_ranker()
+    {
+      var eval = rt.AttributeSelection.Evaluators.
+        CorrelationAttribute();
+
+      var indexes = rt.AttributeSelection.Algorithms.
+          Ranker().
+              GenerateRanking(true).
+              StartSet("2-11").
+          Search(eval);
+      CollectionAssert.AreEqual(new int[0], indexes);
     }
   }
 }

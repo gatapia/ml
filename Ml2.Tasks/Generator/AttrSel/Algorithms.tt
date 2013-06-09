@@ -12,8 +12,12 @@ namespace Ml2.AttrSel.Algs
     private readonly Instances inst;    
     public Algorithms(Instances inst) { this.inst = inst; }   
 
-    <# foreach (var name in TypeNames) { #>
-    public <#= name #> <#= name #>() { return new <#= name #>(inst); }
-    <# } #>    
+<# foreach (var alg in AllAgorithms) { #>
+    /// <summary>
+    /// <#= alg.GetClassDescription("    /// ") #>
+    /// </summary>
+    public <#= alg.TypeName #> <#= alg.TypeName #>() { return new <#= alg.TypeName #>(inst); }
+
+<# } #>    
   }
 }

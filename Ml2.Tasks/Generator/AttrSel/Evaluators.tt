@@ -9,8 +9,12 @@ namespace Ml2.AttrSel.Evals
 {
   public class Evaluators
   {
-    <# foreach (var name in TypeNames) { #>
-    public <#= name #> <#= name #>() { return new <#= name #>(); }
-    <# } #>    
+<# foreach (var eval in AllEvaluators) { #>
+    /// <summary>
+    /// <#= eval.GetClassDescription("    /// ") #>
+    /// </summary>
+    public <#= eval.TypeName #> <#= eval.TypeName #>() { return new <#= eval.TypeName #>(); }
+
+<# } #>    
   }
 }

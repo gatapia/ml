@@ -29,37 +29,44 @@ namespace Ml2.Tasks.Generator.AttrSel
         {
             this.Write("using weka.core;\r\n\r\nnamespace Ml2.AttrSel.Algs\r\n{\r\n  public class Algorithms\r\n  {" +
                     "\r\n    private readonly Instances inst;    \r\n    public Algorithms(Instances inst" +
-                    ") { this.inst = inst; }   \r\n\r\n    ");
+                    ") { this.inst = inst; }   \r\n\r\n");
             
             #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
- foreach (var name in TypeNames) { 
+ foreach (var alg in AllAgorithms) { 
             
             #line default
             #line hidden
-            this.Write("    public ");
+            this.Write("    /// <summary>\r\n    /// ");
             
-            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(name));
+            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(alg.GetClassDescription("    /// ")));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    /// </summary>\r\n    public ");
+            
+            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(alg.TypeName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(name));
+            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(alg.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(name));
+            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(alg.TypeName));
             
             #line default
             #line hidden
-            this.Write("(inst); }\r\n    ");
+            this.Write("(inst); }\r\n\r\n");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 21 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
  } 
             
             #line default

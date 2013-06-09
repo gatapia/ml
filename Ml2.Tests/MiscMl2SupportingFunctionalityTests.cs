@@ -30,7 +30,11 @@ namespace Ml2.Tests
               MissingSeparate(true);
 
       var indexes = rt.AttributeSelection.Algorithms.
-          BestFirst().Search(csfsubset);
+          BestFirst().
+              LookupCacheSize(1).
+              SearchTermination(1).
+              StartSet("2-11").
+          Search(csfsubset);      
       Console.WriteLine("Indexes: " + String.Join(", ", indexes));
     }
   }

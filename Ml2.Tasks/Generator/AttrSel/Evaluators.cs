@@ -28,37 +28,44 @@ namespace Ml2.Tasks.Generator.AttrSel
         public virtual string TransformText()
         {
             this.Write("using weka.core;\r\n\r\nnamespace Ml2.AttrSel.Evals\r\n{\r\n  public class Evaluators\r\n  " +
-                    "{\r\n    ");
+                    "{\r\n");
             
             #line 12 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
- foreach (var name in TypeNames) { 
+ foreach (var eval in AllEvaluators) { 
             
             #line default
             #line hidden
-            this.Write("    public ");
+            this.Write("    /// <summary>\r\n    /// ");
             
-            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(name));
+            #line 14 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(eval.GetClassDescription("    /// ")));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    /// </summary>\r\n    public ");
+            
+            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(eval.TypeName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(name));
+            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(eval.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(name));
+            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(eval.TypeName));
             
             #line default
             #line hidden
-            this.Write("(); }\r\n    ");
+            this.Write("(); }\r\n\r\n");
             
-            #line 14 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
+            #line 18 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
  } 
             
             #line default

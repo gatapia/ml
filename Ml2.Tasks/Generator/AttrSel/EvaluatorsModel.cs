@@ -12,7 +12,7 @@ namespace Ml2.Tasks.Generator.AttrSel
       this.types = types;
     }
 
-    public string[] TypeNames { get { return types.Select(Utils.GetMl2EvalTypeName).ToArray(); } }
+    public AttributeSelectionEvaluator[] AllEvaluators { get { return types.Select(t => new AttributeSelectionEvaluator(t)).ToArray(); } }
 
     public string TypeName
     {

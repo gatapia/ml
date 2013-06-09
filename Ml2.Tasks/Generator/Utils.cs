@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 
 namespace Ml2.Tasks.Generator
 {
@@ -14,6 +15,13 @@ namespace Ml2.Tasks.Generator
     public static bool IsSupportedEvalType(Type t)
     {
       return t.Name != "DummySubsetEvaluator";
+    }
+
+    public static string GetClassDescription(Type t, string separator)
+    {
+      var desc = (string) t.GetMethod("globalInfo", BindingFlags.Instance | BindingFlags.Public).
+                            Invoke(Activator.CreateInstance(t), null);
+      return String.Join("\n" + separator, SplitIntoChunks(desc, 75));
     }
 
     public static string[] SplitIntoChunks(string str, int chunksize)

@@ -9,7 +9,7 @@ using weka.core;
 namespace Ml2.AttrSel.Algs
 {
   /// <summary>
-  /// <#= ClassDescription #>
+  /// <#= GetClassDescription("  /// ") #>
   /// </summary>
   public class <#= TypeName #>
   {

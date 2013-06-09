@@ -7,21 +7,9 @@ namespace Ml2.Tasks.Generator.AttrSel
   public partial class AttributeSelectionAlgorithm : IMl2CodeGenerator
   {
     private readonly Type impl;
+    public AttributeSelectionAlgorithm(Type impl) { this.impl = impl; }
 
-    public AttributeSelectionAlgorithm(Type impl)
-    {
-      this.impl = impl;
-    }
-
-    public string ClassDescription
-    {
-      get
-      {
-        var desc = (string) impl.GetMethod("globalInfo", BindingFlags.Instance | BindingFlags.Public).
-            Invoke(Activator.CreateInstance(impl), null);
-        return String.Join("\n  /// ", Utils.SplitIntoChunks(desc, 75));
-      }
-    }
+    public string GetClassDescription(string separator) { return Utils.GetClassDescription(impl, separator); } 
 
     
     public string TypeName

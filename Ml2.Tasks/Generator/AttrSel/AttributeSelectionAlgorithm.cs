@@ -31,7 +31,7 @@ namespace Ml2.Tasks.Generator.AttrSel
                     "/ <summary>\r\n  /// ");
             
             #line 12 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ClassDescription));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassDescription("  /// ")));
             
             #line default
             #line hidden

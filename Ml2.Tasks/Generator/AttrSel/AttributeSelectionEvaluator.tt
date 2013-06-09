@@ -7,18 +7,23 @@ using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
 {
+  /// <summary>
+  /// <#= GetClassDescription("  /// ") #>
+  /// </summary>
   public class <#= TypeName #> : IAttributeSelectionEvaluator
   {
     private readonly <#= ImplTypeName #> impl = new <#= ImplTypeName #>();
     
-    <# Array.ForEach(Options, o => { #>
-    
+<# Array.ForEach(Options, o => { #>
+    /// <summary>
+    /// <#= o.OptionDescription #>
+    /// </summary>    
     public <#= TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
       impl.<#= o.OptionImplSetterName #>(value);
       return this;
     }
 
-    <# }); #>
+<# }); #>
         
     public ASEvaluation GetImpl() { return impl; }
   }

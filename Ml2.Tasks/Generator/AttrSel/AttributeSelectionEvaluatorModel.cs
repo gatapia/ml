@@ -3,17 +3,15 @@ using System.Linq;
 using System.Reflection;
 
 namespace Ml2.Tasks.Generator.AttrSel
-{
+{  
   public partial class AttributeSelectionEvaluator : IMl2CodeGenerator
   {
-    private readonly Type impl;
+    protected readonly Type impl;
+    public AttributeSelectionEvaluator(Type impl) { this.impl = impl; }
 
-    public AttributeSelectionEvaluator(Type impl)
-    {
-      this.impl = impl;
-    }
+    public string TypeName { get { return Utils.GetMl2EvalTypeName(impl); } }
 
-    public string TypeName { get { return Utils.GetMl2EvalTypeName(impl); } }    
+    public string GetClassDescription(string separator) { return Utils.GetClassDescription(impl, separator); }
 
     public string ImplTypeName
     {

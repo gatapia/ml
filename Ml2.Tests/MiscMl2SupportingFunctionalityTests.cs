@@ -27,7 +27,7 @@ namespace Ml2.Tests
     {
       var csfsubset = rt.AttributeSelection.Evaluators.
           CfsSubset().
-              TreatMissingAsSeparate(true);
+              MissingSeparate(true);
 
       var indexes = rt.AttributeSelection.Algorithms.
           BestFirst().Search(csfsubset);

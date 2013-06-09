@@ -1,8 +1,8 @@
 using weka.attributeSelection;
 
-namespace Ml2.AttrSel
+namespace Ml2.AttrSel.Evals
 {
-  public interface IAttributeSelectionEvaluation
+  public interface IAttributeSelectionEvaluator
   {
     ASEvaluation GetImpl();
   }

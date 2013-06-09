@@ -1,4 +1,5 @@
 using System;
+using Ml2.AttrSel.Evals;
 using weka.attributeSelection;
 using weka.core;
 
@@ -77,7 +78,7 @@ namespace Ml2.AttrSel.Algs
       }
     }
 
-    public int[] Search(IAttributeSelectionEvaluation asevaluation)
+    public int[] Search(IAttributeSelectionEvaluator asevaluation)
     {
       return impl.search(asevaluation.GetImpl(), inst);
     }

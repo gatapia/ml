@@ -2,8 +2,10 @@
 using System.IO;
 using System.Linq;
 using Ml2.Tasks.Generator.AttrSel;
+using Ml2.Tasks.Generator.Clstr;
 using NUnit.Framework;
 using weka.attributeSelection;
+using weka.clusterers;
 
 namespace Ml2.Tasks.Generator
 {
@@ -26,6 +28,15 @@ namespace Ml2.Tasks.Generator
             RunT4Template(typeof(AttributeSelectionAlgorithm), t, @"AttrSel\Algs\Generated"));
 
       RunT4TemplateImpl(new Algorithms(types), @"AttrSel\Algs\Generated\Algorithms");
+    }
+
+    [Test] public void GenerateClusterers()
+    {
+      var types = GetBaseClassesOf(typeof (AbstractClusterer));
+      Array.ForEach(types, t => 
+             RunT4Template(typeof(ClustererAlgorithm), t, @"Clstr\Generated"));
+
+      RunT4TemplateImpl(new Clusterers(types), @"Clstr\Generated\Clusterers");
     }
 
     private static Type[] GetBaseClassesOf(Type ancestor)

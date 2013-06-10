@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Linq;
+﻿using System.Linq;
 using Ml2.Tests.Kaggle.Titanic;
 using NUnit.Framework;
 
@@ -8,11 +6,11 @@ namespace Ml2.Tests
 {
   [TestFixture] public class MiscMl2SupportingFunctionalityTests
   {
-    private Runtime rt;
+    private Runtime<TitanicDataRow> rt;
     [TestFixtureSetUp] public void TestFixtureSetUp()
     {
-      rt = new Runtime();
-      rt.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
+      rt = new Runtime<TitanicDataRow>();
+      rt.Load(@"resources\kaggle\titanic\train.csv");
     }
 
     [Test] public void Test_loading_csv_file_loads_all_instances_as_expected()

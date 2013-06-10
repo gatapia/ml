@@ -149,6 +149,16 @@
     <Compile Include="AttrSel\Evals\Generated\WrapperSubset.cs" />
     <Compile Include="AttrSel\Evals\IAttributeSelectionEvaluator.cs" />
     <Compile Include="Arff\ClassifierAttribute.cs" />
+    <Compile Include="Clstr\BaseClusterer.cs" />
+    <Compile Include="Clstr\Generated\Clusterers.cs" />
+    <Compile Include="Clstr\Generated\Cobweb.cs" />
+    <Compile Include="Clstr\Generated\EM.cs" />
+    <Compile Include="Clstr\Generated\FarthestFirst.cs" />
+    <Compile Include="Clstr\Generated\Filtered.cs" />
+    <Compile Include="Clstr\Generated\Hierarchical.cs" />
+    <Compile Include="Clstr\IClusterer.cs" />
+    <Compile Include="Clstr\Generated\MakeDensityBased.cs" />
+    <Compile Include="Clstr\Generated\SimpleKMeans.cs" />
     <Compile Include="Misc\ClassifierIndexInferer.cs" />
     <Compile Include="Misc\IClassifierIndexInferer.cs" />
     <Compile Include="Runtime.cs" />

@@ -1,0 +1,24 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using weka.core;
+using weka.clusterers;
+
+namespace Ml2.Clstr
+{
+  public class Clusterers<T>
+  {
+    private readonly Runtime<T> rt;    
+    public Clusterers(Runtime<T> rt) { this.rt = rt; }   
+
+<# foreach (var ctr in AllClusterers) { #>
+    /// <summary>
+    /// <#= ctr.GetClassDescription("    /// ") #>
+    /// </summary>
+    public <#= ctr.TypeName #><T> <#= ctr.TypeName #>() { return new <#= ctr.TypeName #><T>(rt); }
+
+<# } #>    
+  }
+}

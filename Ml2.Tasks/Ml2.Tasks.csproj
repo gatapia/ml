@@ -65,13 +65,25 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Generator\Clstr\ClustererAlgorithmClustererModel.cs" />
+    <Compile Include="Generator\Clstr\ClustererAlgorithmModel.cs" />
     <Compile Include="Generator\Clstr\Clusterers.cs">
       <DependentUpon>Clusterers.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Generator\Clstr\ClusterersModel.cs" />
+    <Compile Include="Generator\Fltrs\FilterAlgorithm.cs">
+      <DependentUpon>FilterAlgorithm.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\Fltrs\FilterAlgorithmModel.cs" />
+    <Compile Include="Generator\Fltrs\Filters.cs">
+      <DependentUpon>Filters.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\Fltrs\FiltersModel.cs" />
     <Compile Include="Generator\Utils.cs" />
     <Compile Include="Generator\AttrSel\AttributeSelectionAlgorithm.cs">
       <DependentUpon>AttributeSelectionAlgorithm.tt</DependentUpon>
@@ -114,6 +126,14 @@
     <None Include="Generator\Clstr\Clusterers.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Clusterers.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\Fltrs\FilterAlgorithm.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FilterAlgorithm.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\Fltrs\Filters.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Filters.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

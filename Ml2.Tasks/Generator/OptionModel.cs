@@ -17,7 +17,12 @@ namespace Ml2.Tasks.Generator
 
     public string OptionName
     {
-      get { return method.Name.Substring(3); }
+      get
+      {
+        var name = method.Name.Substring(3);
+        if (name == t.Name) { name = "Set" + name; }
+        return name;
+      }
     }
 
     public string OptionDescription

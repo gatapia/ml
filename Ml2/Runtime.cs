@@ -4,6 +4,7 @@ using System.IO;
 using Ml2.Arff;
 using Ml2.AttrSel;
 using Ml2.Clstr;
+using Ml2.Fltrs;
 using Ml2.Misc;
 using weka.core;
 using weka.core.converters;
@@ -14,13 +15,17 @@ namespace Ml2
   {
     private readonly IArffInstanceBuilder arff = new ArffInstanceBuilder();
     private readonly IClassifierIndexInferer classidx = new ClassifierIndexInferer();
-    private readonly ILoaderFactory loaderFactory = new LoaderFactory();    
+    private readonly ILoaderFactory loaderFactory = new LoaderFactory();
+
+    public Runtime() {}
+    public Runtime(Instances instances) { Instances = instances; }
 
     public Instances Instances { get; private set; }
     public T[] Rows { get; private set; }
 
     public AttributeSelection AttributeSelection { get { return new AttributeSelection(Instances); } }
     public Clusterers<T> Clusterers { get { return new Clusterers<T>(this); } }
+    public Filters<T> Filters { get { return new Filters<T>(this); } }
     
     public Runtime<T> Load(params string[] files)
     {
@@ -31,8 +36,7 @@ namespace Ml2
       return SetClassifierIndex(classidx.InferClassIndex<T>());
     }
 
-    public Runtime<T> SetClassifierIndex(int idx)
-    {
+    public Runtime<T> SetClassifierIndex(int idx) {
       Instances.setClassIndex(idx);
       return this;
     }

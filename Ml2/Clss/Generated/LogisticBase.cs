@@ -1,4 +1,4 @@
-using weka.classifiers;
+using weka.classifiers.trees.lmt;
 
 namespace Ml2.Clss
 {

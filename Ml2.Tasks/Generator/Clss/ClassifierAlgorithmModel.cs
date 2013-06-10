@@ -10,6 +10,7 @@ namespace Ml2.Tasks.Generator.Clss
     public ClassifierAlgorithm(Type impl) { this.impl = impl; }
 
     public string TypeName { get { return impl.Name; } }
+    public string TypeNamespace { get { return impl.Namespace; } }
 
     public string GetClassDescription(string separator) { return Utils.GetClassDescription(impl, separator); }
 

@@ -2,9 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using Ml2.Arff;
+using Ml2.Asstn;
 using Ml2.AttrSel;
+using Ml2.Clss;
 using Ml2.Clstr;
-using Ml2.Clstr.Generated;
 using Ml2.Fltr;
 using Ml2.Misc;
 using weka.core;
@@ -27,6 +28,8 @@ namespace Ml2
     public AttributeSelection AttributeSelection { get { return new AttributeSelection(Instances); } }
     public Clusterers<T> Clusterers { get { return new Clusterers<T>(this); } }
     public Filters<T> Filters { get { return new Filters<T>(this); } }
+    public Associations<T> Associations { get { return new Associations<T>(this); } }
+    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }
     
     public Runtime<T> Load(params string[] files)
     {

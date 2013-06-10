@@ -1,4 +1,4 @@
-using weka.classifiers;
+using weka.classifiers.bayes.net;
 
 namespace Ml2.Clss
 {

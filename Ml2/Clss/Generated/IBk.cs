@@ -1,4 +1,4 @@
-using weka.classifiers;
+using weka.classifiers.lazy;
 
 namespace Ml2.Clss
 {

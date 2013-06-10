@@ -27,7 +27,14 @@ namespace Ml2.Tasks.Generator.Clss
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using weka.classifiers;\r\n\r\nnamespace Ml2.Clss\r\n{\r\n  /// <summary>\r\n  /// ");
+            this.Write("using ");
+            
+            #line 6 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TypeNamespace));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\r\nnamespace Ml2.Clss\r\n{\r\n  /// <summary>\r\n  /// ");
             
             #line 11 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetClassDescription("  /// ")));

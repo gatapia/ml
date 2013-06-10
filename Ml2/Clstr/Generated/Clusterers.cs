@@ -1,6 +1,3 @@
-using weka.core;
-using weka.clusterers;
-
 namespace Ml2.Clstr
 {
   public class Clusterers<T>

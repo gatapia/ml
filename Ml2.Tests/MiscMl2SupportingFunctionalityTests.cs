@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Ml2.Tests.Kaggle.Titanic;
 using NUnit.Framework;
 
@@ -50,6 +51,18 @@ namespace Ml2.Tests
               StartSet("2-11").
           Search(eval);
       CollectionAssert.AreEqual(new int[0], indexes);
+    }
+
+    [Test] public void Test_clustering()
+    {
+      var kmeans = rt.Clusterers.
+          SimpleKMeans().
+          NumClusters(5).          
+          Seed(1).
+          Build();
+
+      var classes = rt.Rows.Take(10).Select(kmeans.Classify);
+      Console.WriteLine("First 10 Row Classifications: " + String.Join(", ", classes));
     }
   }
 }

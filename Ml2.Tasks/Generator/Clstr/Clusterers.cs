@@ -27,46 +27,46 @@ namespace Ml2.Tasks.Generator.Clstr
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using weka.core;\r\nusing weka.clusterers;\r\n\r\nnamespace Ml2.Clstr\r\n{\r\n  public clas" +
-                    "s Clusterers<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public Cluste" +
-                    "rers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
+            this.Write("namespace Ml2.Clstr\r\n{\r\n  public class Clusterers<T>\r\n  {\r\n    private readonly R" +
+                    "untime<T> rt;    \r\n    public Clusterers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n" +
+                    "");
             
-            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
  foreach (var ctr in AllClusterers) { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 18 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.GetClassDescription("    /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 20 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 20 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 20 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T>(rt); }\r\n\r\n");
             
-            #line 22 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
  } 
             
             #line default

@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr
+namespace Ml2.Clstr.Generated
 {
   /// <summary>
   /// Class implementing the Cobweb and Classit clustering algorithms. Note:

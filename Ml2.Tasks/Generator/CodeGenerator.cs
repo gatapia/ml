@@ -1,10 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Ml2.Tasks.Generator.Asstn;
 using Ml2.Tasks.Generator.AttrSel;
 using Ml2.Tasks.Generator.Clstr;
-using Ml2.Tasks.Generator.Fltrs;
+using Ml2.Tasks.Generator.Fltr;
 using NUnit.Framework;
+using weka.associations;
 using weka.attributeSelection;
 using weka.clusterers;
 
@@ -64,6 +66,15 @@ namespace Ml2.Tasks.Generator
       RunT4TemplateImpl(new Filters(supinst) { TypeName = "SuppervisedInstanceFilters" }, @"Fltrs\Generated\SuppervisedInstanceFilters");
       RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsuppervisedAttributeFilters" }, @"Fltrs\Generated\UnsuppervisedAttributeFilters");
       RunT4TemplateImpl(new Filters(unsupinst) { TypeName = "UnsuppervisedInstanceFilters" }, @"Fltrs\Generated\UnsuppervisedInstanceFilters");
+    }
+
+    [Test] public void GenerateAllAssociations()
+    {
+      var types = GetBaseClassesOf(typeof (AbstractAssociator));
+      Array.ForEach(types, t => 
+             RunT4Template(typeof(AssociationAlgorithm), t, @"Asstn\Generated"));
+
+      RunT4TemplateImpl(new Associations(types), @"Asstn\Generated\Associations");
     }
 
     private static Type[] GetBaseClassesOf(Type ancestor)

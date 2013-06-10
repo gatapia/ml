@@ -1,6 +1,4 @@
-using weka.core;
-
-namespace Ml2.AttrSel.Evals
+namespace Ml2.AttrSel.Evals.Generated
 {
   public class Evaluators
   {

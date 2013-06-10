@@ -1,0 +1,28 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using weka.associations;
+
+namespace Ml2.Asstn
+{
+  /// <summary>
+  /// <#= GetClassDescription("  /// ") #>
+  /// </summary>
+  public class <#= TypeName #><T> : BaseAssociation<T>
+  {
+    public <#= TypeName #>(Runtime<T> rt) : base(rt, new <#= ImplTypeName #>()) {}
+
+<# Array.ForEach(Options, o => { #>
+    /// <summary>
+    /// <#= o.OptionDescription #>
+    /// </summary>    
+    public <#= TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
+      ((<#= ImplTypeName #>)impl).<#= o.OptionImplSetterName #>(value);
+      return this;
+    }
+
+<# }); #>        
+  }
+}

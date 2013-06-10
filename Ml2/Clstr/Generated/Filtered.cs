@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr
+namespace Ml2.Clstr.Generated
 {
   /// <summary>
   /// Class for running an arbitrary clusterer on data that has been passed

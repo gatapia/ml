@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr
+namespace Ml2.Clstr.Generated
 {
   /// <summary>
   /// Class for wrapping a Clusterer to make it return a distribution and

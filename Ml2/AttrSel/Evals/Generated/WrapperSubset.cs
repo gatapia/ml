@@ -1,6 +1,6 @@
 using weka.attributeSelection;
 
-namespace Ml2.AttrSel.Evals
+namespace Ml2.AttrSel.Evals.Generated
 {
   /// <summary>
   /// WrapperSubsetEval: Evaluates attribute sets by using a learning scheme.

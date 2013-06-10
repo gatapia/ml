@@ -1,6 +1,6 @@
 using weka.core;
 
-namespace Ml2.AttrSel.Algs
+namespace Ml2.AttrSel.Algs.Generated
 {
   public class Algorithms
   {

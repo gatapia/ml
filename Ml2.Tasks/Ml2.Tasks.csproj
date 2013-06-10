@@ -48,6 +48,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generator\Asstn\AssociationAlgorithm.cs">
+      <DependentUpon>AssociationAlgorithm.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\Asstn\AssociationAlgorithmModel.cs" />
+    <Compile Include="Generator\Asstn\Associations.cs">
+      <DependentUpon>Associations.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\Asstn\AssociationsModel.cs" />
     <Compile Include="Generator\AttrSel\EvaluatorsModel.cs" />
     <Compile Include="Generator\AttrSel\Evaluators.cs">
       <DependentUpon>Evaluators.tt</DependentUpon>
@@ -72,18 +84,18 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Generator\Clstr\ClusterersModel.cs" />
-    <Compile Include="Generator\Fltrs\FilterAlgorithm.cs">
+    <Compile Include="Generator\Fltr\FilterAlgorithm.cs">
       <DependentUpon>FilterAlgorithm.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Generator\Fltrs\FilterAlgorithmModel.cs" />
-    <Compile Include="Generator\Fltrs\Filters.cs">
+    <Compile Include="Generator\Fltr\FilterAlgorithmModel.cs" />
+    <Compile Include="Generator\Fltr\Filters.cs">
       <DependentUpon>Filters.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Generator\Fltrs\FiltersModel.cs" />
+    <Compile Include="Generator\Fltr\FiltersModel.cs" />
     <Compile Include="Generator\Utils.cs" />
     <Compile Include="Generator\AttrSel\AttributeSelectionAlgorithm.cs">
       <DependentUpon>AttributeSelectionAlgorithm.tt</DependentUpon>
@@ -103,6 +115,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Generator\Asstn\AssociationAlgorithm.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AssociationAlgorithm.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\Asstn\Associations.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Associations.cs</LastGenOutput>
+    </None>
     <None Include="Generator\AttrSel\Evaluators.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Evaluators.cs</LastGenOutput>
@@ -127,11 +147,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Clusterers.cs</LastGenOutput>
     </None>
-    <None Include="Generator\Fltrs\FilterAlgorithm.tt">
+    <None Include="Generator\Fltr\FilterAlgorithm.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>FilterAlgorithm.cs</LastGenOutput>
     </None>
-    <None Include="Generator\Fltrs\Filters.tt">
+    <None Include="Generator\Fltr\Filters.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Filters.cs</LastGenOutput>
     </None>
@@ -139,6 +159,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

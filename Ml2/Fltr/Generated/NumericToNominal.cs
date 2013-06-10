@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// A filter for turning numeric attributes into nominal ones. Unlike

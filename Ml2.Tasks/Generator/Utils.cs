@@ -18,15 +18,26 @@ namespace Ml2.Tasks.Generator
       return idx < 0 ? t.Name : t.Name.Substring(0, idx);
     }
 
-    public static bool IsSupportedEvalType(Type t)
+    public static bool IsSupportedType(Type t)
     {
+      if (t.GetConstructor(new Type[0]) == null)
+      {
+        Console.WriteLine("Type [" + t.FullName + "] does not have a default constructor.");
+        return false;
+      }
       return t.Name != "DummySubsetEvaluator";
     }
 
     public static string GetClassDescription(Type t, string separator)
     {
-      var desc = (string) t.GetMethod("globalInfo", BindingFlags.Instance | BindingFlags.Public).
-                            Invoke(Activator.CreateInstance(t), null);
+      var impl = Activator.CreateInstance(t);
+      var mi = t.GetMethod("globalInfo", BindingFlags.Instance | BindingFlags.Public);
+      if (mi == null)
+      {
+        Console.WriteLine("Type [" + t.FullName + "] does not have a valid globalInfo method.");
+        return "No class description found.";
+      }
+      var desc = (string) mi.Invoke(impl, null);
       return String.Join("\n" + separator, SplitIntoChunks(desc, 75));
     }
 

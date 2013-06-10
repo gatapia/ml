@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// A filter that adds a new nominal attribute representing the cluster

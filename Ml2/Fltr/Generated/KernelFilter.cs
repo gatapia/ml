@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Converts the given set of predictor variables into a kernel matrix. The

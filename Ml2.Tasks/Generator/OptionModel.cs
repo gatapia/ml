@@ -45,14 +45,18 @@ namespace Ml2.Tasks.Generator
         try
         {
           var ot = OptionType;
+          return true;
         }
         catch (NotSupportedException)
         {
           Console.WriteLine("\tOption: " + method.Name + " of internal type: " + 
               GetParameterType().Name + " is not supported.");
-          return false;
+        } catch (InvalidOperationException)
+        {
+          Console.WriteLine("Error with method [" + method.Name + "] with multiple parameters: [" + 
+            String.Join(", ", method.GetParameters().Select(p => p.Name)) +"]");
         }
-        return true;
+        return false;
       }
     }
 

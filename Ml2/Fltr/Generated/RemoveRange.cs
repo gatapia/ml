@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.instance;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// A filter that removes a given range of instances of a dataset.

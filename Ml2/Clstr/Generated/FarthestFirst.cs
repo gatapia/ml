@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr.Generated
+namespace Ml2.Clstr
 {
   /// <summary>
   /// Cluster data using the FarthestFirst algorithm. For more information see:

@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Converts a nominal attribute (that is, a set number of values) to string

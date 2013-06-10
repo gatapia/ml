@@ -1,6 +1,6 @@
 using weka.filters.supervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Changes the order of the classes so that the class values are no longer

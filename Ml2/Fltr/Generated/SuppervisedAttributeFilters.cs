@@ -1,4 +1,4 @@
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   public class SuppervisedAttributeFilters<T>
   {

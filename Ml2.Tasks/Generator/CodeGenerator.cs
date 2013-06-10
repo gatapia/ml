@@ -3,11 +3,13 @@ using System.IO;
 using System.Linq;
 using Ml2.Tasks.Generator.Asstn;
 using Ml2.Tasks.Generator.AttrSel;
+using Ml2.Tasks.Generator.Clss;
 using Ml2.Tasks.Generator.Clstr;
 using Ml2.Tasks.Generator.Fltr;
 using NUnit.Framework;
 using weka.associations;
 using weka.attributeSelection;
+using weka.classifiers;
 using weka.clusterers;
 
 namespace Ml2.Tasks.Generator
@@ -17,7 +19,6 @@ namespace Ml2.Tasks.Generator
     [Test] public void GenerateAttributeSelectionEvaluators()
     {
       var types = GetBaseClassesOf(typeof (ASEvaluation)).
-          Where(Utils.IsSupportedEvalType).
           ToArray();
       Array.ForEach(types, t => 
             RunT4Template(typeof(AttributeSelectionEvaluator), t, @"AttrSel\Evals\Generated"));
@@ -61,11 +62,11 @@ namespace Ml2.Tasks.Generator
 
 
       Array.ForEach(types, t => 
-              RunT4Template(typeof(FilterAlgorithm), t, @"Fltrs\Generated"));
-      RunT4TemplateImpl(new Filters(supatt) { TypeName = "SuppervisedAttributeFilters" }, @"Fltrs\Generated\SuppervisedAttributeFilters");
-      RunT4TemplateImpl(new Filters(supinst) { TypeName = "SuppervisedInstanceFilters" }, @"Fltrs\Generated\SuppervisedInstanceFilters");
-      RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsuppervisedAttributeFilters" }, @"Fltrs\Generated\UnsuppervisedAttributeFilters");
-      RunT4TemplateImpl(new Filters(unsupinst) { TypeName = "UnsuppervisedInstanceFilters" }, @"Fltrs\Generated\UnsuppervisedInstanceFilters");
+              RunT4Template(typeof(FilterAlgorithm), t, @"Fltr\Generated"));
+      RunT4TemplateImpl(new Filters(supatt) { TypeName = "SuppervisedAttributeFilters" }, @"Fltr\Generated\SuppervisedAttributeFilters");
+      RunT4TemplateImpl(new Filters(supinst) { TypeName = "SuppervisedInstanceFilters" }, @"Fltr\Generated\SuppervisedInstanceFilters");
+      RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsuppervisedAttributeFilters" }, @"Fltr\Generated\UnsuppervisedAttributeFilters");
+      RunT4TemplateImpl(new Filters(unsupinst) { TypeName = "UnsuppervisedInstanceFilters" }, @"Fltr\Generated\UnsuppervisedInstanceFilters");
     }
 
     [Test] public void GenerateAllAssociations()
@@ -77,11 +78,20 @@ namespace Ml2.Tasks.Generator
       RunT4TemplateImpl(new Associations(types), @"Asstn\Generated\Associations");
     }
 
+    [Test] public void GenerateAllClassifiers()
+    {
+      var types = GetBaseClassesOf(typeof (Classifier));
+      Array.ForEach(types, t => 
+             RunT4Template(typeof(ClassifierAlgorithm), t, @"Clss\Generated"));
+
+      RunT4TemplateImpl(new Classifiers(types), @"Clss\Generated\Classifiers");
+    }
+
     private static Type[] GetBaseClassesOf(Type ancestor)
     {
       return typeof (CfsSubsetEval).Assembly.
         GetTypes().
-        Where(t => !t.IsAbstract && ancestor.IsAssignableFrom(t)).
+        Where(t => !t.IsAbstract && ancestor.IsAssignableFrom(t) && Utils.IsSupportedType(t)).
         ToArray();
     }
 

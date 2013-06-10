@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr.Generated
+namespace Ml2.Clstr
 {
   /// <summary>
   /// Hierarchical clustering class. Implements a number of classic

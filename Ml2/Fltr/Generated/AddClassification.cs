@@ -1,6 +1,6 @@
 using weka.filters.supervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// A filter for adding the classification, the class distribution and an

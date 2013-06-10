@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.instance;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// An instance filter that converts all incoming instances into sparse

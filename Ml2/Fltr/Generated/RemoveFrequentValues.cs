@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.instance;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Determines which values (frequent or infrequent ones) of an (nominal)

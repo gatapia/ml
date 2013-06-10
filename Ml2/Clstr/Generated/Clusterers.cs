@@ -1,4 +1,4 @@
-namespace Ml2.Clstr.Generated
+namespace Ml2.Clstr
 {
   public class Clusterers<T>
   {

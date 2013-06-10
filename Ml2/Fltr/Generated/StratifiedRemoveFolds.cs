@@ -1,6 +1,6 @@
 using weka.filters.supervised.instance;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// This filter takes a dataset and outputs a specified fold for cross

@@ -1,6 +1,6 @@
 using weka.attributeSelection;
 
-namespace Ml2.AttrSel.Evals.Generated
+namespace Ml2.AttrSel.Evals
 {
   /// <summary>
   /// Performs a principal components analysis and transformation of the data.

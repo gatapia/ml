@@ -1,6 +1,6 @@
 using weka.attributeSelection;
 
-namespace Ml2.AttrSel.Evals.Generated
+namespace Ml2.AttrSel.Evals
 {
   /// <summary>
   /// CfsSubsetEval : Evaluates the worth of a subset of attributes by

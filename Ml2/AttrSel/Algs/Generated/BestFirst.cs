@@ -1,7 +1,7 @@
 using Ml2.AttrSel.Evals;
 using weka.core;
 
-namespace Ml2.AttrSel.Algs.Generated
+namespace Ml2.AttrSel.Algs
 {
   /// <summary>
   /// BestFirst: Searches the space of attribute subsets by greedy hillclimbing

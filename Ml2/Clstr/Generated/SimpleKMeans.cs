@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr.Generated
+namespace Ml2.Clstr
 {
   /// <summary>
   /// Cluster data using the k means algorithm. Can use either the Euclidean

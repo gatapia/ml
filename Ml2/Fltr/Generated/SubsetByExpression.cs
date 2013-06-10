@@ -1,6 +1,6 @@
 using weka.filters.unsupervised.instance;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Filters instances according to a user-specified expression. Grammar:

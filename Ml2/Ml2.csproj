@@ -154,6 +154,149 @@
     <Compile Include="AttrSel\Evals\Generated\WrapperSubset.cs" />
     <Compile Include="AttrSel\Evals\IAttributeSelectionEvaluator.cs" />
     <Compile Include="Arff\ClassifierAttribute.cs" />
+    <Compile Include="Clss\Generated\AdaBoostM1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\AdditiveRegression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\AttributeSelectedClassifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\Bagging.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\BaseClassifier.cs" />
+    <Compile Include="Clss\Generated\BayesNet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\BayesNetGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\BIFReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\ClassificationViaRegression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\Classifiers.cs" />
+    <Compile Include="Clss\Generated\CostSensitiveClassifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\CVParameterSelection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\DecisionStump.cs" />
+    <Compile Include="Clss\Generated\DecisionTable.cs" />
+    <Compile Include="Clss\Generated\EditableBayesNet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\FilteredClassifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\GaussianProcesses.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\HoeffdingTree.cs" />
+    <Compile Include="Clss\Generated\IBk.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\InputMappedClassifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\J48.cs" />
+    <Compile Include="Clss\Generated\JRip.cs" />
+    <Compile Include="Clss\Generated\KStar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\LinearRegression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\LMT.cs" />
+    <Compile Include="Clss\Generated\Logistic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\LogisticBase.cs" />
+    <Compile Include="Clss\Generated\LogitBoost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\LWL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\M5P.cs" />
+    <Compile Include="Clss\Generated\M5Rules.cs" />
+    <Compile Include="Clss\Generated\MultiClassClassifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\MultiClassClassifierUpdateable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\MultilayerPerceptron.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\MultiScheme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\NaiveBayes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\NaiveBayesMultinomial.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\NaiveBayesMultinomialText.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\NaiveBayesMultinomialUpdateable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\NaiveBayesUpdateable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\OneR.cs" />
+    <Compile Include="Clss\Generated\PART.cs" />
+    <Compile Include="Clss\Generated\RandomCommittee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\RandomForest.cs" />
+    <Compile Include="Clss\Generated\RandomSubSpace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\RandomTree.cs" />
+    <Compile Include="Clss\Generated\RegressionByDiscretization.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\REPTree.cs" />
+    <Compile Include="Clss\Generated\SerializedClassifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\SGD.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\SGDText.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\SimpleLinearRegression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\SimpleLogistic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\SMO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\SMOreg.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\Stacking.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\Vote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\VotedPerceptron.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Clss\Generated\ZeroR.cs" />
     <Compile Include="Clstr\BaseClusterer.cs" />
     <Compile Include="Clstr\Generated\Clusterers.cs" />
     <Compile Include="Clstr\Generated\Cobweb.cs" />

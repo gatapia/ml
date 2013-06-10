@@ -1,6 +1,6 @@
 using weka.filters.supervised.attribute;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// A supervised attribute filter that can be used to select attributes. It

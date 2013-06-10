@@ -84,6 +84,18 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Generator\Clstr\ClusterersModel.cs" />
+    <Compile Include="Generator\Clss\ClassifierAlgorithm.cs">
+      <DependentUpon>ClassifierAlgorithm.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\Clss\ClassifierAlgorithmModel.cs" />
+    <Compile Include="Generator\Clss\Classifiers.cs">
+      <DependentUpon>Classifiers.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Generator\Clss\ClassifiersModel.cs" />
     <Compile Include="Generator\Fltr\FilterAlgorithm.cs">
       <DependentUpon>FilterAlgorithm.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -146,6 +158,14 @@
     <None Include="Generator\Clstr\Clusterers.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Clusterers.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\Clss\ClassifierAlgorithm.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ClassifierAlgorithm.cs</LastGenOutput>
+    </None>
+    <None Include="Generator\Clss\Classifiers.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Classifiers.cs</LastGenOutput>
     </None>
     <None Include="Generator\Fltr\FilterAlgorithm.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

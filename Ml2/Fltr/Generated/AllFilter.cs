@@ -1,6 +1,6 @@
 using weka.filters;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// An instance filter that passes all instances through unmodified.

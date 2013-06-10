@@ -1,6 +1,6 @@
 using weka.clusterers;
 
-namespace Ml2.Clstr.Generated
+namespace Ml2.Clstr
 {
   /// <summary>
   /// Simple EM (expectation maximisation) class. EM assigns a probability

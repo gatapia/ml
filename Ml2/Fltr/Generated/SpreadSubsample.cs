@@ -1,6 +1,6 @@
 using weka.filters.supervised.instance;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Produces a random subsample of a dataset. The original dataset must fit

@@ -1,6 +1,6 @@
 using weka.filters;
 
-namespace Ml2.Fltr.Generated
+namespace Ml2.Fltr
 {
   /// <summary>
   /// Applies several filters successively. In case all supplied filters are

@@ -8,19 +8,19 @@ using weka.clusterers;
 namespace Ml2.Clstr
 {
   /// <summary>
-  /// <#= GetClassDescription("  /// ") #>
+  /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= TypeName #><T> : BaseClusterer<T>
+  public class <#= Model.TypeName #><T> : BaseClusterer<T>
   {
-    private readonly <#= ImplTypeName #> impl = new <#= ImplTypeName #>();
+    private readonly <#= Model.ImplTypeName #> impl = new <#= Model.ImplTypeName #>();
     
-    public <#= TypeName #>(Runtime<T> rt) : base(rt) {}
+    public <#= Model.TypeName #>(Runtime<T> rt) : base(rt) {}
 
-<# Array.ForEach(Options, o => { #>
+<# Array.ForEach(Model.Options, o => { #>
     /// <summary>
     /// <#= o.OptionDescription #>
     /// </summary>    
-    public <#= TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
+    public <#= Model.TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
       impl.<#= o.OptionImplSetterName #>(value);
       return this;
     }

@@ -8,17 +8,17 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// <#= GetClassDescription("  /// ") #>
+  /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= TypeName #> : IAttributeSelectionEvaluator
+  public class <#= Model.TypeName #> : IAttributeSelectionEvaluator
   {
-    private readonly <#= ImplTypeName #> impl = new <#= ImplTypeName #>();
+    private readonly <#= Model.ImplTypeFullName #> impl = new <#= Model.ImplTypeFullName #>();
     
-<# Array.ForEach(Options, o => { #>
+<# Array.ForEach(Model.Options, o => { #>
     /// <summary>
     /// <#= o.OptionDescription #>
     /// </summary>    
-    public <#= TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
+    public <#= Model.TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
       impl.<#= o.OptionImplSetterName #>(value);
       return this;
     }

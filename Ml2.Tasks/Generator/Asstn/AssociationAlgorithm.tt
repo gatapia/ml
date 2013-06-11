@@ -8,18 +8,18 @@ using weka.associations;
 namespace Ml2.Asstn
 {
   /// <summary>
-  /// <#= GetClassDescription("  /// ") #>
+  /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= TypeName #><T> : BaseAssociation<T>
+  public class <#= Model.TypeName #><T> : BaseAssociation<T>
   {
-    public <#= TypeName #>(Runtime<T> rt) : base(rt, new <#= ImplTypeName #>()) {}
+    public <#= Model.TypeName #>(Runtime<T> rt) : base(rt, new <#= Model.ImplTypeName #>()) {}
 
-<# Array.ForEach(Options, o => { #>
+<# Array.ForEach(Model.Options, o => { #>
     /// <summary>
     /// <#= o.OptionDescription #>
     /// </summary>    
-    public <#= TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
-      ((<#= ImplTypeName #>)impl).<#= o.OptionImplSetterName #>(value);
+    public <#= Model.TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
+      ((<#= Model.ImplTypeName #>)impl).<#= o.OptionImplSetterName #>(value);
       return this;
     }
 

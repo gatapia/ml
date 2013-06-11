@@ -10,7 +10,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class SymmetricalUncertAttribute : IAttributeSelectionEvaluator
   {
-    private readonly SymmetricalUncertAttributeEval impl = new SymmetricalUncertAttributeEval();
+    private readonly weka.attributeSelection.SymmetricalUncertAttributeEval impl = new weka.attributeSelection.SymmetricalUncertAttributeEval();
     
     /// <summary>
     /// Distribute counts for missing values. Counts are distributed across other

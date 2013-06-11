@@ -9,7 +9,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class InfoGainAttribute : IAttributeSelectionEvaluator
   {
-    private readonly InfoGainAttributeEval impl = new InfoGainAttributeEval();
+    private readonly weka.attributeSelection.InfoGainAttributeEval impl = new weka.attributeSelection.InfoGainAttributeEval();
     
     /// <summary>
     /// Distribute counts for missing values. Counts are distributed across other

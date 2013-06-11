@@ -3,20 +3,15 @@ using System.Linq;
 
 namespace Ml2.Tasks.Generator.Asstn
 {
-  public partial class Associations : IMl2CodeGenerator
+  public partial class Associations 
   {
     private readonly Type[] types;
+    public Associations(Type[] types) { this.types = types; }
 
-    public Associations(Type[] types)
-    {
-      this.types = types;
+    public WekaTypeModel[] AllAssociations { 
+      get { 
+        return types.Select(t => new AssociationAlgorithm(t).Model).ToArray(); 
+      } 
     }
-
-    public AssociationAlgorithm[] AllAssociations { get { return types.Select(t => new AssociationAlgorithm(t)).ToArray(); } }
-
-    public string TypeName
-    {
-      get { return String.Empty; }
-    }    
   }
 }

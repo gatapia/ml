@@ -16,7 +16,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class ReliefFAttribute : IAttributeSelectionEvaluator
   {
-    private readonly ReliefFAttributeEval impl = new ReliefFAttributeEval();
+    private readonly weka.attributeSelection.ReliefFAttributeEval impl = new weka.attributeSelection.ReliefFAttributeEval();
     
     /// <summary>
     /// Weight nearest neighbours by their distance.

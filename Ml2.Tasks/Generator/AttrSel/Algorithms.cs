@@ -18,10 +18,11 @@ namespace Ml2.Tasks.Generator.AttrSel
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+    #line 1 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class Algorithms : AlgorithmsBase
     {
+#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -31,42 +32,42 @@ namespace Ml2.Tasks.Generator.AttrSel
                     "\r\n    private readonly Instances inst;    \r\n    public Algorithms(Instances inst" +
                     ") { this.inst = inst; }   \r\n\r\n");
             
-            #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
  foreach (var alg in AllAgorithms) { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(alg.GetClassDescription("    /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(alg.TypeName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(alg.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(alg.TypeName));
             
             #line default
             #line hidden
             this.Write("(inst); }\r\n\r\n");
             
-            #line 21 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
+            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
  } 
             
             #line default

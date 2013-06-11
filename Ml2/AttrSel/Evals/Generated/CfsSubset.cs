@@ -12,7 +12,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class CfsSubset : IAttributeSelectionEvaluator
   {
-    private readonly CfsSubsetEval impl = new CfsSubsetEval();
+    private readonly weka.attributeSelection.CfsSubsetEval impl = new weka.attributeSelection.CfsSubsetEval();
     
     /// <summary>
     /// Treat missing as a separate value. Otherwise, counts for missing values

@@ -30,11 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IKVM.OpenJDK.Beans">
+      <HintPath>..\lib\weka\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
     <Reference Include="IKVM.OpenJDK.Core">
       <HintPath>..\lib\weka\IKVM.OpenJDK.Core.dll</HintPath>
     </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting">
+      <HintPath>..\lib\weka\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
     <Reference Include="IKVM.OpenJDK.SwingAWT">
       <HintPath>..\lib\weka\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util">
+      <HintPath>..\lib\weka\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API">
+      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.API.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\lib\NUnit\nunit.framework.dll</HintPath>
@@ -127,6 +139,7 @@
     <Compile Include="Generator\CodeGenerator.cs" />
     <Compile Include="Generator\OptionModel.cs" />
     <Compile Include="Generator\IMl2CodeGenerator.cs" />
+    <Compile Include="Generator\WekaTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

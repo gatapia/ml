@@ -18,10 +18,11 @@ namespace Ml2.Tasks.Generator.Asstn
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+    #line 1 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class Associations : AssociationsBase
     {
+#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -31,42 +32,42 @@ namespace Ml2.Tasks.Generator.Asstn
                     " Runtime<T> rt;    \r\n    public Associations(Runtime<T> rt) { this.rt = rt; }   " +
                     "\r\n\r\n");
             
-            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+            #line 13 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
  foreach (var ctr in AllAssociations) { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.GetClassDescription("    /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T>(rt); }\r\n\r\n");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
  } 
             
             #line default

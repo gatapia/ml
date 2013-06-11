@@ -61,8 +61,7 @@ namespace Ml2.Tasks.Generator
           ToArray();
 
 
-      Array.ForEach(types, t => 
-              RunT4Template(typeof(FilterAlgorithm), t, @"Fltr\Generated"));
+      Array.ForEach(types, t => RunT4Template(typeof(FilterAlgorithm), t, @"Fltr\Generated"));
       RunT4TemplateImpl(new Filters(supatt) { TypeName = "SuppervisedAttributeFilters" }, @"Fltr\Generated\SuppervisedAttributeFilters");
       RunT4TemplateImpl(new Filters(supinst) { TypeName = "SuppervisedInstanceFilters" }, @"Fltr\Generated\SuppervisedInstanceFilters");
       RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsuppervisedAttributeFilters" }, @"Fltr\Generated\UnsuppervisedAttributeFilters");
@@ -97,16 +96,17 @@ namespace Ml2.Tasks.Generator
 
     private void RunT4Template(Type template, Type t, string dir)
     {
-      var eval = (IMl2CodeGenerator) Activator.CreateInstance(template, t);
+      var eval = Activator.CreateInstance(template, t);
       Console.WriteLine("Generating Type:  " + t.Name);
-      RunT4TemplateImpl(eval, dir + "\\" + eval.TypeName);
+      RunT4TemplateImpl(eval, dir + "\\" + ((IMl2CodeGenerator)eval).Model.TypeName);
     }
 
-    private static void RunT4TemplateImpl(IMl2CodeGenerator eval, string file)
+    private static void RunT4TemplateImpl(object eval, string file)
     {
       var output = @"..\..\..\Ml2\" + file + ".cs";
       if (File.Exists(output)) File.Delete(output);      
-      File.WriteAllText(output, eval.TransformText());
+      var generated = (string) eval.GetType().GetMethod("TransformText").Invoke(eval, null);
+      File.WriteAllText(output, generated);
     }
   }
 }

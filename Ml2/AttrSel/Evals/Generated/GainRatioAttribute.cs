@@ -9,7 +9,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class GainRatioAttribute : IAttributeSelectionEvaluator
   {
-    private readonly GainRatioAttributeEval impl = new GainRatioAttributeEval();
+    private readonly weka.attributeSelection.GainRatioAttributeEval impl = new weka.attributeSelection.GainRatioAttributeEval();
     
     /// <summary>
     /// Distribute counts for missing values. Counts are distributed across other

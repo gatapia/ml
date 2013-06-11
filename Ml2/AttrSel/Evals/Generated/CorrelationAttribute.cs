@@ -11,7 +11,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class CorrelationAttribute : IAttributeSelectionEvaluator
   {
-    private readonly CorrelationAttributeEval impl = new CorrelationAttributeEval();
+    private readonly weka.attributeSelection.CorrelationAttributeEval impl = new weka.attributeSelection.CorrelationAttributeEval();
     
     /// <summary>
     /// Output per value correlation for nominal attributes

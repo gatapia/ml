@@ -8,7 +8,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class OneRAttribute : IAttributeSelectionEvaluator
   {
-    private readonly OneRAttributeEval impl = new OneRAttributeEval();
+    private readonly weka.attributeSelection.OneRAttributeEval impl = new weka.attributeSelection.OneRAttributeEval();
     
     /// <summary>
     /// Set the seed for use in cross validation.

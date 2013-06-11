@@ -9,20 +9,20 @@ using weka.core;
 namespace Ml2.AttrSel.Algs
 {
   /// <summary>
-  /// <#= GetClassDescription("  /// ") #>
+  /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= TypeName #>
+  public class <#= Model.TypeName #>
   {
-    private readonly <#= ImplTypeName #> impl = new <#= ImplTypeName #>();
+    private readonly <#= Model.ImplTypeFullName #> impl = new <#= Model.ImplTypeFullName #>();
     private readonly Instances inst;
     
-    public <#= TypeName #>(Instances inst) { this.inst = inst; }
+    public <#= Model.TypeName #>(Instances inst) { this.inst = inst; }
 
-<# Array.ForEach(Options, o => { #>
+<# Array.ForEach(Model.Options, o => { #>
     /// <summary>
     /// <#= o.OptionDescription #>
     /// </summary>
-    public <#= TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
+    public <#= Model.TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
       impl.<#= o.OptionImplSetterName #>(value);
       return this;
     }

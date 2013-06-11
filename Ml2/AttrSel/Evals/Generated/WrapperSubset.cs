@@ -11,7 +11,7 @@ namespace Ml2.AttrSel.Evals
   /// </summary>
   public class WrapperSubset : IAttributeSelectionEvaluator
   {
-    private readonly WrapperSubsetEval impl = new WrapperSubsetEval();
+    private readonly weka.attributeSelection.WrapperSubsetEval impl = new weka.attributeSelection.WrapperSubsetEval();
     
     /// <summary>
     /// Number of xval folds to use when estimating subset accuracy.

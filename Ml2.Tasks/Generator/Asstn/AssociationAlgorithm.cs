@@ -18,10 +18,11 @@ namespace Ml2.Tasks.Generator.Asstn
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+    #line 1 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class AssociationAlgorithm : AssociationAlgorithmBase
     {
+#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -29,84 +30,84 @@ namespace Ml2.Tasks.Generator.Asstn
         {
             this.Write("using weka.associations;\r\n\r\nnamespace Ml2.Asstn\r\n{\r\n  /// <summary>\r\n  /// ");
             
-            #line 11 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassDescription("  /// ")));
+            #line 11 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetClassDescription("  /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n  /// </summary>\r\n  public class ");
             
-            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            #line 13 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> : BaseAssociation<T>\r\n  {\r\n    public ");
             
-            #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("(Runtime<T> rt) : base(rt, new ");
             
-            #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ImplTypeName));
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
             
             #line default
             #line hidden
             this.Write("()) {}\r\n\r\n");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
- Array.ForEach(Options, o => { 
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+ Array.ForEach(Model.Options, o => { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionDescription));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>    \r\n    public ");
             
-            #line 21 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 21 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionName));
             
             #line default
             #line hidden
             this.Write(" (");
             
-            #line 21 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionType));
             
             #line default
             #line hidden
             this.Write(" value) {\r\n      ((");
             
-            #line 22 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ImplTypeName));
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
             
             #line default
             #line hidden
             this.Write(")impl).");
             
-            #line 22 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionImplSetterName));
             
             #line default
             #line hidden
             this.Write("(value);\r\n      return this;\r\n    }\r\n\r\n");
             
-            #line 26 "c:\dev\projects\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
+            #line 26 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
  }); 
             
             #line default

@@ -6,15 +6,10 @@ namespace Ml2.Tasks.Generator
 {
   public static class Utils
   {
-    public static string GetMl2EvalTypeName(Type t)
+    public static string GetMl2TypeName(Type t, string suffix)
     {
-      var idx = t.Name.IndexOf("Eval");
-      return idx < 0 ? t.Name : t.Name.Substring(0, idx);
-    }
-
-    public static string GetMl2ClustererTypeName(Type t)
-    {
-      var idx = t.Name.IndexOf("Clusterer");
+      if (String.IsNullOrWhiteSpace(suffix)) return t.Name;
+      var idx = t.Name.IndexOf(suffix);
       return idx < 0 ? t.Name : t.Name.Substring(0, idx);
     }
 

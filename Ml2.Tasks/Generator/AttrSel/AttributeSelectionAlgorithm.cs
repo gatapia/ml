@@ -18,10 +18,11 @@ namespace Ml2.Tasks.Generator.AttrSel
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+    #line 1 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class AttributeSelectionAlgorithm : AttributeSelectionAlgorithmBase
     {
+#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
@@ -30,84 +31,84 @@ namespace Ml2.Tasks.Generator.AttrSel
             this.Write("using Ml2.AttrSel.Evals;\r\nusing weka.core;\r\n\r\nnamespace Ml2.AttrSel.Algs\r\n{\r\n  //" +
                     "/ <summary>\r\n  /// ");
             
-            #line 12 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassDescription("  /// ")));
+            #line 12 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetClassDescription("  /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n  /// </summary>\r\n  public class ");
             
-            #line 14 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("\r\n  {\r\n    private readonly ");
             
-            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ImplTypeName));
+            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeFullName));
             
             #line default
             #line hidden
             this.Write(" impl = new ");
             
-            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ImplTypeName));
+            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeFullName));
             
             #line default
             #line hidden
             this.Write("();\r\n    private readonly Instances inst;\r\n    \r\n    public ");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("(Instances inst) { this.inst = inst; }\r\n\r\n");
             
-            #line 21 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
- Array.ForEach(Options, o => { 
+            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+ Array.ForEach(Model.Options, o => { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 23 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionDescription));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 25 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            #line 25 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 25 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            #line 25 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionName));
             
             #line default
             #line hidden
             this.Write(" (");
             
-            #line 25 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            #line 25 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionType));
             
             #line default
             #line hidden
             this.Write(" value) {\r\n      impl.");
             
-            #line 26 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            #line 26 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionImplSetterName));
             
             #line default
             #line hidden
             this.Write("(value);\r\n      return this;\r\n    }\r\n\r\n");
             
-            #line 30 "c:\dev\projects\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            #line 30 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
  }); 
             
             #line default

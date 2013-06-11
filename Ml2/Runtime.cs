@@ -21,6 +21,7 @@ namespace Ml2
     public Runtime(params string[] files) {
       Rows = loaderFactory.Get<T>().Load<T>(files);
       Instances = arff.Build(Rows);
+      
       SetClassifierIndex(classidx.InferClassIndex<T>());
     }
 
@@ -32,6 +33,8 @@ namespace Ml2
     internal Runtime(Instances instances, T[] rows) { 
       Instances = instances; 
       Rows = rows;
+
+      SetClassifierIndex(classidx.InferClassIndex<T>());
     }
 
     public Instances Instances { get; private set; }

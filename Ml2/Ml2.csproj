@@ -34,80 +34,14 @@
     <Reference Include="FileHelpers">
       <HintPath>..\lib\FileHelpers\FileHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.Beans">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Beans.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Charsets">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Charsets.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Corba">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Corba.dll</HintPath>
-    </Reference>
     <Reference Include="IKVM.OpenJDK.Core">
       <HintPath>..\lib\weka\IKVM.OpenJDK.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Jdbc">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Jdbc.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Management">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Management.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Media">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Media.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Misc">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Misc.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Naming">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Naming.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Remoting">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Remoting.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Security">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.SwingAWT">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.SwingAWT.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Text">
       <HintPath>..\lib\weka\IKVM.OpenJDK.Text.dll</HintPath>
     </Reference>
-    <Reference Include="IKVM.OpenJDK.Tools">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Tools.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.Util">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.Util.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.API">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.API.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.Bind">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.Bind.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.Crypto">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.Parse">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.Parse.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.Transform">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.Transform.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.WebServices">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.OpenJDK.XML.XPath">
-      <HintPath>..\lib\weka\IKVM.OpenJDK.XML.XPath.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.Reflection">
-      <HintPath>..\lib\weka\IKVM.Reflection.dll</HintPath>
-    </Reference>
     <Reference Include="IKVM.Runtime">
       <HintPath>..\lib\weka\IKVM.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="IKVM.Runtime.JNI">
-      <HintPath>..\lib\weka\IKVM.Runtime.JNI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

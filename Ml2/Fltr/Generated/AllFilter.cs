@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters;
 
 namespace Ml2.Fltr
@@ -10,6 +11,7 @@ namespace Ml2.Fltr
   {
     public AllFilter(Runtime<T> rt) : base(rt, new AllFilter()) {}
 
+        
         
   }
 }

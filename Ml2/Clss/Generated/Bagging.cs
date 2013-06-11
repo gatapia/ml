@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -15,7 +16,7 @@ namespace Ml2.Clss
     /// Size of each bag, as a percentage of the training set size.
     /// </summary>    
     public Bagging<T> BagSizePercent (int value) {
-      ((Bagging)impl).setBagSizePercent(value);
+      ((weka.classifiers.meta.Bagging)impl).setBagSizePercent(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Clss
     /// Whether the out-of-bag error is calculated.
     /// </summary>    
     public Bagging<T> CalcOutOfBag (bool value) {
-      ((Bagging)impl).setCalcOutOfBag(value);
+      ((weka.classifiers.meta.Bagging)impl).setCalcOutOfBag(value);
       return this;
     }
 
@@ -31,7 +32,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public Bagging<T> Seed (int value) {
-      ((Bagging)impl).setSeed(value);
+      ((weka.classifiers.meta.Bagging)impl).setSeed(value);
       return this;
     }
 
@@ -40,7 +41,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public Bagging<T> NumExecutionSlots (int value) {
-      ((Bagging)impl).setNumExecutionSlots(value);
+      ((weka.classifiers.meta.Bagging)impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -48,7 +49,7 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public Bagging<T> NumIterations (int value) {
-      ((Bagging)impl).setNumIterations(value);
+      ((weka.classifiers.meta.Bagging)impl).setNumIterations(value);
       return this;
     }
 
@@ -56,10 +57,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Bagging<T> Debug (bool value) {
-      ((Bagging)impl).setDebug(value);
+      ((weka.classifiers.meta.Bagging)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

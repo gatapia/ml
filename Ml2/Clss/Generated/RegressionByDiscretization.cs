@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -21,7 +22,7 @@ namespace Ml2.Clss
     /// Number of bins for discretization.
     /// </summary>    
     public RegressionByDiscretization<T> NumBins (int value) {
-      ((RegressionByDiscretization)impl).setNumBins(value);
+      ((weka.classifiers.meta.RegressionByDiscretization)impl).setNumBins(value);
       return this;
     }
 
@@ -29,7 +30,7 @@ namespace Ml2.Clss
     /// Whether to delete empty bins after discretization.
     /// </summary>    
     public RegressionByDiscretization<T> DeleteEmptyBins (bool value) {
-      ((RegressionByDiscretization)impl).setDeleteEmptyBins(value);
+      ((weka.classifiers.meta.RegressionByDiscretization)impl).setDeleteEmptyBins(value);
       return this;
     }
 
@@ -38,7 +39,7 @@ namespace Ml2.Clss
     /// equal-width binning.
     /// </summary>    
     public RegressionByDiscretization<T> UseEqualFrequency (bool value) {
-      ((RegressionByDiscretization)impl).setUseEqualFrequency(value);
+      ((weka.classifiers.meta.RegressionByDiscretization)impl).setUseEqualFrequency(value);
       return this;
     }
 
@@ -46,7 +47,15 @@ namespace Ml2.Clss
     /// Whether to minimize absolute error.
     /// </summary>    
     public RegressionByDiscretization<T> MinimizeAbsoluteError (bool value) {
-      ((RegressionByDiscretization)impl).setMinimizeAbsoluteError(value);
+      ((weka.classifiers.meta.RegressionByDiscretization)impl).setMinimizeAbsoluteError(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The density estimator to use.
+    /// </summary>    
+    public RegressionByDiscretization<T> EstimatorType (EEstimatorType value) {
+      ((weka.classifiers.meta.RegressionByDiscretization)impl).setEstimatorType(new SelectedTag((int) value, weka.classifiers.meta.RegressionByDiscretization.TAGS_ESTIMATOR));
       return this;
     }
 
@@ -54,8 +63,15 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RegressionByDiscretization<T> Debug (bool value) {
-      ((RegressionByDiscretization)impl).setDebug(value);
+      ((weka.classifiers.meta.RegressionByDiscretization)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EEstimatorType {
+      Histogram_density_estimator = 0,
+      Kernel_density_estimator = 1,
+      Normal_density_estimator = 2
     }
 
         

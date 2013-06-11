@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.lazy;
 
 namespace Ml2.Clss
@@ -19,7 +20,7 @@ namespace Ml2.Clss
     /// The parameter for global blending. Values are restricted to [0,100].
     /// </summary>    
     public KStar<T> GlobalBlend (int value) {
-      ((KStar)impl).setGlobalBlend(value);
+      ((weka.classifiers.lazy.KStar)impl).setGlobalBlend(value);
       return this;
     }
 
@@ -27,7 +28,15 @@ namespace Ml2.Clss
     /// Whether entropy-based blending is to be used.
     /// </summary>    
     public KStar<T> EntropicAutoBlend (bool value) {
-      ((KStar)impl).setEntropicAutoBlend(value);
+      ((weka.classifiers.lazy.KStar)impl).setEntropicAutoBlend(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Determines how missing attribute values are treated.
+    /// </summary>    
+    public KStar<T> MissingMode (EMissingMode value) {
+      ((weka.classifiers.lazy.KStar)impl).setMissingMode(new SelectedTag((int) value, weka.classifiers.lazy.KStar.TAGS_MISSING));
       return this;
     }
 
@@ -35,8 +44,16 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public KStar<T> Debug (bool value) {
-      ((KStar)impl).setDebug(value);
+      ((weka.classifiers.lazy.KStar)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EMissingMode {
+      Ignore_the_instances_with_missing_values = 1,
+      Treat_missing_values_as_maximally_different = 2,
+      Normalize_over_the_attributes = 3,
+      Average_column_entropy_curves = 4
     }
 
         

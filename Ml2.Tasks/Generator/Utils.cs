@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using weka.core;
 
 namespace Ml2.Tasks.Generator
 {
-  public static class Utils
+  internal static class Utils
   {
     public static string GetMl2TypeName(Type t, string suffix)
     {
@@ -43,6 +44,16 @@ namespace Ml2.Tasks.Generator
         .GroupBy(w => (charCount += w.Length + 1) / chunksize)
         .Select(g => string.Join(" ", g)).
         ToArray();
+    }
+
+    public static string GetEnumNameFromSetter(string name) {      
+      return "E" + name.Substring(3);
+    }
+
+    public static PropertyInfo GetEnumImplType(MethodInfo m) {
+      var statics = m.DeclaringType.GetProperties(BindingFlags.Public | BindingFlags.Static | BindingFlags.GetField);
+      var alltaggs = statics.Where(f => f.PropertyType == typeof(Tag[])).ToArray();
+      return alltaggs.Single();
     }
   }
 }

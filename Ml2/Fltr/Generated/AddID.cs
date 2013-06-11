@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -15,16 +16,19 @@ namespace Ml2.Fltr
     /// Set the new attribute's name.
     /// </summary>    
     public AddID<T> AttributeName (string value) {
-      ((AddID)impl).setAttributeName(value);
+      ((weka.filters.unsupervised.attribute.AddID)impl).setAttributeName(value);
       return this;
     }
+
     /// <summary>
     /// 
     /// </summary>    
     public AddID<T> IDIndex (string value) {
-      ((AddID)impl).setIDIndex(value);
+      ((weka.filters.unsupervised.attribute.AddID)impl).setIDIndex(value);
       return this;
     }
+
+        
         
   }
 }

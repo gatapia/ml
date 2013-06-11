@@ -6,12 +6,12 @@ namespace Ml2.Tasks.Generator
 {
   public class OptionModel
   {
-    private readonly Type t;
+    private readonly WekaTypeModel model;
     private readonly MethodInfo method;
 
-    public OptionModel(Type t, MethodInfo method)
+    public OptionModel(WekaTypeModel model, MethodInfo method)
     {
-      this.t = t;
+      this.model = model;
       this.method = method;
     }
 
@@ -20,7 +20,7 @@ namespace Ml2.Tasks.Generator
       get
       {
         var name = method.Name.Substring(3);
-        if (name == t.Name) { name = "Set" + name; }
+        if (name == model.ImplementationType.Name) { name = "Set" + name; }
         return name;
       }
     }
@@ -31,9 +31,9 @@ namespace Ml2.Tasks.Generator
       {
         var tiptextmname = OptionName + "TipText";
         tiptextmname = Char.ToLower(tiptextmname[0]) + tiptextmname.Substring(1);
-        var mi = t.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
+        var mi = model.ImplementationType.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
         if (mi == null) return String.Empty;
-        var desc = (string) mi.Invoke(Activator.CreateInstance(t), null);
+        var desc = (string) mi.Invoke(Activator.CreateInstance(model.ImplementationType), null);
         return String.Join("\n    /// ", Utils.SplitIntoChunks(desc, 75));
       }
     }
@@ -72,9 +72,27 @@ namespace Ml2.Tasks.Generator
           case "String[]": return "string[]";
           case "Int32": return "int";
           case "Double": return "double";
+          case "Double[]": return "double[]";
+          case "SelectedTag": 
+            try { Utils.GetEnumImplType(method); }
+            catch (InvalidOperationException) {
+              throw new NotSupportedException("Enum: " + method.Name + " not supported. No values found.");
+            }
+            return Utils.GetEnumNameFromSetter(method.Name);
           default:
             throw new NotSupportedException("Type: " + raw + " not supported.");
         }
+      }
+    }
+
+    public string SetterCode {
+      get {
+        var typename = model.ImplTypeName == model.TypeName ? model.ImplTypeFullName : model.ImplTypeName;
+        if (GetParameterType().Name == "SelectedTag") {
+          var implenumname = Utils.GetEnumImplType(method).Name;
+          return "((" + typename + ")impl)." + method.Name + "(new SelectedTag((int) value, " + typename + "." + implenumname + "));";
+        }
+        return "((" + typename + ")impl)." + OptionImplSetterName + "(value);";
       }
     }
 

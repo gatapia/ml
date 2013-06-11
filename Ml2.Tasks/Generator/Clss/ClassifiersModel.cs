@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Ml2.Tasks.Generator.Clss
 {
-  public partial class Classifiers 
+  public partial class Classifiers : ICodeGen
   {
     private readonly Type[] types;
     public Classifiers(Type[] types) { this.types = types; }

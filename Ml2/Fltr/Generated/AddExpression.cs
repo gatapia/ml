@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -18,24 +19,28 @@ namespace Ml2.Fltr
     /// Set the name of the new attribute.
     /// </summary>    
     public AddExpression<T> Name (string value) {
-      ((AddExpression)impl).setName(value);
+      ((weka.filters.unsupervised.attribute.AddExpression)impl).setName(value);
       return this;
     }
+
     /// <summary>
     /// Set the math expression to apply. Eg. a1^2*a5/log(a7*4.0)
     /// </summary>    
     public AddExpression<T> Expression (string value) {
-      ((AddExpression)impl).setExpression(value);
+      ((weka.filters.unsupervised.attribute.AddExpression)impl).setExpression(value);
       return this;
     }
+
     /// <summary>
     /// Set debug mode. If true then the new attribute will be named with the
     /// postfix parse of the supplied expression.
     /// </summary>    
     public AddExpression<T> Debug (bool value) {
-      ((AddExpression)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.AddExpression)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

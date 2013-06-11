@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -19,7 +20,7 @@ namespace Ml2.Clss
     /// cross-validation is performed).
     /// </summary>    
     public LogitBoost<T> NumFolds (int value) {
-      ((LogitBoost)impl).setNumFolds(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setNumFolds(value);
       return this;
     }
 
@@ -27,7 +28,7 @@ namespace Ml2.Clss
     /// Number of runs for internal cross-validation.
     /// </summary>    
     public LogitBoost<T> NumRuns (int value) {
-      ((LogitBoost)impl).setNumRuns(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setNumRuns(value);
       return this;
     }
 
@@ -36,7 +37,7 @@ namespace Ml2.Clss
     /// learning process).
     /// </summary>    
     public LogitBoost<T> WeightThreshold (int value) {
-      ((LogitBoost)impl).setWeightThreshold(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setWeightThreshold(value);
       return this;
     }
 
@@ -44,7 +45,7 @@ namespace Ml2.Clss
     /// Threshold on improvement in likelihood.
     /// </summary>    
     public LogitBoost<T> LikelihoodThreshold (double value) {
-      ((LogitBoost)impl).setLikelihoodThreshold(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setLikelihoodThreshold(value);
       return this;
     }
 
@@ -52,7 +53,7 @@ namespace Ml2.Clss
     /// Shrinkage parameter (use small value like 0.1 to reduce overfitting).
     /// </summary>    
     public LogitBoost<T> Shrinkage (double value) {
-      ((LogitBoost)impl).setShrinkage(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setShrinkage(value);
       return this;
     }
 
@@ -60,7 +61,7 @@ namespace Ml2.Clss
     /// Whether resampling is used instead of reweighting.
     /// </summary>    
     public LogitBoost<T> UseResampling (bool value) {
-      ((LogitBoost)impl).setUseResampling(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setUseResampling(value);
       return this;
     }
 
@@ -68,7 +69,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public LogitBoost<T> Seed (int value) {
-      ((LogitBoost)impl).setSeed(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setSeed(value);
       return this;
     }
 
@@ -76,7 +77,7 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public LogitBoost<T> NumIterations (int value) {
-      ((LogitBoost)impl).setNumIterations(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setNumIterations(value);
       return this;
     }
 
@@ -84,10 +85,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public LogitBoost<T> Debug (bool value) {
-      ((LogitBoost)impl).setDebug(value);
+      ((weka.classifiers.meta.LogitBoost)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

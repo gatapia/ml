@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -16,9 +17,11 @@ namespace Ml2.Fltr
     /// attributes ("first" and "last" are valid values as well as ranges and lists)
     /// </summary>    
     public StringToNominal<T> AttributeRange (string value) {
-      ((StringToNominal)impl).setAttributeRange(value);
+      ((weka.filters.unsupervised.attribute.StringToNominal)impl).setAttributeRange(value);
       return this;
     }
+
+        
         
   }
 }

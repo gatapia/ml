@@ -3,8 +3,8 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using Ml2.AttrSel.Evals;
 using weka.core;
+using Ml2.AttrSel.Evals;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -23,12 +23,18 @@ namespace Ml2.AttrSel.Algs
     /// <#= o.OptionDescription #>
     /// </summary>
     public <#= Model.TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
-      impl.<#= o.OptionImplSetterName #>(value);
+      <#= o.SetterCode #>
       return this;
     }
 
-<# }); #>
-        
+<# }); #>        
     public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
+
+<# Array.ForEach(Model.Enumerations, e => { #>
+    public enum <#= e.Name #> {
+      <#= String.Join(",\n      ", e.Values.Select(v => v.Key + " = " + v.Value)) #>
+    }
+
+<# }); #>        
   }
 }

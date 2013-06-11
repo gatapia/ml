@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -17,18 +18,21 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Remove<T> AttributeIndices (string value) {
-      ((Remove)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.Remove)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// Determines whether action is to select or delete. If set to true, only
     /// the specified attributes will be kept; If set to false, specified attributes
     /// will be deleted.
     /// </summary>    
     public Remove<T> InvertSelection (bool value) {
-      ((Remove)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.Remove)impl).setInvertSelection(value);
       return this;
     }
+
+        
         
   }
 }

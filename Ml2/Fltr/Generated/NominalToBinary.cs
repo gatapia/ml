@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -19,33 +20,38 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NominalToBinary<T> AttributeIndices (string value) {
-      ((NominalToBinary)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.NominalToBinary)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// Whether resulting binary attributes will be nominal.
     /// </summary>    
     public NominalToBinary<T> BinaryAttributesNominal (bool value) {
-      ((NominalToBinary)impl).setBinaryAttributesNominal(value);
+      ((weka.filters.unsupervised.attribute.NominalToBinary)impl).setBinaryAttributesNominal(value);
       return this;
     }
+
     /// <summary>
     /// Whether all nominal values are turned into new attributes, not only if
     /// there are more than 2.
     /// </summary>    
     public NominalToBinary<T> TransformAllValues (bool value) {
-      ((NominalToBinary)impl).setTransformAllValues(value);
+      ((weka.filters.unsupervised.attribute.NominalToBinary)impl).setTransformAllValues(value);
       return this;
     }
+
     /// <summary>
     /// Set attribute selection mode. If false, only selected (numeric)
     /// attributes in the range will be discretized; if true, only non-selected attributes
     /// will be discretized.
     /// </summary>    
     public NominalToBinary<T> InvertSelection (bool value) {
-      ((NominalToBinary)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.NominalToBinary)impl).setInvertSelection(value);
       return this;
     }
+
+        
         
   }
 }

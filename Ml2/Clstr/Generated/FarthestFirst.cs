@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -12,16 +13,14 @@ namespace Ml2.Clstr
   /// useful initializer for it
   /// </summary>
   public class FarthestFirst<T> : BaseClusterer<T>
-  {
-    private readonly FarthestFirst impl = new FarthestFirst();
-    
-    public FarthestFirst(Runtime<T> rt) : base(rt) {}
+  {    
+    public FarthestFirst(Runtime<T> rt) : base(rt, new FarthestFirst()) {}
 
     /// <summary>
     /// set number of clusters
     /// </summary>    
     public FarthestFirst<T> NumClusters (int value) {
-      impl.setNumClusters(value);
+      ((weka.clusterers.FarthestFirst)impl).setNumClusters(value);
       return this;
     }
 
@@ -29,18 +28,12 @@ namespace Ml2.Clstr
     /// The random number seed to be used.
     /// </summary>    
     public FarthestFirst<T> Seed (int value) {
-      impl.setSeed(value);
+      ((weka.clusterers.FarthestFirst)impl).setSeed(value);
       return this;
     }
+
+            
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

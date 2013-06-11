@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.instance;
 
 namespace Ml2.Fltr
@@ -15,16 +16,19 @@ namespace Ml2.Fltr
     /// The seed used for random sampling.
     /// </summary>    
     public ReservoirSample<T> RandomSeed (int value) {
-      ((ReservoirSample)impl).setRandomSeed(value);
+      ((weka.filters.unsupervised.instance.ReservoirSample)impl).setRandomSeed(value);
       return this;
     }
+
     /// <summary>
     /// Size of the subsample (reservoir). i.e. the number of instances.
     /// </summary>    
     public ReservoirSample<T> SampleSize (int value) {
-      ((ReservoirSample)impl).setSampleSize(value);
+      ((weka.filters.unsupervised.instance.ReservoirSample)impl).setSampleSize(value);
       return this;
     }
+
+        
         
   }
 }

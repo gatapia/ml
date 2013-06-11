@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -11,16 +12,14 @@ namespace Ml2.Clstr
   /// ACM-SIAM symposium on Discrete algorithms, 1027-1035, 2007.
   /// </summary>
   public class SimpleKMeans<T> : BaseClusterer<T>
-  {
-    private readonly SimpleKMeans impl = new SimpleKMeans();
-    
-    public SimpleKMeans(Runtime<T> rt) : base(rt) {}
+  {    
+    public SimpleKMeans(Runtime<T> rt) : base(rt, new SimpleKMeans()) {}
 
     /// <summary>
     /// set number of clusters
     /// </summary>    
     public SimpleKMeans<T> NumClusters (int value) {
-      impl.setNumClusters(value);
+      ((weka.clusterers.SimpleKMeans)impl).setNumClusters(value);
       return this;
     }
 
@@ -29,7 +28,7 @@ namespace Ml2.Clstr
     /// of available cpu/cores
     /// </summary>    
     public SimpleKMeans<T> NumExecutionSlots (int value) {
-      impl.setNumExecutionSlots(value);
+      ((weka.clusterers.SimpleKMeans)impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -38,7 +37,7 @@ namespace Ml2.Clstr
     /// attributes.
     /// </summary>    
     public SimpleKMeans<T> DisplayStdDevs (bool value) {
-      impl.setDisplayStdDevs(value);
+      ((weka.clusterers.SimpleKMeans)impl).setDisplayStdDevs(value);
       return this;
     }
 
@@ -46,7 +45,7 @@ namespace Ml2.Clstr
     /// set maximum number of iterations
     /// </summary>    
     public SimpleKMeans<T> MaxIterations (int value) {
-      impl.setMaxIterations(value);
+      ((weka.clusterers.SimpleKMeans)impl).setMaxIterations(value);
       return this;
     }
 
@@ -55,7 +54,7 @@ namespace Ml2.Clstr
     /// of the k-means++ algorithm
     /// </summary>    
     public SimpleKMeans<T> InitializeUsingKMeansPlusPlusMethod (bool value) {
-      impl.setInitializeUsingKMeansPlusPlusMethod(value);
+      ((weka.clusterers.SimpleKMeans)impl).setInitializeUsingKMeansPlusPlusMethod(value);
       return this;
     }
 
@@ -63,7 +62,7 @@ namespace Ml2.Clstr
     /// Replace missing values globally with mean/mode.
     /// </summary>    
     public SimpleKMeans<T> DontReplaceMissingValues (bool value) {
-      impl.setDontReplaceMissingValues(value);
+      ((weka.clusterers.SimpleKMeans)impl).setDontReplaceMissingValues(value);
       return this;
     }
 
@@ -71,7 +70,7 @@ namespace Ml2.Clstr
     /// Preserve order of instances.
     /// </summary>    
     public SimpleKMeans<T> PreserveInstancesOrder (bool value) {
-      impl.setPreserveInstancesOrder(value);
+      ((weka.clusterers.SimpleKMeans)impl).setPreserveInstancesOrder(value);
       return this;
     }
 
@@ -81,7 +80,7 @@ namespace Ml2.Clstr
     /// errors/sum of distances.
     /// </summary>    
     public SimpleKMeans<T> FastDistanceCalc (bool value) {
-      impl.setFastDistanceCalc(value);
+      ((weka.clusterers.SimpleKMeans)impl).setFastDistanceCalc(value);
       return this;
     }
 
@@ -89,18 +88,12 @@ namespace Ml2.Clstr
     /// The random number seed to be used.
     /// </summary>    
     public SimpleKMeans<T> Seed (int value) {
-      impl.setSeed(value);
+      ((weka.clusterers.SimpleKMeans)impl).setSeed(value);
       return this;
     }
+
+            
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

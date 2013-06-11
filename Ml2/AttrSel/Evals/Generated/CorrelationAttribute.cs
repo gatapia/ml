@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -17,11 +18,13 @@ namespace Ml2.AttrSel.Evals
     /// Output per value correlation for nominal attributes
     /// </summary>    
     public CorrelationAttribute OutputDetailedInfo (bool value) {
-      impl.setOutputDetailedInfo(value);
+      ((CorrelationAttributeEval)impl).setOutputDetailedInfo(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

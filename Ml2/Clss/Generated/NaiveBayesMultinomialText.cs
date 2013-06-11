@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.bayes;
 
 namespace Ml2.Clss
@@ -15,7 +16,7 @@ namespace Ml2.Clss
     /// If true, ignores all words that are on the stoplist.
     /// </summary>    
     public NaiveBayesMultinomialText<T> UseStopList (bool value) {
-      ((NaiveBayesMultinomialText)impl).setUseStopList(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setUseStopList(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Clss
     /// Use word frequencies rather than binary bag of words representation
     /// </summary>    
     public NaiveBayesMultinomialText<T> UseWordFrequencies (bool value) {
-      ((NaiveBayesMultinomialText)impl).setUseWordFrequencies(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setUseWordFrequencies(value);
       return this;
     }
 
@@ -33,7 +34,7 @@ namespace Ml2.Clss
     /// every n instances
     /// </summary>    
     public NaiveBayesMultinomialText<T> PeriodicPruning (int value) {
-      ((NaiveBayesMultinomialText)impl).setPeriodicPruning(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setPeriodicPruning(value);
       return this;
     }
 
@@ -43,7 +44,7 @@ namespace Ml2.Clss
     /// according to this value
     /// </summary>    
     public NaiveBayesMultinomialText<T> MinWordFrequency (double value) {
-      ((NaiveBayesMultinomialText)impl).setMinWordFrequency(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setMinWordFrequency(value);
       return this;
     }
 
@@ -52,7 +53,7 @@ namespace Ml2.Clss
     /// norm and lnorm
     /// </summary>    
     public NaiveBayesMultinomialText<T> NormalizeDocLength (bool value) {
-      ((NaiveBayesMultinomialText)impl).setNormalizeDocLength(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setNormalizeDocLength(value);
       return this;
     }
 
@@ -60,7 +61,7 @@ namespace Ml2.Clss
     /// The norm of the instances after normalization.
     /// </summary>    
     public NaiveBayesMultinomialText<T> Norm (double value) {
-      ((NaiveBayesMultinomialText)impl).setNorm(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setNorm(value);
       return this;
     }
 
@@ -68,7 +69,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public NaiveBayesMultinomialText<T> LNorm (double value) {
-      ((NaiveBayesMultinomialText)impl).setLNorm(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setLNorm(value);
       return this;
     }
 
@@ -76,7 +77,7 @@ namespace Ml2.Clss
     /// Whether to convert all tokens to lowercase
     /// </summary>    
     public NaiveBayesMultinomialText<T> LowercaseTokens (bool value) {
-      ((NaiveBayesMultinomialText)impl).setLowercaseTokens(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setLowercaseTokens(value);
       return this;
     }
 
@@ -84,10 +85,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public NaiveBayesMultinomialText<T> Debug (bool value) {
-      ((NaiveBayesMultinomialText)impl).setDebug(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialText)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

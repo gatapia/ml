@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Ml2.Tasks.Generator.Fltr
 {
-  public partial class Filters 
+  public partial class Filters : ICodeGen
   {
     private readonly Type[] types;    
     public Filters(Type[] types) { this.types = types; } 

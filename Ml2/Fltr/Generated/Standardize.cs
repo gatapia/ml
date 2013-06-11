@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,9 +15,11 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Standardize<T> IgnoreClass (bool value) {
-      ((Standardize)impl).setIgnoreClass(value);
+      ((weka.filters.unsupervised.attribute.Standardize)impl).setIgnoreClass(value);
       return this;
     }
+
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -32,7 +33,7 @@ namespace Ml2.Clss
     /// Turns time-consuming checks off - use with caution.
     /// </summary>    
     public SMO<T> ChecksTurnedOff (bool value) {
-      ((SMO)impl).setChecksTurnedOff(value);
+      ((weka.classifiers.functions.SMO)impl).setChecksTurnedOff(value);
       return this;
     }
 
@@ -40,7 +41,7 @@ namespace Ml2.Clss
     /// The complexity parameter C.
     /// </summary>    
     public SMO<T> C (double value) {
-      ((SMO)impl).setC(value);
+      ((weka.classifiers.functions.SMO)impl).setC(value);
       return this;
     }
 
@@ -48,7 +49,7 @@ namespace Ml2.Clss
     /// The tolerance parameter (shouldn't be changed).
     /// </summary>    
     public SMO<T> ToleranceParameter (double value) {
-      ((SMO)impl).setToleranceParameter(value);
+      ((weka.classifiers.functions.SMO)impl).setToleranceParameter(value);
       return this;
     }
 
@@ -56,7 +57,15 @@ namespace Ml2.Clss
     /// The epsilon for round-off error (shouldn't be changed).
     /// </summary>    
     public SMO<T> Epsilon (double value) {
-      ((SMO)impl).setEpsilon(value);
+      ((weka.classifiers.functions.SMO)impl).setEpsilon(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Determines how/if the data will be transformed.
+    /// </summary>    
+    public SMO<T> FilterType (EFilterType value) {
+      ((weka.classifiers.functions.SMO)impl).setFilterType(new SelectedTag((int) value, weka.classifiers.functions.SMO.TAGS_FILTER));
       return this;
     }
 
@@ -65,7 +74,7 @@ namespace Ml2.Clss
     /// estimates).
     /// </summary>    
     public SMO<T> BuildLogisticModels (bool value) {
-      ((SMO)impl).setBuildLogisticModels(value);
+      ((weka.classifiers.functions.SMO)impl).setBuildLogisticModels(value);
       return this;
     }
 
@@ -74,7 +83,7 @@ namespace Ml2.Clss
     /// for logistic models (-1 means use training data).
     /// </summary>    
     public SMO<T> NumFolds (int value) {
-      ((SMO)impl).setNumFolds(value);
+      ((weka.classifiers.functions.SMO)impl).setNumFolds(value);
       return this;
     }
 
@@ -82,7 +91,7 @@ namespace Ml2.Clss
     /// Random number seed for the cross-validation.
     /// </summary>    
     public SMO<T> RandomSeed (int value) {
-      ((SMO)impl).setRandomSeed(value);
+      ((weka.classifiers.functions.SMO)impl).setRandomSeed(value);
       return this;
     }
 
@@ -90,8 +99,15 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SMO<T> Debug (bool value) {
-      ((SMO)impl).setDebug(value);
+      ((weka.classifiers.functions.SMO)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EFilterType {
+      Normalize_training_data = 0,
+      Standardize_training_data = 1,
+      No_normalization_div_standardization = 2
     }
 
         

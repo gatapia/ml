@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.instance;
 
 namespace Ml2.Fltr
@@ -15,41 +16,47 @@ namespace Ml2.Fltr
     /// use any current set class or default to the last attribute.
     /// </summary>    
     public RemoveMisclassified<T> ClassIndex (int value) {
-      ((RemoveMisclassified)impl).setClassIndex(value);
+      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setClassIndex(value);
       return this;
     }
+
     /// <summary>
     /// The number of cross-validation folds to use. If < 2 then no
     /// cross-validation will be performed.
     /// </summary>    
     public RemoveMisclassified<T> NumFolds (int value) {
-      ((RemoveMisclassified)impl).setNumFolds(value);
+      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setNumFolds(value);
       return this;
     }
+
     /// <summary>
     /// Threshold for the max allowable error when predicting a numeric class.
     /// Should be >= 0.
     /// </summary>    
     public RemoveMisclassified<T> Threshold (double value) {
-      ((RemoveMisclassified)impl).setThreshold(value);
+      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setThreshold(value);
       return this;
     }
+
     /// <summary>
     /// The maximum number of iterations to perform. < 1 means filter will go
     /// until fully cleansed.
     /// </summary>    
     public RemoveMisclassified<T> MaxIterations (int value) {
-      ((RemoveMisclassified)impl).setMaxIterations(value);
+      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setMaxIterations(value);
       return this;
     }
+
     /// <summary>
     /// Whether or not to invert the selection. If true, correctly classified
     /// instances will be discarded.
     /// </summary>    
     public RemoveMisclassified<T> Invert (bool value) {
-      ((RemoveMisclassified)impl).setInvert(value);
+      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setInvert(value);
       return this;
     }
+
+        
         
   }
 }

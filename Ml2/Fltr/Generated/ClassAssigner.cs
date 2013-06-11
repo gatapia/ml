@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,16 +15,19 @@ namespace Ml2.Fltr
     /// accepted as well, '0' unsets the class index.
     /// </summary>    
     public ClassAssigner<T> ClassIndex (string value) {
-      ((ClassAssigner)impl).setClassIndex(value);
+      ((weka.filters.unsupervised.attribute.ClassAssigner)impl).setClassIndex(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public ClassAssigner<T> Debug (bool value) {
-      ((ClassAssigner)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.ClassAssigner)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

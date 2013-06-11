@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -18,7 +19,7 @@ namespace Ml2.AttrSel.Evals
     /// Retain enough PC attributes to account for this proportion of variance.
     /// </summary>    
     public PrincipalComponents VarianceCovered (double value) {
-      impl.setVarianceCovered(value);
+      ((weka.attributeSelection.PrincipalComponents)impl).setVarianceCovered(value);
       return this;
     }
 
@@ -27,7 +28,7 @@ namespace Ml2.AttrSel.Evals
     /// names.
     /// </summary>    
     public PrincipalComponents MaximumAttributeNames (int value) {
-      impl.setMaximumAttributeNames(value);
+      ((weka.attributeSelection.PrincipalComponents)impl).setMaximumAttributeNames(value);
       return this;
     }
 
@@ -37,7 +38,7 @@ namespace Ml2.AttrSel.Evals
     /// will give a dataset in the original space but with less attribute noise.
     /// </summary>    
     public PrincipalComponents TransformBackToOriginal (bool value) {
-      impl.setTransformBackToOriginal(value);
+      ((weka.attributeSelection.PrincipalComponents)impl).setTransformBackToOriginal(value);
       return this;
     }
 
@@ -46,11 +47,13 @@ namespace Ml2.AttrSel.Evals
     /// covariance (rather than correlation) matrix
     /// </summary>    
     public PrincipalComponents CenterData (bool value) {
-      impl.setCenterData(value);
+      ((weka.attributeSelection.PrincipalComponents)impl).setCenterData(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

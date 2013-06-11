@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.bayes.net;
 
 namespace Ml2.Clss
@@ -17,7 +18,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public BayesNetGenerator<T> BIFFile (string value) {
-      ((BayesNetGenerator)impl).setBIFFile(value);
+      ((weka.classifiers.bayes.net.BayesNetGenerator)impl).setBIFFile(value);
       return this;
     }
 
@@ -29,7 +30,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public BayesNetGenerator<T> UseADTree (bool value) {
-      ((BayesNetGenerator)impl).setUseADTree(value);
+      ((weka.classifiers.bayes.net.BayesNetGenerator)impl).setUseADTree(value);
       return this;
     }
 
@@ -37,10 +38,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public BayesNetGenerator<T> Debug (bool value) {
-      ((BayesNetGenerator)impl).setDebug(value);
+      ((weka.classifiers.bayes.net.BayesNetGenerator)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

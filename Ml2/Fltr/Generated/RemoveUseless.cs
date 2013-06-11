@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -19,9 +20,11 @@ namespace Ml2.Fltr
     /// removed.
     /// </summary>    
     public RemoveUseless<T> MaximumVariancePercentageAllowed (double value) {
-      ((RemoveUseless)impl).setMaximumVariancePercentageAllowed(value);
+      ((weka.filters.unsupervised.attribute.RemoveUseless)impl).setMaximumVariancePercentageAllowed(value);
       return this;
     }
+
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.associations;
 
 namespace Ml2.Asstn
@@ -17,10 +18,11 @@ namespace Ml2.Asstn
     /// as class attribute.
     /// </summary>    
     public FilteredAssociator<T> ClassIndex (int value) {
-      ((FilteredAssociator)impl).setClassIndex(value);
+      ((weka.associations.FilteredAssociator)impl).setClassIndex(value);
       return this;
     }
 
+          
         
   }
 }

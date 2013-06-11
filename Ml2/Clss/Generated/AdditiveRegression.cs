@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -20,7 +21,7 @@ namespace Ml2.Clss
     /// smoothing effect (but increase learning time). Default = 1.0, ie. no shrinkage.
     /// </summary>    
     public AdditiveRegression<T> Shrinkage (double value) {
-      ((AdditiveRegression)impl).setShrinkage(value);
+      ((weka.classifiers.meta.AdditiveRegression)impl).setShrinkage(value);
       return this;
     }
 
@@ -28,7 +29,7 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public AdditiveRegression<T> NumIterations (int value) {
-      ((AdditiveRegression)impl).setNumIterations(value);
+      ((weka.classifiers.meta.AdditiveRegression)impl).setNumIterations(value);
       return this;
     }
 
@@ -36,10 +37,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public AdditiveRegression<T> Debug (bool value) {
-      ((AdditiveRegression)impl).setDebug(value);
+      ((weka.classifiers.meta.AdditiveRegression)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

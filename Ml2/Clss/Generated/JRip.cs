@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.rules;
 
 namespace Ml2.Clss
@@ -53,7 +54,7 @@ namespace Ml2.Clss
     /// pruning, the rest for growing the rules.
     /// </summary>    
     public JRip<T> Folds (int value) {
-      ((JRip)impl).setFolds(value);
+      ((weka.classifiers.rules.JRip)impl).setFolds(value);
       return this;
     }
 
@@ -61,7 +62,7 @@ namespace Ml2.Clss
     /// The minimum total weight of the instances in a rule.
     /// </summary>    
     public JRip<T> MinNo (double value) {
-      ((JRip)impl).setMinNo(value);
+      ((weka.classifiers.rules.JRip)impl).setMinNo(value);
       return this;
     }
 
@@ -69,7 +70,7 @@ namespace Ml2.Clss
     /// The number of optimization runs.
     /// </summary>    
     public JRip<T> Optimizations (int value) {
-      ((JRip)impl).setOptimizations(value);
+      ((weka.classifiers.rules.JRip)impl).setOptimizations(value);
       return this;
     }
 
@@ -77,7 +78,7 @@ namespace Ml2.Clss
     /// Whether debug information is output to the console.
     /// </summary>    
     public JRip<T> Debug (bool value) {
-      ((JRip)impl).setDebug(value);
+      ((weka.classifiers.rules.JRip)impl).setDebug(value);
       return this;
     }
 
@@ -85,7 +86,7 @@ namespace Ml2.Clss
     /// Whether check for error rate >= 1/2 is included in stopping criterion.
     /// </summary>    
     public JRip<T> CheckErrorRate (bool value) {
-      ((JRip)impl).setCheckErrorRate(value);
+      ((weka.classifiers.rules.JRip)impl).setCheckErrorRate(value);
       return this;
     }
 
@@ -93,10 +94,11 @@ namespace Ml2.Clss
     /// Whether pruning is performed.
     /// </summary>    
     public JRip<T> UsePruning (bool value) {
-      ((JRip)impl).setUsePruning(value);
+      ((weka.classifiers.rules.JRip)impl).setUsePruning(value);
       return this;
     }
 
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -18,16 +19,14 @@ namespace Ml2.Clstr
   /// instances.
   /// </summary>
   public class EM<T> : BaseClusterer<T>
-  {
-    private readonly EM impl = new EM();
-    
-    public EM(Runtime<T> rt) : base(rt) {}
+  {    
+    public EM(Runtime<T> rt) : base(rt, new EM()) {}
 
     /// <summary>
     /// If set to true, clusterer may output additional info to the console.
     /// </summary>    
     public EM<T> Debug (bool value) {
-      impl.setDebug(value);
+      ((weka.clusterers.EM)impl).setDebug(value);
       return this;
     }
 
@@ -35,7 +34,7 @@ namespace Ml2.Clstr
     /// maximum number of iterations
     /// </summary>    
     public EM<T> MaxIterations (int value) {
-      impl.setMaxIterations(value);
+      ((weka.clusterers.EM)impl).setMaxIterations(value);
       return this;
     }
 
@@ -44,7 +43,7 @@ namespace Ml2.Clstr
     /// of clusters (default = 10)
     /// </summary>    
     public EM<T> NumFolds (int value) {
-      impl.setNumFolds(value);
+      ((weka.clusterers.EM)impl).setNumFolds(value);
       return this;
     }
 
@@ -53,7 +52,7 @@ namespace Ml2.Clstr
     /// iteration of the E and M steps
     /// </summary>    
     public EM<T> MinLogLikelihoodImprovementIterating (double value) {
-      impl.setMinLogLikelihoodImprovementIterating(value);
+      ((weka.clusterers.EM)impl).setMinLogLikelihoodImprovementIterating(value);
       return this;
     }
 
@@ -63,7 +62,7 @@ namespace Ml2.Clstr
     /// find the best number of clusters
     /// </summary>    
     public EM<T> MinLogLikelihoodImprovementCV (double value) {
-      impl.setMinLogLikelihoodImprovementCV(value);
+      ((weka.clusterers.EM)impl).setMinLogLikelihoodImprovementCV(value);
       return this;
     }
 
@@ -72,7 +71,7 @@ namespace Ml2.Clstr
     /// cross validation.
     /// </summary>    
     public EM<T> NumClusters (int value) {
-      impl.setNumClusters(value);
+      ((weka.clusterers.EM)impl).setNumClusters(value);
       return this;
     }
 
@@ -81,7 +80,7 @@ namespace Ml2.Clstr
     /// select the best number of clusters
     /// </summary>    
     public EM<T> MaximumNumberOfClusters (int value) {
-      impl.setMaximumNumberOfClusters(value);
+      ((weka.clusterers.EM)impl).setMaximumNumberOfClusters(value);
       return this;
     }
 
@@ -89,7 +88,7 @@ namespace Ml2.Clstr
     /// set minimum allowable standard deviation
     /// </summary>    
     public EM<T> MinStdDev (double value) {
-      impl.setMinStdDev(value);
+      ((weka.clusterers.EM)impl).setMinStdDev(value);
       return this;
     }
 
@@ -99,7 +98,7 @@ namespace Ml2.Clstr
     /// many attributes.
     /// </summary>    
     public EM<T> DisplayModelInOldFormat (bool value) {
-      impl.setDisplayModelInOldFormat(value);
+      ((weka.clusterers.EM)impl).setDisplayModelInOldFormat(value);
       return this;
     }
 
@@ -108,7 +107,15 @@ namespace Ml2.Clstr
     /// of available cpu/cores
     /// </summary>    
     public EM<T> NumExecutionSlots (int value) {
-      impl.setNumExecutionSlots(value);
+      ((weka.clusterers.EM)impl).setNumExecutionSlots(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EM<T> MinStdDevPerAtt (double[] value) {
+      ((weka.clusterers.EM)impl).setMinStdDevPerAtt(value);
       return this;
     }
 
@@ -116,18 +123,12 @@ namespace Ml2.Clstr
     /// The random number seed to be used.
     /// </summary>    
     public EM<T> Seed (int value) {
-      impl.setSeed(value);
+      ((weka.clusterers.EM)impl).setSeed(value);
       return this;
     }
+
+            
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

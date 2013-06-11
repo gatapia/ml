@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Ml2.Tasks.Generator.Asstn
 {
-  public partial class Associations 
+  public partial class Associations : ICodeGen
   {
     private readonly Type[] types;
     public Associations(Type[] types) { this.types = types; }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -15,30 +16,35 @@ namespace Ml2.Fltr
     /// Index of the attribute that is to changed.
     /// </summary>    
     public AddNoise<T> AttributeIndex (string value) {
-      ((AddNoise)impl).setAttributeIndex(value);
+      ((weka.filters.unsupervised.attribute.AddNoise)impl).setAttributeIndex(value);
       return this;
     }
+
     /// <summary>
     /// Flag to set if missing values are used.
     /// </summary>    
     public AddNoise<T> UseMissing (bool value) {
-      ((AddNoise)impl).setUseMissing(value);
+      ((weka.filters.unsupervised.attribute.AddNoise)impl).setUseMissing(value);
       return this;
     }
+
     /// <summary>
     /// Percentage of introduced noise to data.
     /// </summary>    
     public AddNoise<T> Percent (int value) {
-      ((AddNoise)impl).setPercent(value);
+      ((weka.filters.unsupervised.attribute.AddNoise)impl).setPercent(value);
       return this;
     }
+
     /// <summary>
     /// Random number seed.
     /// </summary>    
     public AddNoise<T> RandomSeed (int value) {
-      ((AddNoise)impl).setRandomSeed(value);
+      ((weka.filters.unsupervised.attribute.AddNoise)impl).setRandomSeed(value);
       return this;
     }
+
+        
         
   }
 }

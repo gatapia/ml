@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.trees;
 
 namespace Ml2.Clss
@@ -17,7 +18,7 @@ namespace Ml2.Clss
     /// Whether pruning is performed.
     /// </summary>    
     public REPTree<T> NoPruning (bool value) {
-      ((REPTree)impl).setNoPruning(value);
+      ((weka.classifiers.trees.REPTree)impl).setNoPruning(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Clss
     /// The minimum total weight of the instances in a leaf.
     /// </summary>    
     public REPTree<T> MinNum (double value) {
-      ((REPTree)impl).setMinNum(value);
+      ((weka.classifiers.trees.REPTree)impl).setMinNum(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Clss
     /// trees.
     /// </summary>    
     public REPTree<T> MinVarianceProp (double value) {
-      ((REPTree)impl).setMinVarianceProp(value);
+      ((weka.classifiers.trees.REPTree)impl).setMinVarianceProp(value);
       return this;
     }
 
@@ -43,7 +44,7 @@ namespace Ml2.Clss
     /// The seed used for randomizing the data.
     /// </summary>    
     public REPTree<T> Seed (int value) {
-      ((REPTree)impl).setSeed(value);
+      ((weka.classifiers.trees.REPTree)impl).setSeed(value);
       return this;
     }
 
@@ -52,7 +53,7 @@ namespace Ml2.Clss
     /// pruning, the rest for growing the rules.
     /// </summary>    
     public REPTree<T> NumFolds (int value) {
-      ((REPTree)impl).setNumFolds(value);
+      ((weka.classifiers.trees.REPTree)impl).setNumFolds(value);
       return this;
     }
 
@@ -60,7 +61,7 @@ namespace Ml2.Clss
     /// The maximum tree depth (-1 for no restriction).
     /// </summary>    
     public REPTree<T> MaxDepth (int value) {
-      ((REPTree)impl).setMaxDepth(value);
+      ((weka.classifiers.trees.REPTree)impl).setMaxDepth(value);
       return this;
     }
 
@@ -68,7 +69,7 @@ namespace Ml2.Clss
     /// Initial class value count.
     /// </summary>    
     public REPTree<T> InitialCount (double value) {
-      ((REPTree)impl).setInitialCount(value);
+      ((weka.classifiers.trees.REPTree)impl).setInitialCount(value);
       return this;
     }
 
@@ -77,7 +78,7 @@ namespace Ml2.Clss
     /// value.
     /// </summary>    
     public REPTree<T> SpreadInitialCount (bool value) {
-      ((REPTree)impl).setSpreadInitialCount(value);
+      ((weka.classifiers.trees.REPTree)impl).setSpreadInitialCount(value);
       return this;
     }
 
@@ -85,10 +86,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public REPTree<T> Debug (bool value) {
-      ((REPTree)impl).setDebug(value);
+      ((weka.classifiers.trees.REPTree)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

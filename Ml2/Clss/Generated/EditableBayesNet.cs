@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.bayes.net;
 
 namespace Ml2.Clss
@@ -17,7 +18,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public EditableBayesNet<T> BIFFile (string value) {
-      ((EditableBayesNet)impl).setBIFFile(value);
+      ((weka.classifiers.bayes.net.EditableBayesNet)impl).setBIFFile(value);
       return this;
     }
 
@@ -29,7 +30,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public EditableBayesNet<T> UseADTree (bool value) {
-      ((EditableBayesNet)impl).setUseADTree(value);
+      ((weka.classifiers.bayes.net.EditableBayesNet)impl).setUseADTree(value);
       return this;
     }
 
@@ -37,10 +38,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public EditableBayesNet<T> Debug (bool value) {
-      ((EditableBayesNet)impl).setDebug(value);
+      ((weka.classifiers.bayes.net.EditableBayesNet)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

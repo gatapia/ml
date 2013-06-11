@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -20,33 +21,38 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public TimeSeriesDelta<T> AttributeIndices (string value) {
-      ((TimeSeriesDelta)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// Invert matching sense. ie calculate for all non-specified columns.
     /// </summary>    
     public TimeSeriesDelta<T> InvertSelection (bool value) {
-      ((TimeSeriesDelta)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setInvertSelection(value);
       return this;
     }
+
     /// <summary>
     /// For instances at the beginning or end of the dataset where the translated
     /// values are not known, use missing values (default is to remove those
     /// instances)
     /// </summary>    
     public TimeSeriesDelta<T> FillWithMissing (bool value) {
-      ((TimeSeriesDelta)impl).setFillWithMissing(value);
+      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setFillWithMissing(value);
       return this;
     }
+
     /// <summary>
     /// The number of instances forward/backward to merge values between. A
     /// negative number indicates taking values from a past instance.
     /// </summary>    
     public TimeSeriesDelta<T> InstanceRange (int value) {
-      ((TimeSeriesDelta)impl).setInstanceRange(value);
+      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setInstanceRange(value);
       return this;
     }
+
+        
         
   }
 }

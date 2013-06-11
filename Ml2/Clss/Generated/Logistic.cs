@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -33,7 +34,7 @@ namespace Ml2.Clss
     /// Output debug information to the console.
     /// </summary>    
     public Logistic<T> Debug (bool value) {
-      ((Logistic)impl).setDebug(value);
+      ((weka.classifiers.functions.Logistic)impl).setDebug(value);
       return this;
     }
 
@@ -42,7 +43,7 @@ namespace Ml2.Clss
     /// problems with many parameters.
     /// </summary>    
     public Logistic<T> UseConjugateGradientDescent (bool value) {
-      ((Logistic)impl).setUseConjugateGradientDescent(value);
+      ((weka.classifiers.functions.Logistic)impl).setUseConjugateGradientDescent(value);
       return this;
     }
 
@@ -50,7 +51,7 @@ namespace Ml2.Clss
     /// Set the Ridge value in the log-likelihood.
     /// </summary>    
     public Logistic<T> Ridge (double value) {
-      ((Logistic)impl).setRidge(value);
+      ((weka.classifiers.functions.Logistic)impl).setRidge(value);
       return this;
     }
 
@@ -58,10 +59,11 @@ namespace Ml2.Clss
     /// Maximum number of iterations to perform.
     /// </summary>    
     public Logistic<T> MaxIts (int value) {
-      ((Logistic)impl).setMaxIts(value);
+      ((weka.classifiers.functions.Logistic)impl).setMaxIts(value);
       return this;
     }
 
+        
         
   }
 }

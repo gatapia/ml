@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -7,17 +8,15 @@ namespace Ml2.Clstr
   /// agglomorative (i.e. bottom up) hierarchical clustering methodsbased on .
   /// </summary>
   public class Hierarchical<T> : BaseClusterer<T>
-  {
-    private readonly HierarchicalClusterer impl = new HierarchicalClusterer();
-    
-    public Hierarchical(Runtime<T> rt) : base(rt) {}
+  {    
+    public Hierarchical(Runtime<T> rt) : base(rt, new HierarchicalClusterer()) {}
 
     /// <summary>
     /// Sets the number of clusters. If a single hierarchy is desired, set this
     /// to 1.
     /// </summary>    
     public Hierarchical<T> NumClusters (int value) {
-      impl.setNumClusters(value);
+      ((HierarchicalClusterer)impl).setNumClusters(value);
       return this;
     }
 
@@ -25,7 +24,7 @@ namespace Ml2.Clstr
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Hierarchical<T> Debug (bool value) {
-      impl.setDebug(value);
+      ((HierarchicalClusterer)impl).setDebug(value);
       return this;
     }
 
@@ -37,7 +36,27 @@ namespace Ml2.Clstr
     /// interpretation.
     /// </summary>    
     public Hierarchical<T> DistanceIsBranchLength (bool value) {
-      impl.setDistanceIsBranchLength(value);
+      ((HierarchicalClusterer)impl).setDistanceIsBranchLength(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Sets the method used to measure the distance between two clusters.
+    /// SINGLE: find single link distance aka minimum link, which is the closest distance
+    /// between any item in cluster1 and any item in cluster2 COMPLETE: find
+    /// complete link distance aka maximum link, which is the largest distance between
+    /// any item in cluster1 and any item in cluster2 ADJCOMLPETE: as COMPLETE, but
+    /// with adjustment, which is the largest within cluster distance AVERAGE:
+    /// finds average distance between the elements of the two clusters MEAN:
+    /// calculates the mean distance of a merged cluster (akak Group-average agglomerative
+    /// clustering) CENTROID: finds the distance of the centroids of the clusters
+    /// WARD: finds the distance of the change in caused by merging the cluster. The
+    /// information of a cluster is calculated as the error sum of squares of the
+    /// centroids of the cluster and its members. NEIGHBOR_JOINING use neighbor
+    /// joining algorithm.
+    /// </summary>    
+    public Hierarchical<T> LinkType (ELinkType value) {
+      ((HierarchicalClusterer)impl).setLinkType(new SelectedTag((int) value, HierarchicalClusterer.TAGS_LINK_TYPE));
       return this;
     }
 
@@ -48,18 +67,23 @@ namespace Ml2.Clstr
     /// format is not required
     /// </summary>    
     public Hierarchical<T> PrintNewick (bool value) {
-      impl.setPrintNewick(value);
+      ((HierarchicalClusterer)impl).setPrintNewick(value);
       return this;
+    }
+
+            
+
+    public enum ELinkType {
+      SINGLE = 0,
+      COMPLETE = 1,
+      AVERAGE = 2,
+      MEAN = 3,
+      CENTROID = 4,
+      WARD = 5,
+      ADJCOMLPETE = 6,
+      NEIGHBOR_JOINING = 7
     }
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

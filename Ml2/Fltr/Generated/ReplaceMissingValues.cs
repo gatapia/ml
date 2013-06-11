@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,9 +15,11 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public ReplaceMissingValues<T> IgnoreClass (bool value) {
-      ((ReplaceMissingValues)impl).setIgnoreClass(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingValues)impl).setIgnoreClass(value);
       return this;
     }
+
+        
         
   }
 }

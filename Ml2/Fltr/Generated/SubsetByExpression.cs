@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.instance;
 
 namespace Ml2.Fltr
@@ -33,9 +34,10 @@ namespace Ml2.Fltr
     /// The expression to used for filtering the dataset.
     /// </summary>    
     public SubsetByExpression<T> Expression (string value) {
-      ((SubsetByExpression)impl).setExpression(value);
+      ((weka.filters.unsupervised.instance.SubsetByExpression)impl).setExpression(value);
       return this;
     }
+
     /// <summary>
     /// Whether to apply the filtering process to instances that are input after
     /// the first (training) batch. The default is false so that, when used in a
@@ -43,16 +45,19 @@ namespace Ml2.Fltr
     /// filter an a prediction is always made.
     /// </summary>    
     public SubsetByExpression<T> FilterAfterFirstBatch (bool value) {
-      ((SubsetByExpression)impl).setFilterAfterFirstBatch(value);
+      ((weka.filters.unsupervised.instance.SubsetByExpression)impl).setFilterAfterFirstBatch(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public SubsetByExpression<T> Debug (bool value) {
-      ((SubsetByExpression)impl).setDebug(value);
+      ((weka.filters.unsupervised.instance.SubsetByExpression)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

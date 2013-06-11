@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -19,25 +20,29 @@ namespace Ml2.Fltr
     /// will be 'nominalized'.
     /// </summary>    
     public NumericToNominal<T> InvertSelection (bool value) {
-      ((NumericToNominal)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.NumericToNominal)impl).setInvertSelection(value);
       return this;
     }
+
     /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NumericToNominal<T> AttributeIndices (string value) {
-      ((NumericToNominal)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.NumericToNominal)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public NumericToNominal<T> Debug (bool value) {
-      ((NumericToNominal)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.NumericToNominal)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

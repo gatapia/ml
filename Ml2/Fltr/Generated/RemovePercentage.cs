@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.instance;
 
 namespace Ml2.Fltr
@@ -13,16 +14,19 @@ namespace Ml2.Fltr
     /// The percentage of the data to select.
     /// </summary>    
     public RemovePercentage<T> Percentage (double value) {
-      ((RemovePercentage)impl).setPercentage(value);
+      ((weka.filters.unsupervised.instance.RemovePercentage)impl).setPercentage(value);
       return this;
     }
+
     /// <summary>
     /// Whether to invert the selection.
     /// </summary>    
     public RemovePercentage<T> InvertSelection (bool value) {
-      ((RemovePercentage)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.instance.RemovePercentage)impl).setInvertSelection(value);
       return this;
     }
+
+        
         
   }
 }

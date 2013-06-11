@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters;
 
 namespace Ml2.Fltr
@@ -14,9 +15,11 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public MultiFilter<T> Debug (bool value) {
-      ((MultiFilter)impl).setDebug(value);
+      ((weka.filters.MultiFilter)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

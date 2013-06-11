@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -9,16 +10,14 @@ namespace Ml2.Clstr
   /// NumberOfClustersRequestable interface only if the wrapped Clusterer does.
   /// </summary>
   public class MakeDensityBased<T> : BaseClusterer<T>
-  {
-    private readonly MakeDensityBasedClusterer impl = new MakeDensityBasedClusterer();
-    
-    public MakeDensityBased(Runtime<T> rt) : base(rt) {}
+  {    
+    public MakeDensityBased(Runtime<T> rt) : base(rt, new MakeDensityBasedClusterer()) {}
 
     /// <summary>
     /// set minimum allowable standard deviation
     /// </summary>    
     public MakeDensityBased<T> MinStdDev (double value) {
-      impl.setMinStdDev(value);
+      ((MakeDensityBasedClusterer)impl).setMinStdDev(value);
       return this;
     }
 
@@ -26,18 +25,12 @@ namespace Ml2.Clstr
     /// 
     /// </summary>    
     public MakeDensityBased<T> NumClusters (int value) {
-      impl.setNumClusters(value);
+      ((MakeDensityBasedClusterer)impl).setNumClusters(value);
       return this;
     }
+
+            
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,23 +15,27 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public SwapValues<T> AttributeIndex (string value) {
-      ((SwapValues)impl).setAttributeIndex(value);
+      ((weka.filters.unsupervised.attribute.SwapValues)impl).setAttributeIndex(value);
       return this;
     }
+
     /// <summary>
     /// The index of the first value.("first" and "last" are valid values)
     /// </summary>    
     public SwapValues<T> FirstValueIndex (string value) {
-      ((SwapValues)impl).setFirstValueIndex(value);
+      ((weka.filters.unsupervised.attribute.SwapValues)impl).setFirstValueIndex(value);
       return this;
     }
+
     /// <summary>
     /// The index of the second value.("first" and "last" are valid values)
     /// </summary>    
     public SwapValues<T> SecondValueIndex (string value) {
-      ((SwapValues)impl).setSecondValueIndex(value);
+      ((weka.filters.unsupervised.attribute.SwapValues)impl).setSecondValueIndex(value);
       return this;
     }
+
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.lazy;
 
 namespace Ml2.Clss
@@ -19,7 +20,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public LWL<T> KNN (int value) {
-      ((LWL)impl).setKNN(value);
+      ((weka.classifiers.lazy.LWL)impl).setKNN(value);
       return this;
     }
 
@@ -28,7 +29,7 @@ namespace Ml2.Clss
     /// 3 = Inverse, 4 = Gaussian and 5 = Constant. (default 0 = Linear)].
     /// </summary>    
     public LWL<T> WeightingKernel (int value) {
-      ((LWL)impl).setWeightingKernel(value);
+      ((weka.classifiers.lazy.LWL)impl).setWeightingKernel(value);
       return this;
     }
 
@@ -36,10 +37,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public LWL<T> Debug (bool value) {
-      ((LWL)impl).setDebug(value);
+      ((weka.classifiers.lazy.LWL)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

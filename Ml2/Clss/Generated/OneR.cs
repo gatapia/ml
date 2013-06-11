@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.rules;
 
 namespace Ml2.Clss
@@ -16,7 +17,7 @@ namespace Ml2.Clss
     /// The minimum bucket size used for discretizing numeric attributes.
     /// </summary>    
     public OneR<T> MinBucketSize (int value) {
-      ((OneR)impl).setMinBucketSize(value);
+      ((weka.classifiers.rules.OneR)impl).setMinBucketSize(value);
       return this;
     }
 
@@ -24,10 +25,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public OneR<T> Debug (bool value) {
-      ((OneR)impl).setDebug(value);
+      ((weka.classifiers.rules.OneR)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

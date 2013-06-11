@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -20,7 +21,15 @@ namespace Ml2.Clss
     /// Matrix), after the target has been normalized/standardized/left unchanged).
     /// </summary>    
     public GaussianProcesses<T> Noise (double value) {
-      ((GaussianProcesses)impl).setNoise(value);
+      ((weka.classifiers.functions.GaussianProcesses)impl).setNoise(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Determines how/if the data will be transformed.
+    /// </summary>    
+    public GaussianProcesses<T> FilterType (EFilterType value) {
+      ((weka.classifiers.functions.GaussianProcesses)impl).setFilterType(new SelectedTag((int) value, weka.classifiers.functions.GaussianProcesses.TAGS_FILTER));
       return this;
     }
 
@@ -28,8 +37,15 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public GaussianProcesses<T> Debug (bool value) {
-      ((GaussianProcesses)impl).setDebug(value);
+      ((weka.classifiers.functions.GaussianProcesses)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EFilterType {
+      Normalize_training_data = 0,
+      Standardize_training_data = 1,
+      No_normalization_div_standardization = 2
     }
 
         

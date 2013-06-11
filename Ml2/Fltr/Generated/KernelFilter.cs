@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -21,32 +22,37 @@ namespace Ml2.Fltr
     /// Turns time-consuming checks off - use with caution.
     /// </summary>    
     public KernelFilter<T> ChecksTurnedOff (bool value) {
-      ((KernelFilter)impl).setChecksTurnedOff(value);
+      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setChecksTurnedOff(value);
       return this;
     }
+
     /// <summary>
     /// The class index of the dataset to initialize the filter with (first and
     /// last are valid).
     /// </summary>    
     public KernelFilter<T> InitFileClassIndex (string value) {
-      ((KernelFilter)impl).setInitFileClassIndex(value);
+      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setInitFileClassIndex(value);
       return this;
     }
+
     /// <summary>
     /// The factor for the kernel, with A = # of attributes and N = # of
     /// instances.
     /// </summary>    
     public KernelFilter<T> KernelFactorExpression (string value) {
-      ((KernelFilter)impl).setKernelFactorExpression(value);
+      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setKernelFactorExpression(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public KernelFilter<T> Debug (bool value) {
-      ((KernelFilter)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

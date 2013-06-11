@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -17,7 +18,7 @@ namespace Ml2.Clss
     /// training data will be used).
     /// </summary>    
     public MultiScheme<T> NumFolds (int value) {
-      ((MultiScheme)impl).setNumFolds(value);
+      ((weka.classifiers.meta.MultiScheme)impl).setNumFolds(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Clss
     /// The seed used for randomizing the data for cross-validation.
     /// </summary>    
     public MultiScheme<T> Seed (int value) {
-      ((MultiScheme)impl).setSeed(value);
+      ((weka.classifiers.meta.MultiScheme)impl).setSeed(value);
       return this;
     }
 
@@ -33,10 +34,11 @@ namespace Ml2.Clss
     /// Whether debug information is output to console.
     /// </summary>    
     public MultiScheme<T> Debug (bool value) {
-      ((MultiScheme)impl).setDebug(value);
+      ((weka.classifiers.meta.MultiScheme)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

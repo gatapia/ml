@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -15,25 +16,42 @@ namespace Ml2.Fltr
     /// inclusive range with "-"; eg: "first-3,5,6-10,last".
     /// </summary>    
     public SortLabels<T> AttributeIndices (string value) {
-      ((SortLabels)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.SortLabels)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// Set attribute selection mode. If false, only selected attributes in the
     /// range will be worked on; if true, only non-selected attributes will be
     /// processed.
     /// </summary>    
     public SortLabels<T> InvertSelection (bool value) {
-      ((SortLabels)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.SortLabels)impl).setInvertSelection(value);
       return this;
     }
+
+    /// <summary>
+    /// The type of sorting to use.
+    /// </summary>    
+    public SortLabels<T> SortType (ESortType value) {
+      ((weka.filters.unsupervised.attribute.SortLabels)impl).setSortType(new SelectedTag((int) value, weka.filters.unsupervised.attribute.SortLabels.TAGS_SORTTYPE));
+      return this;
+    }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public SortLabels<T> Debug (bool value) {
-      ((SortLabels)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.SortLabels)impl).setDebug(value);
       return this;
     }
+
+        
+    public enum ESortType {
+      Case_sensitive = 0,
+      Case_insensitive = 1
+    }
+
         
   }
 }

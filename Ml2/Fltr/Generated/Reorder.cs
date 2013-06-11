@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -25,9 +26,11 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Reorder<T> AttributeIndices (string value) {
-      ((Reorder)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.Reorder)impl).setAttributeIndices(value);
       return this;
     }
+
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -17,7 +18,7 @@ namespace Ml2.Clss
     /// The amount the weights are updated.
     /// </summary>    
     public MultilayerPerceptron<T> LearningRate (double value) {
-      ((MultilayerPerceptron)impl).setLearningRate(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setLearningRate(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Clss
     /// Momentum applied to the weights during updating.
     /// </summary>    
     public MultilayerPerceptron<T> Momentum (double value) {
-      ((MultilayerPerceptron)impl).setMomentum(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setMomentum(value);
       return this;
     }
 
@@ -33,7 +34,7 @@ namespace Ml2.Clss
     /// Adds and connects up hidden layers in the network.
     /// </summary>    
     public MultilayerPerceptron<T> AutoBuild (bool value) {
-      ((MultilayerPerceptron)impl).setAutoBuild(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setAutoBuild(value);
       return this;
     }
 
@@ -46,7 +47,7 @@ namespace Ml2.Clss
     /// message.
     /// </summary>    
     public MultilayerPerceptron<T> Reset (bool value) {
-      ((MultilayerPerceptron)impl).setReset(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setReset(value);
       return this;
     }
 
@@ -55,7 +56,7 @@ namespace Ml2.Clss
     /// then it can terminate the network early
     /// </summary>    
     public MultilayerPerceptron<T> TrainingTime (int value) {
-      ((MultilayerPerceptron)impl).setTrainingTime(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setTrainingTime(value);
       return this;
     }
 
@@ -67,7 +68,7 @@ namespace Ml2.Clss
     /// specified number of epochs.
     /// </summary>    
     public MultilayerPerceptron<T> ValidationSetSize (int value) {
-      ((MultilayerPerceptron)impl).setValidationSetSize(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setValidationSetSize(value);
       return this;
     }
 
@@ -77,7 +78,7 @@ namespace Ml2.Clss
     /// also for shuffling the training data.
     /// </summary>    
     public MultilayerPerceptron<T> Seed (int value) {
-      ((MultilayerPerceptron)impl).setSeed(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setSeed(value);
       return this;
     }
 
@@ -87,7 +88,7 @@ namespace Ml2.Clss
     /// terminated.
     /// </summary>    
     public MultilayerPerceptron<T> ValidationThreshold (int value) {
-      ((MultilayerPerceptron)impl).setValidationThreshold(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setValidationThreshold(value);
       return this;
     }
 
@@ -99,7 +100,7 @@ namespace Ml2.Clss
     /// attribs, 'o' = classes , 't' = attribs + classes.
     /// </summary>    
     public MultilayerPerceptron<T> HiddenLayers (string value) {
-      ((MultilayerPerceptron)impl).setHiddenLayers(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setHiddenLayers(value);
       return this;
     }
 
@@ -107,7 +108,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public MultilayerPerceptron<T> GUI (bool value) {
-      ((MultilayerPerceptron)impl).setGUI(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setGUI(value);
       return this;
     }
 
@@ -116,7 +117,7 @@ namespace Ml2.Clss
     /// improve performance if there are nominal attributes in the data.
     /// </summary>    
     public MultilayerPerceptron<T> NominalToBinaryFilter (bool value) {
-      ((MultilayerPerceptron)impl).setNominalToBinaryFilter(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setNominalToBinaryFilter(value);
       return this;
     }
 
@@ -127,7 +128,7 @@ namespace Ml2.Clss
     /// original range.
     /// </summary>    
     public MultilayerPerceptron<T> NormalizeNumericClass (bool value) {
-      ((MultilayerPerceptron)impl).setNormalizeNumericClass(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setNormalizeNumericClass(value);
       return this;
     }
 
@@ -139,7 +140,7 @@ namespace Ml2.Clss
     /// are between -1 and 1
     /// </summary>    
     public MultilayerPerceptron<T> NormalizeAttributes (bool value) {
-      ((MultilayerPerceptron)impl).setNormalizeAttributes(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setNormalizeAttributes(value);
       return this;
     }
 
@@ -153,7 +154,7 @@ namespace Ml2.Clss
     /// starting learning rate.
     /// </summary>    
     public MultilayerPerceptron<T> Decay (bool value) {
-      ((MultilayerPerceptron)impl).setDecay(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setDecay(value);
       return this;
     }
 
@@ -161,10 +162,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public MultilayerPerceptron<T> Debug (bool value) {
-      ((MultilayerPerceptron)impl).setDebug(value);
+      ((weka.classifiers.functions.MultilayerPerceptron)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

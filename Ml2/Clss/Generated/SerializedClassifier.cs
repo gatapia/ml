@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.misc;
 
 namespace Ml2.Clss
@@ -16,10 +17,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SerializedClassifier<T> Debug (bool value) {
-      ((SerializedClassifier)impl).setDebug(value);
+      ((weka.classifiers.misc.SerializedClassifier)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

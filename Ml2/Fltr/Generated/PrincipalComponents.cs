@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -17,32 +18,37 @@ namespace Ml2.Fltr
     /// Retain enough PC attributes to account for this proportion of variance.
     /// </summary>    
     public PrincipalComponents<T> VarianceCovered (double value) {
-      ((PrincipalComponents)impl).setVarianceCovered(value);
+      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setVarianceCovered(value);
       return this;
     }
+
     /// <summary>
     /// The maximum number of attributes to include in transformed attribute
     /// names.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributeNames (int value) {
-      ((PrincipalComponents)impl).setMaximumAttributeNames(value);
+      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setMaximumAttributeNames(value);
       return this;
     }
+
     /// <summary>
     /// The maximum number of PC attributes to retain.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributes (int value) {
-      ((PrincipalComponents)impl).setMaximumAttributes(value);
+      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setMaximumAttributes(value);
       return this;
     }
+
     /// <summary>
     /// Center (rather than standardize) the data. PCA will be computed from the
     /// covariance (rather than correlation) matrix
     /// </summary>    
     public PrincipalComponents<T> CenterData (bool value) {
-      ((PrincipalComponents)impl).setCenterData(value);
+      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setCenterData(value);
       return this;
     }
+
+        
         
   }
 }

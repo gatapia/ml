@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -16,10 +17,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public FilteredClassifier<T> Debug (bool value) {
-      ((FilteredClassifier)impl).setDebug(value);
+      ((weka.classifiers.meta.FilteredClassifier)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

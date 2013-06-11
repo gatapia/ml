@@ -1,5 +1,5 @@
-using Ml2.AttrSel.Evals;
 using weka.core;
+using Ml2.AttrSel.Evals;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -22,7 +22,7 @@ namespace Ml2.AttrSel.Algs
     /// Set to true if a ranked list is required.
     /// </summary>
     public GreedyStepwise GenerateRanking (bool value) {
-      impl.setGenerateRanking(value);
+      ((weka.attributeSelection.GreedyStepwise)impl).setGenerateRanking(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.AttrSel.Algs
     /// Search backwards rather than forwards.
     /// </summary>
     public GreedyStepwise SearchBackwards (bool value) {
-      impl.setSearchBackwards(value);
+      ((weka.attributeSelection.GreedyStepwise)impl).setSearchBackwards(value);
       return this;
     }
 
@@ -39,7 +39,7 @@ namespace Ml2.AttrSel.Algs
     /// be added to the best subset as long as merit does not degrade.
     /// </summary>
     public GreedyStepwise ConservativeForwardSelection (bool value) {
-      impl.setConservativeForwardSelection(value);
+      ((weka.attributeSelection.GreedyStepwise)impl).setConservativeForwardSelection(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.AttrSel.Algs
     /// 1,2,5-9,17.
     /// </summary>
     public GreedyStepwise StartSet (string value) {
-      impl.setStartSet(value);
+      ((weka.attributeSelection.GreedyStepwise)impl).setStartSet(value);
       return this;
     }
 
@@ -58,7 +58,7 @@ namespace Ml2.AttrSel.Algs
     /// in no attributes being discarded. Use in conjunction with generateRanking
     /// </summary>
     public GreedyStepwise Threshold (double value) {
-      impl.setThreshold(value);
+      ((weka.attributeSelection.GreedyStepwise)impl).setThreshold(value);
       return this;
     }
 
@@ -68,11 +68,13 @@ namespace Ml2.AttrSel.Algs
     /// threshold to reduce the attribute set.
     /// </summary>
     public GreedyStepwise NumToSelect (int value) {
-      impl.setNumToSelect(value);
+      ((weka.attributeSelection.GreedyStepwise)impl).setNumToSelect(value);
       return this;
     }
 
         
     public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
+
+        
   }
 }

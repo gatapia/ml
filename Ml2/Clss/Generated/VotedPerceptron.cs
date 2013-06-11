@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -17,7 +18,7 @@ namespace Ml2.Clss
     /// The maximum number of alterations to the perceptron.
     /// </summary>    
     public VotedPerceptron<T> MaxK (int value) {
-      ((VotedPerceptron)impl).setMaxK(value);
+      ((weka.classifiers.functions.VotedPerceptron)impl).setMaxK(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Clss
     /// Number of iterations to be performed.
     /// </summary>    
     public VotedPerceptron<T> NumIterations (int value) {
-      ((VotedPerceptron)impl).setNumIterations(value);
+      ((weka.classifiers.functions.VotedPerceptron)impl).setNumIterations(value);
       return this;
     }
 
@@ -33,7 +34,7 @@ namespace Ml2.Clss
     /// Exponent for the polynomial kernel.
     /// </summary>    
     public VotedPerceptron<T> Exponent (double value) {
-      ((VotedPerceptron)impl).setExponent(value);
+      ((weka.classifiers.functions.VotedPerceptron)impl).setExponent(value);
       return this;
     }
 
@@ -41,7 +42,7 @@ namespace Ml2.Clss
     /// Seed for the random number generator.
     /// </summary>    
     public VotedPerceptron<T> Seed (int value) {
-      ((VotedPerceptron)impl).setSeed(value);
+      ((weka.classifiers.functions.VotedPerceptron)impl).setSeed(value);
       return this;
     }
 
@@ -49,10 +50,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public VotedPerceptron<T> Debug (bool value) {
-      ((VotedPerceptron)impl).setDebug(value);
+      ((weka.classifiers.functions.VotedPerceptron)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

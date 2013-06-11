@@ -1,5 +1,5 @@
-using Ml2.AttrSel.Evals;
 using weka.core;
+using Ml2.AttrSel.Evals;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -21,7 +21,7 @@ namespace Ml2.AttrSel.Algs
     /// ranges. Eg. 1,2,5-9,17.
     /// </summary>
     public Ranker StartSet (string value) {
-      impl.setStartSet(value);
+      ((weka.attributeSelection.Ranker)impl).setStartSet(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.AttrSel.Algs
     /// reduce the attribute set.
     /// </summary>
     public Ranker Threshold (double value) {
-      impl.setThreshold(value);
+      ((weka.attributeSelection.Ranker)impl).setThreshold(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.AttrSel.Algs
     /// threshold to reduce the attribute set.
     /// </summary>
     public Ranker NumToSelect (int value) {
-      impl.setNumToSelect(value);
+      ((weka.attributeSelection.Ranker)impl).setNumToSelect(value);
       return this;
     }
 
@@ -50,11 +50,13 @@ namespace Ml2.AttrSel.Algs
     /// rankings.
     /// </summary>
     public Ranker GenerateRanking (bool value) {
-      impl.setGenerateRanking(value);
+      ((weka.attributeSelection.Ranker)impl).setGenerateRanking(value);
       return this;
     }
 
         
     public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
+
+        
   }
 }

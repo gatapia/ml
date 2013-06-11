@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -17,10 +18,19 @@ namespace Ml2.Clss
     public SGD(Runtime<T> rt) : base(rt, new SGD()) {}
 
     /// <summary>
+    /// The loss function to use. Hinge loss (SVM), log loss (logistic
+    /// regression) or squared loss (regression).
+    /// </summary>    
+    public SGD<T> LossFunction (ELossFunction value) {
+      ((weka.classifiers.functions.SGD)impl).setLossFunction(new SelectedTag((int) value, weka.classifiers.functions.SGD.TAGS_SELECTION));
+      return this;
+    }
+
+    /// <summary>
     /// The regularization constant. (default = 0.0001)
     /// </summary>    
     public SGD<T> Lambda (double value) {
-      ((SGD)impl).setLambda(value);
+      ((weka.classifiers.functions.SGD)impl).setLambda(value);
       return this;
     }
 
@@ -30,7 +40,7 @@ namespace Ml2.Clss
     /// (try 0.0001).
     /// </summary>    
     public SGD<T> LearningRate (double value) {
-      ((SGD)impl).setLearningRate(value);
+      ((weka.classifiers.functions.SGD)impl).setLearningRate(value);
       return this;
     }
 
@@ -39,7 +49,7 @@ namespace Ml2.Clss
     /// iterations is epochs * num instances.
     /// </summary>    
     public SGD<T> Epochs (int value) {
-      ((SGD)impl).setEpochs(value);
+      ((weka.classifiers.functions.SGD)impl).setEpochs(value);
       return this;
     }
 
@@ -50,7 +60,7 @@ namespace Ml2.Clss
     /// linear parts of the loss function.
     /// </summary>    
     public SGD<T> Epsilon (double value) {
-      ((SGD)impl).setEpsilon(value);
+      ((weka.classifiers.functions.SGD)impl).setEpsilon(value);
       return this;
     }
 
@@ -58,7 +68,7 @@ namespace Ml2.Clss
     /// Turn normalization off
     /// </summary>    
     public SGD<T> DontNormalize (bool value) {
-      ((SGD)impl).setDontNormalize(value);
+      ((weka.classifiers.functions.SGD)impl).setDontNormalize(value);
       return this;
     }
 
@@ -66,7 +76,7 @@ namespace Ml2.Clss
     /// Turn off global replacement of missing values
     /// </summary>    
     public SGD<T> DontReplaceMissing (bool value) {
-      ((SGD)impl).setDontReplaceMissing(value);
+      ((weka.classifiers.functions.SGD)impl).setDontReplaceMissing(value);
       return this;
     }
 
@@ -74,7 +84,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public SGD<T> Seed (int value) {
-      ((SGD)impl).setSeed(value);
+      ((weka.classifiers.functions.SGD)impl).setSeed(value);
       return this;
     }
 
@@ -82,8 +92,17 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SGD<T> Debug (bool value) {
-      ((SGD)impl).setDebug(value);
+      ((weka.classifiers.functions.SGD)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum ELossFunction {
+      Hinge_loss_SVM = 0,
+      Log_loss_logistic_regression = 1,
+      Squared_loss_regression = 2,
+      Epsilon_insensitive_loss_SVM_regression = 3,
+      Huber_loss_robust_regression = 4
     }
 
         

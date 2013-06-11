@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -19,9 +20,11 @@ namespace Ml2.Fltr
     /// first-3,5,9-last
     /// </summary>    
     public ClusterMembership<T> IgnoredAttributeIndices (string value) {
-      ((ClusterMembership)impl).setIgnoredAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.ClusterMembership)impl).setIgnoredAttributeIndices(value);
       return this;
     }
+
+        
         
   }
 }

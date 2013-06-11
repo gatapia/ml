@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -15,10 +16,18 @@ namespace Ml2.Clss
     public Vote(Runtime<T> rt) : base(rt, new Vote()) {}
 
     /// <summary>
+    /// The combination rule used.
+    /// </summary>    
+    public Vote<T> CombinationRule (ECombinationRule value) {
+      ((weka.classifiers.meta.Vote)impl).setCombinationRule(new SelectedTag((int) value, weka.classifiers.meta.Vote.TAGS_RULES));
+      return this;
+    }
+
+    /// <summary>
     /// The random number seed to be used.
     /// </summary>    
     public Vote<T> Seed (int value) {
-      ((Vote)impl).setSeed(value);
+      ((weka.classifiers.meta.Vote)impl).setSeed(value);
       return this;
     }
 
@@ -26,8 +35,18 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Vote<T> Debug (bool value) {
-      ((Vote)impl).setDebug(value);
+      ((weka.classifiers.meta.Vote)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum ECombinationRule {
+      Average_of_Probabilities = 1,
+      Product_of_Probabilities = 2,
+      Majority_Voting = 3,
+      Minimum_Probability = 4,
+      Maximum_Probability = 5,
+      Median = 6
     }
 
         

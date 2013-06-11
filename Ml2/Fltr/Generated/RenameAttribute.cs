@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -16,49 +17,56 @@ namespace Ml2.Fltr
     /// The regular expression that the attribute names must match.
     /// </summary>    
     public RenameAttribute<T> Find (string value) {
-      ((RenameAttribute)impl).setFind(value);
+      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setFind(value);
       return this;
     }
+
     /// <summary>
     /// The regular expression to use for replacing the matching attribute names
     /// with.
     /// </summary>    
     public RenameAttribute<T> Replace (string value) {
-      ((RenameAttribute)impl).setReplace(value);
+      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setReplace(value);
       return this;
     }
+
     /// <summary>
     /// If set to true, then all occurrences of the match will be replaced;
     /// otherwise only the first.
     /// </summary>    
     public RenameAttribute<T> ReplaceAll (bool value) {
-      ((RenameAttribute)impl).setReplaceAll(value);
+      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setReplaceAll(value);
       return this;
     }
+
     /// <summary>
     /// Specify range of attributes to act on; this is a comma separated list of
     /// attribute indices, with "first" and "last" valid values; specify an
     /// inclusive range with "-"; eg: "first-3,5,6-10,last".
     /// </summary>    
     public RenameAttribute<T> AttributeIndices (string value) {
-      ((RenameAttribute)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// If set to true, the selection will be inverted; eg: the attribute indices
     /// '2-4' then mean everything apart from '2-4'.
     /// </summary>    
     public RenameAttribute<T> InvertSelection (bool value) {
-      ((RenameAttribute)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setInvertSelection(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public RenameAttribute<T> Debug (bool value) {
-      ((RenameAttribute)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

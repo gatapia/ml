@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -17,33 +18,38 @@ namespace Ml2.Fltr
     /// must be nominal.
     /// </summary>    
     public MakeIndicator<T> AttributeIndex (string value) {
-      ((MakeIndicator)impl).setAttributeIndex(value);
+      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setAttributeIndex(value);
       return this;
     }
+
     /// <summary>
     /// 
     /// </summary>    
     public MakeIndicator<T> ValueIndex (int value) {
-      ((MakeIndicator)impl).setValueIndex(value);
+      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setValueIndex(value);
       return this;
     }
+
     /// <summary>
     /// Determines whether the output indicator attribute is numeric. If this is
     /// set to false, the output attribute will be nominal.
     /// </summary>    
     public MakeIndicator<T> Numeric (bool value) {
-      ((MakeIndicator)impl).setNumeric(value);
+      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setNumeric(value);
       return this;
     }
+
     /// <summary>
     /// Specify range of nominal values to act on. This is a comma separated list
     /// of attribute indices (numbered from 1), with "first" and "last" valid
     /// values. Specify an inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public MakeIndicator<T> ValueIndices (string value) {
-      ((MakeIndicator)impl).setValueIndices(value);
+      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setValueIndices(value);
       return this;
     }
+
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -20,7 +21,15 @@ namespace Ml2.Clss
     /// The complexity parameter C.
     /// </summary>    
     public SMOreg<T> C (double value) {
-      ((SMOreg)impl).setC(value);
+      ((weka.classifiers.functions.SMOreg)impl).setC(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Determines how/if the data will be transformed.
+    /// </summary>    
+    public SMOreg<T> FilterType (EFilterType value) {
+      ((weka.classifiers.functions.SMOreg)impl).setFilterType(new SelectedTag((int) value, weka.classifiers.functions.SMOreg.TAGS_FILTER));
       return this;
     }
 
@@ -28,8 +37,15 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SMOreg<T> Debug (bool value) {
-      ((SMOreg)impl).setDebug(value);
+      ((weka.classifiers.functions.SMOreg)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EFilterType {
+      Normalize_training_data = 0,
+      Standardize_training_data = 1,
+      No_normalization_div_standardization = 2
     }
 
         

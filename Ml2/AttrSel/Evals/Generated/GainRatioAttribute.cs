@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -17,11 +18,13 @@ namespace Ml2.AttrSel.Evals
     /// a separate value.
     /// </summary>    
     public GainRatioAttribute MissingMerge (bool value) {
-      impl.setMissingMerge(value);
+      ((GainRatioAttributeEval)impl).setMissingMerge(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

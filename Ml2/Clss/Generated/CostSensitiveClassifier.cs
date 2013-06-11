@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -20,7 +21,19 @@ namespace Ml2.Clss
     /// to each class. If true, the minimum expected cost criteria will be used.
     /// </summary>    
     public CostSensitiveClassifier<T> MinimizeExpectedCost (bool value) {
-      ((CostSensitiveClassifier)impl).setMinimizeExpectedCost(value);
+      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setMinimizeExpectedCost(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Sets where to get the cost matrix. The two options areto use the supplied
+    /// explicit cost matrix (the setting of the costMatrix property), or to load
+    /// a cost matrix from a file when required (this file will be loaded from the
+    /// directory set by the onDemandDirectory property and will be named
+    /// relation_name.cost).
+    /// </summary>    
+    public CostSensitiveClassifier<T> CostMatrixSource (ECostMatrixSource value) {
+      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setCostMatrixSource(new SelectedTag((int) value, weka.classifiers.meta.CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
       return this;
     }
 
@@ -28,7 +41,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CostSensitiveClassifier<T> Seed (int value) {
-      ((CostSensitiveClassifier)impl).setSeed(value);
+      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setSeed(value);
       return this;
     }
 
@@ -36,8 +49,14 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public CostSensitiveClassifier<T> Debug (bool value) {
-      ((CostSensitiveClassifier)impl).setDebug(value);
+      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum ECostMatrixSource {
+      Load_cost_matrix_on_demand = 1,
+      Use_explicit_cost_matrix = 2
     }
 
         

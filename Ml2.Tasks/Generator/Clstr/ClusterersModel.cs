@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Ml2.Tasks.Generator.Clstr
 {
-  public partial class Clusterers
+  public partial class Clusterers : ICodeGen
   {
     private readonly Type[] types;
     public Clusterers(Type[] types) { this.types = types; } 

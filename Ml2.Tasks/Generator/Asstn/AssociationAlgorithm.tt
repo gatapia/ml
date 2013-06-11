@@ -3,6 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using weka.core;
 using weka.associations;
 
 namespace Ml2.Asstn
@@ -19,8 +20,14 @@ namespace Ml2.Asstn
     /// <#= o.OptionDescription #>
     /// </summary>    
     public <#= Model.TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
-      ((<#= Model.ImplTypeName #>)impl).<#= o.OptionImplSetterName #>(value);
+      <#= o.SetterCode #>
       return this;
+    }
+
+<# }); #>          
+<# Array.ForEach(Model.Enumerations, e => { #>
+    public enum <#= e.Name #> {
+      <#= String.Join(",\n      ", e.Values.Select(v => v.Key + " = " + v.Value)) #>
     }
 
 <# }); #>        

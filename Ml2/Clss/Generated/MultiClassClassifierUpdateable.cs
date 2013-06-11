@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.meta;
 
 namespace Ml2.Clss
@@ -13,11 +14,20 @@ namespace Ml2.Clss
     public MultiClassClassifierUpdateable(Runtime<T> rt) : base(rt, new MultiClassClassifierUpdateable()) {}
 
     /// <summary>
+    /// Sets the method to use for transforming the multi-class problem into
+    /// several 2-class ones.
+    /// </summary>    
+    public MultiClassClassifierUpdateable<T> Method (EMethod value) {
+      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setMethod(new SelectedTag((int) value, weka.classifiers.meta.MultiClassClassifierUpdateable.TAGS_METHOD));
+      return this;
+    }
+
+    /// <summary>
     /// Sets the width multiplier when using random codes. The number of codes
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> RandomWidthFactor (double value) {
-      ((MultiClassClassifierUpdateable)impl).setRandomWidthFactor(value);
+      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setRandomWidthFactor(value);
       return this;
     }
 
@@ -25,7 +35,7 @@ namespace Ml2.Clss
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
     public MultiClassClassifierUpdateable<T> UsePairwiseCoupling (bool value) {
-      ((MultiClassClassifierUpdateable)impl).setUsePairwiseCoupling(value);
+      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setUsePairwiseCoupling(value);
       return this;
     }
 
@@ -33,7 +43,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Seed (int value) {
-      ((MultiClassClassifierUpdateable)impl).setSeed(value);
+      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setSeed(value);
       return this;
     }
 
@@ -41,8 +51,16 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Debug (bool value) {
-      ((MultiClassClassifierUpdateable)impl).setDebug(value);
+      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EMethod {
+      one_against_all = 0,
+      Random_correction_code = 1,
+      Exhaustive_correction_code = 2,
+      one_against_one = 3
     }
 
         

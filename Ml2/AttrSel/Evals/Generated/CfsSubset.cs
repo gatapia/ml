@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -19,7 +20,7 @@ namespace Ml2.AttrSel.Evals
     /// are distributed across other values in proportion to their frequency.
     /// </summary>    
     public CfsSubset MissingSeparate (bool value) {
-      impl.setMissingSeparate(value);
+      ((CfsSubsetEval)impl).setMissingSeparate(value);
       return this;
     }
 
@@ -30,11 +31,13 @@ namespace Ml2.AttrSel.Evals
     /// question
     /// </summary>    
     public CfsSubset LocallyPredictive (bool value) {
-      impl.setLocallyPredictive(value);
+      ((CfsSubsetEval)impl).setLocallyPredictive(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

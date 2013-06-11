@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.lazy;
 
 namespace Ml2.Clss
@@ -16,7 +17,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public IBk<T> KNN (int value) {
-      ((IBk)impl).setKNN(value);
+      ((weka.classifiers.lazy.IBk)impl).setKNN(value);
       return this;
     }
 
@@ -27,7 +28,15 @@ namespace Ml2.Clss
     /// instances.
     /// </summary>    
     public IBk<T> WindowSize (int value) {
-      ((IBk)impl).setWindowSize(value);
+      ((weka.classifiers.lazy.IBk)impl).setWindowSize(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Gets the distance weighting method used.
+    /// </summary>    
+    public IBk<T> DistanceWeighting (EDistanceWeighting value) {
+      ((weka.classifiers.lazy.IBk)impl).setDistanceWeighting(new SelectedTag((int) value, weka.classifiers.lazy.IBk.TAGS_WEIGHTING));
       return this;
     }
 
@@ -36,7 +45,7 @@ namespace Ml2.Clss
     /// value.
     /// </summary>    
     public IBk<T> CrossValidate (bool value) {
-      ((IBk)impl).setCrossValidate(value);
+      ((weka.classifiers.lazy.IBk)impl).setCrossValidate(value);
       return this;
     }
 
@@ -45,7 +54,7 @@ namespace Ml2.Clss
     /// when doing cross-validation for regression problems.
     /// </summary>    
     public IBk<T> MeanSquared (bool value) {
-      ((IBk)impl).setMeanSquared(value);
+      ((weka.classifiers.lazy.IBk)impl).setMeanSquared(value);
       return this;
     }
 
@@ -53,8 +62,15 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public IBk<T> Debug (bool value) {
-      ((IBk)impl).setDebug(value);
+      ((weka.classifiers.lazy.IBk)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum EDistanceWeighting {
+      No_distance_weighting = 1,
+      Weight_by_one_div_distance = 2,
+      Weight_by_one_distance = 4
     }
 
         

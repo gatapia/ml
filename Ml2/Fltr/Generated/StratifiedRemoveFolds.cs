@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.supervised.instance;
 
 namespace Ml2.Fltr
@@ -15,23 +16,27 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public StratifiedRemoveFolds<T> InvertSelection (bool value) {
-      ((StratifiedRemoveFolds)impl).setInvertSelection(value);
+      ((weka.filters.supervised.instance.StratifiedRemoveFolds)impl).setInvertSelection(value);
       return this;
     }
+
     /// <summary>
     /// The number of folds to split the dataset into.
     /// </summary>    
     public StratifiedRemoveFolds<T> NumFolds (int value) {
-      ((StratifiedRemoveFolds)impl).setNumFolds(value);
+      ((weka.filters.supervised.instance.StratifiedRemoveFolds)impl).setNumFolds(value);
       return this;
     }
+
     /// <summary>
     /// The fold which is selected.
     /// </summary>    
     public StratifiedRemoveFolds<T> Fold (int value) {
-      ((StratifiedRemoveFolds)impl).setFold(value);
+      ((weka.filters.supervised.instance.StratifiedRemoveFolds)impl).setFold(value);
       return this;
     }
+
+        
         
   }
 }

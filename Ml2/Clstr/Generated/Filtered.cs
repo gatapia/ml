@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -9,19 +10,11 @@ namespace Ml2.Clstr
   /// processed by the filter without changing their structure.
   /// </summary>
   public class Filtered<T> : BaseClusterer<T>
-  {
-    private readonly FilteredClusterer impl = new FilteredClusterer();
-    
-    public Filtered(Runtime<T> rt) : base(rt) {}
+  {    
+    public Filtered(Runtime<T> rt) : base(rt, new FilteredClusterer()) {}
+
+            
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

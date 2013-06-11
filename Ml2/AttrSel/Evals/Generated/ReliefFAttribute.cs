@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -22,7 +23,7 @@ namespace Ml2.AttrSel.Evals
     /// Weight nearest neighbours by their distance.
     /// </summary>    
     public ReliefFAttribute WeightByDistance (bool value) {
-      impl.setWeightByDistance(value);
+      ((ReliefFAttributeEval)impl).setWeightByDistance(value);
       return this;
     }
 
@@ -31,7 +32,7 @@ namespace Ml2.AttrSel.Evals
     /// will be used for attribute estimation.
     /// </summary>    
     public ReliefFAttribute SampleSize (int value) {
-      impl.setSampleSize(value);
+      ((ReliefFAttributeEval)impl).setSampleSize(value);
       return this;
     }
 
@@ -39,7 +40,7 @@ namespace Ml2.AttrSel.Evals
     /// Random seed for sampling instances.
     /// </summary>    
     public ReliefFAttribute Seed (int value) {
-      impl.setSeed(value);
+      ((ReliefFAttributeEval)impl).setSeed(value);
       return this;
     }
 
@@ -47,7 +48,7 @@ namespace Ml2.AttrSel.Evals
     /// Number of nearest neighbours for attribute estimation.
     /// </summary>    
     public ReliefFAttribute NumNeighbours (int value) {
-      impl.setNumNeighbours(value);
+      ((ReliefFAttributeEval)impl).setNumNeighbours(value);
       return this;
     }
 
@@ -58,11 +59,13 @@ namespace Ml2.AttrSel.Evals
     /// neighbours.
     /// </summary>    
     public ReliefFAttribute Sigma (int value) {
-      impl.setSigma(value);
+      ((ReliefFAttributeEval)impl).setSigma(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

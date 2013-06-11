@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -18,11 +19,13 @@ namespace Ml2.AttrSel.Evals
     /// a separate value.
     /// </summary>    
     public SymmetricalUncertAttribute MissingMerge (bool value) {
-      impl.setMissingMerge(value);
+      ((SymmetricalUncertAttributeEval)impl).setMissingMerge(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

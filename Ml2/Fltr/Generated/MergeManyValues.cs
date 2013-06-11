@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,23 +15,27 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public MergeManyValues<T> AttributeIndex (string value) {
-      ((MergeManyValues)impl).setAttributeIndex(value);
+      ((weka.filters.unsupervised.attribute.MergeManyValues)impl).setAttributeIndex(value);
       return this;
     }
+
     /// <summary>
     /// The new label for the merged values.
     /// </summary>    
     public MergeManyValues<T> Label (string value) {
-      ((MergeManyValues)impl).setLabel(value);
+      ((weka.filters.unsupervised.attribute.MergeManyValues)impl).setLabel(value);
       return this;
     }
+
     /// <summary>
     /// The range of values to merge.
     /// </summary>    
     public MergeManyValues<T> MergeValueRange (string value) {
-      ((MergeManyValues)impl).setMergeValueRange(value);
+      ((weka.filters.unsupervised.attribute.MergeManyValues)impl).setMergeValueRange(value);
       return this;
     }
+
+        
         
   }
 }

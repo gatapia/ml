@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.instance;
 
 namespace Ml2.Fltr
@@ -10,6 +11,7 @@ namespace Ml2.Fltr
   {
     public SparseToNonSparse(Runtime<T> rt) : base(rt, new SparseToNonSparse()) {}
 
+        
         
   }
 }

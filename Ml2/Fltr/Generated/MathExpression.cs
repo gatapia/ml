@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -15,9 +16,10 @@ namespace Ml2.Fltr
     /// attributes will not be modified.
     /// </summary>    
     public MathExpression<T> InvertSelection (bool value) {
-      ((MathExpression)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.MathExpression)impl).setInvertSelection(value);
       return this;
     }
+
     /// <summary>
     /// Specify the expression to apply. The 'A' letterrefers to the value of the
     /// attribute being processed. MIN,MAX,MEAN,SDrefer respectively to minimum,
@@ -29,25 +31,29 @@ namespace Ml2.Fltr
     /// && A<15])
     /// </summary>    
     public MathExpression<T> Expression (string value) {
-      ((MathExpression)impl).setExpression(value);
+      ((weka.filters.unsupervised.attribute.MathExpression)impl).setExpression(value);
       return this;
     }
+
     /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public MathExpression<T> IgnoreRange (string value) {
-      ((MathExpression)impl).setIgnoreRange(value);
+      ((weka.filters.unsupervised.attribute.MathExpression)impl).setIgnoreRange(value);
       return this;
     }
+
     /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public MathExpression<T> IgnoreClass (bool value) {
-      ((MathExpression)impl).setIgnoreClass(value);
+      ((weka.filters.unsupervised.attribute.MathExpression)impl).setIgnoreClass(value);
       return this;
     }
+
+        
         
   }
 }

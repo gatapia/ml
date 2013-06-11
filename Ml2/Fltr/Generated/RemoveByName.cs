@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,25 +15,29 @@ namespace Ml2.Fltr
     /// The regular expression to match the attribute names against.
     /// </summary>    
     public RemoveByName<T> Expression (string value) {
-      ((RemoveByName)impl).setExpression(value);
+      ((weka.filters.unsupervised.attribute.RemoveByName)impl).setExpression(value);
       return this;
     }
+
     /// <summary>
     /// Determines whether action is to select or delete. If set to true, only
     /// the specified attributes will be kept; If set to false, specified attributes
     /// will be deleted.
     /// </summary>    
     public RemoveByName<T> InvertSelection (bool value) {
-      ((RemoveByName)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.RemoveByName)impl).setInvertSelection(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public RemoveByName<T> Debug (bool value) {
-      ((RemoveByName)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.RemoveByName)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

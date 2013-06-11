@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -15,23 +16,27 @@ namespace Ml2.Fltr
     /// The number of attributes to choose: < 1 percentage, >= 1 absolute number.
     /// </summary>    
     public RandomSubset<T> NumAttributes (double value) {
-      ((RandomSubset)impl).setNumAttributes(value);
+      ((weka.filters.unsupervised.attribute.RandomSubset)impl).setNumAttributes(value);
       return this;
     }
+
     /// <summary>
     /// The seed value for the random number generator.
     /// </summary>    
     public RandomSubset<T> Seed (int value) {
-      ((RandomSubset)impl).setSeed(value);
+      ((weka.filters.unsupervised.attribute.RandomSubset)impl).setSeed(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public RandomSubset<T> Debug (bool value) {
-      ((RandomSubset)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.RandomSubset)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

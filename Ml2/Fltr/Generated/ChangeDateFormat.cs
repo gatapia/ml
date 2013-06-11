@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -17,17 +18,20 @@ namespace Ml2.Fltr
     /// ("first" and "last" are valid values)
     /// </summary>    
     public ChangeDateFormat<T> AttributeIndex (string value) {
-      ((ChangeDateFormat)impl).setAttributeIndex(value);
+      ((weka.filters.unsupervised.attribute.ChangeDateFormat)impl).setAttributeIndex(value);
       return this;
     }
+
     /// <summary>
     /// The date format to change to. This should be a format understood by
     /// Java's SimpleDateFormat class.
     /// </summary>    
     public ChangeDateFormat<T> DateFormat (string value) {
-      ((ChangeDateFormat)impl).setDateFormat(value);
+      ((weka.filters.unsupervised.attribute.ChangeDateFormat)impl).setDateFormat(value);
       return this;
     }
+
+        
         
   }
 }

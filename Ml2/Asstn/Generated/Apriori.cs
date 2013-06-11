@@ -1,3 +1,4 @@
+using weka.core;
 using weka.associations;
 
 namespace Ml2.Asstn
@@ -18,11 +19,29 @@ namespace Ml2.Asstn
     public Apriori(Runtime<T> rt) : base(rt, new Apriori()) {}
 
     /// <summary>
+    /// Set the type of metric by which to rank rules. Confidence is the
+    /// proportion of the examples covered by the premise that are also covered by the
+    /// consequence (Class association rules can only be mined using confidence). Lift
+    /// is confidence divided by the proportion of all examples that are covered by
+    /// the consequence. This is a measure of the importance of the association
+    /// that is independent of support. Leverage is the proportion of additional
+    /// examples covered by both the premise and consequence above those expected if
+    /// the premise and consequence were independent of each other. The total number
+    /// of examples that this represents is presented in brackets following the
+    /// leverage. Conviction is another measure of departure from independence.
+    /// Conviction is given by P(premise)P(!consequence) / P(premise, !consequence).
+    /// </summary>    
+    public Apriori<T> MetricType (EMetricType value) {
+      ((weka.associations.Apriori)impl).setMetricType(new SelectedTag((int) value, weka.associations.Apriori.TAGS_SELECTION));
+      return this;
+    }
+
+    /// <summary>
     /// Upper bound for minimum support. Start iteratively decreasing minimum
     /// support from this value.
     /// </summary>    
     public Apriori<T> UpperBoundMinSupport (double value) {
-      ((Apriori)impl).setUpperBoundMinSupport(value);
+      ((weka.associations.Apriori)impl).setUpperBoundMinSupport(value);
       return this;
     }
 
@@ -30,7 +49,7 @@ namespace Ml2.Asstn
     /// Remove columns with all missing values.
     /// </summary>    
     public Apriori<T> RemoveAllMissingCols (bool value) {
-      ((Apriori)impl).setRemoveAllMissingCols(value);
+      ((weka.associations.Apriori)impl).setRemoveAllMissingCols(value);
       return this;
     }
 
@@ -39,7 +58,7 @@ namespace Ml2.Asstn
     /// value.
     /// </summary>    
     public Apriori<T> MinMetric (double value) {
-      ((Apriori)impl).setMinMetric(value);
+      ((weka.associations.Apriori)impl).setMinMetric(value);
       return this;
     }
 
@@ -48,7 +67,7 @@ namespace Ml2.Asstn
     /// as class attribute.
     /// </summary>    
     public Apriori<T> ClassIndex (int value) {
-      ((Apriori)impl).setClassIndex(value);
+      ((weka.associations.Apriori)impl).setClassIndex(value);
       return this;
     }
 
@@ -57,7 +76,7 @@ namespace Ml2.Asstn
     /// association rules.
     /// </summary>    
     public Apriori<T> Car (bool value) {
-      ((Apriori)impl).setCar(value);
+      ((weka.associations.Apriori)impl).setCar(value);
       return this;
     }
 
@@ -65,7 +84,7 @@ namespace Ml2.Asstn
     /// Lower bound for minimum support.
     /// </summary>    
     public Apriori<T> LowerBoundMinSupport (double value) {
-      ((Apriori)impl).setLowerBoundMinSupport(value);
+      ((weka.associations.Apriori)impl).setLowerBoundMinSupport(value);
       return this;
     }
 
@@ -73,7 +92,7 @@ namespace Ml2.Asstn
     /// Number of rules to find.
     /// </summary>    
     public Apriori<T> NumRules (int value) {
-      ((Apriori)impl).setNumRules(value);
+      ((weka.associations.Apriori)impl).setNumRules(value);
       return this;
     }
 
@@ -82,7 +101,7 @@ namespace Ml2.Asstn
     /// support is reached or required number of rules has been generated.
     /// </summary>    
     public Apriori<T> Delta (double value) {
-      ((Apriori)impl).setDelta(value);
+      ((weka.associations.Apriori)impl).setDelta(value);
       return this;
     }
 
@@ -90,7 +109,7 @@ namespace Ml2.Asstn
     /// Significance level. Significance test (confidence metric only).
     /// </summary>    
     public Apriori<T> SignificanceLevel (double value) {
-      ((Apriori)impl).setSignificanceLevel(value);
+      ((weka.associations.Apriori)impl).setSignificanceLevel(value);
       return this;
     }
 
@@ -98,7 +117,7 @@ namespace Ml2.Asstn
     /// If enabled the itemsets are output as well.
     /// </summary>    
     public Apriori<T> OutputItemSets (bool value) {
-      ((Apriori)impl).setOutputItemSets(value);
+      ((weka.associations.Apriori)impl).setOutputItemSets(value);
       return this;
     }
 
@@ -106,7 +125,7 @@ namespace Ml2.Asstn
     /// If enabled the algorithm will be run in verbose mode.
     /// </summary>    
     public Apriori<T> Verbose (bool value) {
-      ((Apriori)impl).setVerbose(value);
+      ((weka.associations.Apriori)impl).setVerbose(value);
       return this;
     }
 
@@ -115,8 +134,16 @@ namespace Ml2.Asstn
     /// the same way as a missing value.
     /// </summary>    
     public Apriori<T> TreatZeroAsMissing (bool value) {
-      ((Apriori)impl).setTreatZeroAsMissing(value);
+      ((weka.associations.Apriori)impl).setTreatZeroAsMissing(value);
       return this;
+    }
+
+          
+    public enum EMetricType {
+      Confidence = 0,
+      Lift = 1,
+      Leverage = 2,
+      Conviction = 3
     }
 
         

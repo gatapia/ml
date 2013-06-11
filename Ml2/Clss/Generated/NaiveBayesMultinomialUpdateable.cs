@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.bayes;
 
 namespace Ml2.Clss
@@ -18,10 +19,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public NaiveBayesMultinomialUpdateable<T> Debug (bool value) {
-      ((NaiveBayesMultinomialUpdateable)impl).setDebug(value);
+      ((weka.classifiers.bayes.NaiveBayesMultinomialUpdateable)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -14,7 +15,7 @@ namespace Ml2.AttrSel.Evals
     /// Set the seed for use in cross validation.
     /// </summary>    
     public OneRAttribute Seed (int value) {
-      impl.setSeed(value);
+      ((OneRAttributeEval)impl).setSeed(value);
       return this;
     }
 
@@ -22,7 +23,7 @@ namespace Ml2.AttrSel.Evals
     /// Set the number of folds for cross validation.
     /// </summary>    
     public OneRAttribute Folds (int value) {
-      impl.setFolds(value);
+      ((OneRAttributeEval)impl).setFolds(value);
       return this;
     }
 
@@ -30,7 +31,7 @@ namespace Ml2.AttrSel.Evals
     /// The minimum number of objects in a bucket (passed to OneR).
     /// </summary>    
     public OneRAttribute MinimumBucketSize (int value) {
-      impl.setMinimumBucketSize(value);
+      ((OneRAttributeEval)impl).setMinimumBucketSize(value);
       return this;
     }
 
@@ -39,11 +40,13 @@ namespace Ml2.AttrSel.Evals
     /// validation.
     /// </summary>    
     public OneRAttribute EvalUsingTrainingData (bool value) {
-      impl.setEvalUsingTrainingData(value);
+      ((OneRAttributeEval)impl).setEvalUsingTrainingData(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

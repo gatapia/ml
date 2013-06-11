@@ -1,5 +1,5 @@
-using Ml2.AttrSel.Evals;
 using weka.core;
+using Ml2.AttrSel.Evals;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -25,7 +25,15 @@ namespace Ml2.AttrSel.Algs
     /// 1,2,5-9,17.
     /// </summary>
     public BestFirst StartSet (string value) {
-      impl.setStartSet(value);
+      ((weka.attributeSelection.BestFirst)impl).setStartSet(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Set the direction of the search.
+    /// </summary>
+    public BestFirst Direction (EDirection value) {
+      ((weka.attributeSelection.BestFirst)impl).setDirection(new SelectedTag((int) value, weka.attributeSelection.BestFirst.TAGS_SELECTION));
       return this;
     }
 
@@ -33,7 +41,7 @@ namespace Ml2.AttrSel.Algs
     /// Set the amount of backtracking. Specify the number of
     /// </summary>
     public BestFirst SearchTermination (int value) {
-      impl.setSearchTermination(value);
+      ((weka.attributeSelection.BestFirst)impl).setSearchTermination(value);
       return this;
     }
 
@@ -43,11 +51,19 @@ namespace Ml2.AttrSel.Algs
     /// (default = 1).
     /// </summary>
     public BestFirst LookupCacheSize (int value) {
-      impl.setLookupCacheSize(value);
+      ((weka.attributeSelection.BestFirst)impl).setLookupCacheSize(value);
       return this;
     }
 
         
     public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
+
+    public enum EDirection {
+      Backward = 0,
+      Forward = 1,
+      Bi_directional = 2
+    }
+
+        
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -24,24 +25,44 @@ namespace Ml2.Fltr
     /// ignored if this option is present or is greater than zero.
     /// </summary>    
     public RandomProjection<T> Percent (double value) {
-      ((RandomProjection)impl).setPercent(value);
+      ((weka.filters.unsupervised.attribute.RandomProjection)impl).setPercent(value);
       return this;
     }
+
     /// <summary>
     /// The number of dimensions (attributes) the data should be reduced to.
     /// </summary>    
     public RandomProjection<T> NumberOfAttributes (int value) {
-      ((RandomProjection)impl).setNumberOfAttributes(value);
+      ((weka.filters.unsupervised.attribute.RandomProjection)impl).setNumberOfAttributes(value);
       return this;
     }
+
+    /// <summary>
+    /// The distribution to use for calculating the random matrix. Sparse1 is:
+    /// sqrt(3) * { -1 with prob(1/6), 0 with prob(2/3), +1 with prob(1/6) } Sparse2
+    /// is: { -1 with prob(1/2), +1 with prob(1/2) }
+    /// </summary>    
+    public RandomProjection<T> Distribution (EDistribution value) {
+      ((weka.filters.unsupervised.attribute.RandomProjection)impl).setDistribution(new SelectedTag((int) value, weka.filters.unsupervised.attribute.RandomProjection.TAGS_DSTRS_TYPE));
+      return this;
+    }
+
     /// <summary>
     /// If set the filter uses
     /// weka.filters.unsupervised.attribute.ReplaceMissingValues to replace the missing values
     /// </summary>    
     public RandomProjection<T> ReplaceMissingValues (bool value) {
-      ((RandomProjection)impl).setReplaceMissingValues(value);
+      ((weka.filters.unsupervised.attribute.RandomProjection)impl).setReplaceMissingValues(value);
       return this;
     }
+
+        
+    public enum EDistribution {
+      Sparseone = 1,
+      Sparse2 = 2,
+      Gaussian = 3
+    }
+
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.associations;
 
 namespace Ml2.Asstn
@@ -23,7 +24,7 @@ namespace Ml2.Asstn
     /// item.
     /// </summary>    
     public FPGrowth<T> PositiveIndex (int value) {
-      ((FPGrowth)impl).setPositiveIndex(value);
+      ((weka.associations.FPGrowth)impl).setPositiveIndex(value);
       return this;
     }
 
@@ -32,7 +33,7 @@ namespace Ml2.Asstn
     /// limit.
     /// </summary>    
     public FPGrowth<T> MaxNumberOfItems (int value) {
-      ((FPGrowth)impl).setMaxNumberOfItems(value);
+      ((weka.associations.FPGrowth)impl).setMaxNumberOfItems(value);
       return this;
     }
 
@@ -40,7 +41,7 @@ namespace Ml2.Asstn
     /// The number of rules to output
     /// </summary>    
     public FPGrowth<T> NumRulesToFind (int value) {
-      ((FPGrowth)impl).setNumRulesToFind(value);
+      ((weka.associations.FPGrowth)impl).setNumRulesToFind(value);
       return this;
     }
 
@@ -49,7 +50,7 @@ namespace Ml2.Asstn
     /// value.
     /// </summary>    
     public FPGrowth<T> MinMetric (double value) {
-      ((FPGrowth)impl).setMinMetric(value);
+      ((weka.associations.FPGrowth)impl).setMinMetric(value);
       return this;
     }
 
@@ -58,7 +59,7 @@ namespace Ml2.Asstn
     /// support is reached or required number of rules has been generated.
     /// </summary>    
     public FPGrowth<T> Delta (double value) {
-      ((FPGrowth)impl).setDelta(value);
+      ((weka.associations.FPGrowth)impl).setDelta(value);
       return this;
     }
 
@@ -66,7 +67,7 @@ namespace Ml2.Asstn
     /// Lower bound for minimum support as a fraction or number of instances.
     /// </summary>    
     public FPGrowth<T> LowerBoundMinSupport (double value) {
-      ((FPGrowth)impl).setLowerBoundMinSupport(value);
+      ((weka.associations.FPGrowth)impl).setLowerBoundMinSupport(value);
       return this;
     }
 
@@ -75,7 +76,7 @@ namespace Ml2.Asstn
     /// Start iteratively decreasing minimum support from this value.
     /// </summary>    
     public FPGrowth<T> UpperBoundMinSupport (double value) {
-      ((FPGrowth)impl).setUpperBoundMinSupport(value);
+      ((weka.associations.FPGrowth)impl).setUpperBoundMinSupport(value);
       return this;
     }
 
@@ -84,7 +85,7 @@ namespace Ml2.Asstn
     /// these items. Provide a comma separated list of attribute names.
     /// </summary>    
     public FPGrowth<T> TransactionsMustContain (string value) {
-      ((FPGrowth)impl).setTransactionsMustContain(value);
+      ((weka.associations.FPGrowth)impl).setTransactionsMustContain(value);
       return this;
     }
 
@@ -93,7 +94,7 @@ namespace Ml2.Asstn
     /// of attribute names.
     /// </summary>    
     public FPGrowth<T> RulesMustContain (string value) {
-      ((FPGrowth)impl).setRulesMustContain(value);
+      ((weka.associations.FPGrowth)impl).setRulesMustContain(value);
       return this;
     }
 
@@ -101,7 +102,7 @@ namespace Ml2.Asstn
     /// Use OR instead of AND for transactions/rules must contain lists.
     /// </summary>    
     public FPGrowth<T> UseORForMustContainList (bool value) {
-      ((FPGrowth)impl).setUseORForMustContainList(value);
+      ((weka.associations.FPGrowth)impl).setUseORForMustContainList(value);
       return this;
     }
 
@@ -111,7 +112,7 @@ namespace Ml2.Asstn
     /// support reduction procedure to find the specified number of rules.
     /// </summary>    
     public FPGrowth<T> FindAllRulesForSupportLevel (bool value) {
-      ((FPGrowth)impl).setFindAllRulesForSupportLevel(value);
+      ((weka.associations.FPGrowth)impl).setFindAllRulesForSupportLevel(value);
       return this;
     }
 
@@ -119,10 +120,11 @@ namespace Ml2.Asstn
     /// 
     /// </summary>    
     public FPGrowth<T> OffDiskReportingFrequency (int value) {
-      ((FPGrowth)impl).setOffDiskReportingFrequency(value);
+      ((weka.associations.FPGrowth)impl).setOffDiskReportingFrequency(value);
       return this;
     }
 
+          
         
   }
 }

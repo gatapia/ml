@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.instance;
 
 namespace Ml2.Fltr
@@ -14,9 +15,10 @@ namespace Ml2.Fltr
     /// Treat missing values in the same way as zeros.
     /// </summary>    
     public NonSparseToSparse<T> TreatMissingValuesAsZero (bool value) {
-      ((NonSparseToSparse)impl).setTreatMissingValuesAsZero(value);
+      ((weka.filters.unsupervised.instance.NonSparseToSparse)impl).setTreatMissingValuesAsZero(value);
       return this;
     }
+
     /// <summary>
     /// Insert a dummy value before the first declared value for all nominal
     /// attributes. Useful when converting market basket data that has been encoded for
@@ -24,9 +26,11 @@ namespace Ml2.Fltr
     /// values as zero.
     /// </summary>    
     public NonSparseToSparse<T> InsertDummyNominalFirstValue (bool value) {
-      ((NonSparseToSparse)impl).setInsertDummyNominalFirstValue(value);
+      ((weka.filters.unsupervised.instance.NonSparseToSparse)impl).setInsertDummyNominalFirstValue(value);
       return this;
     }
+
+        
         
   }
 }

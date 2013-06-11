@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -17,7 +18,7 @@ namespace Ml2.AttrSel.Evals
     /// Number of xval folds to use when estimating subset accuracy.
     /// </summary>    
     public WrapperSubset Folds (int value) {
-      impl.setFolds(value);
+      ((WrapperSubsetEval)impl).setFolds(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.AttrSel.Evals
     /// Seed to use for randomly generating xval splits.
     /// </summary>    
     public WrapperSubset Seed (int value) {
-      impl.setSeed(value);
+      ((WrapperSubsetEval)impl).setSeed(value);
       return this;
     }
 
@@ -33,7 +34,15 @@ namespace Ml2.AttrSel.Evals
     /// Repeat xval if stdev of mean exceeds this value.
     /// </summary>    
     public WrapperSubset Threshold (double value) {
-      impl.setThreshold(value);
+      ((WrapperSubsetEval)impl).setThreshold(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The measure used to evaluate the performance of attribute combinations.
+    /// </summary>    
+    public WrapperSubset EvaluationMeasure (EEvaluationMeasure value) {
+      ((WrapperSubsetEval)impl).setEvaluationMeasure(new SelectedTag((int) value, WrapperSubsetEval.TAGS_EVALUATION));
       return this;
     }
 
@@ -41,11 +50,23 @@ namespace Ml2.AttrSel.Evals
     /// 
     /// </summary>    
     public WrapperSubset IRClassValue (string value) {
-      impl.setIRClassValue(value);
+      ((WrapperSubsetEval)impl).setIRClassValue(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+    public enum EEvaluationMeasure {
+      Default__accuracy_discrete_class_RMSE_numeric_class = 1,
+      Accuracy_discrete_class_only = 2,
+      RMSE_of_the_class_probabilities_for_discrete_class = 3,
+      MAE_of_the_class_probabilities_for_discrete_class = 4,
+      F_measure_discrete_class_only = 5,
+      AUC_area_under_the_ROC_curve___discrete_class_only = 6,
+      AUPRC_area_under_the_precision_recall_curve___discrete_class_only = 7
+    }
+
+        
   }
 }

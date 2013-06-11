@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -16,16 +17,19 @@ namespace Ml2.Fltr
     /// ranges) will be removed from the output.
     /// </summary>    
     public PartitionedMultiFilter<T> RemoveUnused (bool value) {
-      ((PartitionedMultiFilter)impl).setRemoveUnused(value);
+      ((weka.filters.unsupervised.attribute.PartitionedMultiFilter)impl).setRemoveUnused(value);
       return this;
     }
+
     /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public PartitionedMultiFilter<T> Debug (bool value) {
-      ((PartitionedMultiFilter)impl).setDebug(value);
+      ((weka.filters.unsupervised.attribute.PartitionedMultiFilter)impl).setDebug(value);
       return this;
     }
+
+        
         
   }
 }

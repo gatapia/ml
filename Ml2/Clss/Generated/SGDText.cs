@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.functions;
 
 namespace Ml2.Clss
@@ -16,7 +17,16 @@ namespace Ml2.Clss
     /// If true, ignores all words that are on the stoplist.
     /// </summary>    
     public SGDText<T> UseStopList (bool value) {
-      ((SGDText)impl).setUseStopList(value);
+      ((weka.classifiers.functions.SGDText)impl).setUseStopList(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The loss function to use. Hinge loss (SVM), log loss (logistic
+    /// regression) or squared loss (regression).
+    /// </summary>    
+    public SGDText<T> LossFunction (ELossFunction value) {
+      ((weka.classifiers.functions.SGDText)impl).setLossFunction(new SelectedTag((int) value, weka.classifiers.functions.SGDText.TAGS_SELECTION));
       return this;
     }
 
@@ -25,7 +35,7 @@ namespace Ml2.Clss
     /// estimates
     /// </summary>    
     public SGDText<T> OutputProbsForSVM (bool value) {
-      ((SGDText)impl).setOutputProbsForSVM(value);
+      ((weka.classifiers.functions.SGDText)impl).setOutputProbsForSVM(value);
       return this;
     }
 
@@ -33,7 +43,7 @@ namespace Ml2.Clss
     /// The regularization constant. (default = 0.0001)
     /// </summary>    
     public SGDText<T> Lambda (double value) {
-      ((SGDText)impl).setLambda(value);
+      ((weka.classifiers.functions.SGDText)impl).setLambda(value);
       return this;
     }
 
@@ -41,7 +51,7 @@ namespace Ml2.Clss
     /// The learning rate.
     /// </summary>    
     public SGDText<T> LearningRate (double value) {
-      ((SGDText)impl).setLearningRate(value);
+      ((weka.classifiers.functions.SGDText)impl).setLearningRate(value);
       return this;
     }
 
@@ -50,7 +60,7 @@ namespace Ml2.Clss
     /// iterations is epochs * num instances.
     /// </summary>    
     public SGDText<T> Epochs (int value) {
-      ((SGDText)impl).setEpochs(value);
+      ((weka.classifiers.functions.SGDText)impl).setEpochs(value);
       return this;
     }
 
@@ -58,7 +68,7 @@ namespace Ml2.Clss
     /// Use word frequencies rather than binary bag of words representation
     /// </summary>    
     public SGDText<T> UseWordFrequencies (bool value) {
-      ((SGDText)impl).setUseWordFrequencies(value);
+      ((weka.classifiers.functions.SGDText)impl).setUseWordFrequencies(value);
       return this;
     }
 
@@ -68,7 +78,7 @@ namespace Ml2.Clss
     /// every n instances
     /// </summary>    
     public SGDText<T> PeriodicPruning (int value) {
-      ((SGDText)impl).setPeriodicPruning(value);
+      ((weka.classifiers.functions.SGDText)impl).setPeriodicPruning(value);
       return this;
     }
 
@@ -78,7 +88,7 @@ namespace Ml2.Clss
     /// according to this value
     /// </summary>    
     public SGDText<T> MinWordFrequency (double value) {
-      ((SGDText)impl).setMinWordFrequency(value);
+      ((weka.classifiers.functions.SGDText)impl).setMinWordFrequency(value);
       return this;
     }
 
@@ -87,7 +97,7 @@ namespace Ml2.Clss
     /// norm and lnorm
     /// </summary>    
     public SGDText<T> NormalizeDocLength (bool value) {
-      ((SGDText)impl).setNormalizeDocLength(value);
+      ((weka.classifiers.functions.SGDText)impl).setNormalizeDocLength(value);
       return this;
     }
 
@@ -95,7 +105,7 @@ namespace Ml2.Clss
     /// The norm of the instances after normalization.
     /// </summary>    
     public SGDText<T> Norm (double value) {
-      ((SGDText)impl).setNorm(value);
+      ((weka.classifiers.functions.SGDText)impl).setNorm(value);
       return this;
     }
 
@@ -103,7 +113,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public SGDText<T> LNorm (double value) {
-      ((SGDText)impl).setLNorm(value);
+      ((weka.classifiers.functions.SGDText)impl).setLNorm(value);
       return this;
     }
 
@@ -111,7 +121,7 @@ namespace Ml2.Clss
     /// Whether to convert all tokens to lowercase
     /// </summary>    
     public SGDText<T> LowercaseTokens (bool value) {
-      ((SGDText)impl).setLowercaseTokens(value);
+      ((weka.classifiers.functions.SGDText)impl).setLowercaseTokens(value);
       return this;
     }
 
@@ -119,7 +129,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public SGDText<T> Bias (double value) {
-      ((SGDText)impl).setBias(value);
+      ((weka.classifiers.functions.SGDText)impl).setBias(value);
       return this;
     }
 
@@ -127,7 +137,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public SGDText<T> Seed (int value) {
-      ((SGDText)impl).setSeed(value);
+      ((weka.classifiers.functions.SGDText)impl).setSeed(value);
       return this;
     }
 
@@ -135,8 +145,14 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SGDText<T> Debug (bool value) {
-      ((SGDText)impl).setDebug(value);
+      ((weka.classifiers.functions.SGDText)impl).setDebug(value);
       return this;
+    }
+
+        
+    public enum ELossFunction {
+      Hinge_loss_SVM = 0,
+      Log_loss_logistic_regression = 1
     }
 
         

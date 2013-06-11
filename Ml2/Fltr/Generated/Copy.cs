@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -18,18 +19,21 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Copy<T> AttributeIndices (string value) {
-      ((Copy)impl).setAttributeIndices(value);
+      ((weka.filters.unsupervised.attribute.Copy)impl).setAttributeIndices(value);
       return this;
     }
+
     /// <summary>
     /// Sets copy selected vs unselected action. If set to false, only the
     /// specified attributes will be copied; If set to true, non-specified attributes
     /// will be copied.
     /// </summary>    
     public Copy<T> InvertSelection (bool value) {
-      ((Copy)impl).setInvertSelection(value);
+      ((weka.filters.unsupervised.attribute.Copy)impl).setInvertSelection(value);
       return this;
     }
+
+        
         
   }
 }

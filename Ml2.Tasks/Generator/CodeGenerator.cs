@@ -96,16 +96,16 @@ namespace Ml2.Tasks.Generator
 
     private void RunT4Template(Type template, Type t, string dir)
     {
-      var eval = Activator.CreateInstance(template, t);
+      var eval = (IMl2CodeGenerator) Activator.CreateInstance(template, t);
       Console.WriteLine("Generating Type:  " + t.Name);
-      RunT4TemplateImpl(eval, dir + "\\" + ((IMl2CodeGenerator)eval).Model.TypeName);
+      RunT4TemplateImpl(eval, dir + "\\" + eval.Model.TypeName);
     }
 
-    private static void RunT4TemplateImpl(object eval, string file)
+    private static void RunT4TemplateImpl(ICodeGen eval, string file)
     {
       var output = @"..\..\..\Ml2\" + file + ".cs";
       if (File.Exists(output)) File.Delete(output);      
-      var generated = (string) eval.GetType().GetMethod("TransformText").Invoke(eval, null);
+      var generated = eval.TransformText();
       File.WriteAllText(output, generated);
     }
   }

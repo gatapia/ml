@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.trees;
 
 namespace Ml2.Clss
@@ -21,7 +22,7 @@ namespace Ml2.Clss
     /// This means that all splits in the final tree will be binary.
     /// </summary>    
     public LMT<T> ConvertNominal (bool value) {
-      ((LMT)impl).setConvertNominal(value);
+      ((weka.classifiers.trees.LMT)impl).setConvertNominal(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Clss
     /// produce different trees.
     /// </summary>    
     public LMT<T> SplitOnResiduals (bool value) {
-      ((LMT)impl).setSplitOnResiduals(value);
+      ((weka.classifiers.trees.LMT)impl).setSplitOnResiduals(value);
       return this;
     }
 
@@ -49,7 +50,7 @@ namespace Ml2.Clss
     /// but improves runtime considerably.
     /// </summary>    
     public LMT<T> FastRegression (bool value) {
-      ((LMT)impl).setFastRegression(value);
+      ((weka.classifiers.trees.LMT)impl).setFastRegression(value);
       return this;
     }
 
@@ -60,7 +61,7 @@ namespace Ml2.Clss
     /// error instead of the misclassification error.
     /// </summary>    
     public LMT<T> ErrorOnProbabilities (bool value) {
-      ((LMT)impl).setErrorOnProbabilities(value);
+      ((weka.classifiers.trees.LMT)impl).setErrorOnProbabilities(value);
       return this;
     }
 
@@ -70,7 +71,7 @@ namespace Ml2.Clss
     /// < 0, the number is cross-validated.
     /// </summary>    
     public LMT<T> NumBoostingIterations (int value) {
-      ((LMT)impl).setNumBoostingIterations(value);
+      ((weka.classifiers.trees.LMT)impl).setNumBoostingIterations(value);
       return this;
     }
 
@@ -79,7 +80,7 @@ namespace Ml2.Clss
     /// splitting. The default value is 15.
     /// </summary>    
     public LMT<T> MinNumInstances (int value) {
-      ((LMT)impl).setMinNumInstances(value);
+      ((weka.classifiers.trees.LMT)impl).setMinNumInstances(value);
       return this;
     }
 
@@ -89,7 +90,7 @@ namespace Ml2.Clss
     /// next iteration. Set to 0 for no weight trimming. The default value is 0.
     /// </summary>    
     public LMT<T> WeightTrimBeta (double value) {
-      ((LMT)impl).setWeightTrimBeta(value);
+      ((weka.classifiers.trees.LMT)impl).setWeightTrimBeta(value);
       return this;
     }
 
@@ -98,7 +99,7 @@ namespace Ml2.Clss
     /// default is not to use AIC.
     /// </summary>    
     public LMT<T> UseAIC (bool value) {
-      ((LMT)impl).setUseAIC(value);
+      ((weka.classifiers.trees.LMT)impl).setUseAIC(value);
       return this;
     }
 
@@ -106,10 +107,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public LMT<T> Debug (bool value) {
-      ((LMT)impl).setDebug(value);
+      ((weka.classifiers.trees.LMT)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.bayes;
 
 namespace Ml2.Clss
@@ -20,7 +21,7 @@ namespace Ml2.Clss
     /// ones.
     /// </summary>    
     public NaiveBayesUpdateable<T> UseSupervisedDiscretization (bool value) {
-      ((NaiveBayesUpdateable)impl).setUseSupervisedDiscretization(value);
+      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setUseSupervisedDiscretization(value);
       return this;
     }
 
@@ -29,7 +30,7 @@ namespace Ml2.Clss
     /// distribution.
     /// </summary>    
     public NaiveBayesUpdateable<T> UseKernelEstimator (bool value) {
-      ((NaiveBayesUpdateable)impl).setUseKernelEstimator(value);
+      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setUseKernelEstimator(value);
       return this;
     }
 
@@ -39,7 +40,7 @@ namespace Ml2.Clss
     /// and many attributes.
     /// </summary>    
     public NaiveBayesUpdateable<T> DisplayModelInOldFormat (bool value) {
-      ((NaiveBayesUpdateable)impl).setDisplayModelInOldFormat(value);
+      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setDisplayModelInOldFormat(value);
       return this;
     }
 
@@ -47,10 +48,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public NaiveBayesUpdateable<T> Debug (bool value) {
-      ((NaiveBayesUpdateable)impl).setDebug(value);
+      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

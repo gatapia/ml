@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -11,6 +12,7 @@ namespace Ml2.Fltr
   {
     public Obfuscate(Runtime<T> rt) : base(rt, new Obfuscate()) {}
 
+        
         
   }
 }

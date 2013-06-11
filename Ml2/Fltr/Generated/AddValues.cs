@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -16,23 +17,27 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public AddValues<T> AttributeIndex (string value) {
-      ((AddValues)impl).setAttributeIndex(value);
+      ((weka.filters.unsupervised.attribute.AddValues)impl).setAttributeIndex(value);
       return this;
     }
+
     /// <summary>
     /// Comma-separated list of lables to add.
     /// </summary>    
     public AddValues<T> Labels (string value) {
-      ((AddValues)impl).setLabels(value);
+      ((weka.filters.unsupervised.attribute.AddValues)impl).setLabels(value);
       return this;
     }
+
     /// <summary>
     /// Whether to sort the labels alphabetically.
     /// </summary>    
     public AddValues<T> Sort (bool value) {
-      ((AddValues)impl).setSort(value);
+      ((weka.filters.unsupervised.attribute.AddValues)impl).setSort(value);
       return this;
     }
+
+        
         
   }
 }

@@ -1,3 +1,4 @@
+using weka.core;
 using weka.classifiers.trees;
 
 namespace Ml2.Clss
@@ -16,10 +17,11 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public DecisionStump<T> Debug (bool value) {
-      ((DecisionStump)impl).setDebug(value);
+      ((weka.classifiers.trees.DecisionStump)impl).setDebug(value);
       return this;
     }
 
+        
         
   }
 }

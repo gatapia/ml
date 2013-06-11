@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -14,6 +15,7 @@ namespace Ml2.Fltr
   {
     public AddUserFields(Runtime<T> rt) : base(rt, new AddUserFields()) {}
 
+        
         
   }
 }

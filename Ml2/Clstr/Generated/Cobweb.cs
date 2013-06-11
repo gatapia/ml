@@ -1,3 +1,4 @@
+using weka.core;
 using weka.clusterers;
 
 namespace Ml2.Clstr
@@ -15,16 +16,14 @@ namespace Ml2.Clstr
   /// 40:11-61.
   /// </summary>
   public class Cobweb<T> : BaseClusterer<T>
-  {
-    private readonly Cobweb impl = new Cobweb();
-    
-    public Cobweb(Runtime<T> rt) : base(rt) {}
+  {    
+    public Cobweb(Runtime<T> rt) : base(rt, new Cobweb()) {}
 
     /// <summary>
     /// set the minimum standard deviation for numeric attributes
     /// </summary>    
     public Cobweb<T> Acuity (double value) {
-      impl.setAcuity(value);
+      ((weka.clusterers.Cobweb)impl).setAcuity(value);
       return this;
     }
 
@@ -32,7 +31,7 @@ namespace Ml2.Clstr
     /// set the category utility threshold by which to prune nodes
     /// </summary>    
     public Cobweb<T> Cutoff (double value) {
-      impl.setCutoff(value);
+      ((weka.clusterers.Cobweb)impl).setCutoff(value);
       return this;
     }
 
@@ -40,7 +39,7 @@ namespace Ml2.Clstr
     /// save instance information for visualization purposes
     /// </summary>    
     public Cobweb<T> SaveInstanceData (bool value) {
-      impl.setSaveInstanceData(value);
+      ((weka.clusterers.Cobweb)impl).setSaveInstanceData(value);
       return this;
     }
 
@@ -48,18 +47,12 @@ namespace Ml2.Clstr
     /// The random number seed to be used. Use -1 for no randomization.
     /// </summary>    
     public Cobweb<T> Seed (int value) {
-      impl.setSeed(value);
+      ((weka.clusterers.Cobweb)impl).setSeed(value);
       return this;
     }
+
+            
 
         
-
-    public override IClusterer<T> Build()
-    {
-      impl.buildClusterer(rt.Instances);
-      return this;
-    }
-
-    public override int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

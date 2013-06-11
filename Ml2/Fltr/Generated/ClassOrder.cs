@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.supervised.attribute;
 
 namespace Ml2.Fltr
@@ -20,9 +21,11 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public ClassOrder<T> SetClassOrder (int value) {
-      ((ClassOrder)impl).setClassOrder(value);
+      ((weka.filters.supervised.attribute.ClassOrder)impl).setClassOrder(value);
       return this;
     }
+
+        
         
   }
 }

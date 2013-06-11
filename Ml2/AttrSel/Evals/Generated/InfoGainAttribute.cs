@@ -1,3 +1,4 @@
+using weka.core;
 using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
@@ -17,7 +18,7 @@ namespace Ml2.AttrSel.Evals
     /// a separate value.
     /// </summary>    
     public InfoGainAttribute MissingMerge (bool value) {
-      impl.setMissingMerge(value);
+      ((InfoGainAttributeEval)impl).setMissingMerge(value);
       return this;
     }
 
@@ -25,11 +26,13 @@ namespace Ml2.AttrSel.Evals
     /// Just binarize numeric attributes instead of properly discretizing them.
     /// </summary>    
     public InfoGainAttribute BinarizeNumericAttributes (bool value) {
-      impl.setBinarizeNumericAttributes(value);
+      ((InfoGainAttributeEval)impl).setBinarizeNumericAttributes(value);
       return this;
     }
 
         
     public ASEvaluation GetImpl() { return impl; }
+
+        
   }
 }

@@ -28,93 +28,113 @@ namespace Ml2.Tasks.Generator.Clstr
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using weka.clusterers;\r\n\r\nnamespace Ml2.Clstr\r\n{\r\n  /// <summary>\r\n  /// ");
+            this.Write("using weka.core;\r\nusing weka.clusterers;\r\n\r\nnamespace Ml2.Clstr\r\n{\r\n  /// <summar" +
+                    "y>\r\n  /// ");
             
-            #line 11 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 12 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetClassDescription("  /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n  /// </summary>\r\n  public class ");
             
-            #line 13 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
-            this.Write("<T> : BaseClusterer<T>\r\n  {\r\n    private readonly ");
+            this.Write("<T> : BaseClusterer<T>\r\n  {    \r\n    public ");
             
-            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
-            
-            #line default
-            #line hidden
-            this.Write(" impl = new ");
-            
-            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
-            
-            #line default
-            #line hidden
-            this.Write("();\r\n    \r\n    public ");
-            
-            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
-            this.Write("(Runtime<T> rt) : base(rt) {}\r\n\r\n");
+            this.Write("(Runtime<T> rt) : base(rt, new ");
             
-            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
+            
+            #line default
+            #line hidden
+            this.Write("()) {}\r\n\r\n");
+            
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
  Array.ForEach(Model.Options, o => { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 20 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionDescription));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>    \r\n    public ");
             
-            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionName));
             
             #line default
             #line hidden
             this.Write(" (");
             
-            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionType));
             
             #line default
             #line hidden
-            this.Write(" value) {\r\n      impl.");
+            this.Write(" value) {\r\n      ");
             
-            #line 24 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionImplSetterName));
+            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(o.SetterCode));
             
             #line default
             #line hidden
-            this.Write("(value);\r\n      return this;\r\n    }\r\n\r\n");
+            this.Write("\r\n      return this;\r\n    }\r\n\r\n");
             
-            #line 28 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            #line 27 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
  }); 
             
             #line default
             #line hidden
-            this.Write("        \r\n\r\n    public override IClusterer<T> Build()\r\n    {\r\n      impl.buildClu" +
-                    "sterer(rt.Instances);\r\n      return this;\r\n    }\r\n\r\n    public override int Clas" +
-                    "sify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }\r\n  }\r\n}");
+            this.Write("            \r\n\r\n");
+            
+            #line 29 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+ Array.ForEach(Model.Enumerations, e => { 
+            
+            #line default
+            #line hidden
+            this.Write("    public enum ");
+            
+            #line 30 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(e.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" {\r\n      ");
+            
+            #line 31 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(",\n      ", e.Values.Select(v => v.Key + " = " + v.Value))));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n\r\n");
+            
+            #line 34 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
+ }); 
+            
+            #line default
+            #line hidden
+            this.Write("        \r\n  }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

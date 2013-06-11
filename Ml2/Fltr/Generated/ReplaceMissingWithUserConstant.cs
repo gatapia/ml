@@ -1,3 +1,4 @@
+using weka.core;
 using weka.filters.unsupervised.attribute;
 
 namespace Ml2.Fltr
@@ -18,44 +19,51 @@ namespace Ml2.Fltr
     /// and attribute names in the same list
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> Attributes (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setAttributes(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant)impl).setAttributes(value);
       return this;
     }
+
     /// <summary>
     /// The constant to replace missing values in nominal/string attributes with
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> NominalStringReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setNominalStringReplacementValue(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant)impl).setNominalStringReplacementValue(value);
       return this;
     }
+
     /// <summary>
     /// The constant to replace missing values in numeric attributes with
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> NumericReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setNumericReplacementValue(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant)impl).setNumericReplacementValue(value);
       return this;
     }
+
     /// <summary>
     /// The constant to replace missing values in date attributes with
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> DateReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setDateReplacementValue(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant)impl).setDateReplacementValue(value);
       return this;
     }
+
     /// <summary>
     /// The formatting string to use for parsing the date replacement value
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> DateFormat (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setDateFormat(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant)impl).setDateFormat(value);
       return this;
     }
+
     /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> IgnoreClass (bool value) {
-      ((ReplaceMissingWithUserConstant)impl).setIgnoreClass(value);
+      ((weka.filters.unsupervised.attribute.ReplaceMissingWithUserConstant)impl).setIgnoreClass(value);
       return this;
     }
+
+        
         
   }
 }

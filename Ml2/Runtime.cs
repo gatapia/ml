@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using Ml2.Arff;
 using Ml2.Asstn;
@@ -19,8 +18,21 @@ namespace Ml2
     private readonly IClassifierIndexInferer classidx = new ClassifierIndexInferer();
     private readonly ILoaderFactory loaderFactory = new LoaderFactory();
 
-    public Runtime() {}
-    public Runtime(Instances instances) { Instances = instances; }
+    public Runtime(params string[] files) {
+      Rows = loaderFactory.Get<T>().Load<T>(files);
+      Instances = arff.Build(Rows);
+      SetClassifierIndex(classidx.InferClassIndex<T>());
+    }
+
+
+    /// <summary>
+    /// This is used by instance filters to create a new Runtime with a 
+    /// specified set of Instances and Rows.
+    /// </summary>
+    internal Runtime(Instances instances, T[] rows) { 
+      Instances = instances; 
+      Rows = rows;
+    }
 
     public Instances Instances { get; private set; }
     public T[] Rows { get; private set; }
@@ -30,15 +42,6 @@ namespace Ml2
     public Filters<T> Filters { get { return new Filters<T>(this); } }
     public Associations<T> Associations { get { return new Associations<T>(this); } }
     public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }
-    
-    public Runtime<T> Load(params string[] files)
-    {
-      Trace.Assert(Rows == null, "Runtime has already been initialised.");
-
-      Rows = loaderFactory.Get<T>().Load<T>(files);
-      Instances = arff.Build(Rows);
-      return SetClassifierIndex(classidx.InferClassIndex<T>());
-    }
 
     public Runtime<T> SetClassifierIndex(int idx) {
       Instances.setClassIndex(idx);
@@ -56,8 +59,6 @@ namespace Ml2
 
     public Instance GetRowInstance(T row)
     {
-      Trace.Assert(Rows != null, "Runtime has not been initialised with a call to Load.");
-
       var idx = Array.IndexOf(Rows, row);
       return Instances.instance(idx);
     }

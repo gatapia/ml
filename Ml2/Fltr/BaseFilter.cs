@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using weka.core;
 using weka.filters;
 
@@ -16,13 +17,16 @@ namespace Ml2.Fltr
 
     public Runtime<T> RunFilter()
     {
-      for (int i = 0; i < rt.Instances.numInstances(); i++) { impl.input(rt.Instances.instance(i)); }
+      var newrows = new List<T>();
+      for (int i = 0; i < rt.Instances.numInstances(); i++) { 
+        if (impl.input(rt.Instances.instance(i))) { newrows.Add(rt.Rows[i]); }
+      }
       impl.batchFinished();
 
       Instances newData = impl.getOutputFormat();
       Instance processed;
       while ((processed = impl.output()) != null) { newData.add(processed); }
-      var newrt = new Runtime<T>(newData);
+      var newrt = new Runtime<T>(newData, newrows.ToArray());
       return newrt;
     }
   }

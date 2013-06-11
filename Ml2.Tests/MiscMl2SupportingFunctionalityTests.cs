@@ -10,8 +10,7 @@ namespace Ml2.Tests
     private Runtime<TitanicDataRow> rt;
     [TestFixtureSetUp] public void TestFixtureSetUp()
     {
-      rt = new Runtime<TitanicDataRow>();
-      rt.Load(@"resources\kaggle\titanic\train.csv");
+      rt = new Runtime<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
     }
 
     [Test] public void Test_loading_csv_file_loads_all_instances_as_expected()

@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public DecisionStump<T> Debug (bool value) {
-      ((weka.classifiers.trees.DecisionStump)impl).setDebug(value);
+      ((DecisionStump)impl).setDebug(value);
       return this;
     }
 

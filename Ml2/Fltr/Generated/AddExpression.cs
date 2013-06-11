@@ -19,7 +19,7 @@ namespace Ml2.Fltr
     /// Set the name of the new attribute.
     /// </summary>    
     public AddExpression<T> Name (string value) {
-      ((weka.filters.unsupervised.attribute.AddExpression)impl).setName(value);
+      ((AddExpression)impl).setName(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Fltr
     /// Set the math expression to apply. Eg. a1^2*a5/log(a7*4.0)
     /// </summary>    
     public AddExpression<T> Expression (string value) {
-      ((weka.filters.unsupervised.attribute.AddExpression)impl).setExpression(value);
+      ((AddExpression)impl).setExpression(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Fltr
     /// postfix parse of the supplied expression.
     /// </summary>    
     public AddExpression<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.AddExpression)impl).setDebug(value);
+      ((AddExpression)impl).setDebug(value);
       return this;
     }
 

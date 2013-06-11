@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public ReplaceMissingValues<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.ReplaceMissingValues)impl).setIgnoreClass(value);
+      ((ReplaceMissingValues)impl).setIgnoreClass(value);
       return this;
     }
 

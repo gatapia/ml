@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// use any current set class or default to the last attribute.
     /// </summary>    
     public RemoveMisclassified<T> ClassIndex (int value) {
-      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setClassIndex(value);
+      ((RemoveMisclassified)impl).setClassIndex(value);
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Fltr
     /// cross-validation will be performed.
     /// </summary>    
     public RemoveMisclassified<T> NumFolds (int value) {
-      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setNumFolds(value);
+      ((RemoveMisclassified)impl).setNumFolds(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Fltr
     /// Should be >= 0.
     /// </summary>    
     public RemoveMisclassified<T> Threshold (double value) {
-      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setThreshold(value);
+      ((RemoveMisclassified)impl).setThreshold(value);
       return this;
     }
 
@@ -43,7 +43,7 @@ namespace Ml2.Fltr
     /// until fully cleansed.
     /// </summary>    
     public RemoveMisclassified<T> MaxIterations (int value) {
-      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setMaxIterations(value);
+      ((RemoveMisclassified)impl).setMaxIterations(value);
       return this;
     }
 
@@ -52,7 +52,7 @@ namespace Ml2.Fltr
     /// instances will be discarded.
     /// </summary>    
     public RemoveMisclassified<T> Invert (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveMisclassified)impl).setInvert(value);
+      ((RemoveMisclassified)impl).setInvert(value);
       return this;
     }
 

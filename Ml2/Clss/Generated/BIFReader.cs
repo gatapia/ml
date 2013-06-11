@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public BIFReader<T> BIFFile (string value) {
-      ((weka.classifiers.bayes.net.BIFReader)impl).setBIFFile(value);
+      ((BIFReader)impl).setBIFFile(value);
       return this;
     }
 
@@ -29,7 +29,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public BIFReader<T> UseADTree (bool value) {
-      ((weka.classifiers.bayes.net.BIFReader)impl).setUseADTree(value);
+      ((BIFReader)impl).setUseADTree(value);
       return this;
     }
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public BIFReader<T> Debug (bool value) {
-      ((weka.classifiers.bayes.net.BIFReader)impl).setDebug(value);
+      ((BIFReader)impl).setDebug(value);
       return this;
     }
 

@@ -22,7 +22,7 @@ namespace Ml2.Fltr
     /// Turns time-consuming checks off - use with caution.
     /// </summary>    
     public KernelFilter<T> ChecksTurnedOff (bool value) {
-      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setChecksTurnedOff(value);
+      ((KernelFilter)impl).setChecksTurnedOff(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// last are valid).
     /// </summary>    
     public KernelFilter<T> InitFileClassIndex (string value) {
-      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setInitFileClassIndex(value);
+      ((KernelFilter)impl).setInitFileClassIndex(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Fltr
     /// instances.
     /// </summary>    
     public KernelFilter<T> KernelFactorExpression (string value) {
-      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setKernelFactorExpression(value);
+      ((KernelFilter)impl).setKernelFactorExpression(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public KernelFilter<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.KernelFilter)impl).setDebug(value);
+      ((KernelFilter)impl).setDebug(value);
       return this;
     }
 

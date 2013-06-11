@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-"; eg: "first-3,5,6-10,last".
     /// </summary>    
     public SortLabels<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.SortLabels)impl).setAttributeIndices(value);
+      ((SortLabels)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// processed.
     /// </summary>    
     public SortLabels<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.SortLabels)impl).setInvertSelection(value);
+      ((SortLabels)impl).setInvertSelection(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Fltr
     /// The type of sorting to use.
     /// </summary>    
     public SortLabels<T> SortType (ESortType value) {
-      ((weka.filters.unsupervised.attribute.SortLabels)impl).setSortType(new SelectedTag((int) value, weka.filters.unsupervised.attribute.SortLabels.TAGS_SORTTYPE));
+      ((SortLabels)impl).setSortType(new SelectedTag((int) value, SortLabels.TAGS_SORTTYPE));
       return this;
     }
 
@@ -42,7 +42,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public SortLabels<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.SortLabels)impl).setDebug(value);
+      ((SortLabels)impl).setDebug(value);
       return this;
     }
 

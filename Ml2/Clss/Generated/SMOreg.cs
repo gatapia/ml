@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// The complexity parameter C.
     /// </summary>    
     public SMOreg<T> C (double value) {
-      ((weka.classifiers.functions.SMOreg)impl).setC(value);
+      ((SMOreg)impl).setC(value);
       return this;
     }
 
@@ -29,7 +29,7 @@ namespace Ml2.Clss
     /// Determines how/if the data will be transformed.
     /// </summary>    
     public SMOreg<T> FilterType (EFilterType value) {
-      ((weka.classifiers.functions.SMOreg)impl).setFilterType(new SelectedTag((int) value, weka.classifiers.functions.SMOreg.TAGS_FILTER));
+      ((SMOreg)impl).setFilterType(new SelectedTag((int) value, SMOreg.TAGS_FILTER));
       return this;
     }
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SMOreg<T> Debug (bool value) {
-      ((weka.classifiers.functions.SMOreg)impl).setDebug(value);
+      ((SMOreg)impl).setDebug(value);
       return this;
     }
 

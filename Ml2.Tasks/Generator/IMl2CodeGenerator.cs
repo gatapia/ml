@@ -4,8 +4,4 @@ namespace Ml2.Tasks.Generator
   {
     WekaTypeModel Model { get; }
   }
-
-  internal interface ICodeGen {
-    string TransformText();
-  }
 }

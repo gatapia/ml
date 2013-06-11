@@ -34,7 +34,7 @@ namespace Ml2.Fltr
     /// The expression to used for filtering the dataset.
     /// </summary>    
     public SubsetByExpression<T> Expression (string value) {
-      ((weka.filters.unsupervised.instance.SubsetByExpression)impl).setExpression(value);
+      ((SubsetByExpression)impl).setExpression(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Fltr
     /// filter an a prediction is always made.
     /// </summary>    
     public SubsetByExpression<T> FilterAfterFirstBatch (bool value) {
-      ((weka.filters.unsupervised.instance.SubsetByExpression)impl).setFilterAfterFirstBatch(value);
+      ((SubsetByExpression)impl).setFilterAfterFirstBatch(value);
       return this;
     }
 
@@ -53,7 +53,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public SubsetByExpression<T> Debug (bool value) {
-      ((weka.filters.unsupervised.instance.SubsetByExpression)impl).setDebug(value);
+      ((SubsetByExpression)impl).setDebug(value);
       return this;
     }
 

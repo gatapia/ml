@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// Whether to add an attribute with the actual classification.
     /// </summary>    
     public AddClassification<T> OutputClassification (bool value) {
-      ((weka.filters.supervised.attribute.AddClassification)impl).setOutputClassification(value);
+      ((AddClassification)impl).setOutputClassification(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// Whether to remove the old class attribute.
     /// </summary>    
     public AddClassification<T> RemoveOldClass (bool value) {
-      ((weka.filters.supervised.attribute.AddClassification)impl).setRemoveOldClass(value);
+      ((AddClassification)impl).setRemoveOldClass(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Fltr
     /// 'outputClassification').
     /// </summary>    
     public AddClassification<T> OutputDistribution (bool value) {
-      ((weka.filters.supervised.attribute.AddClassification)impl).setOutputDistribution(value);
+      ((AddClassification)impl).setOutputDistribution(value);
       return this;
     }
 
@@ -43,7 +43,7 @@ namespace Ml2.Fltr
     /// wrong classification (for numeric classes this is the numeric difference).
     /// </summary>    
     public AddClassification<T> OutputErrorFlag (bool value) {
-      ((weka.filters.supervised.attribute.AddClassification)impl).setOutputErrorFlag(value);
+      ((AddClassification)impl).setOutputErrorFlag(value);
       return this;
     }
 
@@ -51,7 +51,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public AddClassification<T> Debug (bool value) {
-      ((weka.filters.supervised.attribute.AddClassification)impl).setDebug(value);
+      ((AddClassification)impl).setDebug(value);
       return this;
     }
 

@@ -22,7 +22,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public FirstOrder<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.FirstOrder)impl).setAttributeIndices(value);
+      ((FirstOrder)impl).setAttributeIndices(value);
       return this;
     }
 

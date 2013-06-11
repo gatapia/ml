@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// Set the new attribute's name.
     /// </summary>    
     public AddID<T> AttributeName (string value) {
-      ((weka.filters.unsupervised.attribute.AddID)impl).setAttributeName(value);
+      ((AddID)impl).setAttributeName(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public AddID<T> IDIndex (string value) {
-      ((weka.filters.unsupervised.attribute.AddID)impl).setIDIndex(value);
+      ((AddID)impl).setIDIndex(value);
       return this;
     }
 

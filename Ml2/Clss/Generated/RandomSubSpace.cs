@@ -23,7 +23,7 @@ namespace Ml2.Clss
     /// attributes, otherwise the absolute number of attributes.
     /// </summary>    
     public RandomSubSpace<T> SubSpaceSize (double value) {
-      ((weka.classifiers.meta.RandomSubSpace)impl).setSubSpaceSize(value);
+      ((RandomSubSpace)impl).setSubSpaceSize(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomSubSpace<T> Seed (int value) {
-      ((weka.classifiers.meta.RandomSubSpace)impl).setSeed(value);
+      ((RandomSubSpace)impl).setSeed(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public RandomSubSpace<T> NumExecutionSlots (int value) {
-      ((weka.classifiers.meta.RandomSubSpace)impl).setNumExecutionSlots(value);
+      ((RandomSubSpace)impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public RandomSubSpace<T> NumIterations (int value) {
-      ((weka.classifiers.meta.RandomSubSpace)impl).setNumIterations(value);
+      ((RandomSubSpace)impl).setNumIterations(value);
       return this;
     }
 
@@ -56,7 +56,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomSubSpace<T> Debug (bool value) {
-      ((weka.classifiers.meta.RandomSubSpace)impl).setDebug(value);
+      ((RandomSubSpace)impl).setDebug(value);
       return this;
     }
 

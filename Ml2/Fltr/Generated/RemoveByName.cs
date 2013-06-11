@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// The regular expression to match the attribute names against.
     /// </summary>    
     public RemoveByName<T> Expression (string value) {
-      ((weka.filters.unsupervised.attribute.RemoveByName)impl).setExpression(value);
+      ((RemoveByName)impl).setExpression(value);
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Fltr
     /// will be deleted.
     /// </summary>    
     public RemoveByName<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.RemoveByName)impl).setInvertSelection(value);
+      ((RemoveByName)impl).setInvertSelection(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public RemoveByName<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.RemoveByName)impl).setDebug(value);
+      ((RemoveByName)impl).setDebug(value);
       return this;
     }
 

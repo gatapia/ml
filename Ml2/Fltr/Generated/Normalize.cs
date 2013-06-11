@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// The factor for scaling the output range (default: 1).
     /// </summary>    
     public Normalize<T> Scale (double value) {
-      ((weka.filters.unsupervised.attribute.Normalize)impl).setScale(value);
+      ((Normalize)impl).setScale(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// The translation of the output range (default: 0).
     /// </summary>    
     public Normalize<T> Translation (double value) {
-      ((weka.filters.unsupervised.attribute.Normalize)impl).setTranslation(value);
+      ((Normalize)impl).setTranslation(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Normalize<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.Normalize)impl).setIgnoreClass(value);
+      ((Normalize)impl).setIgnoreClass(value);
       return this;
     }
 

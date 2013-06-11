@@ -18,7 +18,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public BayesNet<T> BIFFile (string value) {
-      ((weka.classifiers.bayes.BayesNet)impl).setBIFFile(value);
+      ((BayesNet)impl).setBIFFile(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public BayesNet<T> UseADTree (bool value) {
-      ((weka.classifiers.bayes.BayesNet)impl).setUseADTree(value);
+      ((BayesNet)impl).setUseADTree(value);
       return this;
     }
 
@@ -38,7 +38,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public BayesNet<T> Debug (bool value) {
-      ((weka.classifiers.bayes.BayesNet)impl).setDebug(value);
+      ((BayesNet)impl).setDebug(value);
       return this;
     }
 

@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// range are left untouched ("first" and "last" are valid values)
     /// </summary>    
     public NominalToString<T> AttributeIndexes (string value) {
-      ((weka.filters.unsupervised.attribute.NominalToString)impl).setAttributeIndexes(value);
+      ((NominalToString)impl).setAttributeIndexes(value);
       return this;
     }
 

@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// The minimum threshold below values are replaced by a default.
     /// </summary>    
     public NumericCleaner<T> MinThreshold (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setMinThreshold(value);
+      ((NumericCleaner)impl).setMinThreshold(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// The default value to replace values that are below the minimum threshold.
     /// </summary>    
     public NumericCleaner<T> MinDefault (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setMinDefault(value);
+      ((NumericCleaner)impl).setMinDefault(value);
       return this;
     }
 
@@ -32,7 +32,7 @@ namespace Ml2.Fltr
     /// The maximum threshold above values are replaced by a default.
     /// </summary>    
     public NumericCleaner<T> MaxThreshold (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setMaxThreshold(value);
+      ((NumericCleaner)impl).setMaxThreshold(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Fltr
     /// The default value to replace values that are above the maximum threshold.
     /// </summary>    
     public NumericCleaner<T> MaxDefault (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setMaxDefault(value);
+      ((NumericCleaner)impl).setMaxDefault(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Fltr
     /// replaced by a default.
     /// </summary>    
     public NumericCleaner<T> CloseTo (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setCloseTo(value);
+      ((NumericCleaner)impl).setCloseTo(value);
       return this;
     }
 
@@ -57,7 +57,7 @@ namespace Ml2.Fltr
     /// The default value to replace values with that are too close.
     /// </summary>    
     public NumericCleaner<T> CloseToDefault (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setCloseToDefault(value);
+      ((NumericCleaner)impl).setCloseToDefault(value);
       return this;
     }
 
@@ -65,7 +65,7 @@ namespace Ml2.Fltr
     /// The value below which values are considered close to.
     /// </summary>    
     public NumericCleaner<T> CloseToTolerance (double value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setCloseToTolerance(value);
+      ((NumericCleaner)impl).setCloseToTolerance(value);
       return this;
     }
 
@@ -74,7 +74,7 @@ namespace Ml2.Fltr
     /// are valid indices.
     /// </summary>    
     public NumericCleaner<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setAttributeIndices(value);
+      ((NumericCleaner)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -82,7 +82,7 @@ namespace Ml2.Fltr
     /// If enabled the selection of the columns is inverted.
     /// </summary>    
     public NumericCleaner<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setInvertSelection(value);
+      ((NumericCleaner)impl).setInvertSelection(value);
       return this;
     }
 
@@ -91,7 +91,7 @@ namespace Ml2.Fltr
     /// process.
     /// </summary>    
     public NumericCleaner<T> IncludeClass (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setIncludeClass(value);
+      ((NumericCleaner)impl).setIncludeClass(value);
       return this;
     }
 
@@ -99,7 +99,7 @@ namespace Ml2.Fltr
     /// The number of decimals to round to, -1 means no rounding at all.
     /// </summary>    
     public NumericCleaner<T> Decimals (int value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setDecimals(value);
+      ((NumericCleaner)impl).setDecimals(value);
       return this;
     }
 
@@ -107,7 +107,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public NumericCleaner<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericCleaner)impl).setDebug(value);
+      ((NumericCleaner)impl).setDebug(value);
       return this;
     }
 

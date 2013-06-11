@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Discretize<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setAttributeIndices(value);
+      ((Discretize)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// Number of bins.
     /// </summary>    
     public Discretize<T> Bins (int value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setBins(value);
+      ((Discretize)impl).setBins(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Fltr
     /// equal-width binning.
     /// </summary>    
     public Discretize<T> UseEqualFrequency (bool value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setUseEqualFrequency(value);
+      ((Discretize)impl).setUseEqualFrequency(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Fltr
     /// will be discretized.
     /// </summary>    
     public Discretize<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setInvertSelection(value);
+      ((Discretize)impl).setInvertSelection(value);
       return this;
     }
 
@@ -53,7 +53,7 @@ namespace Ml2.Fltr
     /// Make resulting attributes binary.
     /// </summary>    
     public Discretize<T> MakeBinary (bool value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setMakeBinary(value);
+      ((Discretize)impl).setMakeBinary(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Fltr
     /// attributes
     /// </summary>    
     public Discretize<T> UseBinNumbers (bool value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setUseBinNumbers(value);
+      ((Discretize)impl).setUseBinNumbers(value);
       return this;
     }
 
@@ -71,7 +71,7 @@ namespace Ml2.Fltr
     /// equal-frequency binning
     /// </summary>    
     public Discretize<T> FindNumBins (bool value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setFindNumBins(value);
+      ((Discretize)impl).setFindNumBins(value);
       return this;
     }
 
@@ -80,7 +80,7 @@ namespace Ml2.Fltr
     /// binning.
     /// </summary>    
     public Discretize<T> DesiredWeightOfInstancesPerInterval (double value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setDesiredWeightOfInstancesPerInterval(value);
+      ((Discretize)impl).setDesiredWeightOfInstancesPerInterval(value);
       return this;
     }
 
@@ -88,7 +88,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Discretize<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.Discretize)impl).setIgnoreClass(value);
+      ((Discretize)impl).setIgnoreClass(value);
       return this;
     }
 

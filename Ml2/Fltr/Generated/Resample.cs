@@ -17,7 +17,7 @@ namespace Ml2.Fltr
     /// The seed used for random sampling.
     /// </summary>    
     public Resample<T> RandomSeed (int value) {
-      ((weka.filters.unsupervised.instance.Resample)impl).setRandomSeed(value);
+      ((Resample)impl).setRandomSeed(value);
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Fltr
     /// Size of the subsample as a percentage of the original dataset.
     /// </summary>    
     public Resample<T> SampleSizePercent (double value) {
-      ((weka.filters.unsupervised.instance.Resample)impl).setSampleSizePercent(value);
+      ((Resample)impl).setSampleSizePercent(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Fltr
     /// Disables the replacement of instances.
     /// </summary>    
     public Resample<T> NoReplacement (bool value) {
-      ((weka.filters.unsupervised.instance.Resample)impl).setNoReplacement(value);
+      ((Resample)impl).setNoReplacement(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Fltr
     /// Inverts the selection (only if instances are drawn WITHOUT replacement).
     /// </summary>    
     public Resample<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.instance.Resample)impl).setInvertSelection(value);
+      ((Resample)impl).setInvertSelection(value);
       return this;
     }
 

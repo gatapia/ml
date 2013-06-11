@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// Seed for the random number generator.
     /// </summary>    
     public Randomize<T> RandomSeed (int value) {
-      ((weka.filters.unsupervised.instance.Randomize)impl).setRandomSeed(value);
+      ((Randomize)impl).setRandomSeed(value);
       return this;
     }
 

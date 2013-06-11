@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public MergeTwoValues<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.MergeTwoValues)impl).setAttributeIndex(value);
+      ((MergeTwoValues)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Fltr
     /// Sets the first value to be merged. ("first" and "last" are valid values)
     /// </summary>    
     public MergeTwoValues<T> FirstValueIndex (string value) {
-      ((weka.filters.unsupervised.attribute.MergeTwoValues)impl).setFirstValueIndex(value);
+      ((MergeTwoValues)impl).setFirstValueIndex(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// Sets the second value to be merged. ("first" and "last" are valid values)
     /// </summary>    
     public MergeTwoValues<T> SecondValueIndex (string value) {
-      ((weka.filters.unsupervised.attribute.MergeTwoValues)impl).setSecondValueIndex(value);
+      ((MergeTwoValues)impl).setSecondValueIndex(value);
       return this;
     }
 

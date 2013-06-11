@@ -21,7 +21,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public ClassOrder<T> SetClassOrder (int value) {
-      ((weka.filters.supervised.attribute.ClassOrder)impl).setClassOrder(value);
+      ((ClassOrder)impl).setClassOrder(value);
       return this;
     }
 

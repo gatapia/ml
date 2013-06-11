@@ -19,7 +19,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Copy<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.Copy)impl).setAttributeIndices(value);
+      ((Copy)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -29,7 +29,7 @@ namespace Ml2.Fltr
     /// will be copied.
     /// </summary>    
     public Copy<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.Copy)impl).setInvertSelection(value);
+      ((Copy)impl).setInvertSelection(value);
       return this;
     }
 

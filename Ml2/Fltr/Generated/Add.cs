@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// Set the new attribute's name.
     /// </summary>    
     public Add<T> AttributeName (string value) {
-      ((weka.filters.unsupervised.attribute.Add)impl).setAttributeName(value);
+      ((Add)impl).setAttributeName(value);
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Fltr
     /// attribute will be numeric.
     /// </summary>    
     public Add<T> NominalLabels (string value) {
-      ((weka.filters.unsupervised.attribute.Add)impl).setNominalLabels(value);
+      ((Add)impl).setNominalLabels(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Fltr
     /// Defines the type of the attribute to generate.
     /// </summary>    
     public Add<T> AttributeType (EAttributeType value) {
-      ((weka.filters.unsupervised.attribute.Add)impl).setAttributeType(new SelectedTag((int) value, weka.filters.unsupervised.attribute.Add.TAGS_TYPE));
+      ((Add)impl).setAttributeType(new SelectedTag((int) value, Add.TAGS_TYPE));
       return this;
     }
 
@@ -42,7 +42,7 @@ namespace Ml2.Fltr
     /// (first and last are valid indices).
     /// </summary>    
     public Add<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.Add)impl).setAttributeIndex(value);
+      ((Add)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -50,7 +50,7 @@ namespace Ml2.Fltr
     /// The format of the date values (see ISO-8601).
     /// </summary>    
     public Add<T> DateFormat (string value) {
-      ((weka.filters.unsupervised.attribute.Add)impl).setDateFormat(value);
+      ((Add)impl).setDateFormat(value);
       return this;
     }
 

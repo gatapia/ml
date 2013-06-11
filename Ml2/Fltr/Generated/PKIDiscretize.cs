@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// Ignored.
     /// </summary>    
     public PKIDiscretize<T> FindNumBins (bool value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setFindNumBins(value);
+      ((PKIDiscretize)impl).setFindNumBins(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// Always true.
     /// </summary>    
     public PKIDiscretize<T> UseEqualFrequency (bool value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setUseEqualFrequency(value);
+      ((PKIDiscretize)impl).setUseEqualFrequency(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Fltr
     /// Ignored.
     /// </summary>    
     public PKIDiscretize<T> Bins (int value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setBins(value);
+      ((PKIDiscretize)impl).setBins(value);
       return this;
     }
 
@@ -44,7 +44,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public PKIDiscretize<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setAttributeIndices(value);
+      ((PKIDiscretize)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Fltr
     /// will be discretized.
     /// </summary>    
     public PKIDiscretize<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setInvertSelection(value);
+      ((PKIDiscretize)impl).setInvertSelection(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Fltr
     /// Make resulting attributes binary.
     /// </summary>    
     public PKIDiscretize<T> MakeBinary (bool value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setMakeBinary(value);
+      ((PKIDiscretize)impl).setMakeBinary(value);
       return this;
     }
 
@@ -71,7 +71,7 @@ namespace Ml2.Fltr
     /// attributes
     /// </summary>    
     public PKIDiscretize<T> UseBinNumbers (bool value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setUseBinNumbers(value);
+      ((PKIDiscretize)impl).setUseBinNumbers(value);
       return this;
     }
 
@@ -80,7 +80,7 @@ namespace Ml2.Fltr
     /// binning.
     /// </summary>    
     public PKIDiscretize<T> DesiredWeightOfInstancesPerInterval (double value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setDesiredWeightOfInstancesPerInterval(value);
+      ((PKIDiscretize)impl).setDesiredWeightOfInstancesPerInterval(value);
       return this;
     }
 
@@ -88,7 +88,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public PKIDiscretize<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.PKIDiscretize)impl).setIgnoreClass(value);
+      ((PKIDiscretize)impl).setIgnoreClass(value);
       return this;
     }
 

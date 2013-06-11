@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NumericTransform<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.NumericTransform)impl).setAttributeIndices(value);
+      ((NumericTransform)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// Whether to process the inverse of the given attribute ranges.
     /// </summary>    
     public NumericTransform<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericTransform)impl).setInvertSelection(value);
+      ((NumericTransform)impl).setInvertSelection(value);
       return this;
     }
 
@@ -32,7 +32,7 @@ namespace Ml2.Fltr
     /// Name of the class containing the method used for the transformation.
     /// </summary>    
     public NumericTransform<T> ClassName (string value) {
-      ((weka.filters.unsupervised.attribute.NumericTransform)impl).setClassName(value);
+      ((NumericTransform)impl).setClassName(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Fltr
     /// Name of the method used for the transformation.
     /// </summary>    
     public NumericTransform<T> MethodName (string value) {
-      ((weka.filters.unsupervised.attribute.NumericTransform)impl).setMethodName(value);
+      ((NumericTransform)impl).setMethodName(value);
       return this;
     }
 

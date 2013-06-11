@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// Index of the attribute that is to changed.
     /// </summary>    
     public AddNoise<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.AddNoise)impl).setAttributeIndex(value);
+      ((AddNoise)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// Flag to set if missing values are used.
     /// </summary>    
     public AddNoise<T> UseMissing (bool value) {
-      ((weka.filters.unsupervised.attribute.AddNoise)impl).setUseMissing(value);
+      ((AddNoise)impl).setUseMissing(value);
       return this;
     }
 
@@ -32,7 +32,7 @@ namespace Ml2.Fltr
     /// Percentage of introduced noise to data.
     /// </summary>    
     public AddNoise<T> Percent (int value) {
-      ((weka.filters.unsupervised.attribute.AddNoise)impl).setPercent(value);
+      ((AddNoise)impl).setPercent(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Fltr
     /// Random number seed.
     /// </summary>    
     public AddNoise<T> RandomSeed (int value) {
-      ((weka.filters.unsupervised.attribute.AddNoise)impl).setRandomSeed(value);
+      ((AddNoise)impl).setRandomSeed(value);
       return this;
     }
 

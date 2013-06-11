@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public MergeManyValues<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.MergeManyValues)impl).setAttributeIndex(value);
+      ((MergeManyValues)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Fltr
     /// The new label for the merged values.
     /// </summary>    
     public MergeManyValues<T> Label (string value) {
-      ((weka.filters.unsupervised.attribute.MergeManyValues)impl).setLabel(value);
+      ((MergeManyValues)impl).setLabel(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// The range of values to merge.
     /// </summary>    
     public MergeManyValues<T> MergeValueRange (string value) {
-      ((weka.filters.unsupervised.attribute.MergeManyValues)impl).setMergeValueRange(value);
+      ((MergeManyValues)impl).setMergeValueRange(value);
       return this;
     }
 

@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// attributes will not be modified.
     /// </summary>    
     public MathExpression<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.MathExpression)impl).setInvertSelection(value);
+      ((MathExpression)impl).setInvertSelection(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// && A<15])
     /// </summary>    
     public MathExpression<T> Expression (string value) {
-      ((weka.filters.unsupervised.attribute.MathExpression)impl).setExpression(value);
+      ((MathExpression)impl).setExpression(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public MathExpression<T> IgnoreRange (string value) {
-      ((weka.filters.unsupervised.attribute.MathExpression)impl).setIgnoreRange(value);
+      ((MathExpression)impl).setIgnoreRange(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public MathExpression<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.MathExpression)impl).setIgnoreClass(value);
+      ((MathExpression)impl).setIgnoreClass(value);
       return this;
     }
 

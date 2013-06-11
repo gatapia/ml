@@ -20,7 +20,7 @@ namespace Ml2.Fltr
     /// Choose attribute to be used for selection (default last).
     /// </summary>    
     public RemoveFrequentValues<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.instance.RemoveFrequentValues)impl).setAttributeIndex(value);
+      ((RemoveFrequentValues)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Fltr
     /// The number of values to retain.
     /// </summary>    
     public RemoveFrequentValues<T> NumValues (int value) {
-      ((weka.filters.unsupervised.instance.RemoveFrequentValues)impl).setNumValues(value);
+      ((RemoveFrequentValues)impl).setNumValues(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Fltr
     /// Retains values with least instance instead of most.
     /// </summary>    
     public RemoveFrequentValues<T> UseLeastValues (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveFrequentValues)impl).setUseLeastValues(value);
+      ((RemoveFrequentValues)impl).setUseLeastValues(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Fltr
     /// excluded values.
     /// </summary>    
     public RemoveFrequentValues<T> ModifyHeader (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveFrequentValues)impl).setModifyHeader(value);
+      ((RemoveFrequentValues)impl).setModifyHeader(value);
       return this;
     }
 
@@ -53,7 +53,7 @@ namespace Ml2.Fltr
     /// Invert matching sense.
     /// </summary>    
     public RemoveFrequentValues<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveFrequentValues)impl).setInvertSelection(value);
+      ((RemoveFrequentValues)impl).setInvertSelection(value);
       return this;
     }
 

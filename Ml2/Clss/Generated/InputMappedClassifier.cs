@@ -19,7 +19,7 @@ namespace Ml2.Clss
     /// Ignore case when matching attribute names and nomina values.
     /// </summary>    
     public InputMappedClassifier<T> IgnoreCaseForNames (bool value) {
-      ((weka.classifiers.misc.InputMappedClassifier)impl).setIgnoreCaseForNames(value);
+      ((InputMappedClassifier)impl).setIgnoreCaseForNames(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Clss
     /// Don't output a report of model-to-input mappings.
     /// </summary>    
     public InputMappedClassifier<T> SuppressMappingReport (bool value) {
-      ((weka.classifiers.misc.InputMappedClassifier)impl).setSuppressMappingReport(value);
+      ((InputMappedClassifier)impl).setSuppressMappingReport(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clss
     /// before matching.
     /// </summary>    
     public InputMappedClassifier<T> Trim (bool value) {
-      ((weka.classifiers.misc.InputMappedClassifier)impl).setTrim(value);
+      ((InputMappedClassifier)impl).setTrim(value);
       return this;
     }
 
@@ -46,7 +46,7 @@ namespace Ml2.Clss
     /// path.
     /// </summary>    
     public InputMappedClassifier<T> ModelPath (string value) {
-      ((weka.classifiers.misc.InputMappedClassifier)impl).setModelPath(value);
+      ((InputMappedClassifier)impl).setModelPath(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public InputMappedClassifier<T> Debug (bool value) {
-      ((weka.classifiers.misc.InputMappedClassifier)impl).setDebug(value);
+      ((InputMappedClassifier)impl).setDebug(value);
       return this;
     }
 

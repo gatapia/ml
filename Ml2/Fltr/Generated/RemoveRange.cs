@@ -14,7 +14,7 @@ namespace Ml2.Fltr
     /// The range of instances to select. First and last are valid indexes.
     /// </summary>    
     public RemoveRange<T> InstancesIndices (string value) {
-      ((weka.filters.unsupervised.instance.RemoveRange)impl).setInstancesIndices(value);
+      ((RemoveRange)impl).setInstancesIndices(value);
       return this;
     }
 
@@ -22,7 +22,7 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public RemoveRange<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveRange)impl).setInvertSelection(value);
+      ((RemoveRange)impl).setInvertSelection(value);
       return this;
     }
 

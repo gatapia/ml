@@ -16,7 +16,7 @@ namespace Ml2.Clss
     /// The number of folds used for cross-validation.
     /// </summary>    
     public Stacking<T> NumFolds (int value) {
-      ((weka.classifiers.meta.Stacking)impl).setNumFolds(value);
+      ((Stacking)impl).setNumFolds(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public Stacking<T> Seed (int value) {
-      ((weka.classifiers.meta.Stacking)impl).setSeed(value);
+      ((Stacking)impl).setSeed(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public Stacking<T> NumExecutionSlots (int value) {
-      ((weka.classifiers.meta.Stacking)impl).setNumExecutionSlots(value);
+      ((Stacking)impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Stacking<T> Debug (bool value) {
-      ((weka.classifiers.meta.Stacking)impl).setDebug(value);
+      ((Stacking)impl).setDebug(value);
       return this;
     }
 

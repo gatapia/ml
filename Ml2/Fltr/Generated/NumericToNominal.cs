@@ -20,7 +20,7 @@ namespace Ml2.Fltr
     /// will be 'nominalized'.
     /// </summary>    
     public NumericToNominal<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericToNominal)impl).setInvertSelection(value);
+      ((NumericToNominal)impl).setInvertSelection(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NumericToNominal<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.NumericToNominal)impl).setAttributeIndices(value);
+      ((NumericToNominal)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -38,7 +38,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public NumericToNominal<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericToNominal)impl).setDebug(value);
+      ((NumericToNominal)impl).setDebug(value);
       return this;
     }
 

@@ -19,7 +19,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public NumericToBinary<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.NumericToBinary)impl).setIgnoreClass(value);
+      ((NumericToBinary)impl).setIgnoreClass(value);
       return this;
     }
 

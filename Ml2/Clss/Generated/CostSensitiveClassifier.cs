@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// to each class. If true, the minimum expected cost criteria will be used.
     /// </summary>    
     public CostSensitiveClassifier<T> MinimizeExpectedCost (bool value) {
-      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setMinimizeExpectedCost(value);
+      ((CostSensitiveClassifier)impl).setMinimizeExpectedCost(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// relation_name.cost).
     /// </summary>    
     public CostSensitiveClassifier<T> CostMatrixSource (ECostMatrixSource value) {
-      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setCostMatrixSource(new SelectedTag((int) value, weka.classifiers.meta.CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
+      ((CostSensitiveClassifier)impl).setCostMatrixSource(new SelectedTag((int) value, CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CostSensitiveClassifier<T> Seed (int value) {
-      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setSeed(value);
+      ((CostSensitiveClassifier)impl).setSeed(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public CostSensitiveClassifier<T> Debug (bool value) {
-      ((weka.classifiers.meta.CostSensitiveClassifier)impl).setDebug(value);
+      ((CostSensitiveClassifier)impl).setDebug(value);
       return this;
     }
 

@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// will be deleted.
     /// </summary>    
     public RemoveType<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.RemoveType)impl).setInvertSelection(value);
+      ((RemoveType)impl).setInvertSelection(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// The type of attribute to remove.
     /// </summary>    
     public RemoveType<T> AttributeType (EAttributeType value) {
-      ((weka.filters.unsupervised.attribute.RemoveType)impl).setAttributeType(new SelectedTag((int) value, weka.filters.unsupervised.attribute.RemoveType.TAGS_ATTRIBUTETYPE));
+      ((RemoveType)impl).setAttributeType(new SelectedTag((int) value, RemoveType.TAGS_ATTRIBUTETYPE));
       return this;
     }
 

@@ -22,7 +22,7 @@ namespace Ml2.Clss
     /// Number of bins for discretization.
     /// </summary>    
     public RegressionByDiscretization<T> NumBins (int value) {
-      ((weka.classifiers.meta.RegressionByDiscretization)impl).setNumBins(value);
+      ((RegressionByDiscretization)impl).setNumBins(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// Whether to delete empty bins after discretization.
     /// </summary>    
     public RegressionByDiscretization<T> DeleteEmptyBins (bool value) {
-      ((weka.classifiers.meta.RegressionByDiscretization)impl).setDeleteEmptyBins(value);
+      ((RegressionByDiscretization)impl).setDeleteEmptyBins(value);
       return this;
     }
 
@@ -39,7 +39,7 @@ namespace Ml2.Clss
     /// equal-width binning.
     /// </summary>    
     public RegressionByDiscretization<T> UseEqualFrequency (bool value) {
-      ((weka.classifiers.meta.RegressionByDiscretization)impl).setUseEqualFrequency(value);
+      ((RegressionByDiscretization)impl).setUseEqualFrequency(value);
       return this;
     }
 
@@ -47,7 +47,7 @@ namespace Ml2.Clss
     /// Whether to minimize absolute error.
     /// </summary>    
     public RegressionByDiscretization<T> MinimizeAbsoluteError (bool value) {
-      ((weka.classifiers.meta.RegressionByDiscretization)impl).setMinimizeAbsoluteError(value);
+      ((RegressionByDiscretization)impl).setMinimizeAbsoluteError(value);
       return this;
     }
 
@@ -55,7 +55,7 @@ namespace Ml2.Clss
     /// The density estimator to use.
     /// </summary>    
     public RegressionByDiscretization<T> EstimatorType (EEstimatorType value) {
-      ((weka.classifiers.meta.RegressionByDiscretization)impl).setEstimatorType(new SelectedTag((int) value, weka.classifiers.meta.RegressionByDiscretization.TAGS_ESTIMATOR));
+      ((RegressionByDiscretization)impl).setEstimatorType(new SelectedTag((int) value, RegressionByDiscretization.TAGS_ESTIMATOR));
       return this;
     }
 
@@ -63,7 +63,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RegressionByDiscretization<T> Debug (bool value) {
-      ((weka.classifiers.meta.RegressionByDiscretization)impl).setDebug(value);
+      ((RegressionByDiscretization)impl).setDebug(value);
       return this;
     }
 

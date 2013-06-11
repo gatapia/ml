@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// first-3,5,9-last
     /// </summary>    
     public AddCluster<T> IgnoredAttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.AddCluster)impl).setIgnoredAttributeIndices(value);
+      ((AddCluster)impl).setIgnoredAttributeIndices(value);
       return this;
     }
 

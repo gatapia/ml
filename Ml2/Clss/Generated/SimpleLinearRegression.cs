@@ -16,7 +16,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public SimpleLinearRegression<T> SuppressErrorMessage (bool value) {
-      ((weka.classifiers.functions.SimpleLinearRegression)impl).setSuppressErrorMessage(value);
+      ((SimpleLinearRegression)impl).setSuppressErrorMessage(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SimpleLinearRegression<T> Debug (bool value) {
-      ((weka.classifiers.functions.SimpleLinearRegression)impl).setDebug(value);
+      ((SimpleLinearRegression)impl).setDebug(value);
       return this;
     }
 

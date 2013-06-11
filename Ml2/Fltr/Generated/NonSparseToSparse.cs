@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// Treat missing values in the same way as zeros.
     /// </summary>    
     public NonSparseToSparse<T> TreatMissingValuesAsZero (bool value) {
-      ((weka.filters.unsupervised.instance.NonSparseToSparse)impl).setTreatMissingValuesAsZero(value);
+      ((NonSparseToSparse)impl).setTreatMissingValuesAsZero(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// values as zero.
     /// </summary>    
     public NonSparseToSparse<T> InsertDummyNominalFirstValue (bool value) {
-      ((weka.filters.unsupervised.instance.NonSparseToSparse)impl).setInsertDummyNominalFirstValue(value);
+      ((NonSparseToSparse)impl).setInsertDummyNominalFirstValue(value);
       return this;
     }
 

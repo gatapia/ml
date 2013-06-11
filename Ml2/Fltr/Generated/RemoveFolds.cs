@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public RemoveFolds<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveFolds)impl).setInvertSelection(value);
+      ((RemoveFolds)impl).setInvertSelection(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Fltr
     /// The number of folds to split the dataset into.
     /// </summary>    
     public RemoveFolds<T> NumFolds (int value) {
-      ((weka.filters.unsupervised.instance.RemoveFolds)impl).setNumFolds(value);
+      ((RemoveFolds)impl).setNumFolds(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// The fold which is selected.
     /// </summary>    
     public RemoveFolds<T> Fold (int value) {
-      ((weka.filters.unsupervised.instance.RemoveFolds)impl).setFold(value);
+      ((RemoveFolds)impl).setFold(value);
       return this;
     }
 

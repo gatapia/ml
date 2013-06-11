@@ -17,7 +17,7 @@ namespace Ml2.Fltr
     /// The regular expression that the attribute names must match.
     /// </summary>    
     public RenameAttribute<T> Find (string value) {
-      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setFind(value);
+      ((RenameAttribute)impl).setFind(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// with.
     /// </summary>    
     public RenameAttribute<T> Replace (string value) {
-      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setReplace(value);
+      ((RenameAttribute)impl).setReplace(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Fltr
     /// otherwise only the first.
     /// </summary>    
     public RenameAttribute<T> ReplaceAll (bool value) {
-      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setReplaceAll(value);
+      ((RenameAttribute)impl).setReplaceAll(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-"; eg: "first-3,5,6-10,last".
     /// </summary>    
     public RenameAttribute<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setAttributeIndices(value);
+      ((RenameAttribute)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Fltr
     /// '2-4' then mean everything apart from '2-4'.
     /// </summary>    
     public RenameAttribute<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setInvertSelection(value);
+      ((RenameAttribute)impl).setInvertSelection(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public RenameAttribute<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.RenameAttribute)impl).setDebug(value);
+      ((RenameAttribute)impl).setDebug(value);
       return this;
     }
 

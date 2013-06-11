@@ -22,7 +22,7 @@ namespace Ml2.Clss
     /// regression) or squared loss (regression).
     /// </summary>    
     public SGD<T> LossFunction (ELossFunction value) {
-      ((weka.classifiers.functions.SGD)impl).setLossFunction(new SelectedTag((int) value, weka.classifiers.functions.SGD.TAGS_SELECTION));
+      ((SGD)impl).setLossFunction(new SelectedTag((int) value, SGD.TAGS_SELECTION));
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// The regularization constant. (default = 0.0001)
     /// </summary>    
     public SGD<T> Lambda (double value) {
-      ((weka.classifiers.functions.SGD)impl).setLambda(value);
+      ((SGD)impl).setLambda(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// (try 0.0001).
     /// </summary>    
     public SGD<T> LearningRate (double value) {
-      ((weka.classifiers.functions.SGD)impl).setLearningRate(value);
+      ((SGD)impl).setLearningRate(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// iterations is epochs * num instances.
     /// </summary>    
     public SGD<T> Epochs (int value) {
-      ((weka.classifiers.functions.SGD)impl).setEpochs(value);
+      ((SGD)impl).setEpochs(value);
       return this;
     }
 
@@ -60,7 +60,7 @@ namespace Ml2.Clss
     /// linear parts of the loss function.
     /// </summary>    
     public SGD<T> Epsilon (double value) {
-      ((weka.classifiers.functions.SGD)impl).setEpsilon(value);
+      ((SGD)impl).setEpsilon(value);
       return this;
     }
 
@@ -68,7 +68,7 @@ namespace Ml2.Clss
     /// Turn normalization off
     /// </summary>    
     public SGD<T> DontNormalize (bool value) {
-      ((weka.classifiers.functions.SGD)impl).setDontNormalize(value);
+      ((SGD)impl).setDontNormalize(value);
       return this;
     }
 
@@ -76,7 +76,7 @@ namespace Ml2.Clss
     /// Turn off global replacement of missing values
     /// </summary>    
     public SGD<T> DontReplaceMissing (bool value) {
-      ((weka.classifiers.functions.SGD)impl).setDontReplaceMissing(value);
+      ((SGD)impl).setDontReplaceMissing(value);
       return this;
     }
 
@@ -84,7 +84,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public SGD<T> Seed (int value) {
-      ((weka.classifiers.functions.SGD)impl).setSeed(value);
+      ((SGD)impl).setSeed(value);
       return this;
     }
 
@@ -92,7 +92,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SGD<T> Debug (bool value) {
-      ((weka.classifiers.functions.SGD)impl).setDebug(value);
+      ((SGD)impl).setDebug(value);
       return this;
     }
 

@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// purposes.
     /// </summary>    
     public M5P<T> SaveInstances (bool value) {
-      ((weka.classifiers.trees.M5P)impl).setSaveInstances(value);
+      ((M5P)impl).setSaveInstances(value);
       return this;
     }
 
@@ -29,7 +29,7 @@ namespace Ml2.Clss
     /// Whether unpruned tree/rules are to be generated.
     /// </summary>    
     public M5P<T> Unpruned (bool value) {
-      ((weka.classifiers.trees.M5P)impl).setUnpruned(value);
+      ((M5P)impl).setUnpruned(value);
       return this;
     }
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// Whether to use unsmoothed predictions.
     /// </summary>    
     public M5P<T> UseUnsmoothed (bool value) {
-      ((weka.classifiers.trees.M5P)impl).setUseUnsmoothed(value);
+      ((M5P)impl).setUseUnsmoothed(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Clss
     /// Whether to generate a regression tree/rule instead of a model tree/rule.
     /// </summary>    
     public M5P<T> BuildRegressionTree (bool value) {
-      ((weka.classifiers.trees.M5P)impl).setBuildRegressionTree(value);
+      ((M5P)impl).setBuildRegressionTree(value);
       return this;
     }
 
@@ -53,7 +53,7 @@ namespace Ml2.Clss
     /// The minimum number of instances to allow at a leaf node.
     /// </summary>    
     public M5P<T> MinNumInstances (double value) {
-      ((weka.classifiers.trees.M5P)impl).setMinNumInstances(value);
+      ((M5P)impl).setMinNumInstances(value);
       return this;
     }
 
@@ -61,7 +61,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public M5P<T> Debug (bool value) {
-      ((weka.classifiers.trees.M5P)impl).setDebug(value);
+      ((M5P)impl).setDebug(value);
       return this;
     }
 

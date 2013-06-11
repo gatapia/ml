@@ -23,7 +23,7 @@ namespace Ml2.Clstr
     /// set the minimum standard deviation for numeric attributes
     /// </summary>    
     public Cobweb<T> Acuity (double value) {
-      ((weka.clusterers.Cobweb)impl).setAcuity(value);
+      ((Cobweb)impl).setAcuity(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Clstr
     /// set the category utility threshold by which to prune nodes
     /// </summary>    
     public Cobweb<T> Cutoff (double value) {
-      ((weka.clusterers.Cobweb)impl).setCutoff(value);
+      ((Cobweb)impl).setCutoff(value);
       return this;
     }
 
@@ -39,7 +39,7 @@ namespace Ml2.Clstr
     /// save instance information for visualization purposes
     /// </summary>    
     public Cobweb<T> SaveInstanceData (bool value) {
-      ((weka.clusterers.Cobweb)impl).setSaveInstanceData(value);
+      ((Cobweb)impl).setSaveInstanceData(value);
       return this;
     }
 
@@ -47,7 +47,7 @@ namespace Ml2.Clstr
     /// The random number seed to be used. Use -1 for no randomization.
     /// </summary>    
     public Cobweb<T> Seed (int value) {
-      ((weka.clusterers.Cobweb)impl).setSeed(value);
+      ((Cobweb)impl).setSeed(value);
       return this;
     }
 

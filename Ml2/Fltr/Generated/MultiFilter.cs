@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public MultiFilter<T> Debug (bool value) {
-      ((weka.filters.MultiFilter)impl).setDebug(value);
+      ((MultiFilter)impl).setDebug(value);
       return this;
     }
 

@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomCommittee<T> Seed (int value) {
-      ((weka.classifiers.meta.RandomCommittee)impl).setSeed(value);
+      ((RandomCommittee)impl).setSeed(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public RandomCommittee<T> NumExecutionSlots (int value) {
-      ((weka.classifiers.meta.RandomCommittee)impl).setNumExecutionSlots(value);
+      ((RandomCommittee)impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public RandomCommittee<T> NumIterations (int value) {
-      ((weka.classifiers.meta.RandomCommittee)impl).setNumIterations(value);
+      ((RandomCommittee)impl).setNumIterations(value);
       return this;
     }
 
@@ -42,7 +42,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomCommittee<T> Debug (bool value) {
-      ((weka.classifiers.meta.RandomCommittee)impl).setDebug(value);
+      ((RandomCommittee)impl).setDebug(value);
       return this;
     }
 

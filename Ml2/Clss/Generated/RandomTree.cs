@@ -16,7 +16,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public RandomTree<T> KValue (int value) {
-      ((weka.classifiers.trees.RandomTree)impl).setKValue(value);
+      ((RandomTree)impl).setKValue(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Clss
     /// The maximum depth of the tree, 0 for unlimited.
     /// </summary>    
     public RandomTree<T> MaxDepth (int value) {
-      ((weka.classifiers.trees.RandomTree)impl).setMaxDepth(value);
+      ((RandomTree)impl).setMaxDepth(value);
       return this;
     }
 
@@ -32,7 +32,7 @@ namespace Ml2.Clss
     /// The random number seed used for selecting attributes.
     /// </summary>    
     public RandomTree<T> Seed (int value) {
-      ((weka.classifiers.trees.RandomTree)impl).setSeed(value);
+      ((RandomTree)impl).setSeed(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// Whether to allow unclassified instances.
     /// </summary>    
     public RandomTree<T> AllowUnclassifiedInstances (bool value) {
-      ((weka.classifiers.trees.RandomTree)impl).setAllowUnclassifiedInstances(value);
+      ((RandomTree)impl).setAllowUnclassifiedInstances(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Clss
     /// The minimum total weight of the instances in a leaf.
     /// </summary>    
     public RandomTree<T> MinNum (double value) {
-      ((weka.classifiers.trees.RandomTree)impl).setMinNum(value);
+      ((RandomTree)impl).setMinNum(value);
       return this;
     }
 
@@ -57,7 +57,7 @@ namespace Ml2.Clss
     /// backfitting, the rest for growing the tree. (Default: 0, no backfitting)
     /// </summary>    
     public RandomTree<T> NumFolds (int value) {
-      ((weka.classifiers.trees.RandomTree)impl).setNumFolds(value);
+      ((RandomTree)impl).setNumFolds(value);
       return this;
     }
 
@@ -65,7 +65,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomTree<T> Debug (bool value) {
-      ((weka.classifiers.trees.RandomTree)impl).setDebug(value);
+      ((RandomTree)impl).setDebug(value);
       return this;
     }
 

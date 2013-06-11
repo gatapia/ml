@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// used.
     /// </summary>    
     public J48<T> Seed (int value) {
-      ((weka.classifiers.trees.J48)impl).setSeed(value);
+      ((J48)impl).setSeed(value);
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Clss
     /// Whether counts at leaves are smoothed based on Laplace.
     /// </summary>    
     public J48<T> UseLaplace (bool value) {
-      ((weka.classifiers.trees.J48)impl).setUseLaplace(value);
+      ((J48)impl).setUseLaplace(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// Whether MDL correction is used when finding splits on numeric attributes.
     /// </summary>    
     public J48<T> UseMDLcorrection (bool value) {
-      ((weka.classifiers.trees.J48)impl).setUseMDLcorrection(value);
+      ((J48)impl).setUseMDLcorrection(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Clss
     /// Whether pruning is performed.
     /// </summary>    
     public J48<T> Unpruned (bool value) {
-      ((weka.classifiers.trees.J48)impl).setUnpruned(value);
+      ((J48)impl).setUnpruned(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// Whether parts are removed that do not reduce training error.
     /// </summary>    
     public J48<T> CollapseTree (bool value) {
-      ((weka.classifiers.trees.J48)impl).setCollapseTree(value);
+      ((J48)impl).setCollapseTree(value);
       return this;
     }
 
@@ -57,7 +57,7 @@ namespace Ml2.Clss
     /// The minimum number of instances per leaf.
     /// </summary>    
     public J48<T> MinNumObj (int value) {
-      ((weka.classifiers.trees.J48)impl).setMinNumObj(value);
+      ((J48)impl).setMinNumObj(value);
       return this;
     }
 
@@ -65,7 +65,7 @@ namespace Ml2.Clss
     /// Whether reduced-error pruning is used instead of C.4.5 pruning.
     /// </summary>    
     public J48<T> ReducedErrorPruning (bool value) {
-      ((weka.classifiers.trees.J48)impl).setReducedErrorPruning(value);
+      ((J48)impl).setReducedErrorPruning(value);
       return this;
     }
 
@@ -74,7 +74,7 @@ namespace Ml2.Clss
     /// used for pruning, the rest for growing the tree.
     /// </summary>    
     public J48<T> NumFolds (int value) {
-      ((weka.classifiers.trees.J48)impl).setNumFolds(value);
+      ((J48)impl).setNumFolds(value);
       return this;
     }
 
@@ -83,7 +83,7 @@ namespace Ml2.Clss
     /// trees.
     /// </summary>    
     public J48<T> BinarySplits (bool value) {
-      ((weka.classifiers.trees.J48)impl).setBinarySplits(value);
+      ((J48)impl).setBinarySplits(value);
       return this;
     }
 
@@ -91,7 +91,7 @@ namespace Ml2.Clss
     /// Whether to consider the subtree raising operation when pruning.
     /// </summary>    
     public J48<T> SubtreeRaising (bool value) {
-      ((weka.classifiers.trees.J48)impl).setSubtreeRaising(value);
+      ((J48)impl).setSubtreeRaising(value);
       return this;
     }
 
@@ -99,7 +99,7 @@ namespace Ml2.Clss
     /// Whether to save the training data for visualization.
     /// </summary>    
     public J48<T> SaveInstanceData (bool value) {
-      ((weka.classifiers.trees.J48)impl).setSaveInstanceData(value);
+      ((J48)impl).setSaveInstanceData(value);
       return this;
     }
 
@@ -107,7 +107,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public J48<T> Debug (bool value) {
-      ((weka.classifiers.trees.J48)impl).setDebug(value);
+      ((J48)impl).setDebug(value);
       return this;
     }
 

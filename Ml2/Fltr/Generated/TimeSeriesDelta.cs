@@ -21,7 +21,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public TimeSeriesDelta<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setAttributeIndices(value);
+      ((TimeSeriesDelta)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -29,7 +29,7 @@ namespace Ml2.Fltr
     /// Invert matching sense. ie calculate for all non-specified columns.
     /// </summary>    
     public TimeSeriesDelta<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setInvertSelection(value);
+      ((TimeSeriesDelta)impl).setInvertSelection(value);
       return this;
     }
 
@@ -39,7 +39,7 @@ namespace Ml2.Fltr
     /// instances)
     /// </summary>    
     public TimeSeriesDelta<T> FillWithMissing (bool value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setFillWithMissing(value);
+      ((TimeSeriesDelta)impl).setFillWithMissing(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Fltr
     /// negative number indicates taking values from a past instance.
     /// </summary>    
     public TimeSeriesDelta<T> InstanceRange (int value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesDelta)impl).setInstanceRange(value);
+      ((TimeSeriesDelta)impl).setInstanceRange(value);
       return this;
     }
 

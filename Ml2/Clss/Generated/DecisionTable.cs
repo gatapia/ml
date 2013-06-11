@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// used in the decision table.
     /// </summary>    
     public DecisionTable<T> EvaluationMeasure (EEvaluationMeasure value) {
-      ((weka.classifiers.rules.DecisionTable)impl).setEvaluationMeasure(new SelectedTag((int) value, weka.classifiers.rules.DecisionTable.TAGS_EVALUATION));
+      ((DecisionTable)impl).setEvaluationMeasure(new SelectedTag((int) value, DecisionTable.TAGS_EVALUATION));
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Clss
     /// Sets the number of folds for cross validation (1 = leave one out).
     /// </summary>    
     public DecisionTable<T> CrossVal (int value) {
-      ((weka.classifiers.rules.DecisionTable)impl).setCrossVal(value);
+      ((DecisionTable)impl).setCrossVal(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// Sets whether IBk should be used instead of the majority class.
     /// </summary>    
     public DecisionTable<T> UseIBk (bool value) {
-      ((weka.classifiers.rules.DecisionTable)impl).setUseIBk(value);
+      ((DecisionTable)impl).setUseIBk(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Clss
     /// Sets whether rules are to be printed.
     /// </summary>    
     public DecisionTable<T> DisplayRules (bool value) {
-      ((weka.classifiers.rules.DecisionTable)impl).setDisplayRules(value);
+      ((DecisionTable)impl).setDisplayRules(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public DecisionTable<T> Debug (bool value) {
-      ((weka.classifiers.rules.DecisionTable)impl).setDebug(value);
+      ((DecisionTable)impl).setDebug(value);
       return this;
     }
 

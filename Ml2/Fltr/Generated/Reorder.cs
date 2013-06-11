@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Reorder<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.Reorder)impl).setAttributeIndices(value);
+      ((Reorder)impl).setAttributeIndices(value);
       return this;
     }
 

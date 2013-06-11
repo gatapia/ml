@@ -17,7 +17,7 @@ namespace Ml2.Fltr
     /// attributes ("first" and "last" are valid values as well as ranges and lists)
     /// </summary>    
     public StringToNominal<T> AttributeRange (string value) {
-      ((weka.filters.unsupervised.attribute.StringToNominal)impl).setAttributeRange(value);
+      ((StringToNominal)impl).setAttributeRange(value);
       return this;
     }
 

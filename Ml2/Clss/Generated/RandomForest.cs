@@ -15,7 +15,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomForest<T> Seed (int value) {
-      ((weka.classifiers.trees.RandomForest)impl).setSeed(value);
+      ((RandomForest)impl).setSeed(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Clss
     /// The maximum depth of the trees, 0 for unlimited.
     /// </summary>    
     public RandomForest<T> MaxDepth (int value) {
-      ((weka.classifiers.trees.RandomForest)impl).setMaxDepth(value);
+      ((RandomForest)impl).setMaxDepth(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Clss
     /// Print the individual trees in the output
     /// </summary>    
     public RandomForest<T> PrintTrees (bool value) {
-      ((weka.classifiers.trees.RandomForest)impl).setPrintTrees(value);
+      ((RandomForest)impl).setPrintTrees(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public RandomForest<T> NumExecutionSlots (int value) {
-      ((weka.classifiers.trees.RandomForest)impl).setNumExecutionSlots(value);
+      ((RandomForest)impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Clss
     /// The number of trees to be generated.
     /// </summary>    
     public RandomForest<T> NumTrees (int value) {
-      ((weka.classifiers.trees.RandomForest)impl).setNumTrees(value);
+      ((RandomForest)impl).setNumTrees(value);
       return this;
     }
 
@@ -56,7 +56,7 @@ namespace Ml2.Clss
     /// The number of attributes to be used in random selection (see RandomTree).
     /// </summary>    
     public RandomForest<T> NumFeatures (int value) {
-      ((weka.classifiers.trees.RandomForest)impl).setNumFeatures(value);
+      ((RandomForest)impl).setNumFeatures(value);
       return this;
     }
 
@@ -64,7 +64,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomForest<T> Debug (bool value) {
-      ((weka.classifiers.trees.RandomForest)impl).setDebug(value);
+      ((RandomForest)impl).setDebug(value);
       return this;
     }
 

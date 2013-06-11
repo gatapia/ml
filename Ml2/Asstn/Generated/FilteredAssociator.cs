@@ -18,7 +18,7 @@ namespace Ml2.Asstn
     /// as class attribute.
     /// </summary>    
     public FilteredAssociator<T> ClassIndex (int value) {
-      ((weka.associations.FilteredAssociator)impl).setClassIndex(value);
+      ((FilteredAssociator)impl).setClassIndex(value);
       return this;
     }
 

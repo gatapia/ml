@@ -19,7 +19,7 @@ namespace Ml2.Clss
     /// The combination rule used.
     /// </summary>    
     public Vote<T> CombinationRule (ECombinationRule value) {
-      ((weka.classifiers.meta.Vote)impl).setCombinationRule(new SelectedTag((int) value, weka.classifiers.meta.Vote.TAGS_RULES));
+      ((Vote)impl).setCombinationRule(new SelectedTag((int) value, Vote.TAGS_RULES));
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public Vote<T> Seed (int value) {
-      ((weka.classifiers.meta.Vote)impl).setSeed(value);
+      ((Vote)impl).setSeed(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Vote<T> Debug (bool value) {
-      ((weka.classifiers.meta.Vote)impl).setDebug(value);
+      ((Vote)impl).setDebug(value);
       return this;
     }
 

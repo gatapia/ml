@@ -16,7 +16,7 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public StratifiedRemoveFolds<T> InvertSelection (bool value) {
-      ((weka.filters.supervised.instance.StratifiedRemoveFolds)impl).setInvertSelection(value);
+      ((StratifiedRemoveFolds)impl).setInvertSelection(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// The number of folds to split the dataset into.
     /// </summary>    
     public StratifiedRemoveFolds<T> NumFolds (int value) {
-      ((weka.filters.supervised.instance.StratifiedRemoveFolds)impl).setNumFolds(value);
+      ((StratifiedRemoveFolds)impl).setNumFolds(value);
       return this;
     }
 
@@ -32,7 +32,7 @@ namespace Ml2.Fltr
     /// The fold which is selected.
     /// </summary>    
     public StratifiedRemoveFolds<T> Fold (int value) {
-      ((weka.filters.supervised.instance.StratifiedRemoveFolds)impl).setFold(value);
+      ((StratifiedRemoveFolds)impl).setFold(value);
       return this;
     }
 

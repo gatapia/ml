@@ -20,7 +20,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public TimeSeriesTranslate<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesTranslate)impl).setAttributeIndices(value);
+      ((TimeSeriesTranslate)impl).setAttributeIndices(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Fltr
     /// Invert matching sense. ie calculate for all non-specified columns.
     /// </summary>    
     public TimeSeriesTranslate<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesTranslate)impl).setInvertSelection(value);
+      ((TimeSeriesTranslate)impl).setInvertSelection(value);
       return this;
     }
 
@@ -38,7 +38,7 @@ namespace Ml2.Fltr
     /// instances)
     /// </summary>    
     public TimeSeriesTranslate<T> FillWithMissing (bool value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesTranslate)impl).setFillWithMissing(value);
+      ((TimeSeriesTranslate)impl).setFillWithMissing(value);
       return this;
     }
 
@@ -47,7 +47,7 @@ namespace Ml2.Fltr
     /// negative number indicates taking values from a past instance.
     /// </summary>    
     public TimeSeriesTranslate<T> InstanceRange (int value) {
-      ((weka.filters.unsupervised.attribute.TimeSeriesTranslate)impl).setInstanceRange(value);
+      ((TimeSeriesTranslate)impl).setInstanceRange(value);
       return this;
     }
 

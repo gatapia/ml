@@ -20,7 +20,7 @@ namespace Ml2.Clstr
     /// set number of clusters
     /// </summary>    
     public FarthestFirst<T> NumClusters (int value) {
-      ((weka.clusterers.FarthestFirst)impl).setNumClusters(value);
+      ((FarthestFirst)impl).setNumClusters(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Clstr
     /// The random number seed to be used.
     /// </summary>    
     public FarthestFirst<T> Seed (int value) {
-      ((weka.clusterers.FarthestFirst)impl).setSeed(value);
+      ((FarthestFirst)impl).setSeed(value);
       return this;
     }
 

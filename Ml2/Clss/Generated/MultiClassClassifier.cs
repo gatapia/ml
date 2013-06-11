@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// several 2-class ones.
     /// </summary>    
     public MultiClassClassifier<T> Method (EMethod value) {
-      ((weka.classifiers.meta.MultiClassClassifier)impl).setMethod(new SelectedTag((int) value, weka.classifiers.meta.MultiClassClassifier.TAGS_METHOD));
+      ((MultiClassClassifier)impl).setMethod(new SelectedTag((int) value, MultiClassClassifier.TAGS_METHOD));
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
     public MultiClassClassifier<T> RandomWidthFactor (double value) {
-      ((weka.classifiers.meta.MultiClassClassifier)impl).setRandomWidthFactor(value);
+      ((MultiClassClassifier)impl).setRandomWidthFactor(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
     public MultiClassClassifier<T> UsePairwiseCoupling (bool value) {
-      ((weka.classifiers.meta.MultiClassClassifier)impl).setUsePairwiseCoupling(value);
+      ((MultiClassClassifier)impl).setUsePairwiseCoupling(value);
       return this;
     }
 
@@ -42,7 +42,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public MultiClassClassifier<T> Seed (int value) {
-      ((weka.classifiers.meta.MultiClassClassifier)impl).setSeed(value);
+      ((MultiClassClassifier)impl).setSeed(value);
       return this;
     }
 
@@ -50,7 +50,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public MultiClassClassifier<T> Debug (bool value) {
-      ((weka.classifiers.meta.MultiClassClassifier)impl).setDebug(value);
+      ((MultiClassClassifier)impl).setDebug(value);
       return this;
     }
 

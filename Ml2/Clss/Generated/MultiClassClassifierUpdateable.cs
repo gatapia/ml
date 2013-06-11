@@ -18,7 +18,7 @@ namespace Ml2.Clss
     /// several 2-class ones.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Method (EMethod value) {
-      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setMethod(new SelectedTag((int) value, weka.classifiers.meta.MultiClassClassifierUpdateable.TAGS_METHOD));
+      ((MultiClassClassifierUpdateable)impl).setMethod(new SelectedTag((int) value, MultiClassClassifierUpdateable.TAGS_METHOD));
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Clss
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> RandomWidthFactor (double value) {
-      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setRandomWidthFactor(value);
+      ((MultiClassClassifierUpdateable)impl).setRandomWidthFactor(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Clss
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
     public MultiClassClassifierUpdateable<T> UsePairwiseCoupling (bool value) {
-      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setUsePairwiseCoupling(value);
+      ((MultiClassClassifierUpdateable)impl).setUsePairwiseCoupling(value);
       return this;
     }
 
@@ -43,7 +43,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Seed (int value) {
-      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setSeed(value);
+      ((MultiClassClassifierUpdateable)impl).setSeed(value);
       return this;
     }
 
@@ -51,7 +51,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Debug (bool value) {
-      ((weka.classifiers.meta.MultiClassClassifierUpdateable)impl).setDebug(value);
+      ((MultiClassClassifierUpdateable)impl).setDebug(value);
       return this;
     }
 

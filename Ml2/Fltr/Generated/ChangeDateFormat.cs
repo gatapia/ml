@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// ("first" and "last" are valid values)
     /// </summary>    
     public ChangeDateFormat<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.ChangeDateFormat)impl).setAttributeIndex(value);
+      ((ChangeDateFormat)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Fltr
     /// Java's SimpleDateFormat class.
     /// </summary>    
     public ChangeDateFormat<T> DateFormat (string value) {
-      ((weka.filters.unsupervised.attribute.ChangeDateFormat)impl).setDateFormat(value);
+      ((ChangeDateFormat)impl).setDateFormat(value);
       return this;
     }
 

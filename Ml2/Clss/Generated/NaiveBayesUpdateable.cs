@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// ones.
     /// </summary>    
     public NaiveBayesUpdateable<T> UseSupervisedDiscretization (bool value) {
-      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setUseSupervisedDiscretization(value);
+      ((NaiveBayesUpdateable)impl).setUseSupervisedDiscretization(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// distribution.
     /// </summary>    
     public NaiveBayesUpdateable<T> UseKernelEstimator (bool value) {
-      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setUseKernelEstimator(value);
+      ((NaiveBayesUpdateable)impl).setUseKernelEstimator(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// and many attributes.
     /// </summary>    
     public NaiveBayesUpdateable<T> DisplayModelInOldFormat (bool value) {
-      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setDisplayModelInOldFormat(value);
+      ((NaiveBayesUpdateable)impl).setDisplayModelInOldFormat(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public NaiveBayesUpdateable<T> Debug (bool value) {
-      ((weka.classifiers.bayes.NaiveBayesUpdateable)impl).setDebug(value);
+      ((NaiveBayesUpdateable)impl).setDebug(value);
       return this;
     }
 

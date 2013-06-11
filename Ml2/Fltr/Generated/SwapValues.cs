@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public SwapValues<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.SwapValues)impl).setAttributeIndex(value);
+      ((SwapValues)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Fltr
     /// The index of the first value.("first" and "last" are valid values)
     /// </summary>    
     public SwapValues<T> FirstValueIndex (string value) {
-      ((weka.filters.unsupervised.attribute.SwapValues)impl).setFirstValueIndex(value);
+      ((SwapValues)impl).setFirstValueIndex(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// The index of the second value.("first" and "last" are valid values)
     /// </summary>    
     public SwapValues<T> SecondValueIndex (string value) {
-      ((weka.filters.unsupervised.attribute.SwapValues)impl).setSecondValueIndex(value);
+      ((SwapValues)impl).setSecondValueIndex(value);
       return this;
     }
 

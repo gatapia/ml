@@ -17,7 +17,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public StringToWordVector<T> SelectedRange (string value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setSelectedRange(value);
+      ((StringToWordVector)impl).setSelectedRange(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Fltr
     /// processed.
     /// </summary>    
     public StringToWordVector<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setInvertSelection(value);
+      ((StringToWordVector)impl).setInvertSelection(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Fltr
     /// Prefix for the created attribute names. (default: "")
     /// </summary>    
     public StringToWordVector<T> AttributeNamePrefix (string value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setAttributeNamePrefix(value);
+      ((StringToWordVector)impl).setAttributeNamePrefix(value);
       return this;
     }
 
@@ -44,7 +44,7 @@ namespace Ml2.Fltr
     /// attempt to keep.
     /// </summary>    
     public StringToWordVector<T> WordsToKeep (int value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setWordsToKeep(value);
+      ((StringToWordVector)impl).setWordsToKeep(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Fltr
     /// may not have enough memory for this approach.
     /// </summary>    
     public StringToWordVector<T> PeriodicPruning (double value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setPeriodicPruning(value);
+      ((StringToWordVector)impl).setPeriodicPruning(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Fltr
     /// Sets the minimum term frequency. This is enforced on a per-class basis.
     /// </summary>    
     public StringToWordVector<T> MinTermFreq (int value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setMinTermFreq(value);
+      ((StringToWordVector)impl).setMinTermFreq(value);
       return this;
     }
 
@@ -71,7 +71,7 @@ namespace Ml2.Fltr
     /// absence of a word).
     /// </summary>    
     public StringToWordVector<T> OutputWordCounts (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setOutputWordCounts(value);
+      ((StringToWordVector)impl).setOutputWordCounts(value);
       return this;
     }
 
@@ -79,7 +79,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public StringToWordVector<T> TFTransform (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setTFTransform(value);
+      ((StringToWordVector)impl).setTFTransform(value);
       return this;
     }
 
@@ -87,7 +87,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public StringToWordVector<T> IDFTransform (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setIDFTransform(value);
+      ((StringToWordVector)impl).setIDFTransform(value);
       return this;
     }
 
@@ -97,7 +97,7 @@ namespace Ml2.Fltr
     /// the classes (even if a class attribute is set).
     /// </summary>    
     public StringToWordVector<T> DoNotOperateOnPerClassBasis (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setDoNotOperateOnPerClassBasis(value);
+      ((StringToWordVector)impl).setDoNotOperateOnPerClassBasis(value);
       return this;
     }
 
@@ -106,7 +106,7 @@ namespace Ml2.Fltr
     /// normalized or not.
     /// </summary>    
     public StringToWordVector<T> NormalizeDocLength (ENormalizeDocLength value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setNormalizeDocLength(new SelectedTag((int) value, weka.filters.unsupervised.attribute.StringToWordVector.TAGS_FILTER));
+      ((StringToWordVector)impl).setNormalizeDocLength(new SelectedTag((int) value, StringToWordVector.TAGS_FILTER));
       return this;
     }
 
@@ -115,7 +115,7 @@ namespace Ml2.Fltr
     /// added to the dictionary.
     /// </summary>    
     public StringToWordVector<T> LowerCaseTokens (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setLowerCaseTokens(value);
+      ((StringToWordVector)impl).setLowerCaseTokens(value);
       return this;
     }
 
@@ -123,7 +123,7 @@ namespace Ml2.Fltr
     /// Ignores all the words that are on the stoplist, if set to true.
     /// </summary>    
     public StringToWordVector<T> UseStoplist (bool value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setUseStoplist(value);
+      ((StringToWordVector)impl).setUseStoplist(value);
       return this;
     }
 
@@ -133,7 +133,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public StringToWordVector<T> AttributeIndices (string value) {
-      ((weka.filters.unsupervised.attribute.StringToWordVector)impl).setAttributeIndices(value);
+      ((StringToWordVector)impl).setAttributeIndices(value);
       return this;
     }
 

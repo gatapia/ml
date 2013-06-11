@@ -20,7 +20,7 @@ namespace Ml2.Fltr
     /// removed.
     /// </summary>    
     public RemoveUseless<T> MaximumVariancePercentageAllowed (double value) {
-      ((weka.filters.unsupervised.attribute.RemoveUseless)impl).setMaximumVariancePercentageAllowed(value);
+      ((RemoveUseless)impl).setMaximumVariancePercentageAllowed(value);
       return this;
     }
 

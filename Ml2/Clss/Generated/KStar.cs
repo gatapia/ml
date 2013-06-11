@@ -20,7 +20,7 @@ namespace Ml2.Clss
     /// The parameter for global blending. Values are restricted to [0,100].
     /// </summary>    
     public KStar<T> GlobalBlend (int value) {
-      ((weka.classifiers.lazy.KStar)impl).setGlobalBlend(value);
+      ((KStar)impl).setGlobalBlend(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Clss
     /// Whether entropy-based blending is to be used.
     /// </summary>    
     public KStar<T> EntropicAutoBlend (bool value) {
-      ((weka.classifiers.lazy.KStar)impl).setEntropicAutoBlend(value);
+      ((KStar)impl).setEntropicAutoBlend(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clss
     /// Determines how missing attribute values are treated.
     /// </summary>    
     public KStar<T> MissingMode (EMissingMode value) {
-      ((weka.classifiers.lazy.KStar)impl).setMissingMode(new SelectedTag((int) value, weka.classifiers.lazy.KStar.TAGS_MISSING));
+      ((KStar)impl).setMissingMode(new SelectedTag((int) value, KStar.TAGS_MISSING));
       return this;
     }
 
@@ -44,7 +44,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public KStar<T> Debug (bool value) {
-      ((weka.classifiers.lazy.KStar)impl).setDebug(value);
+      ((KStar)impl).setDebug(value);
       return this;
     }
 

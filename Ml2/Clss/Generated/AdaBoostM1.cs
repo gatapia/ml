@@ -19,7 +19,7 @@ namespace Ml2.Clss
     /// Weight threshold for weight pruning.
     /// </summary>    
     public AdaBoostM1<T> WeightThreshold (int value) {
-      ((weka.classifiers.meta.AdaBoostM1)impl).setWeightThreshold(value);
+      ((AdaBoostM1)impl).setWeightThreshold(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Clss
     /// Whether resampling is used instead of reweighting.
     /// </summary>    
     public AdaBoostM1<T> UseResampling (bool value) {
-      ((weka.classifiers.meta.AdaBoostM1)impl).setUseResampling(value);
+      ((AdaBoostM1)impl).setUseResampling(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public AdaBoostM1<T> Seed (int value) {
-      ((weka.classifiers.meta.AdaBoostM1)impl).setSeed(value);
+      ((AdaBoostM1)impl).setSeed(value);
       return this;
     }
 
@@ -43,7 +43,7 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public AdaBoostM1<T> NumIterations (int value) {
-      ((weka.classifiers.meta.AdaBoostM1)impl).setNumIterations(value);
+      ((AdaBoostM1)impl).setNumIterations(value);
       return this;
     }
 
@@ -51,7 +51,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public AdaBoostM1<T> Debug (bool value) {
-      ((weka.classifiers.meta.AdaBoostM1)impl).setDebug(value);
+      ((AdaBoostM1)impl).setDebug(value);
       return this;
     }
 

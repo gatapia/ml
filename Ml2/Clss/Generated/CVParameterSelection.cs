@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// Get the number of folds used for cross-validation.
     /// </summary>    
     public CVParameterSelection<T> NumFolds (int value) {
-      ((weka.classifiers.meta.CVParameterSelection)impl).setNumFolds(value);
+      ((CVParameterSelection)impl).setNumFolds(value);
       return this;
     }
 
@@ -25,7 +25,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CVParameterSelection<T> Seed (int value) {
-      ((weka.classifiers.meta.CVParameterSelection)impl).setSeed(value);
+      ((CVParameterSelection)impl).setSeed(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public CVParameterSelection<T> Debug (bool value) {
-      ((weka.classifiers.meta.CVParameterSelection)impl).setDebug(value);
+      ((CVParameterSelection)impl).setDebug(value);
       return this;
     }
 

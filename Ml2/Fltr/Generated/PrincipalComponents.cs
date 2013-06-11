@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// Retain enough PC attributes to account for this proportion of variance.
     /// </summary>    
     public PrincipalComponents<T> VarianceCovered (double value) {
-      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setVarianceCovered(value);
+      ((PrincipalComponents)impl).setVarianceCovered(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Fltr
     /// names.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributeNames (int value) {
-      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setMaximumAttributeNames(value);
+      ((PrincipalComponents)impl).setMaximumAttributeNames(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Fltr
     /// The maximum number of PC attributes to retain.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributes (int value) {
-      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setMaximumAttributes(value);
+      ((PrincipalComponents)impl).setMaximumAttributes(value);
       return this;
     }
 
@@ -44,7 +44,7 @@ namespace Ml2.Fltr
     /// covariance (rather than correlation) matrix
     /// </summary>    
     public PrincipalComponents<T> CenterData (bool value) {
-      ((weka.filters.unsupervised.attribute.PrincipalComponents)impl).setCenterData(value);
+      ((PrincipalComponents)impl).setCenterData(value);
       return this;
     }
 

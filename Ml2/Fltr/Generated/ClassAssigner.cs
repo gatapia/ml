@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// accepted as well, '0' unsets the class index.
     /// </summary>    
     public ClassAssigner<T> ClassIndex (string value) {
-      ((weka.filters.unsupervised.attribute.ClassAssigner)impl).setClassIndex(value);
+      ((ClassAssigner)impl).setClassIndex(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public ClassAssigner<T> Debug (bool value) {
-      ((weka.filters.unsupervised.attribute.ClassAssigner)impl).setDebug(value);
+      ((ClassAssigner)impl).setDebug(value);
       return this;
     }
 

@@ -14,7 +14,7 @@ namespace Ml2.Fltr
     /// Choose attribute to be used for selection (default last).
     /// </summary>    
     public RemoveWithValues<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setAttributeIndex(value);
+      ((RemoveWithValues)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Fltr
     /// excluded values.
     /// </summary>    
     public RemoveWithValues<T> ModifyHeader (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setModifyHeader(value);
+      ((RemoveWithValues)impl).setModifyHeader(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Fltr
     /// Invert matching sense.
     /// </summary>    
     public RemoveWithValues<T> InvertSelection (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setInvertSelection(value);
+      ((RemoveWithValues)impl).setInvertSelection(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Fltr
     /// with values smaller than given value will be selected.
     /// </summary>    
     public RemoveWithValues<T> SplitPoint (double value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setSplitPoint(value);
+      ((RemoveWithValues)impl).setSplitPoint(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Fltr
     /// First and last are valid indexes.
     /// </summary>    
     public RemoveWithValues<T> NominalIndices (string value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setNominalIndices(value);
+      ((RemoveWithValues)impl).setNominalIndices(value);
       return this;
     }
 
@@ -58,7 +58,7 @@ namespace Ml2.Fltr
     /// invertSelection option.
     /// </summary>    
     public RemoveWithValues<T> MatchMissingValues (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setMatchMissingValues(value);
+      ((RemoveWithValues)impl).setMatchMissingValues(value);
       return this;
     }
 
@@ -68,7 +68,7 @@ namespace Ml2.Fltr
     /// batches can potentially get 'consumed' by the filter.
     /// </summary>    
     public RemoveWithValues<T> DontFilterAfterFirstBatch (bool value) {
-      ((weka.filters.unsupervised.instance.RemoveWithValues)impl).setDontFilterAfterFirstBatch(value);
+      ((RemoveWithValues)impl).setDontFilterAfterFirstBatch(value);
       return this;
     }
 

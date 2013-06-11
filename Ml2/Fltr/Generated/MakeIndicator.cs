@@ -18,7 +18,7 @@ namespace Ml2.Fltr
     /// must be nominal.
     /// </summary>    
     public MakeIndicator<T> AttributeIndex (string value) {
-      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setAttributeIndex(value);
+      ((MakeIndicator)impl).setAttributeIndex(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public MakeIndicator<T> ValueIndex (int value) {
-      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setValueIndex(value);
+      ((MakeIndicator)impl).setValueIndex(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Fltr
     /// set to false, the output attribute will be nominal.
     /// </summary>    
     public MakeIndicator<T> Numeric (bool value) {
-      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setNumeric(value);
+      ((MakeIndicator)impl).setNumeric(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Fltr
     /// values. Specify an inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public MakeIndicator<T> ValueIndices (string value) {
-      ((weka.filters.unsupervised.attribute.MakeIndicator)impl).setValueIndices(value);
+      ((MakeIndicator)impl).setValueIndices(value);
       return this;
     }
 

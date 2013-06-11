@@ -15,7 +15,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Center<T> IgnoreClass (bool value) {
-      ((weka.filters.unsupervised.attribute.Center)impl).setIgnoreClass(value);
+      ((Center)impl).setIgnoreClass(value);
       return this;
     }
 

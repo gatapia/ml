@@ -4,29 +4,27 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 using weka.core;
-using weka.attributeSelection;
+using <#= Model.ImplTypeNamespace #>;
 
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
   /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= Model.TypeName #> : IAttributeSelectionEvaluator
+  public class <#= Model.TypeName #><T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly <#= Model.ImplTypeFullName #> impl = new <#= Model.ImplTypeFullName #>();
+    public <#= Model.TypeName #>(Runtime<T> rt) : base(rt, new <#= Model.ImplTypeName #>()) {}
     
 <# Array.ForEach(Model.Options, o => { #>
     /// <summary>
     /// <#= o.OptionDescription #>
     /// </summary>    
-    public <#= Model.TypeName #> <#= o.OptionName #> (<#= o.OptionType #> value) {
+    public <#= Model.TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
       <#= o.SetterCode #>
       return this;
     }
 
-<# }); #>        
-    public ASEvaluation GetImpl() { return impl; }
-
+<# }); #>            
 <# Array.ForEach(Model.Enumerations, e => { #>
     public enum <#= e.Name #> {
       <#= String.Join(",\n      ", e.Values.Select(v => v.Key + " = " + v.Value)) #>

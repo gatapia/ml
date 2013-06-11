@@ -71,10 +71,12 @@
     <Compile Include="Asstn\Generated\FilteredAssociator.cs" />
     <Compile Include="Asstn\Generated\FPGrowth.cs" />
     <Compile Include="AttrSel\Algs\Generated\Algorithms.cs" />
+    <Compile Include="AttrSel\Algs\BaseAttributeSelectionAlgorithm.cs" />
     <Compile Include="AttrSel\Algs\Generated\BestFirst.cs" />
     <Compile Include="AttrSel\Algs\Generated\GreedyStepwise.cs" />
     <Compile Include="AttrSel\Algs\Generated\Ranker.cs" />
     <Compile Include="AttrSel\AttributeSelection.cs" />
+    <Compile Include="AttrSel\Evals\BaseAttributeSelectionEvaluator.cs" />
     <Compile Include="AttrSel\Evals\Generated\CfsSubset.cs" />
     <Compile Include="AttrSel\EDirection.cs" />
     <Compile Include="AttrSel\Evals\Generated\Evaluators.cs" />

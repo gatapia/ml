@@ -7,14 +7,14 @@ namespace Ml2.AttrSel.Evals
   /// OneRAttributeEval : Evaluates the worth of an attribute by using the OneR
   /// classifier.
   /// </summary>
-  public class OneRAttribute : IAttributeSelectionEvaluator
+  public class OneRAttribute<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.OneRAttributeEval impl = new weka.attributeSelection.OneRAttributeEval();
+    public OneRAttribute(Runtime<T> rt) : base(rt, new OneRAttributeEval()) {}
     
     /// <summary>
     /// Set the seed for use in cross validation.
     /// </summary>    
-    public OneRAttribute Seed (int value) {
+    public OneRAttribute<T> Seed (int value) {
       ((OneRAttributeEval)impl).setSeed(value);
       return this;
     }
@@ -22,7 +22,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Set the number of folds for cross validation.
     /// </summary>    
-    public OneRAttribute Folds (int value) {
+    public OneRAttribute<T> Folds (int value) {
       ((OneRAttributeEval)impl).setFolds(value);
       return this;
     }
@@ -30,7 +30,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// The minimum number of objects in a bucket (passed to OneR).
     /// </summary>    
-    public OneRAttribute MinimumBucketSize (int value) {
+    public OneRAttribute<T> MinimumBucketSize (int value) {
       ((OneRAttributeEval)impl).setMinimumBucketSize(value);
       return this;
     }
@@ -39,14 +39,12 @@ namespace Ml2.AttrSel.Evals
     /// Use the training data to evaluate attributes rather than cross
     /// validation.
     /// </summary>    
-    public OneRAttribute EvalUsingTrainingData (bool value) {
+    public OneRAttribute<T> EvalUsingTrainingData (bool value) {
       ((OneRAttributeEval)impl).setEvalUsingTrainingData(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

@@ -10,21 +10,19 @@ namespace Ml2.AttrSel.Evals
   /// indicator. An overall correlation for a nominal attribute is arrived at via a
   /// weighted average.
   /// </summary>
-  public class CorrelationAttribute : IAttributeSelectionEvaluator
+  public class CorrelationAttribute<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.CorrelationAttributeEval impl = new weka.attributeSelection.CorrelationAttributeEval();
+    public CorrelationAttribute(Runtime<T> rt) : base(rt, new CorrelationAttributeEval()) {}
     
     /// <summary>
     /// Output per value correlation for nominal attributes
     /// </summary>    
-    public CorrelationAttribute OutputDetailedInfo (bool value) {
+    public CorrelationAttribute<T> OutputDetailedInfo (bool value) {
       ((CorrelationAttributeEval)impl).setOutputDetailedInfo(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

@@ -1,5 +1,5 @@
 using weka.core;
-using Ml2.AttrSel.Evals;
+using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -11,26 +11,23 @@ namespace Ml2.AttrSel.Algs
   /// ranked list of attributes by traversing the space from one side to the other and
   /// recording the order that attributes are selected.
   /// </summary>
-  public class GreedyStepwise
+  public class GreedyStepwise<T> : BaseAttributeSelectionAlgorithm<T>
   {
-    private readonly weka.attributeSelection.GreedyStepwise impl = new weka.attributeSelection.GreedyStepwise();
-    private readonly Instances inst;
-    
-    public GreedyStepwise(Instances inst) { this.inst = inst; }
+    public GreedyStepwise(Runtime<T> rt) : base(rt, new GreedyStepwise()) {}
 
     /// <summary>
     /// Set to true if a ranked list is required.
     /// </summary>
-    public GreedyStepwise GenerateRanking (bool value) {
-      ((weka.attributeSelection.GreedyStepwise)impl).setGenerateRanking(value);
+    public GreedyStepwise<T> GenerateRanking (bool value) {
+      ((GreedyStepwise)impl).setGenerateRanking(value);
       return this;
     }
 
     /// <summary>
     /// Search backwards rather than forwards.
     /// </summary>
-    public GreedyStepwise SearchBackwards (bool value) {
-      ((weka.attributeSelection.GreedyStepwise)impl).setSearchBackwards(value);
+    public GreedyStepwise<T> SearchBackwards (bool value) {
+      ((GreedyStepwise)impl).setSearchBackwards(value);
       return this;
     }
 
@@ -38,8 +35,8 @@ namespace Ml2.AttrSel.Algs
     /// If true (and forward search is selected) then attributes will continue to
     /// be added to the best subset as long as merit does not degrade.
     /// </summary>
-    public GreedyStepwise ConservativeForwardSelection (bool value) {
-      ((weka.attributeSelection.GreedyStepwise)impl).setConservativeForwardSelection(value);
+    public GreedyStepwise<T> ConservativeForwardSelection (bool value) {
+      ((GreedyStepwise)impl).setConservativeForwardSelection(value);
       return this;
     }
 
@@ -48,8 +45,8 @@ namespace Ml2.AttrSel.Algs
     /// seperated list off attribute indexes starting at 1. It can include ranges. Eg.
     /// 1,2,5-9,17.
     /// </summary>
-    public GreedyStepwise StartSet (string value) {
-      ((weka.attributeSelection.GreedyStepwise)impl).setStartSet(value);
+    public GreedyStepwise<T> StartSet (string value) {
+      ((GreedyStepwise)impl).setStartSet(value);
       return this;
     }
 
@@ -57,8 +54,8 @@ namespace Ml2.AttrSel.Algs
     /// Set threshold by which attributes can be discarded. Default value results
     /// in no attributes being discarded. Use in conjunction with generateRanking
     /// </summary>
-    public GreedyStepwise Threshold (double value) {
-      ((weka.attributeSelection.GreedyStepwise)impl).setThreshold(value);
+    public GreedyStepwise<T> Threshold (double value) {
+      ((GreedyStepwise)impl).setThreshold(value);
       return this;
     }
 
@@ -67,14 +64,12 @@ namespace Ml2.AttrSel.Algs
     /// indicates that all attributes are to be retained. Use either this option or a
     /// threshold to reduce the attribute set.
     /// </summary>
-    public GreedyStepwise NumToSelect (int value) {
-      ((weka.attributeSelection.GreedyStepwise)impl).setNumToSelect(value);
+    public GreedyStepwise<T> NumToSelect (int value) {
+      ((GreedyStepwise)impl).setNumToSelect(value);
       return this;
     }
 
         
-    public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
-
         
   }
 }

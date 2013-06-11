@@ -15,14 +15,14 @@ namespace Ml2.AttrSel.Evals
   /// An adaptation of Relief for attribute estimation in regression. In:
   /// Fourteenth International Conference on Machine Learning, 296-304, 1997.
   /// </summary>
-  public class ReliefFAttribute : IAttributeSelectionEvaluator
+  public class ReliefFAttribute<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.ReliefFAttributeEval impl = new weka.attributeSelection.ReliefFAttributeEval();
+    public ReliefFAttribute(Runtime<T> rt) : base(rt, new ReliefFAttributeEval()) {}
     
     /// <summary>
     /// Weight nearest neighbours by their distance.
     /// </summary>    
-    public ReliefFAttribute WeightByDistance (bool value) {
+    public ReliefFAttribute<T> WeightByDistance (bool value) {
       ((ReliefFAttributeEval)impl).setWeightByDistance(value);
       return this;
     }
@@ -31,7 +31,7 @@ namespace Ml2.AttrSel.Evals
     /// Number of instances to sample. Default (-1) indicates that all instances
     /// will be used for attribute estimation.
     /// </summary>    
-    public ReliefFAttribute SampleSize (int value) {
+    public ReliefFAttribute<T> SampleSize (int value) {
       ((ReliefFAttributeEval)impl).setSampleSize(value);
       return this;
     }
@@ -39,7 +39,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Random seed for sampling instances.
     /// </summary>    
-    public ReliefFAttribute Seed (int value) {
+    public ReliefFAttribute<T> Seed (int value) {
       ((ReliefFAttributeEval)impl).setSeed(value);
       return this;
     }
@@ -47,7 +47,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Number of nearest neighbours for attribute estimation.
     /// </summary>    
-    public ReliefFAttribute NumNeighbours (int value) {
+    public ReliefFAttribute<T> NumNeighbours (int value) {
       ((ReliefFAttributeEval)impl).setNumNeighbours(value);
       return this;
     }
@@ -58,14 +58,12 @@ namespace Ml2.AttrSel.Evals
     /// with weightByDistance. Sensible values = 1/5 to 1/10 the number of nearest
     /// neighbours.
     /// </summary>    
-    public ReliefFAttribute Sigma (int value) {
+    public ReliefFAttribute<T> Sigma (int value) {
       ((ReliefFAttributeEval)impl).setSigma(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

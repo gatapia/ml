@@ -7,16 +7,18 @@ using weka.core;
 
 namespace Ml2.AttrSel.Algs
 {
-  public class Algorithms
+  public class Algorithms<T>
   {
-    private readonly Instances inst;    
-    public Algorithms(Instances inst) { this.inst = inst; }   
+    private readonly Runtime<T> rt;    
+    public Algorithms(Runtime<T> rt) { 
+      this.rt = rt;
+    }   
 
 <# foreach (var alg in AllAgorithms) { #>
     /// <summary>
     /// <#= alg.GetClassDescription("    /// ") #>
     /// </summary>
-    public <#= alg.TypeName #> <#= alg.TypeName #>() { return new <#= alg.TypeName #>(inst); }
+    public <#= alg.TypeName #><T> <#= alg.TypeName #>() { return new <#= alg.TypeName #><T>(rt); }
 
 <# } #>    
   }

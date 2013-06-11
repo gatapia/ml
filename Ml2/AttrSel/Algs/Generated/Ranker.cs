@@ -1,5 +1,5 @@
 using weka.core;
-using Ml2.AttrSel.Evals;
+using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -7,12 +7,9 @@ namespace Ml2.AttrSel.Algs
   /// Ranker : Ranks attributes by their individual evaluations. Use in
   /// conjunction with attribute evaluators (ReliefF, GainRatio, Entropy etc).
   /// </summary>
-  public class Ranker
+  public class Ranker<T> : BaseAttributeSelectionAlgorithm<T>
   {
-    private readonly weka.attributeSelection.Ranker impl = new weka.attributeSelection.Ranker();
-    private readonly Instances inst;
-    
-    public Ranker(Instances inst) { this.inst = inst; }
+    public Ranker(Runtime<T> rt) : base(rt, new Ranker()) {}
 
     /// <summary>
     /// Specify a set of attributes to ignore. When generating the ranking,
@@ -20,8 +17,8 @@ namespace Ml2.AttrSel.Algs
     /// comma seperated list off attribute indexes starting at 1. It can include
     /// ranges. Eg. 1,2,5-9,17.
     /// </summary>
-    public Ranker StartSet (string value) {
-      ((weka.attributeSelection.Ranker)impl).setStartSet(value);
+    public Ranker<T> StartSet (string value) {
+      ((Ranker)impl).setStartSet(value);
       return this;
     }
 
@@ -30,8 +27,8 @@ namespace Ml2.AttrSel.Algs
     /// in no attributes being discarded. Use either this option or numToSelect to
     /// reduce the attribute set.
     /// </summary>
-    public Ranker Threshold (double value) {
-      ((weka.attributeSelection.Ranker)impl).setThreshold(value);
+    public Ranker<T> Threshold (double value) {
+      ((Ranker)impl).setThreshold(value);
       return this;
     }
 
@@ -40,8 +37,8 @@ namespace Ml2.AttrSel.Algs
     /// indicates that all attributes are to be retained. Use either this option or a
     /// threshold to reduce the attribute set.
     /// </summary>
-    public Ranker NumToSelect (int value) {
-      ((weka.attributeSelection.Ranker)impl).setNumToSelect(value);
+    public Ranker<T> NumToSelect (int value) {
+      ((Ranker)impl).setNumToSelect(value);
       return this;
     }
 
@@ -49,14 +46,12 @@ namespace Ml2.AttrSel.Algs
     /// A constant option. Ranker is only capable of generating attribute
     /// rankings.
     /// </summary>
-    public Ranker GenerateRanking (bool value) {
-      ((weka.attributeSelection.Ranker)impl).setGenerateRanking(value);
+    public Ranker<T> GenerateRanking (bool value) {
+      ((Ranker)impl).setGenerateRanking(value);
       return this;
     }
 
         
-    public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
-
         
   }
 }

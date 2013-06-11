@@ -4,15 +4,15 @@ using weka.core;
 
 namespace Ml2.AttrSel
 {
-  public class AttributeSelection
+  public class AttributeSelection<T>
   {
-    public AttributeSelection(Instances inst)
+    public AttributeSelection(Runtime<T> rt)
     {
-      Algorithms = new Algorithms(inst);
-      Evaluators = new Evaluators();
+      Algorithms = new Algorithms<T>(rt);
+      Evaluators = new Evaluators<T>(rt);
     }
 
-    public Algorithms Algorithms { get; private set; }
-    public Evaluators Evaluators { get; private set; }
+    public Algorithms<T> Algorithms { get; private set; }
+    public Evaluators<T> Evaluators { get; private set; }
   }
 }

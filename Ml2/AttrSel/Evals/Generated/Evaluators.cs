@@ -2,8 +2,13 @@ using weka.core;
 
 namespace Ml2.AttrSel.Evals
 {
-  public class Evaluators
+  public class Evaluators<T>
   {
+    private readonly Runtime<T> rt;
+    public Evaluators(Runtime<T> rt) {
+      this.rt = rt;
+    }
+
     /// <summary>
     /// CfsSubsetEval : Evaluates the worth of a subset of attributes by
     /// considering the individual predictive ability of each feature along with the degree
@@ -12,7 +17,7 @@ namespace Ml2.AttrSel.Evals
     /// information see: M. A. Hall (1998). Correlation-based Feature Subset
     /// Selection for Machine Learning. Hamilton, New Zealand.
     /// </summary>
-    public CfsSubset CfsSubset() { return new CfsSubset(); }
+    public CfsSubset<T> CfsSubset() { return new CfsSubset<T>(rt); }
 
     /// <summary>
     /// CorrelationAttributeEval : Evaluates the worth of an attribute by
@@ -21,27 +26,27 @@ namespace Ml2.AttrSel.Evals
     /// indicator. An overall correlation for a nominal attribute is arrived at via a
     /// weighted average.
     /// </summary>
-    public CorrelationAttribute CorrelationAttribute() { return new CorrelationAttribute(); }
+    public CorrelationAttribute<T> CorrelationAttribute() { return new CorrelationAttribute<T>(rt); }
 
     /// <summary>
     /// GainRatioAttributeEval : Evaluates the worth of an attribute by measuring
     /// the gain ratio with respect to the class. GainR(Class, Attribute) =
     /// (H(Class) - H(Class | Attribute)) / H(Attribute).
     /// </summary>
-    public GainRatioAttribute GainRatioAttribute() { return new GainRatioAttribute(); }
+    public GainRatioAttribute<T> GainRatioAttribute() { return new GainRatioAttribute<T>(rt); }
 
     /// <summary>
     /// InfoGainAttributeEval : Evaluates the worth of an attribute by measuring
     /// the information gain with respect to the class. InfoGain(Class,Attribute) =
     /// H(Class) - H(Class | Attribute).
     /// </summary>
-    public InfoGainAttribute InfoGainAttribute() { return new InfoGainAttribute(); }
+    public InfoGainAttribute<T> InfoGainAttribute() { return new InfoGainAttribute<T>(rt); }
 
     /// <summary>
     /// OneRAttributeEval : Evaluates the worth of an attribute by using the OneR
     /// classifier.
     /// </summary>
-    public OneRAttribute OneRAttribute() { return new OneRAttribute(); }
+    public OneRAttribute<T> OneRAttribute() { return new OneRAttribute<T>(rt); }
 
     /// <summary>
     /// Performs a principal components analysis and transformation of the data.
@@ -51,7 +56,7 @@ namespace Ml2.AttrSel.Evals
     /// be filtered by transforming to the PC space, eliminating some of the worst
     /// eigenvectors, and then transforming back to the original space.
     /// </summary>
-    public PrincipalComponents PrincipalComponents() { return new PrincipalComponents(); }
+    public PrincipalComponents<T> PrincipalComponents() { return new PrincipalComponents<T>(rt); }
 
     /// <summary>
     /// ReliefFAttributeEval : Evaluates the worth of an attribute by repeatedly
@@ -65,7 +70,7 @@ namespace Ml2.AttrSel.Evals
     /// An adaptation of Relief for attribute estimation in regression. In:
     /// Fourteenth International Conference on Machine Learning, 296-304, 1997.
     /// </summary>
-    public ReliefFAttribute ReliefFAttribute() { return new ReliefFAttribute(); }
+    public ReliefFAttribute<T> ReliefFAttribute() { return new ReliefFAttribute<T>(rt); }
 
     /// <summary>
     /// SymmetricalUncertAttributeEval : Evaluates the worth of an attribute by
@@ -73,7 +78,7 @@ namespace Ml2.AttrSel.Evals
     /// SymmU(Class, Attribute) = 2 * (H(Class) - H(Class | Attribute)) / H(Class) +
     /// H(Attribute).
     /// </summary>
-    public SymmetricalUncertAttribute SymmetricalUncertAttribute() { return new SymmetricalUncertAttribute(); }
+    public SymmetricalUncertAttribute<T> SymmetricalUncertAttribute() { return new SymmetricalUncertAttribute<T>(rt); }
 
     /// <summary>
     /// WrapperSubsetEval: Evaluates attribute sets by using a learning scheme.
@@ -82,7 +87,7 @@ namespace Ml2.AttrSel.Evals
     /// (1997). Wrappers for feature subset selection. Artificial Intelligence.
     /// 97(1-2):273-324.
     /// </summary>
-    public WrapperSubset WrapperSubset() { return new WrapperSubset(); }
+    public WrapperSubset<T> WrapperSubset() { return new WrapperSubset<T>(rt); }
 
     
   }

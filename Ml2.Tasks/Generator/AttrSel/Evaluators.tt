@@ -7,13 +7,18 @@ using weka.core;
 
 namespace Ml2.AttrSel.Evals
 {
-  public class Evaluators
+  public class Evaluators<T>
   {
+    private readonly Runtime<T> rt;
+    public Evaluators(Runtime<T> rt) {
+      this.rt = rt;
+    }
+
 <# foreach (var eval in AllEvaluators) { #>
     /// <summary>
     /// <#= eval.GetClassDescription("    /// ") #>
     /// </summary>
-    public <#= eval.TypeName #> <#= eval.TypeName #>() { return new <#= eval.TypeName #>(); }
+    public <#= eval.TypeName #><T> <#= eval.TypeName #>() { return new <#= eval.TypeName #><T>(rt); }
 
 <# } #>    
   }

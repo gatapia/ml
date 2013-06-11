@@ -11,15 +11,15 @@ namespace Ml2.AttrSel.Evals
   /// information see: M. A. Hall (1998). Correlation-based Feature Subset
   /// Selection for Machine Learning. Hamilton, New Zealand.
   /// </summary>
-  public class CfsSubset : IAttributeSelectionEvaluator
+  public class CfsSubset<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.CfsSubsetEval impl = new weka.attributeSelection.CfsSubsetEval();
+    public CfsSubset(Runtime<T> rt) : base(rt, new CfsSubsetEval()) {}
     
     /// <summary>
     /// Treat missing as a separate value. Otherwise, counts for missing values
     /// are distributed across other values in proportion to their frequency.
     /// </summary>    
-    public CfsSubset MissingSeparate (bool value) {
+    public CfsSubset<T> MissingSeparate (bool value) {
       ((CfsSubsetEval)impl).setMissingSeparate(value);
       return this;
     }
@@ -30,14 +30,12 @@ namespace Ml2.AttrSel.Evals
     /// attribute in the subset that has a higher correlation with the attribute in
     /// question
     /// </summary>    
-    public CfsSubset LocallyPredictive (bool value) {
+    public CfsSubset<T> LocallyPredictive (bool value) {
       ((CfsSubsetEval)impl).setLocallyPredictive(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

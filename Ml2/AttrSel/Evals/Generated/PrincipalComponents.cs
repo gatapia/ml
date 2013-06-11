@@ -11,15 +11,15 @@ namespace Ml2.AttrSel.Evals
   /// be filtered by transforming to the PC space, eliminating some of the worst
   /// eigenvectors, and then transforming back to the original space.
   /// </summary>
-  public class PrincipalComponents : IAttributeSelectionEvaluator
+  public class PrincipalComponents<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.PrincipalComponents impl = new weka.attributeSelection.PrincipalComponents();
+    public PrincipalComponents(Runtime<T> rt) : base(rt, new PrincipalComponents()) {}
     
     /// <summary>
     /// Retain enough PC attributes to account for this proportion of variance.
     /// </summary>    
-    public PrincipalComponents VarianceCovered (double value) {
-      ((weka.attributeSelection.PrincipalComponents)impl).setVarianceCovered(value);
+    public PrincipalComponents<T> VarianceCovered (double value) {
+      ((PrincipalComponents)impl).setVarianceCovered(value);
       return this;
     }
 
@@ -27,8 +27,8 @@ namespace Ml2.AttrSel.Evals
     /// The maximum number of attributes to include in transformed attribute
     /// names.
     /// </summary>    
-    public PrincipalComponents MaximumAttributeNames (int value) {
-      ((weka.attributeSelection.PrincipalComponents)impl).setMaximumAttributeNames(value);
+    public PrincipalComponents<T> MaximumAttributeNames (int value) {
+      ((PrincipalComponents)impl).setMaximumAttributeNames(value);
       return this;
     }
 
@@ -37,8 +37,8 @@ namespace Ml2.AttrSel.Evals
     /// the best n PCs are retained (by setting varianceCovered < 1) then this option
     /// will give a dataset in the original space but with less attribute noise.
     /// </summary>    
-    public PrincipalComponents TransformBackToOriginal (bool value) {
-      ((weka.attributeSelection.PrincipalComponents)impl).setTransformBackToOriginal(value);
+    public PrincipalComponents<T> TransformBackToOriginal (bool value) {
+      ((PrincipalComponents)impl).setTransformBackToOriginal(value);
       return this;
     }
 
@@ -46,14 +46,12 @@ namespace Ml2.AttrSel.Evals
     /// Center (rather than standardize) the data. PCA will be computed from the
     /// covariance (rather than correlation) matrix
     /// </summary>    
-    public PrincipalComponents CenterData (bool value) {
-      ((weka.attributeSelection.PrincipalComponents)impl).setCenterData(value);
+    public PrincipalComponents<T> CenterData (bool value) {
+      ((PrincipalComponents)impl).setCenterData(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

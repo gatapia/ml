@@ -2,10 +2,12 @@ using weka.core;
 
 namespace Ml2.AttrSel.Algs
 {
-  public class Algorithms
+  public class Algorithms<T>
   {
-    private readonly Instances inst;    
-    public Algorithms(Instances inst) { this.inst = inst; }   
+    private readonly Runtime<T> rt;    
+    public Algorithms(Runtime<T> rt) { 
+      this.rt = rt;
+    }   
 
     /// <summary>
     /// BestFirst: Searches the space of attribute subsets by greedy hillclimbing
@@ -16,7 +18,7 @@ namespace Ml2.AttrSel.Algs
     /// point and search in both directions (by considering all possible single
     /// attribute additions and deletions at a given point).
     /// </summary>
-    public BestFirst BestFirst() { return new BestFirst(inst); }
+    public BestFirst<T> BestFirst() { return new BestFirst<T>(rt); }
 
     /// <summary>
     /// GreedyStepwise : Performs a greedy forward or backward search through the
@@ -26,13 +28,13 @@ namespace Ml2.AttrSel.Algs
     /// ranked list of attributes by traversing the space from one side to the other and
     /// recording the order that attributes are selected.
     /// </summary>
-    public GreedyStepwise GreedyStepwise() { return new GreedyStepwise(inst); }
+    public GreedyStepwise<T> GreedyStepwise() { return new GreedyStepwise<T>(rt); }
 
     /// <summary>
     /// Ranker : Ranks attributes by their individual evaluations. Use in
     /// conjunction with attribute evaluators (ReliefF, GainRatio, Entropy etc).
     /// </summary>
-    public Ranker Ranker() { return new Ranker(inst); }
+    public Ranker<T> Ranker() { return new Ranker<T>(rt); }
 
     
   }

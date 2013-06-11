@@ -10,14 +10,14 @@ namespace Ml2.AttrSel.Evals
   /// (1997). Wrappers for feature subset selection. Artificial Intelligence.
   /// 97(1-2):273-324.
   /// </summary>
-  public class WrapperSubset : IAttributeSelectionEvaluator
+  public class WrapperSubset<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.WrapperSubsetEval impl = new weka.attributeSelection.WrapperSubsetEval();
+    public WrapperSubset(Runtime<T> rt) : base(rt, new WrapperSubsetEval()) {}
     
     /// <summary>
     /// Number of xval folds to use when estimating subset accuracy.
     /// </summary>    
-    public WrapperSubset Folds (int value) {
+    public WrapperSubset<T> Folds (int value) {
       ((WrapperSubsetEval)impl).setFolds(value);
       return this;
     }
@@ -25,7 +25,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Seed to use for randomly generating xval splits.
     /// </summary>    
-    public WrapperSubset Seed (int value) {
+    public WrapperSubset<T> Seed (int value) {
       ((WrapperSubsetEval)impl).setSeed(value);
       return this;
     }
@@ -33,7 +33,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Repeat xval if stdev of mean exceeds this value.
     /// </summary>    
-    public WrapperSubset Threshold (double value) {
+    public WrapperSubset<T> Threshold (double value) {
       ((WrapperSubsetEval)impl).setThreshold(value);
       return this;
     }
@@ -41,7 +41,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// The measure used to evaluate the performance of attribute combinations.
     /// </summary>    
-    public WrapperSubset EvaluationMeasure (EEvaluationMeasure value) {
+    public WrapperSubset<T> EvaluationMeasure (EEvaluationMeasure value) {
       ((WrapperSubsetEval)impl).setEvaluationMeasure(new SelectedTag((int) value, WrapperSubsetEval.TAGS_EVALUATION));
       return this;
     }
@@ -49,14 +49,12 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// 
     /// </summary>    
-    public WrapperSubset IRClassValue (string value) {
+    public WrapperSubset<T> IRClassValue (string value) {
       ((WrapperSubsetEval)impl).setIRClassValue(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
     public enum EEvaluationMeasure {
       Default__accuracy_discrete_class_RMSE_numeric_class = 1,
       Accuracy_discrete_class_only = 2,

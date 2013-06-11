@@ -40,7 +40,7 @@ namespace Ml2
     public Instances Instances { get; private set; }
     public T[] Rows { get; private set; }
 
-    public AttributeSelection AttributeSelection { get { return new AttributeSelection(Instances); } }
+    public AttrSel.AttributeSelection<T> AttributeSelection { get { return new AttrSel.AttributeSelection<T>(this); } }
     public Clusterers<T> Clusterers { get { return new Clusterers<T>(this); } }
     public Filters<T> Filters { get { return new Filters<T>(this); } }
     public Associations<T> Associations { get { return new Associations<T>(this); } }

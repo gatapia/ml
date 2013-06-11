@@ -9,23 +9,21 @@ namespace Ml2.AttrSel.Evals
   /// SymmU(Class, Attribute) = 2 * (H(Class) - H(Class | Attribute)) / H(Class) +
   /// H(Attribute).
   /// </summary>
-  public class SymmetricalUncertAttribute : IAttributeSelectionEvaluator
+  public class SymmetricalUncertAttribute<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.SymmetricalUncertAttributeEval impl = new weka.attributeSelection.SymmetricalUncertAttributeEval();
+    public SymmetricalUncertAttribute(Runtime<T> rt) : base(rt, new SymmetricalUncertAttributeEval()) {}
     
     /// <summary>
     /// Distribute counts for missing values. Counts are distributed across other
     /// values in proportion to their frequency. Otherwise, missing is treated as
     /// a separate value.
     /// </summary>    
-    public SymmetricalUncertAttribute MissingMerge (bool value) {
+    public SymmetricalUncertAttribute<T> MissingMerge (bool value) {
       ((SymmetricalUncertAttributeEval)impl).setMissingMerge(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

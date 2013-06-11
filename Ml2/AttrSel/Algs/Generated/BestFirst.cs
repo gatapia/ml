@@ -1,5 +1,5 @@
 using weka.core;
-using Ml2.AttrSel.Evals;
+using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Algs
 {
@@ -12,36 +12,33 @@ namespace Ml2.AttrSel.Algs
   /// point and search in both directions (by considering all possible single
   /// attribute additions and deletions at a given point).
   /// </summary>
-  public class BestFirst
+  public class BestFirst<T> : BaseAttributeSelectionAlgorithm<T>
   {
-    private readonly weka.attributeSelection.BestFirst impl = new weka.attributeSelection.BestFirst();
-    private readonly Instances inst;
-    
-    public BestFirst(Instances inst) { this.inst = inst; }
+    public BestFirst(Runtime<T> rt) : base(rt, new BestFirst()) {}
 
     /// <summary>
     /// Set the start point for the search. This is specified as a comma
     /// seperated list off attribute indexes starting at 1. It can include ranges. Eg.
     /// 1,2,5-9,17.
     /// </summary>
-    public BestFirst StartSet (string value) {
-      ((weka.attributeSelection.BestFirst)impl).setStartSet(value);
+    public BestFirst<T> StartSet (string value) {
+      ((BestFirst)impl).setStartSet(value);
       return this;
     }
 
     /// <summary>
     /// Set the direction of the search.
     /// </summary>
-    public BestFirst Direction (EDirection value) {
-      ((weka.attributeSelection.BestFirst)impl).setDirection(new SelectedTag((int) value, weka.attributeSelection.BestFirst.TAGS_SELECTION));
+    public BestFirst<T> Direction (EDirection value) {
+      ((BestFirst)impl).setDirection(new SelectedTag((int) value, BestFirst.TAGS_SELECTION));
       return this;
     }
 
     /// <summary>
     /// Set the amount of backtracking. Specify the number of
     /// </summary>
-    public BestFirst SearchTermination (int value) {
-      ((weka.attributeSelection.BestFirst)impl).setSearchTermination(value);
+    public BestFirst<T> SearchTermination (int value) {
+      ((BestFirst)impl).setSearchTermination(value);
       return this;
     }
 
@@ -50,14 +47,12 @@ namespace Ml2.AttrSel.Algs
     /// expressed as a multiplier of the number of attributes in the data set.
     /// (default = 1).
     /// </summary>
-    public BestFirst LookupCacheSize (int value) {
-      ((weka.attributeSelection.BestFirst)impl).setLookupCacheSize(value);
+    public BestFirst<T> LookupCacheSize (int value) {
+      ((BestFirst)impl).setLookupCacheSize(value);
       return this;
     }
 
         
-    public int[] Search(IAttributeSelectionEvaluator eval) { return impl.search(eval.GetImpl(), inst); }
-
     public enum EDirection {
       Backward = 0,
       Forward = 1,

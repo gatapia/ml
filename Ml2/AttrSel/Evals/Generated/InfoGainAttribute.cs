@@ -8,16 +8,16 @@ namespace Ml2.AttrSel.Evals
   /// the information gain with respect to the class. InfoGain(Class,Attribute) =
   /// H(Class) - H(Class | Attribute).
   /// </summary>
-  public class InfoGainAttribute : IAttributeSelectionEvaluator
+  public class InfoGainAttribute<T> : BaseAttributeSelectionEvaluator<T>
   {
-    private readonly weka.attributeSelection.InfoGainAttributeEval impl = new weka.attributeSelection.InfoGainAttributeEval();
+    public InfoGainAttribute(Runtime<T> rt) : base(rt, new InfoGainAttributeEval()) {}
     
     /// <summary>
     /// Distribute counts for missing values. Counts are distributed across other
     /// values in proportion to their frequency. Otherwise, missing is treated as
     /// a separate value.
     /// </summary>    
-    public InfoGainAttribute MissingMerge (bool value) {
+    public InfoGainAttribute<T> MissingMerge (bool value) {
       ((InfoGainAttributeEval)impl).setMissingMerge(value);
       return this;
     }
@@ -25,14 +25,12 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Just binarize numeric attributes instead of properly discretizing them.
     /// </summary>    
-    public InfoGainAttribute BinarizeNumericAttributes (bool value) {
+    public InfoGainAttribute<T> BinarizeNumericAttributes (bool value) {
       ((InfoGainAttributeEval)impl).setBinarizeNumericAttributes(value);
       return this;
     }
 
-        
-    public ASEvaluation GetImpl() { return impl; }
-
+            
         
   }
 }

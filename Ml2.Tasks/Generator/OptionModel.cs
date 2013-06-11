@@ -86,13 +86,12 @@ namespace Ml2.Tasks.Generator
     }
 
     public string SetterCode {
-      get {
-        var typename = model.ImplTypeName == model.TypeName ? model.ImplTypeFullName : model.ImplTypeName;
+      get {        
         if (GetParameterType().Name == "SelectedTag") {
           var implenumname = Utils.GetEnumImplType(method).Name;
-          return "((" + typename + ")impl)." + method.Name + "(new SelectedTag((int) value, " + typename + "." + implenumname + "));";
+          return "((" + model.ImplTypeName + ")impl)." + method.Name + "(new SelectedTag((int) value, " + model.ImplTypeName + "." + implenumname + "));";
         }
-        return "((" + typename + ")impl)." + OptionImplSetterName + "(value);";
+        return "((" + model.ImplTypeName + ")impl)." + OptionImplSetterName + "(value);";
       }
     }
 

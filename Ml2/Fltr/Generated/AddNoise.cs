@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,40 +16,40 @@ namespace Ml2.Fltr
     /// <summary>
     /// Index of the attribute that is to changed.
     /// </summary>    
-    public AddNoise<T> AttributeIndex (string value) {
-      ((AddNoise)Impl).setAttributeIndex(value);
+    public AddNoise<T> AttributeIndex (string attIndex) {
+      ((AddNoise)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
     /// <summary>
     /// Flag to set if missing values are used.
     /// </summary>    
-    public AddNoise<T> UseMissing (bool value) {
-      ((AddNoise)Impl).setUseMissing(value);
+    public AddNoise<T> UseMissing (bool newUseMissing) {
+      ((AddNoise)Impl).setUseMissing(newUseMissing);
       return this;
     }
 
     /// <summary>
     /// Percentage of introduced noise to data.
     /// </summary>    
-    public AddNoise<T> Percent (int value) {
-      ((AddNoise)Impl).setPercent(value);
+    public AddNoise<T> Percent (int newPercent) {
+      ((AddNoise)Impl).setPercent(newPercent);
       return this;
     }
 
     /// <summary>
     /// Random number seed.
     /// </summary>    
-    public AddNoise<T> RandomSeed (int value) {
-      ((AddNoise)Impl).setRandomSeed(value);
+    public AddNoise<T> RandomSeed (int newSeed) {
+      ((AddNoise)Impl).setRandomSeed(newSeed);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public AddNoise<T> InputFormat (Runtime<T> value) {
-      ((AddNoise)Impl).setInputFormat(value.Instances);
+    public AddNoise<T> InputFormat (Runtime<T> instanceInfo) {
+      ((AddNoise)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

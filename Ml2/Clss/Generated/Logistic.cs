@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -33,8 +33,8 @@ namespace Ml2.Clss
     /// <summary>
     /// Output debug information to the console.
     /// </summary>    
-    public Logistic<T> Debug (bool value) {
-      ((Logistic)Impl).setDebug(value);
+    public Logistic<T> Debug (bool debug) {
+      ((Logistic)Impl).setDebug(debug);
       return this;
     }
 
@@ -42,24 +42,24 @@ namespace Ml2.Clss
     /// Use conjugate gradient descent rather than BFGS updates; faster for
     /// problems with many parameters.
     /// </summary>    
-    public Logistic<T> UseConjugateGradientDescent (bool value) {
-      ((Logistic)Impl).setUseConjugateGradientDescent(value);
+    public Logistic<T> UseConjugateGradientDescent (bool useConjugateGradientDescent) {
+      ((Logistic)Impl).setUseConjugateGradientDescent(useConjugateGradientDescent);
       return this;
     }
 
     /// <summary>
     /// Set the Ridge value in the log-likelihood.
     /// </summary>    
-    public Logistic<T> Ridge (double value) {
-      ((Logistic)Impl).setRidge(value);
+    public Logistic<T> Ridge (double ridge) {
+      ((Logistic)Impl).setRidge(ridge);
       return this;
     }
 
     /// <summary>
     /// Maximum number of iterations to perform.
     /// </summary>    
-    public Logistic<T> MaxIts (int value) {
-      ((Logistic)Impl).setMaxIts(value);
+    public Logistic<T> MaxIts (int newMaxIts) {
+      ((Logistic)Impl).setMaxIts(newMaxIts);
       return this;
     }
 

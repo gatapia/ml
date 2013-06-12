@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,32 +18,32 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public PKIDiscretize<T> InputFormat (Runtime<T> value) {
-      ((PKIDiscretize)Impl).setInputFormat(value.Instances);
+    public PKIDiscretize<T> InputFormat (Runtime<T> instanceInfo) {
+      ((PKIDiscretize)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// Ignored.
     /// </summary>    
-    public PKIDiscretize<T> FindNumBins (bool value) {
-      ((PKIDiscretize)Impl).setFindNumBins(value);
+    public PKIDiscretize<T> FindNumBins (bool newFindNumBins) {
+      ((PKIDiscretize)Impl).setFindNumBins(newFindNumBins);
       return this;
     }
 
     /// <summary>
     /// Always true.
     /// </summary>    
-    public PKIDiscretize<T> UseEqualFrequency (bool value) {
-      ((PKIDiscretize)Impl).setUseEqualFrequency(value);
+    public PKIDiscretize<T> UseEqualFrequency (bool newUseEqualFrequency) {
+      ((PKIDiscretize)Impl).setUseEqualFrequency(newUseEqualFrequency);
       return this;
     }
 
     /// <summary>
     /// Ignored.
     /// </summary>    
-    public PKIDiscretize<T> Bins (int value) {
-      ((PKIDiscretize)Impl).setBins(value);
+    public PKIDiscretize<T> Bins (int numBins) {
+      ((PKIDiscretize)Impl).setBins(numBins);
       return this;
     }
 
@@ -52,8 +52,8 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public PKIDiscretize<T> AttributeIndices (string value) {
-      ((PKIDiscretize)Impl).setAttributeIndices(value);
+    public PKIDiscretize<T> AttributeIndices (string rangeList) {
+      ((PKIDiscretize)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
@@ -62,16 +62,16 @@ namespace Ml2.Fltr
     /// attributes in the range will be discretized; if true, only non-selected attributes
     /// will be discretized.
     /// </summary>    
-    public PKIDiscretize<T> InvertSelection (bool value) {
-      ((PKIDiscretize)Impl).setInvertSelection(value);
+    public PKIDiscretize<T> InvertSelection (bool invert) {
+      ((PKIDiscretize)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// Make resulting attributes binary.
     /// </summary>    
-    public PKIDiscretize<T> MakeBinary (bool value) {
-      ((PKIDiscretize)Impl).setMakeBinary(value);
+    public PKIDiscretize<T> MakeBinary (bool makeBinary) {
+      ((PKIDiscretize)Impl).setMakeBinary(makeBinary);
       return this;
     }
 
@@ -79,8 +79,8 @@ namespace Ml2.Fltr
     /// Use bin numbers (eg BXofY) rather than ranges for for discretized
     /// attributes
     /// </summary>    
-    public PKIDiscretize<T> UseBinNumbers (bool value) {
-      ((PKIDiscretize)Impl).setUseBinNumbers(value);
+    public PKIDiscretize<T> UseBinNumbers (bool useBinNumbers) {
+      ((PKIDiscretize)Impl).setUseBinNumbers(useBinNumbers);
       return this;
     }
 
@@ -88,24 +88,24 @@ namespace Ml2.Fltr
     /// Sets the desired weight of instances per interval for equal-frequency
     /// binning.
     /// </summary>    
-    public PKIDiscretize<T> DesiredWeightOfInstancesPerInterval (double value) {
-      ((PKIDiscretize)Impl).setDesiredWeightOfInstancesPerInterval(value);
+    public PKIDiscretize<T> DesiredWeightOfInstancesPerInterval (double newDesiredNumber) {
+      ((PKIDiscretize)Impl).setDesiredWeightOfInstancesPerInterval(newDesiredNumber);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public PKIDiscretize<T> AttributeIndicesArray (int[] value) {
-      ((PKIDiscretize)Impl).setAttributeIndicesArray(value);
+    public PKIDiscretize<T> AttributeIndicesArray (int[] attributes) {
+      ((PKIDiscretize)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 
     /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
-    public PKIDiscretize<T> IgnoreClass (bool value) {
-      ((PKIDiscretize)Impl).setIgnoreClass(value);
+    public PKIDiscretize<T> IgnoreClass (bool newIgnoreClass) {
+      ((PKIDiscretize)Impl).setIgnoreClass(newIgnoreClass);
       return this;
     }
 

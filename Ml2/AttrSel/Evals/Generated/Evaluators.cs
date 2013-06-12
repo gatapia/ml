@@ -1,5 +1,6 @@
 using weka.core;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   public class Evaluators<T>

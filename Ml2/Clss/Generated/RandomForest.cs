@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -14,8 +14,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public RandomForest<T> Seed (int value) {
-      ((RandomForest)Impl).setSeed(value);
+    public RandomForest<T> Seed (int seed) {
+      ((RandomForest)Impl).setSeed(seed);
       return this;
     }
 
@@ -30,8 +30,8 @@ namespace Ml2.Clss
     /// <summary>
     /// Print the individual trees in the output
     /// </summary>    
-    public RandomForest<T> PrintTrees (bool value) {
-      ((RandomForest)Impl).setPrintTrees(value);
+    public RandomForest<T> PrintTrees (bool print) {
+      ((RandomForest)Impl).setPrintTrees(print);
       return this;
     }
 
@@ -39,32 +39,32 @@ namespace Ml2.Clss
     /// The number of execution slots (threads) to use for constructing the
     /// ensemble.
     /// </summary>    
-    public RandomForest<T> NumExecutionSlots (int value) {
-      ((RandomForest)Impl).setNumExecutionSlots(value);
+    public RandomForest<T> NumExecutionSlots (int numSlots) {
+      ((RandomForest)Impl).setNumExecutionSlots(numSlots);
       return this;
     }
 
     /// <summary>
     /// The number of trees to be generated.
     /// </summary>    
-    public RandomForest<T> NumTrees (int value) {
-      ((RandomForest)Impl).setNumTrees(value);
+    public RandomForest<T> NumTrees (int newNumTrees) {
+      ((RandomForest)Impl).setNumTrees(newNumTrees);
       return this;
     }
 
     /// <summary>
     /// The number of attributes to be used in random selection (see RandomTree).
     /// </summary>    
-    public RandomForest<T> NumFeatures (int value) {
-      ((RandomForest)Impl).setNumFeatures(value);
+    public RandomForest<T> NumFeatures (int newNumFeatures) {
+      ((RandomForest)Impl).setNumFeatures(newNumFeatures);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public RandomForest<T> Debug (bool value) {
-      ((RandomForest)Impl).setDebug(value);
+    public RandomForest<T> Debug (bool debug) {
+      ((RandomForest)Impl).setDebug(debug);
       return this;
     }
 

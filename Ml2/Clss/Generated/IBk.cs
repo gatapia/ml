@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.lazy;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public IBk<T> KNN (int value) {
-      ((IBk)Impl).setKNN(value);
+    public IBk<T> KNN (int k) {
+      ((IBk)Impl).setKNN(k);
       return this;
     }
 
@@ -27,16 +27,16 @@ namespace Ml2.Clss
     /// removed. A value of 0 signifies no limit to the number of training
     /// instances.
     /// </summary>    
-    public IBk<T> WindowSize (int value) {
-      ((IBk)Impl).setWindowSize(value);
+    public IBk<T> WindowSize (int newWindowSize) {
+      ((IBk)Impl).setWindowSize(newWindowSize);
       return this;
     }
 
     /// <summary>
     /// Gets the distance weighting method used.
     /// </summary>    
-    public IBk<T> DistanceWeighting (EDistanceWeighting value) {
-      ((IBk)Impl).setDistanceWeighting(new SelectedTag((int) value, IBk.TAGS_WEIGHTING));
+    public IBk<T> DistanceWeighting (EDistanceWeighting newMethod) {
+      ((IBk)Impl).setDistanceWeighting(new weka.core.SelectedTag((int) newMethod, IBk.TAGS_WEIGHTING));
       return this;
     }
 
@@ -44,8 +44,8 @@ namespace Ml2.Clss
     /// Whether hold-one-out cross-validation will be used to select the best k
     /// value.
     /// </summary>    
-    public IBk<T> CrossValidate (bool value) {
-      ((IBk)Impl).setCrossValidate(value);
+    public IBk<T> CrossValidate (bool newCrossValidate) {
+      ((IBk)Impl).setCrossValidate(newCrossValidate);
       return this;
     }
 
@@ -53,16 +53,16 @@ namespace Ml2.Clss
     /// Whether the mean squared error is used rather than mean absolute error
     /// when doing cross-validation for regression problems.
     /// </summary>    
-    public IBk<T> MeanSquared (bool value) {
-      ((IBk)Impl).setMeanSquared(value);
+    public IBk<T> MeanSquared (bool newMeanSquared) {
+      ((IBk)Impl).setMeanSquared(newMeanSquared);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public IBk<T> Debug (bool value) {
-      ((IBk)Impl).setDebug(value);
+    public IBk<T> Debug (bool debug) {
+      ((IBk)Impl).setDebug(debug);
       return this;
     }
 

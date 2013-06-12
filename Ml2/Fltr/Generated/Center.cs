@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,16 +15,16 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public Center<T> InputFormat (Runtime<T> value) {
-      ((Center)Impl).setInputFormat(value.Instances);
+    public Center<T> InputFormat (Runtime<T> instanceInfo) {
+      ((Center)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
-    public Center<T> IgnoreClass (bool value) {
-      ((Center)Impl).setIgnoreClass(value);
+    public Center<T> IgnoreClass (bool newIgnoreClass) {
+      ((Center)Impl).setIgnoreClass(newIgnoreClass);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.supervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -21,24 +21,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// Specify the seed of randomization of the class order
     /// </summary>    
-    public ClassOrder<T> Seed (long value) {
-      ((ClassOrder)Impl).setSeed(value);
+    public ClassOrder<T> Seed (long seed) {
+      ((ClassOrder)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public ClassOrder<T> SetClassOrder (int value) {
-      ((ClassOrder)Impl).setClassOrder(value);
+    public ClassOrder<T> SetClassOrder (int order) {
+      ((ClassOrder)Impl).setClassOrder(order);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public ClassOrder<T> InputFormat (Runtime<T> value) {
-      ((ClassOrder)Impl).setInputFormat(value.Instances);
+    public ClassOrder<T> InputFormat (Runtime<T> instanceInfo) {
+      ((ClassOrder)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

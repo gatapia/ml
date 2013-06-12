@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.supervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,24 +16,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// Whether to invert the selection.
     /// </summary>    
-    public StratifiedRemoveFolds<T> InvertSelection (bool value) {
-      ((StratifiedRemoveFolds)Impl).setInvertSelection(value);
+    public StratifiedRemoveFolds<T> InvertSelection (bool inverse) {
+      ((StratifiedRemoveFolds)Impl).setInvertSelection(inverse);
       return this;
     }
 
     /// <summary>
     /// The number of folds to split the dataset into.
     /// </summary>    
-    public StratifiedRemoveFolds<T> NumFolds (int value) {
-      ((StratifiedRemoveFolds)Impl).setNumFolds(value);
+    public StratifiedRemoveFolds<T> NumFolds (int numFolds) {
+      ((StratifiedRemoveFolds)Impl).setNumFolds(numFolds);
       return this;
     }
 
     /// <summary>
     /// The fold which is selected.
     /// </summary>    
-    public StratifiedRemoveFolds<T> Fold (int value) {
-      ((StratifiedRemoveFolds)Impl).setFold(value);
+    public StratifiedRemoveFolds<T> Fold (int fold) {
+      ((StratifiedRemoveFolds)Impl).setFold(fold);
       return this;
     }
 
@@ -41,16 +41,16 @@ namespace Ml2.Fltr
     /// the random number seed for shuffling the dataset. If seed is negative,
     /// shuffling will not be performed.
     /// </summary>    
-    public StratifiedRemoveFolds<T> Seed (long value) {
-      ((StratifiedRemoveFolds)Impl).setSeed(value);
+    public StratifiedRemoveFolds<T> Seed (long seed) {
+      ((StratifiedRemoveFolds)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public StratifiedRemoveFolds<T> InputFormat (Runtime<T> value) {
-      ((StratifiedRemoveFolds)Impl).setInputFormat(value.Instances);
+    public StratifiedRemoveFolds<T> InputFormat (Runtime<T> instanceInfo) {
+      ((StratifiedRemoveFolds)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

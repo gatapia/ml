@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -14,24 +14,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// The range of instances to select. First and last are valid indexes.
     /// </summary>    
-    public RemoveRange<T> InstancesIndices (string value) {
-      ((RemoveRange)Impl).setInstancesIndices(value);
+    public RemoveRange<T> InstancesIndices (string rangeList) {
+      ((RemoveRange)Impl).setInstancesIndices(rangeList);
       return this;
     }
 
     /// <summary>
     /// Whether to invert the selection.
     /// </summary>    
-    public RemoveRange<T> InvertSelection (bool value) {
-      ((RemoveRange)Impl).setInvertSelection(value);
+    public RemoveRange<T> InvertSelection (bool inverse) {
+      ((RemoveRange)Impl).setInvertSelection(inverse);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveRange<T> InputFormat (Runtime<T> value) {
-      ((RemoveRange)Impl).setInputFormat(value.Instances);
+    public RemoveRange<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveRange)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

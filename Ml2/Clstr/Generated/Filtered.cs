@@ -1,6 +1,7 @@
 using weka.core;
 using weka.clusterers;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   /// <summary>
@@ -16,8 +17,8 @@ namespace Ml2.Clstr
     /// <summary>
     /// The filter to be used.
     /// </summary>    
-    public Filtered<T> Filter (Fltr.BaseFilter<T> value) {
-      ((FilteredClusterer)Impl).setFilter(value.Impl);
+    public Filtered<T> Filter (Fltr.BaseFilter<T> filter) {
+      ((FilteredClusterer)Impl).setFilter(filter.Impl);
       return this;
     }
 

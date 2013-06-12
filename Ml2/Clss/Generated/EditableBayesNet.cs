@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes.net;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,16 +17,48 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public EditableBayesNet<T> Data (Runtime<T> value) {
-      ((EditableBayesNet)Impl).setData(value.Instances);
+    public EditableBayesNet<T> Evidence (int iNode, int iValue) {
+      ((EditableBayesNet)Impl).setEvidence(iNode, iValue);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public EditableBayesNet<T> BIFFile (string value) {
-      ((EditableBayesNet)Impl).setBIFFile(value);
+    public EditableBayesNet<T> Data (Runtime<T> instances) {
+      ((EditableBayesNet)Impl).setData(instances.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EditableBayesNet<T> NodeName (int nTargetNode, string sName) {
+      ((EditableBayesNet)Impl).setNodeName(nTargetNode, sName);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EditableBayesNet<T> Position (int iNode, int nX, int nY) {
+      ((EditableBayesNet)Impl).setPosition(iNode, nX, nY);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EditableBayesNet<T> Margin (int iNode, double[] fMarginP) {
+      ((EditableBayesNet)Impl).setMargin(iNode, fMarginP);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EditableBayesNet<T> BIFFile (string sBIFFile) {
+      ((EditableBayesNet)Impl).setBIFFile(sBIFFile);
       return this;
     }
 
@@ -37,16 +69,16 @@ namespace Ml2.Clss
     /// problems may occur. Switching this option off makes the structure learning
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
-    public EditableBayesNet<T> UseADTree (bool value) {
-      ((EditableBayesNet)Impl).setUseADTree(value);
+    public EditableBayesNet<T> UseADTree (bool bUseADTree) {
+      ((EditableBayesNet)Impl).setUseADTree(bUseADTree);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public EditableBayesNet<T> Debug (bool value) {
-      ((EditableBayesNet)Impl).setDebug(value);
+    public EditableBayesNet<T> Debug (bool debug) {
+      ((EditableBayesNet)Impl).setDebug(debug);
       return this;
     }
 

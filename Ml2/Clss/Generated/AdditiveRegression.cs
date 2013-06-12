@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -20,32 +20,32 @@ namespace Ml2.Clss
     /// Shrinkage rate. Smaller values help prevent overfitting and have a
     /// smoothing effect (but increase learning time). Default = 1.0, ie. no shrinkage.
     /// </summary>    
-    public AdditiveRegression<T> Shrinkage (double value) {
-      ((AdditiveRegression)Impl).setShrinkage(value);
+    public AdditiveRegression<T> Shrinkage (double l) {
+      ((AdditiveRegression)Impl).setShrinkage(l);
       return this;
     }
 
     /// <summary>
     /// The number of iterations to be performed.
     /// </summary>    
-    public AdditiveRegression<T> NumIterations (int value) {
-      ((AdditiveRegression)Impl).setNumIterations(value);
+    public AdditiveRegression<T> NumIterations (int numIterations) {
+      ((AdditiveRegression)Impl).setNumIterations(numIterations);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdditiveRegression<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((AdditiveRegression)Impl).setClassifier(value.Impl);
+    public AdditiveRegression<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((AdditiveRegression)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public AdditiveRegression<T> Debug (bool value) {
-      ((AdditiveRegression)Impl).setDebug(value);
+    public AdditiveRegression<T> Debug (bool debug) {
+      ((AdditiveRegression)Impl).setDebug(debug);
       return this;
     }
 

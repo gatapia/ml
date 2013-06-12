@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -28,16 +28,16 @@ namespace Ml2.Clss
     /// The allowable error in a split decision. Values closer to zero will take
     /// longer to decide.
     /// </summary>    
-    public HoeffdingTree<T> SplitConfidence (double value) {
-      ((HoeffdingTree)Impl).setSplitConfidence(value);
+    public HoeffdingTree<T> SplitConfidence (double sc) {
+      ((HoeffdingTree)Impl).setSplitConfidence(sc);
       return this;
     }
 
     /// <summary>
     /// Theshold below which a split will be forced to break ties.
     /// </summary>    
-    public HoeffdingTree<T> HoeffdingTieThreshold (double value) {
-      ((HoeffdingTree)Impl).setHoeffdingTieThreshold(value);
+    public HoeffdingTree<T> HoeffdingTieThreshold (double ht) {
+      ((HoeffdingTree)Impl).setHoeffdingTieThreshold(ht);
       return this;
     }
 
@@ -45,8 +45,8 @@ namespace Ml2.Clss
     /// Minimum fraction of weight required down at least two branches for info
     /// gain splitting.
     /// </summary>    
-    public HoeffdingTree<T> MinimumFractionOfWeightInfoGain (double value) {
-      ((HoeffdingTree)Impl).setMinimumFractionOfWeightInfoGain(value);
+    public HoeffdingTree<T> MinimumFractionOfWeightInfoGain (double m) {
+      ((HoeffdingTree)Impl).setMinimumFractionOfWeightInfoGain(m);
       return this;
     }
 
@@ -54,8 +54,8 @@ namespace Ml2.Clss
     /// Number of instances (or total weight of instances) a leaf should observe
     /// between split attempts.
     /// </summary>    
-    public HoeffdingTree<T> GracePeriod (double value) {
-      ((HoeffdingTree)Impl).setGracePeriod(value);
+    public HoeffdingTree<T> GracePeriod (double grace) {
+      ((HoeffdingTree)Impl).setGracePeriod(grace);
       return this;
     }
 
@@ -63,24 +63,24 @@ namespace Ml2.Clss
     /// The number of instances (weight) a leaf should observe before allowing
     /// naive Bayes (adaptive) to make predictions
     /// </summary>    
-    public HoeffdingTree<T> NaiveBayesPredictionThreshold (double value) {
-      ((HoeffdingTree)Impl).setNaiveBayesPredictionThreshold(value);
+    public HoeffdingTree<T> NaiveBayesPredictionThreshold (double n) {
+      ((HoeffdingTree)Impl).setNaiveBayesPredictionThreshold(n);
       return this;
     }
 
     /// <summary>
     /// Print leaf models (naive bayes leaves only)
     /// </summary>    
-    public HoeffdingTree<T> PrintLeafModels (bool value) {
-      ((HoeffdingTree)Impl).setPrintLeafModels(value);
+    public HoeffdingTree<T> PrintLeafModels (bool p) {
+      ((HoeffdingTree)Impl).setPrintLeafModels(p);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public HoeffdingTree<T> Debug (bool value) {
-      ((HoeffdingTree)Impl).setDebug(value);
+    public HoeffdingTree<T> Debug (bool debug) {
+      ((HoeffdingTree)Impl).setDebug(debug);
       return this;
     }
 

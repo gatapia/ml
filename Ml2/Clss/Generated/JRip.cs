@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.rules;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -53,56 +53,56 @@ namespace Ml2.Clss
     /// Determines the amount of data used for pruning. One fold is used for
     /// pruning, the rest for growing the rules.
     /// </summary>    
-    public JRip<T> Folds (int value) {
-      ((JRip)Impl).setFolds(value);
+    public JRip<T> Folds (int fold) {
+      ((JRip)Impl).setFolds(fold);
       return this;
     }
 
     /// <summary>
     /// The minimum total weight of the instances in a rule.
     /// </summary>    
-    public JRip<T> MinNo (double value) {
-      ((JRip)Impl).setMinNo(value);
+    public JRip<T> MinNo (double m) {
+      ((JRip)Impl).setMinNo(m);
       return this;
     }
 
     /// <summary>
     /// The seed used for randomizing the data.
     /// </summary>    
-    public JRip<T> Seed (long value) {
-      ((JRip)Impl).setSeed(value);
+    public JRip<T> Seed (long s) {
+      ((JRip)Impl).setSeed(s);
       return this;
     }
 
     /// <summary>
     /// The number of optimization runs.
     /// </summary>    
-    public JRip<T> Optimizations (int value) {
-      ((JRip)Impl).setOptimizations(value);
+    public JRip<T> Optimizations (int run) {
+      ((JRip)Impl).setOptimizations(run);
       return this;
     }
 
     /// <summary>
     /// Whether debug information is output to the console.
     /// </summary>    
-    public JRip<T> Debug (bool value) {
-      ((JRip)Impl).setDebug(value);
+    public JRip<T> Debug (bool d) {
+      ((JRip)Impl).setDebug(d);
       return this;
     }
 
     /// <summary>
     /// Whether check for error rate >= 1/2 is included in stopping criterion.
     /// </summary>    
-    public JRip<T> CheckErrorRate (bool value) {
-      ((JRip)Impl).setCheckErrorRate(value);
+    public JRip<T> CheckErrorRate (bool d) {
+      ((JRip)Impl).setCheckErrorRate(d);
       return this;
     }
 
     /// <summary>
     /// Whether pruning is performed.
     /// </summary>    
-    public JRip<T> UsePruning (bool value) {
-      ((JRip)Impl).setUsePruning(value);
+    public JRip<T> UsePruning (bool d) {
+      ((JRip)Impl).setUsePruning(d);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -19,56 +19,56 @@ namespace Ml2.Fltr
     /// comma separated list of attribute names. Note that you can't mix indices
     /// and attribute names in the same list
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> Attributes (string value) {
-      ((ReplaceMissingWithUserConstant)Impl).setAttributes(value);
+    public ReplaceMissingWithUserConstant<T> Attributes (string range) {
+      ((ReplaceMissingWithUserConstant)Impl).setAttributes(range);
       return this;
     }
 
     /// <summary>
     /// The constant to replace missing values in nominal/string attributes with
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> NominalStringReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)Impl).setNominalStringReplacementValue(value);
+    public ReplaceMissingWithUserConstant<T> NominalStringReplacementValue (string nominalStringConstant) {
+      ((ReplaceMissingWithUserConstant)Impl).setNominalStringReplacementValue(nominalStringConstant);
       return this;
     }
 
     /// <summary>
     /// The constant to replace missing values in numeric attributes with
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> NumericReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)Impl).setNumericReplacementValue(value);
+    public ReplaceMissingWithUserConstant<T> NumericReplacementValue (string numericConstant) {
+      ((ReplaceMissingWithUserConstant)Impl).setNumericReplacementValue(numericConstant);
       return this;
     }
 
     /// <summary>
     /// The constant to replace missing values in date attributes with
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> DateReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)Impl).setDateReplacementValue(value);
+    public ReplaceMissingWithUserConstant<T> DateReplacementValue (string dateConstant) {
+      ((ReplaceMissingWithUserConstant)Impl).setDateReplacementValue(dateConstant);
       return this;
     }
 
     /// <summary>
     /// The formatting string to use for parsing the date replacement value
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> DateFormat (string value) {
-      ((ReplaceMissingWithUserConstant)Impl).setDateFormat(value);
+    public ReplaceMissingWithUserConstant<T> DateFormat (string dateFormat) {
+      ((ReplaceMissingWithUserConstant)Impl).setDateFormat(dateFormat);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> InputFormat (Runtime<T> value) {
-      ((ReplaceMissingWithUserConstant)Impl).setInputFormat(value.Instances);
+    public ReplaceMissingWithUserConstant<T> InputFormat (Runtime<T> instanceInfo) {
+      ((ReplaceMissingWithUserConstant)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
-    public ReplaceMissingWithUserConstant<T> IgnoreClass (bool value) {
-      ((ReplaceMissingWithUserConstant)Impl).setIgnoreClass(value);
+    public ReplaceMissingWithUserConstant<T> IgnoreClass (bool newIgnoreClass) {
+      ((ReplaceMissingWithUserConstant)Impl).setIgnoreClass(newIgnoreClass);
       return this;
     }
 

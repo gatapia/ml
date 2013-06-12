@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -45,8 +45,8 @@ namespace Ml2.Fltr
     /// FilteredClassifier, test instances do not potentially get 'consumed' by the
     /// filter an a prediction is always made.
     /// </summary>    
-    public SubsetByExpression<T> FilterAfterFirstBatch (bool value) {
-      ((SubsetByExpression)Impl).setFilterAfterFirstBatch(value);
+    public SubsetByExpression<T> FilterAfterFirstBatch (bool b) {
+      ((SubsetByExpression)Impl).setFilterAfterFirstBatch(b);
       return this;
     }
 
@@ -61,8 +61,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public SubsetByExpression<T> InputFormat (Runtime<T> value) {
-      ((SubsetByExpression)Impl).setInputFormat(value.Instances);
+    public SubsetByExpression<T> InputFormat (Runtime<T> instanceInfo) {
+      ((SubsetByExpression)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

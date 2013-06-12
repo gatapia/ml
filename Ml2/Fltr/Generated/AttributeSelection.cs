@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.supervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,24 +16,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// Determines how attributes/attribute subsets are evaluated.
     /// </summary>    
-    public AttributeSelection<T> Evaluator (AttrSel.Evals.BaseAttributeSelectionEvaluator<T> value) {
-      ((AttributeSelection)Impl).setEvaluator(value.Impl);
+    public AttributeSelection<T> Evaluator (AttrSel.Evals.BaseAttributeSelectionEvaluator<T> evaluator) {
+      ((AttributeSelection)Impl).setEvaluator(evaluator.Impl);
       return this;
     }
 
     /// <summary>
     /// Determines the search method.
     /// </summary>    
-    public AttributeSelection<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> value) {
-      ((AttributeSelection)Impl).setSearch(value.Impl);
+    public AttributeSelection<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> search) {
+      ((AttributeSelection)Impl).setSearch(search.Impl);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public AttributeSelection<T> InputFormat (Runtime<T> value) {
-      ((AttributeSelection)Impl).setInputFormat(value.Instances);
+    public AttributeSelection<T> InputFormat (Runtime<T> instanceInfo) {
+      ((AttributeSelection)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

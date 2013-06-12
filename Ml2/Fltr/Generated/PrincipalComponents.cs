@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -44,16 +44,16 @@ namespace Ml2.Fltr
     /// Center (rather than standardize) the data. PCA will be computed from the
     /// covariance (rather than correlation) matrix
     /// </summary>    
-    public PrincipalComponents<T> CenterData (bool value) {
-      ((PrincipalComponents)Impl).setCenterData(value);
+    public PrincipalComponents<T> CenterData (bool center) {
+      ((PrincipalComponents)Impl).setCenterData(center);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public PrincipalComponents<T> InputFormat (Runtime<T> value) {
-      ((PrincipalComponents)Impl).setInputFormat(value.Instances);
+    public PrincipalComponents<T> InputFormat (Runtime<T> instanceInfo) {
+      ((PrincipalComponents)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

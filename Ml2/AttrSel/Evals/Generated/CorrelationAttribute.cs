@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
@@ -17,8 +18,8 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Output per value correlation for nominal attributes
     /// </summary>    
-    public CorrelationAttribute<T> OutputDetailedInfo (bool value) {
-      ((CorrelationAttributeEval)Impl).setOutputDetailedInfo(value);
+    public CorrelationAttribute<T> OutputDetailedInfo (bool d) {
+      ((CorrelationAttributeEval)Impl).setOutputDetailedInfo(d);
       return this;
     }
 

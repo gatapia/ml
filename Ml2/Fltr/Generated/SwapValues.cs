@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,32 +15,32 @@ namespace Ml2.Fltr
     /// Sets which attribute to process. This attribute must be nominal ("first"
     /// and "last" are valid values)
     /// </summary>    
-    public SwapValues<T> AttributeIndex (string value) {
-      ((SwapValues)Impl).setAttributeIndex(value);
+    public SwapValues<T> AttributeIndex (string attIndex) {
+      ((SwapValues)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
     /// <summary>
     /// The index of the first value.("first" and "last" are valid values)
     /// </summary>    
-    public SwapValues<T> FirstValueIndex (string value) {
-      ((SwapValues)Impl).setFirstValueIndex(value);
+    public SwapValues<T> FirstValueIndex (string firstIndex) {
+      ((SwapValues)Impl).setFirstValueIndex(firstIndex);
       return this;
     }
 
     /// <summary>
     /// The index of the second value.("first" and "last" are valid values)
     /// </summary>    
-    public SwapValues<T> SecondValueIndex (string value) {
-      ((SwapValues)Impl).setSecondValueIndex(value);
+    public SwapValues<T> SecondValueIndex (string secondIndex) {
+      ((SwapValues)Impl).setSecondValueIndex(secondIndex);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public SwapValues<T> InputFormat (Runtime<T> value) {
-      ((SwapValues)Impl).setInputFormat(value.Instances);
+    public SwapValues<T> InputFormat (Runtime<T> instanceInfo) {
+      ((SwapValues)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

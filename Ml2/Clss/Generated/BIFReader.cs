@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes.net;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public BIFReader<T> BIFFile (string value) {
-      ((BIFReader)Impl).setBIFFile(value);
+    public BIFReader<T> BIFFile (string sBIFFile) {
+      ((BIFReader)Impl).setBIFFile(sBIFFile);
       return this;
     }
 
@@ -28,16 +28,16 @@ namespace Ml2.Clss
     /// problems may occur. Switching this option off makes the structure learning
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
-    public BIFReader<T> UseADTree (bool value) {
-      ((BIFReader)Impl).setUseADTree(value);
+    public BIFReader<T> UseADTree (bool bUseADTree) {
+      ((BIFReader)Impl).setUseADTree(bUseADTree);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public BIFReader<T> Debug (bool value) {
-      ((BIFReader)Impl).setDebug(value);
+    public BIFReader<T> Debug (bool debug) {
+      ((BIFReader)Impl).setDebug(debug);
       return this;
     }
 

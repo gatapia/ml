@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,24 +16,24 @@ namespace Ml2.Fltr
     /// the specified attributes will be kept; If set to false, specified attributes
     /// will be deleted.
     /// </summary>    
-    public RemoveType<T> InvertSelection (bool value) {
-      ((RemoveType)Impl).setInvertSelection(value);
+    public RemoveType<T> InvertSelection (bool invert) {
+      ((RemoveType)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveType<T> InputFormat (Runtime<T> value) {
-      ((RemoveType)Impl).setInputFormat(value.Instances);
+    public RemoveType<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveType)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// The type of attribute to remove.
     /// </summary>    
-    public RemoveType<T> AttributeType (EAttributeType value) {
-      ((RemoveType)Impl).setAttributeType(new SelectedTag((int) value, RemoveType.TAGS_ATTRIBUTETYPE));
+    public RemoveType<T> AttributeType (EAttributeType type) {
+      ((RemoveType)Impl).setAttributeType(new weka.core.SelectedTag((int) type, RemoveType.TAGS_ATTRIBUTETYPE));
       return this;
     }
 

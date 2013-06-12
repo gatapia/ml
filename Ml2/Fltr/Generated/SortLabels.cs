@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -34,8 +34,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The type of sorting to use.
     /// </summary>    
-    public SortLabels<T> SortType (ESortType value) {
-      ((SortLabels)Impl).setSortType(new SelectedTag((int) value, SortLabels.TAGS_SORTTYPE));
+    public SortLabels<T> SortType (ESortType type) {
+      ((SortLabels)Impl).setSortType(new weka.core.SelectedTag((int) type, SortLabels.TAGS_SORTTYPE));
       return this;
     }
 
@@ -50,8 +50,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public SortLabels<T> InputFormat (Runtime<T> value) {
-      ((SortLabels)Impl).setInputFormat(value.Instances);
+    public SortLabels<T> InputFormat (Runtime<T> instanceInfo) {
+      ((SortLabels)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

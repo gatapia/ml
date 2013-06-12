@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
@@ -18,8 +19,8 @@ namespace Ml2.AttrSel.Evals
     /// values in proportion to their frequency. Otherwise, missing is treated as
     /// a separate value.
     /// </summary>    
-    public SymmetricalUncertAttribute<T> MissingMerge (bool value) {
-      ((SymmetricalUncertAttributeEval)Impl).setMissingMerge(value);
+    public SymmetricalUncertAttribute<T> MissingMerge (bool b) {
+      ((SymmetricalUncertAttributeEval)Impl).setMissingMerge(b);
       return this;
     }
 

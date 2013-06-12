@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -15,16 +15,16 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public SimpleLinearRegression<T> SuppressErrorMessage (bool value) {
-      ((SimpleLinearRegression)Impl).setSuppressErrorMessage(value);
+    public SimpleLinearRegression<T> SuppressErrorMessage (bool s) {
+      ((SimpleLinearRegression)Impl).setSuppressErrorMessage(s);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public SimpleLinearRegression<T> Debug (bool value) {
-      ((SimpleLinearRegression)Impl).setDebug(value);
+    public SimpleLinearRegression<T> Debug (bool debug) {
+      ((SimpleLinearRegression)Impl).setDebug(debug);
       return this;
     }
 

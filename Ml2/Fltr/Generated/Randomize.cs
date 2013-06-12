@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,16 +16,16 @@ namespace Ml2.Fltr
     /// <summary>
     /// Seed for the random number generator.
     /// </summary>    
-    public Randomize<T> RandomSeed (int value) {
-      ((Randomize)Impl).setRandomSeed(value);
+    public Randomize<T> RandomSeed (int newRandomSeed) {
+      ((Randomize)Impl).setRandomSeed(newRandomSeed);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public Randomize<T> InputFormat (Runtime<T> value) {
-      ((Randomize)Impl).setInputFormat(value.Instances);
+    public Randomize<T> InputFormat (Runtime<T> instanceInfo) {
+      ((Randomize)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

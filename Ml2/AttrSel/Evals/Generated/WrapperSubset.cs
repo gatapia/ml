@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
@@ -17,48 +18,48 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Classifier to use for estimating the accuracy of subsets
     /// </summary>    
-    public WrapperSubset<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((WrapperSubsetEval)Impl).setClassifier(value.Impl);
+    public WrapperSubset<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((WrapperSubsetEval)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// Number of xval folds to use when estimating subset accuracy.
     /// </summary>    
-    public WrapperSubset<T> Folds (int value) {
-      ((WrapperSubsetEval)Impl).setFolds(value);
+    public WrapperSubset<T> Folds (int f) {
+      ((WrapperSubsetEval)Impl).setFolds(f);
       return this;
     }
 
     /// <summary>
     /// Seed to use for randomly generating xval splits.
     /// </summary>    
-    public WrapperSubset<T> Seed (int value) {
-      ((WrapperSubsetEval)Impl).setSeed(value);
+    public WrapperSubset<T> Seed (int s) {
+      ((WrapperSubsetEval)Impl).setSeed(s);
       return this;
     }
 
     /// <summary>
     /// Repeat xval if stdev of mean exceeds this value.
     /// </summary>    
-    public WrapperSubset<T> Threshold (double value) {
-      ((WrapperSubsetEval)Impl).setThreshold(value);
+    public WrapperSubset<T> Threshold (double t) {
+      ((WrapperSubsetEval)Impl).setThreshold(t);
       return this;
     }
 
     /// <summary>
     /// The measure used to evaluate the performance of attribute combinations.
     /// </summary>    
-    public WrapperSubset<T> EvaluationMeasure (EEvaluationMeasure value) {
-      ((WrapperSubsetEval)Impl).setEvaluationMeasure(new SelectedTag((int) value, WrapperSubsetEval.TAGS_EVALUATION));
+    public WrapperSubset<T> EvaluationMeasure (EEvaluationMeasure newMethod) {
+      ((WrapperSubsetEval)Impl).setEvaluationMeasure(new weka.core.SelectedTag((int) newMethod, WrapperSubsetEval.TAGS_EVALUATION));
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public WrapperSubset<T> IRClassValue (string value) {
-      ((WrapperSubsetEval)Impl).setIRClassValue(value);
+    public WrapperSubset<T> IRClassValue (string val) {
+      ((WrapperSubsetEval)Impl).setIRClassValue(val);
       return this;
     }
 

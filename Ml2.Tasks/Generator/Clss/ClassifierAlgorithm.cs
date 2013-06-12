@@ -28,14 +28,15 @@ namespace Ml2.Tasks.Generator.Clss
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using weka.core;\r\nusing ");
+            this.Write("using ");
             
-            #line 7 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 6 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeNamespace));
             
             #line default
             #line hidden
-            this.Write(";\r\n\r\nnamespace Ml2.Clss\r\n{\r\n  /// <summary>\r\n  /// ");
+            this.Write(";\r\n\r\n// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clss\r\n{\r\n  /// <summ" +
+                    "ary>\r\n  /// ");
             
             #line 12 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetClassDescription("  /// ")));

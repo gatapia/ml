@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
@@ -19,8 +20,8 @@ namespace Ml2.AttrSel.Evals
     /// Treat missing as a separate value. Otherwise, counts for missing values
     /// are distributed across other values in proportion to their frequency.
     /// </summary>    
-    public CfsSubset<T> MissingSeparate (bool value) {
-      ((CfsSubsetEval)Impl).setMissingSeparate(value);
+    public CfsSubset<T> MissingSeparate (bool b) {
+      ((CfsSubsetEval)Impl).setMissingSeparate(b);
       return this;
     }
 
@@ -30,8 +31,8 @@ namespace Ml2.AttrSel.Evals
     /// attribute in the subset that has a higher correlation with the attribute in
     /// question
     /// </summary>    
-    public CfsSubset<T> LocallyPredictive (bool value) {
-      ((CfsSubsetEval)Impl).setLocallyPredictive(value);
+    public CfsSubset<T> LocallyPredictive (bool b) {
+      ((CfsSubsetEval)Impl).setLocallyPredictive(b);
       return this;
     }
 

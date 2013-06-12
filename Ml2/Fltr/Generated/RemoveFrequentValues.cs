@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -20,24 +20,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// Choose attribute to be used for selection (default last).
     /// </summary>    
-    public RemoveFrequentValues<T> AttributeIndex (string value) {
-      ((RemoveFrequentValues)Impl).setAttributeIndex(value);
+    public RemoveFrequentValues<T> AttributeIndex (string attIndex) {
+      ((RemoveFrequentValues)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
     /// <summary>
     /// The number of values to retain.
     /// </summary>    
-    public RemoveFrequentValues<T> NumValues (int value) {
-      ((RemoveFrequentValues)Impl).setNumValues(value);
+    public RemoveFrequentValues<T> NumValues (int numValues) {
+      ((RemoveFrequentValues)Impl).setNumValues(numValues);
       return this;
     }
 
     /// <summary>
     /// Retains values with least instance instead of most.
     /// </summary>    
-    public RemoveFrequentValues<T> UseLeastValues (bool value) {
-      ((RemoveFrequentValues)Impl).setUseLeastValues(value);
+    public RemoveFrequentValues<T> UseLeastValues (bool leastValues) {
+      ((RemoveFrequentValues)Impl).setUseLeastValues(leastValues);
       return this;
     }
 
@@ -45,24 +45,24 @@ namespace Ml2.Fltr
     /// When selecting on nominal attributes, removes header references to
     /// excluded values.
     /// </summary>    
-    public RemoveFrequentValues<T> ModifyHeader (bool value) {
-      ((RemoveFrequentValues)Impl).setModifyHeader(value);
+    public RemoveFrequentValues<T> ModifyHeader (bool newModifyHeader) {
+      ((RemoveFrequentValues)Impl).setModifyHeader(newModifyHeader);
       return this;
     }
 
     /// <summary>
     /// Invert matching sense.
     /// </summary>    
-    public RemoveFrequentValues<T> InvertSelection (bool value) {
-      ((RemoveFrequentValues)Impl).setInvertSelection(value);
+    public RemoveFrequentValues<T> InvertSelection (bool invert) {
+      ((RemoveFrequentValues)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveFrequentValues<T> InputFormat (Runtime<T> value) {
-      ((RemoveFrequentValues)Impl).setInputFormat(value.Instances);
+    public RemoveFrequentValues<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveFrequentValues)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

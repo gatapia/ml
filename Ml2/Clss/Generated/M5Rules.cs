@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.rules;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -21,40 +21,40 @@ namespace Ml2.Clss
     /// <summary>
     /// Whether unpruned tree/rules are to be generated.
     /// </summary>    
-    public M5Rules<T> Unpruned (bool value) {
-      ((M5Rules)Impl).setUnpruned(value);
+    public M5Rules<T> Unpruned (bool unpruned) {
+      ((M5Rules)Impl).setUnpruned(unpruned);
       return this;
     }
 
     /// <summary>
     /// Whether to use unsmoothed predictions.
     /// </summary>    
-    public M5Rules<T> UseUnsmoothed (bool value) {
-      ((M5Rules)Impl).setUseUnsmoothed(value);
+    public M5Rules<T> UseUnsmoothed (bool s) {
+      ((M5Rules)Impl).setUseUnsmoothed(s);
       return this;
     }
 
     /// <summary>
     /// Whether to generate a regression tree/rule instead of a model tree/rule.
     /// </summary>    
-    public M5Rules<T> BuildRegressionTree (bool value) {
-      ((M5Rules)Impl).setBuildRegressionTree(value);
+    public M5Rules<T> BuildRegressionTree (bool newregressionTree) {
+      ((M5Rules)Impl).setBuildRegressionTree(newregressionTree);
       return this;
     }
 
     /// <summary>
     /// The minimum number of instances to allow at a leaf node.
     /// </summary>    
-    public M5Rules<T> MinNumInstances (double value) {
-      ((M5Rules)Impl).setMinNumInstances(value);
+    public M5Rules<T> MinNumInstances (double minNum) {
+      ((M5Rules)Impl).setMinNumInstances(minNum);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public M5Rules<T> Debug (bool value) {
-      ((M5Rules)Impl).setDebug(value);
+    public M5Rules<T> Debug (bool debug) {
+      ((M5Rules)Impl).setDebug(debug);
       return this;
     }
 

@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -15,16 +15,16 @@ namespace Ml2.Clss
     /// <summary>
     /// If true, ignores all words that are on the stoplist.
     /// </summary>    
-    public NaiveBayesMultinomialText<T> UseStopList (bool value) {
-      ((NaiveBayesMultinomialText)Impl).setUseStopList(value);
+    public NaiveBayesMultinomialText<T> UseStopList (bool u) {
+      ((NaiveBayesMultinomialText)Impl).setUseStopList(u);
       return this;
     }
 
     /// <summary>
     /// Use word frequencies rather than binary bag of words representation
     /// </summary>    
-    public NaiveBayesMultinomialText<T> UseWordFrequencies (bool value) {
-      ((NaiveBayesMultinomialText)Impl).setUseWordFrequencies(value);
+    public NaiveBayesMultinomialText<T> UseWordFrequencies (bool u) {
+      ((NaiveBayesMultinomialText)Impl).setUseWordFrequencies(u);
       return this;
     }
 
@@ -33,8 +33,8 @@ namespace Ml2.Clss
     /// terms. 0 means don't prune. Setting a positive integer n means prune after
     /// every n instances
     /// </summary>    
-    public NaiveBayesMultinomialText<T> PeriodicPruning (int value) {
-      ((NaiveBayesMultinomialText)Impl).setPeriodicPruning(value);
+    public NaiveBayesMultinomialText<T> PeriodicPruning (int p) {
+      ((NaiveBayesMultinomialText)Impl).setPeriodicPruning(p);
       return this;
     }
 
@@ -43,8 +43,8 @@ namespace Ml2.Clss
     /// training data. If periodic pruning is turned on, then the dictionary is pruned
     /// according to this value
     /// </summary>    
-    public NaiveBayesMultinomialText<T> MinWordFrequency (double value) {
-      ((NaiveBayesMultinomialText)Impl).setMinWordFrequency(value);
+    public NaiveBayesMultinomialText<T> MinWordFrequency (double minFreq) {
+      ((NaiveBayesMultinomialText)Impl).setMinWordFrequency(minFreq);
       return this;
     }
 
@@ -52,40 +52,40 @@ namespace Ml2.Clss
     /// If true then document length is normalized according to the settings for
     /// norm and lnorm
     /// </summary>    
-    public NaiveBayesMultinomialText<T> NormalizeDocLength (bool value) {
-      ((NaiveBayesMultinomialText)Impl).setNormalizeDocLength(value);
+    public NaiveBayesMultinomialText<T> NormalizeDocLength (bool norm) {
+      ((NaiveBayesMultinomialText)Impl).setNormalizeDocLength(norm);
       return this;
     }
 
     /// <summary>
     /// The norm of the instances after normalization.
     /// </summary>    
-    public NaiveBayesMultinomialText<T> Norm (double value) {
-      ((NaiveBayesMultinomialText)Impl).setNorm(value);
+    public NaiveBayesMultinomialText<T> Norm (double newNorm) {
+      ((NaiveBayesMultinomialText)Impl).setNorm(newNorm);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public NaiveBayesMultinomialText<T> LNorm (double value) {
-      ((NaiveBayesMultinomialText)Impl).setLNorm(value);
+    public NaiveBayesMultinomialText<T> LNorm (double newLNorm) {
+      ((NaiveBayesMultinomialText)Impl).setLNorm(newLNorm);
       return this;
     }
 
     /// <summary>
     /// Whether to convert all tokens to lowercase
     /// </summary>    
-    public NaiveBayesMultinomialText<T> LowercaseTokens (bool value) {
-      ((NaiveBayesMultinomialText)Impl).setLowercaseTokens(value);
+    public NaiveBayesMultinomialText<T> LowercaseTokens (bool l) {
+      ((NaiveBayesMultinomialText)Impl).setLowercaseTokens(l);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public NaiveBayesMultinomialText<T> Debug (bool value) {
-      ((NaiveBayesMultinomialText)Impl).setDebug(value);
+    public NaiveBayesMultinomialText<T> Debug (bool debug) {
+      ((NaiveBayesMultinomialText)Impl).setDebug(debug);
       return this;
     }
 

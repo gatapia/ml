@@ -1,6 +1,7 @@
 using weka.core;
 using weka.clusterers;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   /// <summary>
@@ -22,24 +23,24 @@ namespace Ml2.Clstr
     /// <summary>
     /// set the minimum standard deviation for numeric attributes
     /// </summary>    
-    public Cobweb<T> Acuity (double value) {
-      ((Cobweb)Impl).setAcuity(value);
+    public Cobweb<T> Acuity (double a) {
+      ((Cobweb)Impl).setAcuity(a);
       return this;
     }
 
     /// <summary>
     /// set the category utility threshold by which to prune nodes
     /// </summary>    
-    public Cobweb<T> Cutoff (double value) {
-      ((Cobweb)Impl).setCutoff(value);
+    public Cobweb<T> Cutoff (double c) {
+      ((Cobweb)Impl).setCutoff(c);
       return this;
     }
 
     /// <summary>
     /// save instance information for visualization purposes
     /// </summary>    
-    public Cobweb<T> SaveInstanceData (bool value) {
-      ((Cobweb)Impl).setSaveInstanceData(value);
+    public Cobweb<T> SaveInstanceData (bool newsaveInstances) {
+      ((Cobweb)Impl).setSaveInstanceData(newsaveInstances);
       return this;
     }
 

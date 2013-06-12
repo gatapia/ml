@@ -1,6 +1,7 @@
 using weka.core;
 using weka.associations;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Asstn
 {
   /// <summary>
@@ -23,8 +24,8 @@ namespace Ml2.Asstn
     /// market basket data, which uses missing value "?" to indicate absence of an
     /// item.
     /// </summary>    
-    public FPGrowth<T> PositiveIndex (int value) {
-      ((FPGrowth)Impl).setPositiveIndex(value);
+    public FPGrowth<T> PositiveIndex (int index) {
+      ((FPGrowth)Impl).setPositiveIndex(index);
       return this;
     }    
 
@@ -32,16 +33,16 @@ namespace Ml2.Asstn
     /// The maximum number of items to include in frequent item sets. -1 means no
     /// limit.
     /// </summary>    
-    public FPGrowth<T> MaxNumberOfItems (int value) {
-      ((FPGrowth)Impl).setMaxNumberOfItems(value);
+    public FPGrowth<T> MaxNumberOfItems (int max) {
+      ((FPGrowth)Impl).setMaxNumberOfItems(max);
       return this;
     }    
 
     /// <summary>
     /// The number of rules to output
     /// </summary>    
-    public FPGrowth<T> NumRulesToFind (int value) {
-      ((FPGrowth)Impl).setNumRulesToFind(value);
+    public FPGrowth<T> NumRulesToFind (int numR) {
+      ((FPGrowth)Impl).setNumRulesToFind(numR);
       return this;
     }    
 
@@ -49,8 +50,8 @@ namespace Ml2.Asstn
     /// Minimum metric score. Consider only rules with scores higher than this
     /// value.
     /// </summary>    
-    public FPGrowth<T> MinMetric (double value) {
-      ((FPGrowth)Impl).setMinMetric(value);
+    public FPGrowth<T> MinMetric (double v) {
+      ((FPGrowth)Impl).setMinMetric(v);
       return this;
     }    
 
@@ -58,16 +59,16 @@ namespace Ml2.Asstn
     /// Iteratively decrease support by this factor. Reduces support until min
     /// support is reached or required number of rules has been generated.
     /// </summary>    
-    public FPGrowth<T> Delta (double value) {
-      ((FPGrowth)Impl).setDelta(value);
+    public FPGrowth<T> Delta (double v) {
+      ((FPGrowth)Impl).setDelta(v);
       return this;
     }    
 
     /// <summary>
     /// Lower bound for minimum support as a fraction or number of instances.
     /// </summary>    
-    public FPGrowth<T> LowerBoundMinSupport (double value) {
-      ((FPGrowth)Impl).setLowerBoundMinSupport(value);
+    public FPGrowth<T> LowerBoundMinSupport (double v) {
+      ((FPGrowth)Impl).setLowerBoundMinSupport(v);
       return this;
     }    
 
@@ -75,8 +76,8 @@ namespace Ml2.Asstn
     /// Upper bound for minimum support as a fraction or number of instances.
     /// Start iteratively decreasing minimum support from this value.
     /// </summary>    
-    public FPGrowth<T> UpperBoundMinSupport (double value) {
-      ((FPGrowth)Impl).setUpperBoundMinSupport(value);
+    public FPGrowth<T> UpperBoundMinSupport (double v) {
+      ((FPGrowth)Impl).setUpperBoundMinSupport(v);
       return this;
     }    
 
@@ -84,8 +85,8 @@ namespace Ml2.Asstn
     /// Limit input to FPGrowth to those transactions (instances) that contain
     /// these items. Provide a comma separated list of attribute names.
     /// </summary>    
-    public FPGrowth<T> TransactionsMustContain (string value) {
-      ((FPGrowth)Impl).setTransactionsMustContain(value);
+    public FPGrowth<T> TransactionsMustContain (string list) {
+      ((FPGrowth)Impl).setTransactionsMustContain(list);
       return this;
     }    
 
@@ -93,16 +94,16 @@ namespace Ml2.Asstn
     /// Only print rules that contain these items. Provide a comma separated list
     /// of attribute names.
     /// </summary>    
-    public FPGrowth<T> RulesMustContain (string value) {
-      ((FPGrowth)Impl).setRulesMustContain(value);
+    public FPGrowth<T> RulesMustContain (string list) {
+      ((FPGrowth)Impl).setRulesMustContain(list);
       return this;
     }    
 
     /// <summary>
     /// Use OR instead of AND for transactions/rules must contain lists.
     /// </summary>    
-    public FPGrowth<T> UseORForMustContainList (bool value) {
-      ((FPGrowth)Impl).setUseORForMustContainList(value);
+    public FPGrowth<T> UseORForMustContainList (bool b) {
+      ((FPGrowth)Impl).setUseORForMustContainList(b);
       return this;
     }    
 
@@ -111,16 +112,16 @@ namespace Ml2.Asstn
     /// minimum metric constraint. Turning this mode on will disable the iterative
     /// support reduction procedure to find the specified number of rules.
     /// </summary>    
-    public FPGrowth<T> FindAllRulesForSupportLevel (bool value) {
-      ((FPGrowth)Impl).setFindAllRulesForSupportLevel(value);
+    public FPGrowth<T> FindAllRulesForSupportLevel (bool s) {
+      ((FPGrowth)Impl).setFindAllRulesForSupportLevel(s);
       return this;
     }    
 
     /// <summary>
     /// 
     /// </summary>    
-    public FPGrowth<T> OffDiskReportingFrequency (int value) {
-      ((FPGrowth)Impl).setOffDiskReportingFrequency(value);
+    public FPGrowth<T> OffDiskReportingFrequency (int freq) {
+      ((FPGrowth)Impl).setOffDiskReportingFrequency(freq);
       return this;
     }    
 

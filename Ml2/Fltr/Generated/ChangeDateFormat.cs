@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,8 +18,8 @@ namespace Ml2.Fltr
     /// Sets which attribute to process. This attribute must be of type date
     /// ("first" and "last" are valid values)
     /// </summary>    
-    public ChangeDateFormat<T> AttributeIndex (string value) {
-      ((ChangeDateFormat)Impl).setAttributeIndex(value);
+    public ChangeDateFormat<T> AttributeIndex (string attIndex) {
+      ((ChangeDateFormat)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
@@ -27,16 +27,16 @@ namespace Ml2.Fltr
     /// The date format to change to. This should be a format understood by
     /// Java's SimpleDateFormat class.
     /// </summary>    
-    public ChangeDateFormat<T> DateFormat (string value) {
-      ((ChangeDateFormat)Impl).setDateFormat(value);
+    public ChangeDateFormat<T> DateFormat (string dateFormat) {
+      ((ChangeDateFormat)Impl).setDateFormat(dateFormat);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public ChangeDateFormat<T> InputFormat (Runtime<T> value) {
-      ((ChangeDateFormat)Impl).setInputFormat(value.Instances);
+    public ChangeDateFormat<T> InputFormat (Runtime<T> instanceInfo) {
+      ((ChangeDateFormat)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

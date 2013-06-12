@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -20,8 +20,8 @@ namespace Ml2.Clss
     /// Use supervised discretization to convert numeric attributes to nominal
     /// ones.
     /// </summary>    
-    public NaiveBayesUpdateable<T> UseSupervisedDiscretization (bool value) {
-      ((NaiveBayesUpdateable)Impl).setUseSupervisedDiscretization(value);
+    public NaiveBayesUpdateable<T> UseSupervisedDiscretization (bool newblah) {
+      ((NaiveBayesUpdateable)Impl).setUseSupervisedDiscretization(newblah);
       return this;
     }
 
@@ -29,8 +29,8 @@ namespace Ml2.Clss
     /// Use a kernel estimator for numeric attributes rather than a normal
     /// distribution.
     /// </summary>    
-    public NaiveBayesUpdateable<T> UseKernelEstimator (bool value) {
-      ((NaiveBayesUpdateable)Impl).setUseKernelEstimator(value);
+    public NaiveBayesUpdateable<T> UseKernelEstimator (bool v) {
+      ((NaiveBayesUpdateable)Impl).setUseKernelEstimator(v);
       return this;
     }
 
@@ -39,16 +39,16 @@ namespace Ml2.Clss
     /// many class values. The new format is better when there are fewer classes
     /// and many attributes.
     /// </summary>    
-    public NaiveBayesUpdateable<T> DisplayModelInOldFormat (bool value) {
-      ((NaiveBayesUpdateable)Impl).setDisplayModelInOldFormat(value);
+    public NaiveBayesUpdateable<T> DisplayModelInOldFormat (bool d) {
+      ((NaiveBayesUpdateable)Impl).setDisplayModelInOldFormat(d);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public NaiveBayesUpdateable<T> Debug (bool value) {
-      ((NaiveBayesUpdateable)Impl).setDebug(value);
+    public NaiveBayesUpdateable<T> Debug (bool debug) {
+      ((NaiveBayesUpdateable)Impl).setDebug(debug);
       return this;
     }
 

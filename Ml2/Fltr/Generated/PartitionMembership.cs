@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public PartitionMembership<T> InputFormat (Runtime<T> value) {
-      ((PartitionMembership)Impl).setInputFormat(value.Instances);
+    public PartitionMembership<T> InputFormat (Runtime<T> instanceInfo) {
+      ((PartitionMembership)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

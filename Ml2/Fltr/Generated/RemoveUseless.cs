@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -17,8 +17,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveUseless<T> InputFormat (Runtime<T> value) {
-      ((RemoveUseless)Impl).setInputFormat(value.Instances);
+    public RemoveUseless<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveUseless)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -28,8 +28,8 @@ namespace Ml2.Fltr
     /// total_number_of_values * 100) is greater than this value then the attribute will be
     /// removed.
     /// </summary>    
-    public RemoveUseless<T> MaximumVariancePercentageAllowed (double value) {
-      ((RemoveUseless)Impl).setMaximumVariancePercentageAllowed(value);
+    public RemoveUseless<T> MaximumVariancePercentageAllowed (double maxVariance) {
+      ((RemoveUseless)Impl).setMaximumVariancePercentageAllowed(maxVariance);
       return this;
     }
 

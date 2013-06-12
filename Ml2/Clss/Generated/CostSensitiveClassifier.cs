@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -20,8 +20,8 @@ namespace Ml2.Clss
     /// false, the training data will be reweighted according to the costs assigned
     /// to each class. If true, the minimum expected cost criteria will be used.
     /// </summary>    
-    public CostSensitiveClassifier<T> MinimizeExpectedCost (bool value) {
-      ((CostSensitiveClassifier)Impl).setMinimizeExpectedCost(value);
+    public CostSensitiveClassifier<T> MinimizeExpectedCost (bool newMinimizeExpectedCost) {
+      ((CostSensitiveClassifier)Impl).setMinimizeExpectedCost(newMinimizeExpectedCost);
       return this;
     }
 
@@ -32,32 +32,32 @@ namespace Ml2.Clss
     /// directory set by the onDemandDirectory property and will be named
     /// relation_name.cost).
     /// </summary>    
-    public CostSensitiveClassifier<T> CostMatrixSource (ECostMatrixSource value) {
-      ((CostSensitiveClassifier)Impl).setCostMatrixSource(new SelectedTag((int) value, CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
+    public CostSensitiveClassifier<T> CostMatrixSource (ECostMatrixSource newMethod) {
+      ((CostSensitiveClassifier)Impl).setCostMatrixSource(new weka.core.SelectedTag((int) newMethod, CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public CostSensitiveClassifier<T> Seed (int value) {
-      ((CostSensitiveClassifier)Impl).setSeed(value);
+    public CostSensitiveClassifier<T> Seed (int seed) {
+      ((CostSensitiveClassifier)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public CostSensitiveClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((CostSensitiveClassifier)Impl).setClassifier(value.Impl);
+    public CostSensitiveClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((CostSensitiveClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public CostSensitiveClassifier<T> Debug (bool value) {
-      ((CostSensitiveClassifier)Impl).setDebug(value);
+    public CostSensitiveClassifier<T> Debug (bool debug) {
+      ((CostSensitiveClassifier)Impl).setDebug(debug);
       return this;
     }
 

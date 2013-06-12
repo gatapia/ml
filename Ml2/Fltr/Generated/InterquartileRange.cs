@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -87,8 +87,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public InterquartileRange<T> InputFormat (Runtime<T> value) {
-      ((InterquartileRange)Impl).setInputFormat(value.Instances);
+    public InterquartileRange<T> InputFormat (Runtime<T> instanceInfo) {
+      ((InterquartileRange)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

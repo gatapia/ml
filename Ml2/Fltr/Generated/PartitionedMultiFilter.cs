@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -25,8 +25,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The base filters to be used.
     /// </summary>    
-    public PartitionedMultiFilter<T> Filters (Fltr.BaseFilter<T>[] value) {
-      ((PartitionedMultiFilter)Impl).setFilters(value.Select(v => v.Impl).ToArray());
+    public PartitionedMultiFilter<T> Filters (Fltr.BaseFilter<T>[] filters) {
+      ((PartitionedMultiFilter)Impl).setFilters(filters.Select(v => v.Impl).ToArray());
       return this;
     }
 
@@ -41,8 +41,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public PartitionedMultiFilter<T> InputFormat (Runtime<T> value) {
-      ((PartitionedMultiFilter)Impl).setInputFormat(value.Instances);
+    public PartitionedMultiFilter<T> InputFormat (Runtime<T> instanceInfo) {
+      ((PartitionedMultiFilter)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

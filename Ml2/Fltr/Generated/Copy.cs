@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -19,8 +19,8 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public Copy<T> AttributeIndices (string value) {
-      ((Copy)Impl).setAttributeIndices(value);
+    public Copy<T> AttributeIndices (string rangeList) {
+      ((Copy)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
@@ -29,24 +29,24 @@ namespace Ml2.Fltr
     /// specified attributes will be copied; If set to true, non-specified attributes
     /// will be copied.
     /// </summary>    
-    public Copy<T> InvertSelection (bool value) {
-      ((Copy)Impl).setInvertSelection(value);
+    public Copy<T> InvertSelection (bool invert) {
+      ((Copy)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public Copy<T> InputFormat (Runtime<T> value) {
-      ((Copy)Impl).setInputFormat(value.Instances);
+    public Copy<T> InputFormat (Runtime<T> instanceInfo) {
+      ((Copy)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public Copy<T> AttributeIndicesArray (int[] value) {
-      ((Copy)Impl).setAttributeIndicesArray(value);
+    public Copy<T> AttributeIndicesArray (int[] attributes) {
+      ((Copy)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 

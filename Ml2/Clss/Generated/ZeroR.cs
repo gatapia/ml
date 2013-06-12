@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.rules;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -14,8 +14,8 @@ namespace Ml2.Clss
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public ZeroR<T> Debug (bool value) {
-      ((ZeroR)Impl).setDebug(value);
+    public ZeroR<T> Debug (bool debug) {
+      ((ZeroR)Impl).setDebug(debug);
       return this;
     }
 

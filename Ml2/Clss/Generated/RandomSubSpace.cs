@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -30,8 +30,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public RandomSubSpace<T> Seed (int value) {
-      ((RandomSubSpace)Impl).setSeed(value);
+    public RandomSubSpace<T> Seed (int seed) {
+      ((RandomSubSpace)Impl).setSeed(seed);
       return this;
     }
 
@@ -39,32 +39,32 @@ namespace Ml2.Clss
     /// The number of execution slots (threads) to use for constructing the
     /// ensemble.
     /// </summary>    
-    public RandomSubSpace<T> NumExecutionSlots (int value) {
-      ((RandomSubSpace)Impl).setNumExecutionSlots(value);
+    public RandomSubSpace<T> NumExecutionSlots (int numSlots) {
+      ((RandomSubSpace)Impl).setNumExecutionSlots(numSlots);
       return this;
     }
 
     /// <summary>
     /// The number of iterations to be performed.
     /// </summary>    
-    public RandomSubSpace<T> NumIterations (int value) {
-      ((RandomSubSpace)Impl).setNumIterations(value);
+    public RandomSubSpace<T> NumIterations (int numIterations) {
+      ((RandomSubSpace)Impl).setNumIterations(numIterations);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RandomSubSpace<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((RandomSubSpace)Impl).setClassifier(value.Impl);
+    public RandomSubSpace<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((RandomSubSpace)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public RandomSubSpace<T> Debug (bool value) {
-      ((RandomSubSpace)Impl).setDebug(value);
+    public RandomSubSpace<T> Debug (bool debug) {
+      ((RandomSubSpace)Impl).setDebug(debug);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,24 +15,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// Whether to invert the selection.
     /// </summary>    
-    public RemoveFolds<T> InvertSelection (bool value) {
-      ((RemoveFolds)Impl).setInvertSelection(value);
+    public RemoveFolds<T> InvertSelection (bool inverse) {
+      ((RemoveFolds)Impl).setInvertSelection(inverse);
       return this;
     }
 
     /// <summary>
     /// The number of folds to split the dataset into.
     /// </summary>    
-    public RemoveFolds<T> NumFolds (int value) {
-      ((RemoveFolds)Impl).setNumFolds(value);
+    public RemoveFolds<T> NumFolds (int numFolds) {
+      ((RemoveFolds)Impl).setNumFolds(numFolds);
       return this;
     }
 
     /// <summary>
     /// The fold which is selected.
     /// </summary>    
-    public RemoveFolds<T> Fold (int value) {
-      ((RemoveFolds)Impl).setFold(value);
+    public RemoveFolds<T> Fold (int fold) {
+      ((RemoveFolds)Impl).setFold(fold);
       return this;
     }
 
@@ -40,16 +40,16 @@ namespace Ml2.Fltr
     /// the random number seed for shuffling the dataset. If seed is negative,
     /// shuffling will not be performed.
     /// </summary>    
-    public RemoveFolds<T> Seed (long value) {
-      ((RemoveFolds)Impl).setSeed(value);
+    public RemoveFolds<T> Seed (long seed) {
+      ((RemoveFolds)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveFolds<T> InputFormat (Runtime<T> value) {
-      ((RemoveFolds)Impl).setInputFormat(value.Instances);
+    public RemoveFolds<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveFolds)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -19,8 +19,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public TimeSeriesDelta<T> InputFormat (Runtime<T> value) {
-      ((TimeSeriesDelta)Impl).setInputFormat(value.Instances);
+    public TimeSeriesDelta<T> InputFormat (Runtime<T> instanceInfo) {
+      ((TimeSeriesDelta)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -29,16 +29,16 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public TimeSeriesDelta<T> AttributeIndices (string value) {
-      ((TimeSeriesDelta)Impl).setAttributeIndices(value);
+    public TimeSeriesDelta<T> AttributeIndices (string rangeList) {
+      ((TimeSeriesDelta)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
     /// <summary>
     /// Invert matching sense. ie calculate for all non-specified columns.
     /// </summary>    
-    public TimeSeriesDelta<T> InvertSelection (bool value) {
-      ((TimeSeriesDelta)Impl).setInvertSelection(value);
+    public TimeSeriesDelta<T> InvertSelection (bool invert) {
+      ((TimeSeriesDelta)Impl).setInvertSelection(invert);
       return this;
     }
 
@@ -47,8 +47,8 @@ namespace Ml2.Fltr
     /// values are not known, use missing values (default is to remove those
     /// instances)
     /// </summary>    
-    public TimeSeriesDelta<T> FillWithMissing (bool value) {
-      ((TimeSeriesDelta)Impl).setFillWithMissing(value);
+    public TimeSeriesDelta<T> FillWithMissing (bool newFillWithMissing) {
+      ((TimeSeriesDelta)Impl).setFillWithMissing(newFillWithMissing);
       return this;
     }
 
@@ -56,16 +56,16 @@ namespace Ml2.Fltr
     /// The number of instances forward/backward to merge values between. A
     /// negative number indicates taking values from a past instance.
     /// </summary>    
-    public TimeSeriesDelta<T> InstanceRange (int value) {
-      ((TimeSeriesDelta)Impl).setInstanceRange(value);
+    public TimeSeriesDelta<T> InstanceRange (int newInstanceRange) {
+      ((TimeSeriesDelta)Impl).setInstanceRange(newInstanceRange);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public TimeSeriesDelta<T> AttributeIndicesArray (int[] value) {
-      ((TimeSeriesDelta)Impl).setAttributeIndicesArray(value);
+    public TimeSeriesDelta<T> AttributeIndicesArray (int[] attributes) {
+      ((TimeSeriesDelta)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 

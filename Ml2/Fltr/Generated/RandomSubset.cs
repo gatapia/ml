@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -40,8 +40,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public RandomSubset<T> InputFormat (Runtime<T> value) {
-      ((RandomSubset)Impl).setInputFormat(value.Instances);
+    public RandomSubset<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RandomSubset)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

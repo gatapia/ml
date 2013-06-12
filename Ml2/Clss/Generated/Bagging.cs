@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -15,24 +15,24 @@ namespace Ml2.Clss
     /// <summary>
     /// Size of each bag, as a percentage of the training set size.
     /// </summary>    
-    public Bagging<T> BagSizePercent (int value) {
-      ((Bagging)Impl).setBagSizePercent(value);
+    public Bagging<T> BagSizePercent (int newBagSizePercent) {
+      ((Bagging)Impl).setBagSizePercent(newBagSizePercent);
       return this;
     }
 
     /// <summary>
     /// Whether the out-of-bag error is calculated.
     /// </summary>    
-    public Bagging<T> CalcOutOfBag (bool value) {
-      ((Bagging)Impl).setCalcOutOfBag(value);
+    public Bagging<T> CalcOutOfBag (bool calcOutOfBag) {
+      ((Bagging)Impl).setCalcOutOfBag(calcOutOfBag);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public Bagging<T> Seed (int value) {
-      ((Bagging)Impl).setSeed(value);
+    public Bagging<T> Seed (int seed) {
+      ((Bagging)Impl).setSeed(seed);
       return this;
     }
 
@@ -40,32 +40,32 @@ namespace Ml2.Clss
     /// The number of execution slots (threads) to use for constructing the
     /// ensemble.
     /// </summary>    
-    public Bagging<T> NumExecutionSlots (int value) {
-      ((Bagging)Impl).setNumExecutionSlots(value);
+    public Bagging<T> NumExecutionSlots (int numSlots) {
+      ((Bagging)Impl).setNumExecutionSlots(numSlots);
       return this;
     }
 
     /// <summary>
     /// The number of iterations to be performed.
     /// </summary>    
-    public Bagging<T> NumIterations (int value) {
-      ((Bagging)Impl).setNumIterations(value);
+    public Bagging<T> NumIterations (int numIterations) {
+      ((Bagging)Impl).setNumIterations(numIterations);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public Bagging<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((Bagging)Impl).setClassifier(value.Impl);
+    public Bagging<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((Bagging)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public Bagging<T> Debug (bool value) {
-      ((Bagging)Impl).setDebug(value);
+    public Bagging<T> Debug (bool debug) {
+      ((Bagging)Impl).setDebug(debug);
       return this;
     }
 

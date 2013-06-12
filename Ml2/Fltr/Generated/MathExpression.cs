@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Fltr
     /// the specified attributes will be modified; If set to false, specified
     /// attributes will not be modified.
     /// </summary>    
-    public MathExpression<T> InvertSelection (bool value) {
-      ((MathExpression)Impl).setInvertSelection(value);
+    public MathExpression<T> InvertSelection (bool invert) {
+      ((MathExpression)Impl).setInvertSelection(invert);
       return this;
     }
 
@@ -31,8 +31,8 @@ namespace Ml2.Fltr
     /// SUMSQUARED, ifelse 	Eg. pow(A,6)/(MEAN+MAX)*ifelse(A<0,0,sqrt(A))+ifelse(![A>9
     /// && A<15])
     /// </summary>    
-    public MathExpression<T> Expression (string value) {
-      ((MathExpression)Impl).setExpression(value);
+    public MathExpression<T> Expression (string expr) {
+      ((MathExpression)Impl).setExpression(expr);
       return this;
     }
 
@@ -41,24 +41,24 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public MathExpression<T> IgnoreRange (string value) {
-      ((MathExpression)Impl).setIgnoreRange(value);
+    public MathExpression<T> IgnoreRange (string rangeList) {
+      ((MathExpression)Impl).setIgnoreRange(rangeList);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MathExpression<T> InputFormat (Runtime<T> value) {
-      ((MathExpression)Impl).setInputFormat(value.Instances);
+    public MathExpression<T> InputFormat (Runtime<T> instanceInfo) {
+      ((MathExpression)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
-    public MathExpression<T> IgnoreClass (bool value) {
-      ((MathExpression)Impl).setIgnoreClass(value);
+    public MathExpression<T> IgnoreClass (bool newIgnoreClass) {
+      ((MathExpression)Impl).setIgnoreClass(newIgnoreClass);
       return this;
     }
 

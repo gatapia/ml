@@ -1,6 +1,7 @@
 using weka.core;
 using weka.associations;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Asstn
 {
   /// <summary>
@@ -31,8 +32,8 @@ namespace Ml2.Asstn
     /// leverage. Conviction is another measure of departure from independence.
     /// Conviction is given by P(premise)P(!consequence) / P(premise, !consequence).
     /// </summary>    
-    public Apriori<T> MetricType (EMetricType value) {
-      ((Apriori)Impl).setMetricType(new SelectedTag((int) value, Apriori.TAGS_SELECTION));
+    public Apriori<T> MetricType (EMetricType d) {
+      ((Apriori)Impl).setMetricType(new weka.core.SelectedTag((int) d, Apriori.TAGS_SELECTION));
       return this;
     }    
 
@@ -40,16 +41,16 @@ namespace Ml2.Asstn
     /// Upper bound for minimum support. Start iteratively decreasing minimum
     /// support from this value.
     /// </summary>    
-    public Apriori<T> UpperBoundMinSupport (double value) {
-      ((Apriori)Impl).setUpperBoundMinSupport(value);
+    public Apriori<T> UpperBoundMinSupport (double v) {
+      ((Apriori)Impl).setUpperBoundMinSupport(v);
       return this;
     }    
 
     /// <summary>
     /// Remove columns with all missing values.
     /// </summary>    
-    public Apriori<T> RemoveAllMissingCols (bool value) {
-      ((Apriori)Impl).setRemoveAllMissingCols(value);
+    public Apriori<T> RemoveAllMissingCols (bool r) {
+      ((Apriori)Impl).setRemoveAllMissingCols(r);
       return this;
     }    
 
@@ -57,8 +58,8 @@ namespace Ml2.Asstn
     /// Minimum metric score. Consider only rules with scores higher than this
     /// value.
     /// </summary>    
-    public Apriori<T> MinMetric (double value) {
-      ((Apriori)Impl).setMinMetric(value);
+    public Apriori<T> MinMetric (double v) {
+      ((Apriori)Impl).setMinMetric(v);
       return this;
     }    
 
@@ -66,8 +67,8 @@ namespace Ml2.Asstn
     /// Index of the class attribute. If set to -1, the last attribute is taken
     /// as class attribute.
     /// </summary>    
-    public Apriori<T> ClassIndex (int value) {
-      ((Apriori)Impl).setClassIndex(value);
+    public Apriori<T> ClassIndex (int index) {
+      ((Apriori)Impl).setClassIndex(index);
       return this;
     }    
 
@@ -75,24 +76,24 @@ namespace Ml2.Asstn
     /// If enabled class association rules are mined instead of (general)
     /// association rules.
     /// </summary>    
-    public Apriori<T> Car (bool value) {
-      ((Apriori)Impl).setCar(value);
+    public Apriori<T> Car (bool flag) {
+      ((Apriori)Impl).setCar(flag);
       return this;
     }    
 
     /// <summary>
     /// Lower bound for minimum support.
     /// </summary>    
-    public Apriori<T> LowerBoundMinSupport (double value) {
-      ((Apriori)Impl).setLowerBoundMinSupport(value);
+    public Apriori<T> LowerBoundMinSupport (double v) {
+      ((Apriori)Impl).setLowerBoundMinSupport(v);
       return this;
     }    
 
     /// <summary>
     /// Number of rules to find.
     /// </summary>    
-    public Apriori<T> NumRules (int value) {
-      ((Apriori)Impl).setNumRules(value);
+    public Apriori<T> NumRules (int v) {
+      ((Apriori)Impl).setNumRules(v);
       return this;
     }    
 
@@ -100,32 +101,32 @@ namespace Ml2.Asstn
     /// Iteratively decrease support by this factor. Reduces support until min
     /// support is reached or required number of rules has been generated.
     /// </summary>    
-    public Apriori<T> Delta (double value) {
-      ((Apriori)Impl).setDelta(value);
+    public Apriori<T> Delta (double v) {
+      ((Apriori)Impl).setDelta(v);
       return this;
     }    
 
     /// <summary>
     /// Significance level. Significance test (confidence metric only).
     /// </summary>    
-    public Apriori<T> SignificanceLevel (double value) {
-      ((Apriori)Impl).setSignificanceLevel(value);
+    public Apriori<T> SignificanceLevel (double v) {
+      ((Apriori)Impl).setSignificanceLevel(v);
       return this;
     }    
 
     /// <summary>
     /// If enabled the itemsets are output as well.
     /// </summary>    
-    public Apriori<T> OutputItemSets (bool value) {
-      ((Apriori)Impl).setOutputItemSets(value);
+    public Apriori<T> OutputItemSets (bool flag) {
+      ((Apriori)Impl).setOutputItemSets(flag);
       return this;
     }    
 
     /// <summary>
     /// If enabled the algorithm will be run in verbose mode.
     /// </summary>    
-    public Apriori<T> Verbose (bool value) {
-      ((Apriori)Impl).setVerbose(value);
+    public Apriori<T> Verbose (bool flag) {
+      ((Apriori)Impl).setVerbose(flag);
       return this;
     }    
 
@@ -133,8 +134,8 @@ namespace Ml2.Asstn
     /// If enabled, zero (that is, the first value of a nominal) is treated in
     /// the same way as a missing value.
     /// </summary>    
-    public Apriori<T> TreatZeroAsMissing (bool value) {
-      ((Apriori)Impl).setTreatZeroAsMissing(value);
+    public Apriori<T> TreatZeroAsMissing (bool z) {
+      ((Apriori)Impl).setTreatZeroAsMissing(z);
       return this;
     }    
 

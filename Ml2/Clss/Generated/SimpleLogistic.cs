@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -23,8 +23,8 @@ namespace Ml2.Clss
     /// cross-validated or a stopping criterion on the training set is used (depending on the
     /// value of useCrossValidation).
     /// </summary>    
-    public SimpleLogistic<T> NumBoostingIterations (int value) {
-      ((SimpleLogistic)Impl).setNumBoostingIterations(value);
+    public SimpleLogistic<T> NumBoostingIterations (int n) {
+      ((SimpleLogistic)Impl).setNumBoostingIterations(n);
       return this;
     }
 
@@ -35,8 +35,8 @@ namespace Ml2.Clss
     /// iterations is used that minimizes the error on the training set
     /// (misclassification error or error on probabilities depending on errorOnProbabilities).
     /// </summary>    
-    public SimpleLogistic<T> UseCrossValidation (bool value) {
-      ((SimpleLogistic)Impl).setUseCrossValidation(value);
+    public SimpleLogistic<T> UseCrossValidation (bool l) {
+      ((SimpleLogistic)Impl).setUseCrossValidation(l);
       return this;
     }
 
@@ -46,8 +46,8 @@ namespace Ml2.Clss
     /// iterations is chosen that minimizes the root mean squared error (either on the
     /// training set or in the cross-validation, depending on useCrossValidation).
     /// </summary>    
-    public SimpleLogistic<T> ErrorOnProbabilities (bool value) {
-      ((SimpleLogistic)Impl).setErrorOnProbabilities(value);
+    public SimpleLogistic<T> ErrorOnProbabilities (bool l) {
+      ((SimpleLogistic)Impl).setErrorOnProbabilities(l);
       return this;
     }
 
@@ -55,8 +55,8 @@ namespace Ml2.Clss
     /// Sets the maximum number of iterations for LogitBoost. Default value is
     /// 500, for very small/large datasets a lower/higher value might be preferable.
     /// </summary>    
-    public SimpleLogistic<T> MaxBoostingIterations (int value) {
-      ((SimpleLogistic)Impl).setMaxBoostingIterations(value);
+    public SimpleLogistic<T> MaxBoostingIterations (int n) {
+      ((SimpleLogistic)Impl).setMaxBoostingIterations(n);
       return this;
     }
 
@@ -67,8 +67,8 @@ namespace Ml2.Clss
     /// heuristicStop iterations. It is recommended to use this heuristic, it gives a large
     /// speed-up especially on small datasets. The default value is 50.
     /// </summary>    
-    public SimpleLogistic<T> HeuristicStop (int value) {
-      ((SimpleLogistic)Impl).setHeuristicStop(value);
+    public SimpleLogistic<T> HeuristicStop (int n) {
+      ((SimpleLogistic)Impl).setHeuristicStop(n);
       return this;
     }
 
@@ -77,8 +77,8 @@ namespace Ml2.Clss
     /// carrying (1 - beta)% of the weight from previous iteration are used in the
     /// next iteration. Set to 0 for no weight trimming. The default value is 0.
     /// </summary>    
-    public SimpleLogistic<T> WeightTrimBeta (double value) {
-      ((SimpleLogistic)Impl).setWeightTrimBeta(value);
+    public SimpleLogistic<T> WeightTrimBeta (double n) {
+      ((SimpleLogistic)Impl).setWeightTrimBeta(n);
       return this;
     }
 
@@ -86,16 +86,16 @@ namespace Ml2.Clss
     /// The AIC is used to determine when to stop LogitBoost iterations (instead
     /// of cross-validation or training error).
     /// </summary>    
-    public SimpleLogistic<T> UseAIC (bool value) {
-      ((SimpleLogistic)Impl).setUseAIC(value);
+    public SimpleLogistic<T> UseAIC (bool c) {
+      ((SimpleLogistic)Impl).setUseAIC(c);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public SimpleLogistic<T> Debug (bool value) {
-      ((SimpleLogistic)Impl).setDebug(value);
+    public SimpleLogistic<T> Debug (bool debug) {
+      ((SimpleLogistic)Impl).setDebug(debug);
       return this;
     }
 

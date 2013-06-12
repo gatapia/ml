@@ -18,55 +18,56 @@ namespace Ml2.Tasks.Generator.Clstr
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+    #line 1 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class Clusterers : ClusterersBase
     {
+#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("namespace Ml2.Clstr\r\n{\r\n  public class Clusterers<T>\r\n  {\r\n    private readonly R" +
-                    "untime<T> rt;    \r\n    public Clusterers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n" +
-                    "");
+            this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clstr\r\n{\r\n  public class " +
+                    "Clusterers<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public Clustere" +
+                    "rs(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
             
-            #line 13 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
  foreach (var ctr in AllClusterers) { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 15 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.GetClassDescription("    /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 17 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T>(rt); }\r\n\r\n");
             
-            #line 19 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
+            #line 20 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
  } 
             
             #line default

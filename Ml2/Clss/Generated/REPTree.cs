@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,16 +17,16 @@ namespace Ml2.Clss
     /// <summary>
     /// Whether pruning is performed.
     /// </summary>    
-    public REPTree<T> NoPruning (bool value) {
-      ((REPTree)Impl).setNoPruning(value);
+    public REPTree<T> NoPruning (bool newNoPruning) {
+      ((REPTree)Impl).setNoPruning(newNoPruning);
       return this;
     }
 
     /// <summary>
     /// The minimum total weight of the instances in a leaf.
     /// </summary>    
-    public REPTree<T> MinNum (double value) {
-      ((REPTree)Impl).setMinNum(value);
+    public REPTree<T> MinNum (double newMinNum) {
+      ((REPTree)Impl).setMinNum(newMinNum);
       return this;
     }
 
@@ -35,16 +35,16 @@ namespace Ml2.Clss
     /// present at a node in order for splitting to be performed in regression
     /// trees.
     /// </summary>    
-    public REPTree<T> MinVarianceProp (double value) {
-      ((REPTree)Impl).setMinVarianceProp(value);
+    public REPTree<T> MinVarianceProp (double newMinVarianceProp) {
+      ((REPTree)Impl).setMinVarianceProp(newMinVarianceProp);
       return this;
     }
 
     /// <summary>
     /// The seed used for randomizing the data.
     /// </summary>    
-    public REPTree<T> Seed (int value) {
-      ((REPTree)Impl).setSeed(value);
+    public REPTree<T> Seed (int newSeed) {
+      ((REPTree)Impl).setSeed(newSeed);
       return this;
     }
 
@@ -52,24 +52,24 @@ namespace Ml2.Clss
     /// Determines the amount of data used for pruning. One fold is used for
     /// pruning, the rest for growing the rules.
     /// </summary>    
-    public REPTree<T> NumFolds (int value) {
-      ((REPTree)Impl).setNumFolds(value);
+    public REPTree<T> NumFolds (int newNumFolds) {
+      ((REPTree)Impl).setNumFolds(newNumFolds);
       return this;
     }
 
     /// <summary>
     /// The maximum tree depth (-1 for no restriction).
     /// </summary>    
-    public REPTree<T> MaxDepth (int value) {
-      ((REPTree)Impl).setMaxDepth(value);
+    public REPTree<T> MaxDepth (int newMaxDepth) {
+      ((REPTree)Impl).setMaxDepth(newMaxDepth);
       return this;
     }
 
     /// <summary>
     /// Initial class value count.
     /// </summary>    
-    public REPTree<T> InitialCount (double value) {
-      ((REPTree)Impl).setInitialCount(value);
+    public REPTree<T> InitialCount (double newInitialCount) {
+      ((REPTree)Impl).setInitialCount(newInitialCount);
       return this;
     }
 
@@ -77,16 +77,16 @@ namespace Ml2.Clss
     /// Spread initial count across all values instead of using the count per
     /// value.
     /// </summary>    
-    public REPTree<T> SpreadInitialCount (bool value) {
-      ((REPTree)Impl).setSpreadInitialCount(value);
+    public REPTree<T> SpreadInitialCount (bool newSpreadInitialCount) {
+      ((REPTree)Impl).setSpreadInitialCount(newSpreadInitialCount);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public REPTree<T> Debug (bool value) {
-      ((REPTree)Impl).setDebug(value);
+    public REPTree<T> Debug (bool debug) {
+      ((REPTree)Impl).setDebug(debug);
       return this;
     }
 

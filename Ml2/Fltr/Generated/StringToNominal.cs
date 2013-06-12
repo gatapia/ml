@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -17,16 +17,16 @@ namespace Ml2.Fltr
     /// Sets which attributes to process. This attributes must be string
     /// attributes ("first" and "last" are valid values as well as ranges and lists)
     /// </summary>    
-    public StringToNominal<T> AttributeRange (string value) {
-      ((StringToNominal)Impl).setAttributeRange(value);
+    public StringToNominal<T> AttributeRange (string rangeList) {
+      ((StringToNominal)Impl).setAttributeRange(rangeList);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public StringToNominal<T> InputFormat (Runtime<T> value) {
-      ((StringToNominal)Impl).setInputFormat(value.Instances);
+    public StringToNominal<T> InputFormat (Runtime<T> instanceInfo) {
+      ((StringToNominal)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

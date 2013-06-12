@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -15,24 +15,24 @@ namespace Ml2.Clss
     /// <summary>
     /// The number of folds used for cross-validation.
     /// </summary>    
-    public Stacking<T> NumFolds (int value) {
-      ((Stacking)Impl).setNumFolds(value);
+    public Stacking<T> NumFolds (int numFolds) {
+      ((Stacking)Impl).setNumFolds(numFolds);
       return this;
     }
 
     /// <summary>
     /// The meta classifiers to be used.
     /// </summary>    
-    public Stacking<T> MetaClassifier (Clss.BaseClassifier<T> value) {
-      ((Stacking)Impl).setMetaClassifier(value.Impl);
+    public Stacking<T> MetaClassifier (Clss.BaseClassifier<T> classifier) {
+      ((Stacking)Impl).setMetaClassifier(classifier.Impl);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public Stacking<T> Seed (int value) {
-      ((Stacking)Impl).setSeed(value);
+    public Stacking<T> Seed (int seed) {
+      ((Stacking)Impl).setSeed(seed);
       return this;
     }
 
@@ -40,16 +40,16 @@ namespace Ml2.Clss
     /// The number of execution slots (threads) to use for constructing the
     /// ensemble.
     /// </summary>    
-    public Stacking<T> NumExecutionSlots (int value) {
-      ((Stacking)Impl).setNumExecutionSlots(value);
+    public Stacking<T> NumExecutionSlots (int numSlots) {
+      ((Stacking)Impl).setNumExecutionSlots(numSlots);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public Stacking<T> Debug (bool value) {
-      ((Stacking)Impl).setDebug(value);
+    public Stacking<T> Debug (bool debug) {
+      ((Stacking)Impl).setDebug(debug);
       return this;
     }
 

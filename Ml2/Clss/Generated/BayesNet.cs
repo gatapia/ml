@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,8 +17,8 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public BayesNet<T> BIFFile (string value) {
-      ((BayesNet)Impl).setBIFFile(value);
+    public BayesNet<T> BIFFile (string sBIFFile) {
+      ((BayesNet)Impl).setBIFFile(sBIFFile);
       return this;
     }
 
@@ -29,16 +29,16 @@ namespace Ml2.Clss
     /// problems may occur. Switching this option off makes the structure learning
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
-    public BayesNet<T> UseADTree (bool value) {
-      ((BayesNet)Impl).setUseADTree(value);
+    public BayesNet<T> UseADTree (bool bUseADTree) {
+      ((BayesNet)Impl).setUseADTree(bUseADTree);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public BayesNet<T> Debug (bool value) {
-      ((BayesNet)Impl).setDebug(value);
+    public BayesNet<T> Debug (bool debug) {
+      ((BayesNet)Impl).setDebug(debug);
       return this;
     }
 

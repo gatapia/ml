@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,32 +16,32 @@ namespace Ml2.Clss
     /// <summary>
     /// Get the number of folds used for cross-validation.
     /// </summary>    
-    public CVParameterSelection<T> NumFolds (int value) {
-      ((CVParameterSelection)Impl).setNumFolds(value);
+    public CVParameterSelection<T> NumFolds (int numFolds) {
+      ((CVParameterSelection)Impl).setNumFolds(numFolds);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public CVParameterSelection<T> Seed (int value) {
-      ((CVParameterSelection)Impl).setSeed(value);
+    public CVParameterSelection<T> Seed (int seed) {
+      ((CVParameterSelection)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public CVParameterSelection<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((CVParameterSelection)Impl).setClassifier(value.Impl);
+    public CVParameterSelection<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((CVParameterSelection)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public CVParameterSelection<T> Debug (bool value) {
-      ((CVParameterSelection)Impl).setDebug(value);
+    public CVParameterSelection<T> Debug (bool debug) {
+      ((CVParameterSelection)Impl).setDebug(debug);
       return this;
     }
 

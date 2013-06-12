@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Algs
 {
   /// <summary>
@@ -17,8 +18,8 @@ namespace Ml2.AttrSel.Algs
     /// comma seperated list off attribute indexes starting at 1. It can include
     /// ranges. Eg. 1,2,5-9,17.
     /// </summary>    
-    public Ranker<T> StartSet (string value) {
-      ((Ranker)Impl).setStartSet(value);
+    public Ranker<T> StartSet (string startSet) {
+      ((Ranker)Impl).setStartSet(startSet);
       return this;
     }
 
@@ -27,8 +28,8 @@ namespace Ml2.AttrSel.Algs
     /// in no attributes being discarded. Use either this option or numToSelect to
     /// reduce the attribute set.
     /// </summary>    
-    public Ranker<T> Threshold (double value) {
-      ((Ranker)Impl).setThreshold(value);
+    public Ranker<T> Threshold (double threshold) {
+      ((Ranker)Impl).setThreshold(threshold);
       return this;
     }
 
@@ -37,8 +38,8 @@ namespace Ml2.AttrSel.Algs
     /// indicates that all attributes are to be retained. Use either this option or a
     /// threshold to reduce the attribute set.
     /// </summary>    
-    public Ranker<T> NumToSelect (int value) {
-      ((Ranker)Impl).setNumToSelect(value);
+    public Ranker<T> NumToSelect (int n) {
+      ((Ranker)Impl).setNumToSelect(n);
       return this;
     }
 
@@ -46,8 +47,8 @@ namespace Ml2.AttrSel.Algs
     /// A constant option. Ranker is only capable of generating attribute
     /// rankings.
     /// </summary>    
-    public Ranker<T> GenerateRanking (bool value) {
-      ((Ranker)Impl).setGenerateRanking(value);
+    public Ranker<T> GenerateRanking (bool doRank) {
+      ((Ranker)Impl).setGenerateRanking(doRank);
       return this;
     }
 

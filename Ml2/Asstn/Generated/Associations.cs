@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace Ml2.Asstn
 {
   public class Associations<T>

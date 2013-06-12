@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -54,8 +54,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public NumericToNominal<T> InputFormat (Runtime<T> value) {
-      ((NumericToNominal)Impl).setInputFormat(value.Instances);
+    public NumericToNominal<T> InputFormat (Runtime<T> instanceInfo) {
+      ((NumericToNominal)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

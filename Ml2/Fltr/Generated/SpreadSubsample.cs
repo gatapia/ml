@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.supervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,8 +18,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// Sets the random number seed for subsampling.
     /// </summary>    
-    public SpreadSubsample<T> RandomSeed (int value) {
-      ((SpreadSubsample)Impl).setRandomSeed(value);
+    public SpreadSubsample<T> RandomSeed (int newSeed) {
+      ((SpreadSubsample)Impl).setRandomSeed(newSeed);
       return this;
     }
 
@@ -27,16 +27,16 @@ namespace Ml2.Fltr
     /// The maximum class distribution spread. (0 = no maximum spread, 1 =
     /// uniform distribution, 10 = allow at most a 10:1 ratio between the classes).
     /// </summary>    
-    public SpreadSubsample<T> DistributionSpread (double value) {
-      ((SpreadSubsample)Impl).setDistributionSpread(value);
+    public SpreadSubsample<T> DistributionSpread (double spread) {
+      ((SpreadSubsample)Impl).setDistributionSpread(spread);
       return this;
     }
 
     /// <summary>
     /// The maximum count for any class value (0 = unlimited).
     /// </summary>    
-    public SpreadSubsample<T> MaxCount (double value) {
-      ((SpreadSubsample)Impl).setMaxCount(value);
+    public SpreadSubsample<T> MaxCount (double maxcount) {
+      ((SpreadSubsample)Impl).setMaxCount(maxcount);
       return this;
     }
 
@@ -44,16 +44,16 @@ namespace Ml2.Fltr
     /// Wether instance weights will be adjusted to maintain total weight per
     /// class.
     /// </summary>    
-    public SpreadSubsample<T> AdjustWeights (bool value) {
-      ((SpreadSubsample)Impl).setAdjustWeights(value);
+    public SpreadSubsample<T> AdjustWeights (bool newAdjustWeights) {
+      ((SpreadSubsample)Impl).setAdjustWeights(newAdjustWeights);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public SpreadSubsample<T> InputFormat (Runtime<T> value) {
-      ((SpreadSubsample)Impl).setInputFormat(value.Instances);
+    public SpreadSubsample<T> InputFormat (Runtime<T> instanceInfo) {
+      ((SpreadSubsample)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

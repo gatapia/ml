@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
@@ -17,16 +18,16 @@ namespace Ml2.AttrSel.Evals
     /// values in proportion to their frequency. Otherwise, missing is treated as
     /// a separate value.
     /// </summary>    
-    public InfoGainAttribute<T> MissingMerge (bool value) {
-      ((InfoGainAttributeEval)Impl).setMissingMerge(value);
+    public InfoGainAttribute<T> MissingMerge (bool b) {
+      ((InfoGainAttributeEval)Impl).setMissingMerge(b);
       return this;
     }
 
     /// <summary>
     /// Just binarize numeric attributes instead of properly discretizing them.
     /// </summary>    
-    public InfoGainAttribute<T> BinarizeNumericAttributes (bool value) {
-      ((InfoGainAttributeEval)Impl).setBinarizeNumericAttributes(value);
+    public InfoGainAttribute<T> BinarizeNumericAttributes (bool b) {
+      ((InfoGainAttributeEval)Impl).setBinarizeNumericAttributes(b);
       return this;
     }
 

@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.lazy;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -19,8 +19,8 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public LWL<T> KNN (int value) {
-      ((LWL)Impl).setKNN(value);
+    public LWL<T> KNN (int knn) {
+      ((LWL)Impl).setKNN(knn);
       return this;
     }
 
@@ -28,24 +28,24 @@ namespace Ml2.Clss
     /// Determines weighting function. [0 = Linear, 1 = Epnechnikov,2 = Tricube,
     /// 3 = Inverse, 4 = Gaussian and 5 = Constant. (default 0 = Linear)].
     /// </summary>    
-    public LWL<T> WeightingKernel (int value) {
-      ((LWL)Impl).setWeightingKernel(value);
+    public LWL<T> WeightingKernel (int kernel) {
+      ((LWL)Impl).setWeightingKernel(kernel);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public LWL<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((LWL)Impl).setClassifier(value.Impl);
+    public LWL<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((LWL)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public LWL<T> Debug (bool value) {
-      ((LWL)Impl).setDebug(value);
+    public LWL<T> Debug (bool debug) {
+      ((LWL)Impl).setDebug(debug);
       return this;
     }
 

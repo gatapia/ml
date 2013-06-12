@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   public class Classifiers<T>

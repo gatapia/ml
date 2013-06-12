@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,8 +18,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public TimeSeriesTranslate<T> InputFormat (Runtime<T> value) {
-      ((TimeSeriesTranslate)Impl).setInputFormat(value.Instances);
+    public TimeSeriesTranslate<T> InputFormat (Runtime<T> instanceInfo) {
+      ((TimeSeriesTranslate)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -28,16 +28,16 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public TimeSeriesTranslate<T> AttributeIndices (string value) {
-      ((TimeSeriesTranslate)Impl).setAttributeIndices(value);
+    public TimeSeriesTranslate<T> AttributeIndices (string rangeList) {
+      ((TimeSeriesTranslate)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
     /// <summary>
     /// Invert matching sense. ie calculate for all non-specified columns.
     /// </summary>    
-    public TimeSeriesTranslate<T> InvertSelection (bool value) {
-      ((TimeSeriesTranslate)Impl).setInvertSelection(value);
+    public TimeSeriesTranslate<T> InvertSelection (bool invert) {
+      ((TimeSeriesTranslate)Impl).setInvertSelection(invert);
       return this;
     }
 
@@ -46,8 +46,8 @@ namespace Ml2.Fltr
     /// values are not known, use missing values (default is to remove those
     /// instances)
     /// </summary>    
-    public TimeSeriesTranslate<T> FillWithMissing (bool value) {
-      ((TimeSeriesTranslate)Impl).setFillWithMissing(value);
+    public TimeSeriesTranslate<T> FillWithMissing (bool newFillWithMissing) {
+      ((TimeSeriesTranslate)Impl).setFillWithMissing(newFillWithMissing);
       return this;
     }
 
@@ -55,16 +55,16 @@ namespace Ml2.Fltr
     /// The number of instances forward/backward to merge values between. A
     /// negative number indicates taking values from a past instance.
     /// </summary>    
-    public TimeSeriesTranslate<T> InstanceRange (int value) {
-      ((TimeSeriesTranslate)Impl).setInstanceRange(value);
+    public TimeSeriesTranslate<T> InstanceRange (int newInstanceRange) {
+      ((TimeSeriesTranslate)Impl).setInstanceRange(newInstanceRange);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public TimeSeriesTranslate<T> AttributeIndicesArray (int[] value) {
-      ((TimeSeriesTranslate)Impl).setAttributeIndicesArray(value);
+    public TimeSeriesTranslate<T> AttributeIndicesArray (int[] attributes) {
+      ((TimeSeriesTranslate)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 

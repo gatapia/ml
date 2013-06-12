@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,24 +17,24 @@ namespace Ml2.Clss
     /// <summary>
     /// The amount the weights are updated.
     /// </summary>    
-    public MultilayerPerceptron<T> LearningRate (double value) {
-      ((MultilayerPerceptron)Impl).setLearningRate(value);
+    public MultilayerPerceptron<T> LearningRate (double l) {
+      ((MultilayerPerceptron)Impl).setLearningRate(l);
       return this;
     }
 
     /// <summary>
     /// Momentum applied to the weights during updating.
     /// </summary>    
-    public MultilayerPerceptron<T> Momentum (double value) {
-      ((MultilayerPerceptron)Impl).setMomentum(value);
+    public MultilayerPerceptron<T> Momentum (double m) {
+      ((MultilayerPerceptron)Impl).setMomentum(m);
       return this;
     }
 
     /// <summary>
     /// Adds and connects up hidden layers in the network.
     /// </summary>    
-    public MultilayerPerceptron<T> AutoBuild (bool value) {
-      ((MultilayerPerceptron)Impl).setAutoBuild(value);
+    public MultilayerPerceptron<T> AutoBuild (bool a) {
+      ((MultilayerPerceptron)Impl).setAutoBuild(a);
       return this;
     }
 
@@ -46,8 +46,8 @@ namespace Ml2.Clss
     /// allowed to reset it will fail the training process and return an error
     /// message.
     /// </summary>    
-    public MultilayerPerceptron<T> Reset (bool value) {
-      ((MultilayerPerceptron)Impl).setReset(value);
+    public MultilayerPerceptron<T> Reset (bool r) {
+      ((MultilayerPerceptron)Impl).setReset(r);
       return this;
     }
 
@@ -55,8 +55,8 @@ namespace Ml2.Clss
     /// The number of epochs to train through. If the validation set is non-zero
     /// then it can terminate the network early
     /// </summary>    
-    public MultilayerPerceptron<T> TrainingTime (int value) {
-      ((MultilayerPerceptron)Impl).setTrainingTime(value);
+    public MultilayerPerceptron<T> TrainingTime (int n) {
+      ((MultilayerPerceptron)Impl).setTrainingTime(n);
       return this;
     }
 
@@ -67,8 +67,8 @@ namespace Ml2.Clss
     /// zero no validation set will be used and instead the network will train for the
     /// specified number of epochs.
     /// </summary>    
-    public MultilayerPerceptron<T> ValidationSetSize (int value) {
-      ((MultilayerPerceptron)Impl).setValidationSetSize(value);
+    public MultilayerPerceptron<T> ValidationSetSize (int a) {
+      ((MultilayerPerceptron)Impl).setValidationSetSize(a);
       return this;
     }
 
@@ -77,8 +77,8 @@ namespace Ml2.Clss
     /// used for setting the initial weights of the connections betweem nodes, and
     /// also for shuffling the training data.
     /// </summary>    
-    public MultilayerPerceptron<T> Seed (int value) {
-      ((MultilayerPerceptron)Impl).setSeed(value);
+    public MultilayerPerceptron<T> Seed (int l) {
+      ((MultilayerPerceptron)Impl).setSeed(l);
       return this;
     }
 
@@ -87,8 +87,8 @@ namespace Ml2.Clss
     /// times in a row the validation set error can get worse before training is
     /// terminated.
     /// </summary>    
-    public MultilayerPerceptron<T> ValidationThreshold (int value) {
-      ((MultilayerPerceptron)Impl).setValidationThreshold(value);
+    public MultilayerPerceptron<T> ValidationThreshold (int t) {
+      ((MultilayerPerceptron)Impl).setValidationThreshold(t);
       return this;
     }
 
@@ -99,16 +99,16 @@ namespace Ml2.Clss
     /// set. There are also wildcard values 'a' = (attribs + classes) / 2, 'i' =
     /// attribs, 'o' = classes , 't' = attribs + classes.
     /// </summary>    
-    public MultilayerPerceptron<T> HiddenLayers (string value) {
-      ((MultilayerPerceptron)Impl).setHiddenLayers(value);
+    public MultilayerPerceptron<T> HiddenLayers (string h) {
+      ((MultilayerPerceptron)Impl).setHiddenLayers(h);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MultilayerPerceptron<T> GUI (bool value) {
-      ((MultilayerPerceptron)Impl).setGUI(value);
+    public MultilayerPerceptron<T> GUI (bool a) {
+      ((MultilayerPerceptron)Impl).setGUI(a);
       return this;
     }
 
@@ -116,8 +116,8 @@ namespace Ml2.Clss
     /// This will preprocess the instances with the filter. This could help
     /// improve performance if there are nominal attributes in the data.
     /// </summary>    
-    public MultilayerPerceptron<T> NominalToBinaryFilter (bool value) {
-      ((MultilayerPerceptron)Impl).setNominalToBinaryFilter(value);
+    public MultilayerPerceptron<T> NominalToBinaryFilter (bool f) {
+      ((MultilayerPerceptron)Impl).setNominalToBinaryFilter(f);
       return this;
     }
 
@@ -127,8 +127,8 @@ namespace Ml2.Clss
     /// Note that this is only internally, the output will be scaled back to the
     /// original range.
     /// </summary>    
-    public MultilayerPerceptron<T> NormalizeNumericClass (bool value) {
-      ((MultilayerPerceptron)Impl).setNormalizeNumericClass(value);
+    public MultilayerPerceptron<T> NormalizeNumericClass (bool c) {
+      ((MultilayerPerceptron)Impl).setNormalizeNumericClass(c);
       return this;
     }
 
@@ -139,8 +139,8 @@ namespace Ml2.Clss
     /// the nominal to binary filter if that is in use) so that the nominal values
     /// are between -1 and 1
     /// </summary>    
-    public MultilayerPerceptron<T> NormalizeAttributes (bool value) {
-      ((MultilayerPerceptron)Impl).setNormalizeAttributes(value);
+    public MultilayerPerceptron<T> NormalizeAttributes (bool a) {
+      ((MultilayerPerceptron)Impl).setNormalizeAttributes(a);
       return this;
     }
 
@@ -153,16 +153,16 @@ namespace Ml2.Clss
     /// rate. If the learning rate is changed in the gui, this is treated as the
     /// starting learning rate.
     /// </summary>    
-    public MultilayerPerceptron<T> Decay (bool value) {
-      ((MultilayerPerceptron)Impl).setDecay(value);
+    public MultilayerPerceptron<T> Decay (bool d) {
+      ((MultilayerPerceptron)Impl).setDecay(d);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public MultilayerPerceptron<T> Debug (bool value) {
-      ((MultilayerPerceptron)Impl).setDebug(value);
+    public MultilayerPerceptron<T> Debug (bool debug) {
+      ((MultilayerPerceptron)Impl).setDebug(debug);
       return this;
     }
 

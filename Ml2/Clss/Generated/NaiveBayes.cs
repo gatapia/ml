@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -24,8 +24,8 @@ namespace Ml2.Clss
     /// Use supervised discretization to convert numeric attributes to nominal
     /// ones.
     /// </summary>    
-    public NaiveBayes<T> UseSupervisedDiscretization (bool value) {
-      ((NaiveBayes)Impl).setUseSupervisedDiscretization(value);
+    public NaiveBayes<T> UseSupervisedDiscretization (bool newblah) {
+      ((NaiveBayes)Impl).setUseSupervisedDiscretization(newblah);
       return this;
     }
 
@@ -33,8 +33,8 @@ namespace Ml2.Clss
     /// Use a kernel estimator for numeric attributes rather than a normal
     /// distribution.
     /// </summary>    
-    public NaiveBayes<T> UseKernelEstimator (bool value) {
-      ((NaiveBayes)Impl).setUseKernelEstimator(value);
+    public NaiveBayes<T> UseKernelEstimator (bool v) {
+      ((NaiveBayes)Impl).setUseKernelEstimator(v);
       return this;
     }
 
@@ -43,16 +43,16 @@ namespace Ml2.Clss
     /// many class values. The new format is better when there are fewer classes
     /// and many attributes.
     /// </summary>    
-    public NaiveBayes<T> DisplayModelInOldFormat (bool value) {
-      ((NaiveBayes)Impl).setDisplayModelInOldFormat(value);
+    public NaiveBayes<T> DisplayModelInOldFormat (bool d) {
+      ((NaiveBayes)Impl).setDisplayModelInOldFormat(d);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public NaiveBayes<T> Debug (bool value) {
-      ((NaiveBayes)Impl).setDebug(value);
+    public NaiveBayes<T> Debug (bool debug) {
+      ((NaiveBayes)Impl).setDebug(debug);
       return this;
     }
 

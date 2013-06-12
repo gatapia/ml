@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,24 +16,24 @@ namespace Ml2.Clss
     /// <summary>
     /// The filter to be used.
     /// </summary>    
-    public FilteredClassifier<T> Filter (Fltr.BaseFilter<T> value) {
-      ((FilteredClassifier)Impl).setFilter(value.Impl);
+    public FilteredClassifier<T> Filter (Fltr.BaseFilter<T> filter) {
+      ((FilteredClassifier)Impl).setFilter(filter.Impl);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public FilteredClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((FilteredClassifier)Impl).setClassifier(value.Impl);
+    public FilteredClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((FilteredClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public FilteredClassifier<T> Debug (bool value) {
-      ((FilteredClassifier)Impl).setDebug(value);
+    public FilteredClassifier<T> Debug (bool debug) {
+      ((FilteredClassifier)Impl).setDebug(debug);
       return this;
     }
 

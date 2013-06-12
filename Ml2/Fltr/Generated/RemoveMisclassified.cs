@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,8 +15,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The classifier upon which to base the misclassifications.
     /// </summary>    
-    public RemoveMisclassified<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((RemoveMisclassified)Impl).setClassifier(value.Impl);
+    public RemoveMisclassified<T> Classifier (Clss.BaseClassifier<T> classifier) {
+      ((RemoveMisclassified)Impl).setClassifier(classifier.Impl);
       return this;
     }
 
@@ -24,8 +24,8 @@ namespace Ml2.Fltr
     /// Index of the class upon which to base the misclassifications. If < 0 will
     /// use any current set class or default to the last attribute.
     /// </summary>    
-    public RemoveMisclassified<T> ClassIndex (int value) {
-      ((RemoveMisclassified)Impl).setClassIndex(value);
+    public RemoveMisclassified<T> ClassIndex (int classIndex) {
+      ((RemoveMisclassified)Impl).setClassIndex(classIndex);
       return this;
     }
 
@@ -33,8 +33,8 @@ namespace Ml2.Fltr
     /// The number of cross-validation folds to use. If < 2 then no
     /// cross-validation will be performed.
     /// </summary>    
-    public RemoveMisclassified<T> NumFolds (int value) {
-      ((RemoveMisclassified)Impl).setNumFolds(value);
+    public RemoveMisclassified<T> NumFolds (int numOfFolds) {
+      ((RemoveMisclassified)Impl).setNumFolds(numOfFolds);
       return this;
     }
 
@@ -42,8 +42,8 @@ namespace Ml2.Fltr
     /// Threshold for the max allowable error when predicting a numeric class.
     /// Should be >= 0.
     /// </summary>    
-    public RemoveMisclassified<T> Threshold (double value) {
-      ((RemoveMisclassified)Impl).setThreshold(value);
+    public RemoveMisclassified<T> Threshold (double threshold) {
+      ((RemoveMisclassified)Impl).setThreshold(threshold);
       return this;
     }
 
@@ -51,8 +51,8 @@ namespace Ml2.Fltr
     /// The maximum number of iterations to perform. < 1 means filter will go
     /// until fully cleansed.
     /// </summary>    
-    public RemoveMisclassified<T> MaxIterations (int value) {
-      ((RemoveMisclassified)Impl).setMaxIterations(value);
+    public RemoveMisclassified<T> MaxIterations (int iterations) {
+      ((RemoveMisclassified)Impl).setMaxIterations(iterations);
       return this;
     }
 
@@ -60,16 +60,16 @@ namespace Ml2.Fltr
     /// Whether or not to invert the selection. If true, correctly classified
     /// instances will be discarded.
     /// </summary>    
-    public RemoveMisclassified<T> Invert (bool value) {
-      ((RemoveMisclassified)Impl).setInvert(value);
+    public RemoveMisclassified<T> Invert (bool invert) {
+      ((RemoveMisclassified)Impl).setInvert(invert);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveMisclassified<T> InputFormat (Runtime<T> value) {
-      ((RemoveMisclassified)Impl).setInputFormat(value.Instances);
+    public RemoveMisclassified<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveMisclassified)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

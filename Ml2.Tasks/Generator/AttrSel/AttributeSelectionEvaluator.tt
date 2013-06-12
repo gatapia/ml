@@ -6,6 +6,7 @@
 using weka.core;
 using <#= Model.ImplTypeNamespace #>;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>

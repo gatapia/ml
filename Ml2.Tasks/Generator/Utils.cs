@@ -56,14 +56,14 @@ namespace Ml2.Tasks.Generator
       return alltaggs.Single();
     }
 
-    public static string GetSetterCode(string summary, string modeltype, string settername, string settertype, string impl) {
+    public static string GetSetterCode(string summary, string modeltype, string settername, string[] args, string impl) {
       return String.Format(@"/// <summary>
     /// {0}
     /// </summary>    
-    public {1}<T> {2} ({3} value) {{
+    public {1}<T> {2} ({3}) {{
       {4}
       return this;
-    }}", summary, modeltype, settername, settertype, impl);
+    }}", summary, modeltype, settername, String.Join(", ", args), impl);
     }
   }
 }

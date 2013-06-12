@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -22,24 +22,24 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public FirstOrder<T> AttributeIndices (string value) {
-      ((FirstOrder)Impl).setAttributeIndices(value);
+    public FirstOrder<T> AttributeIndices (string rangeList) {
+      ((FirstOrder)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public FirstOrder<T> InputFormat (Runtime<T> value) {
-      ((FirstOrder)Impl).setInputFormat(value.Instances);
+    public FirstOrder<T> InputFormat (Runtime<T> instanceInfo) {
+      ((FirstOrder)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public FirstOrder<T> AttributeIndicesArray (int[] value) {
-      ((FirstOrder)Impl).setAttributeIndicesArray(value);
+    public FirstOrder<T> AttributeIndicesArray (int[] attributes) {
+      ((FirstOrder)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 

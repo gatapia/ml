@@ -3,6 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   public class Classifiers<T>

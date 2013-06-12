@@ -1,6 +1,7 @@
 using weka.core;
 using weka.clusterers;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   /// <summary>
@@ -19,8 +20,8 @@ namespace Ml2.Clstr
     /// <summary>
     /// set number of clusters
     /// </summary>    
-    public FarthestFirst<T> NumClusters (int value) {
-      ((FarthestFirst)Impl).setNumClusters(value);
+    public FarthestFirst<T> NumClusters (int n) {
+      ((FarthestFirst)Impl).setNumClusters(n);
       return this;
     }
 

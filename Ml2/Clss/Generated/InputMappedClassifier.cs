@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.misc;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -18,16 +18,16 @@ namespace Ml2.Clss
     /// <summary>
     /// Ignore case when matching attribute names and nomina values.
     /// </summary>    
-    public InputMappedClassifier<T> IgnoreCaseForNames (bool value) {
-      ((InputMappedClassifier)Impl).setIgnoreCaseForNames(value);
+    public InputMappedClassifier<T> IgnoreCaseForNames (bool ignore) {
+      ((InputMappedClassifier)Impl).setIgnoreCaseForNames(ignore);
       return this;
     }
 
     /// <summary>
     /// Don't output a report of model-to-input mappings.
     /// </summary>    
-    public InputMappedClassifier<T> SuppressMappingReport (bool value) {
-      ((InputMappedClassifier)Impl).setSuppressMappingReport(value);
+    public InputMappedClassifier<T> SuppressMappingReport (bool suppress) {
+      ((InputMappedClassifier)Impl).setSuppressMappingReport(suppress);
       return this;
     }
 
@@ -35,8 +35,8 @@ namespace Ml2.Clss
     /// Trim white space from each end of attribute names and nominal values
     /// before matching.
     /// </summary>    
-    public InputMappedClassifier<T> Trim (bool value) {
-      ((InputMappedClassifier)Impl).setTrim(value);
+    public InputMappedClassifier<T> Trim (bool trim) {
+      ((InputMappedClassifier)Impl).setTrim(trim);
       return this;
     }
 
@@ -45,40 +45,40 @@ namespace Ml2.Clss
     /// test instance is received. Environment variables can be used in the supplied
     /// path.
     /// </summary>    
-    public InputMappedClassifier<T> ModelPath (string value) {
-      ((InputMappedClassifier)Impl).setModelPath(value);
+    public InputMappedClassifier<T> ModelPath (string modelPath) {
+      ((InputMappedClassifier)Impl).setModelPath(modelPath);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public InputMappedClassifier<T> TestStructure (Runtime<T> value) {
-      ((InputMappedClassifier)Impl).setTestStructure(value.Instances);
+    public InputMappedClassifier<T> TestStructure (Runtime<T> testStructure) {
+      ((InputMappedClassifier)Impl).setTestStructure(testStructure.Instances);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public InputMappedClassifier<T> ModelHeader (Runtime<T> value) {
-      ((InputMappedClassifier)Impl).setModelHeader(value.Instances);
+    public InputMappedClassifier<T> ModelHeader (Runtime<T> modelHeader) {
+      ((InputMappedClassifier)Impl).setModelHeader(modelHeader.Instances);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public InputMappedClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((InputMappedClassifier)Impl).setClassifier(value.Impl);
+    public InputMappedClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((InputMappedClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public InputMappedClassifier<T> Debug (bool value) {
-      ((InputMappedClassifier)Impl).setDebug(value);
+    public InputMappedClassifier<T> Debug (bool debug) {
+      ((InputMappedClassifier)Impl).setDebug(debug);
       return this;
     }
 

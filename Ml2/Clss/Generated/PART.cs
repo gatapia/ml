@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.rules;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,32 +17,32 @@ namespace Ml2.Clss
     /// <summary>
     /// The minimum number of instances per rule.
     /// </summary>    
-    public PART<T> MinNumObj (int value) {
-      ((PART)Impl).setMinNumObj(value);
+    public PART<T> MinNumObj (int v) {
+      ((PART)Impl).setMinNumObj(v);
       return this;
     }
 
     /// <summary>
     /// Whether reduced-error pruning is used instead of C.4.5 pruning.
     /// </summary>    
-    public PART<T> ReducedErrorPruning (bool value) {
-      ((PART)Impl).setReducedErrorPruning(value);
+    public PART<T> ReducedErrorPruning (bool v) {
+      ((PART)Impl).setReducedErrorPruning(v);
       return this;
     }
 
     /// <summary>
     /// Whether pruning is performed.
     /// </summary>    
-    public PART<T> Unpruned (bool value) {
-      ((PART)Impl).setUnpruned(value);
+    public PART<T> Unpruned (bool newunpruned) {
+      ((PART)Impl).setUnpruned(newunpruned);
       return this;
     }
 
     /// <summary>
     /// Whether MDL correction is used when finding splits on numeric attributes.
     /// </summary>    
-    public PART<T> UseMDLcorrection (bool value) {
-      ((PART)Impl).setUseMDLcorrection(value);
+    public PART<T> UseMDLcorrection (bool newuseMDLcorrection) {
+      ((PART)Impl).setUseMDLcorrection(newuseMDLcorrection);
       return this;
     }
 
@@ -50,8 +50,8 @@ namespace Ml2.Clss
     /// Determines the amount of data used for reduced-error pruning. One fold is
     /// used for pruning, the rest for growing the rules.
     /// </summary>    
-    public PART<T> NumFolds (int value) {
-      ((PART)Impl).setNumFolds(value);
+    public PART<T> NumFolds (int v) {
+      ((PART)Impl).setNumFolds(v);
       return this;
     }
 
@@ -59,8 +59,8 @@ namespace Ml2.Clss
     /// The seed used for randomizing the data when reduced-error pruning is
     /// used.
     /// </summary>    
-    public PART<T> Seed (int value) {
-      ((PART)Impl).setSeed(value);
+    public PART<T> Seed (int newSeed) {
+      ((PART)Impl).setSeed(newSeed);
       return this;
     }
 
@@ -68,16 +68,16 @@ namespace Ml2.Clss
     /// Whether to use binary splits on nominal attributes when building the
     /// partial trees.
     /// </summary>    
-    public PART<T> BinarySplits (bool value) {
-      ((PART)Impl).setBinarySplits(value);
+    public PART<T> BinarySplits (bool v) {
+      ((PART)Impl).setBinarySplits(v);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public PART<T> Debug (bool value) {
-      ((PART)Impl).setDebug(value);
+    public PART<T> Debug (bool debug) {
+      ((PART)Impl).setDebug(debug);
       return this;
     }
 

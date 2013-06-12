@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -40,32 +40,32 @@ namespace Ml2.Clss
     /// <summary>
     /// The complexity parameter C.
     /// </summary>    
-    public SMO<T> C (double value) {
-      ((SMO)Impl).setC(value);
+    public SMO<T> C (double v) {
+      ((SMO)Impl).setC(v);
       return this;
     }
 
     /// <summary>
     /// The tolerance parameter (shouldn't be changed).
     /// </summary>    
-    public SMO<T> ToleranceParameter (double value) {
-      ((SMO)Impl).setToleranceParameter(value);
+    public SMO<T> ToleranceParameter (double v) {
+      ((SMO)Impl).setToleranceParameter(v);
       return this;
     }
 
     /// <summary>
     /// The epsilon for round-off error (shouldn't be changed).
     /// </summary>    
-    public SMO<T> Epsilon (double value) {
-      ((SMO)Impl).setEpsilon(value);
+    public SMO<T> Epsilon (double v) {
+      ((SMO)Impl).setEpsilon(v);
       return this;
     }
 
     /// <summary>
     /// Determines how/if the data will be transformed.
     /// </summary>    
-    public SMO<T> FilterType (EFilterType value) {
-      ((SMO)Impl).setFilterType(new SelectedTag((int) value, SMO.TAGS_FILTER));
+    public SMO<T> FilterType (EFilterType newType) {
+      ((SMO)Impl).setFilterType(new weka.core.SelectedTag((int) newType, SMO.TAGS_FILTER));
       return this;
     }
 
@@ -73,8 +73,8 @@ namespace Ml2.Clss
     /// Whether to fit logistic models to the outputs (for proper probability
     /// estimates).
     /// </summary>    
-    public SMO<T> BuildLogisticModels (bool value) {
-      ((SMO)Impl).setBuildLogisticModels(value);
+    public SMO<T> BuildLogisticModels (bool newbuildLogisticModels) {
+      ((SMO)Impl).setBuildLogisticModels(newbuildLogisticModels);
       return this;
     }
 
@@ -82,24 +82,24 @@ namespace Ml2.Clss
     /// The number of folds for cross-validation used to generate training data
     /// for logistic models (-1 means use training data).
     /// </summary>    
-    public SMO<T> NumFolds (int value) {
-      ((SMO)Impl).setNumFolds(value);
+    public SMO<T> NumFolds (int newnumFolds) {
+      ((SMO)Impl).setNumFolds(newnumFolds);
       return this;
     }
 
     /// <summary>
     /// Random number seed for the cross-validation.
     /// </summary>    
-    public SMO<T> RandomSeed (int value) {
-      ((SMO)Impl).setRandomSeed(value);
+    public SMO<T> RandomSeed (int newrandomSeed) {
+      ((SMO)Impl).setRandomSeed(newrandomSeed);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public SMO<T> Debug (bool value) {
-      ((SMO)Impl).setDebug(value);
+    public SMO<T> Debug (bool debug) {
+      ((SMO)Impl).setDebug(debug);
       return this;
     }
 

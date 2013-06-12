@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -20,24 +20,24 @@ namespace Ml2.Clss
     /// <summary>
     /// The complexity parameter C.
     /// </summary>    
-    public SMOreg<T> C (double value) {
-      ((SMOreg)Impl).setC(value);
+    public SMOreg<T> C (double v) {
+      ((SMOreg)Impl).setC(v);
       return this;
     }
 
     /// <summary>
     /// Determines how/if the data will be transformed.
     /// </summary>    
-    public SMOreg<T> FilterType (EFilterType value) {
-      ((SMOreg)Impl).setFilterType(new SelectedTag((int) value, SMOreg.TAGS_FILTER));
+    public SMOreg<T> FilterType (EFilterType newType) {
+      ((SMOreg)Impl).setFilterType(new weka.core.SelectedTag((int) newType, SMOreg.TAGS_FILTER));
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public SMOreg<T> Debug (bool value) {
-      ((SMOreg)Impl).setDebug(value);
+    public SMOreg<T> Debug (bool debug) {
+      ((SMOreg)Impl).setDebug(debug);
       return this;
     }
 

@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.rules;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Clss
     /// The measure used to evaluate the performance of attribute combinations
     /// used in the decision table.
     /// </summary>    
-    public DecisionTable<T> EvaluationMeasure (EEvaluationMeasure value) {
-      ((DecisionTable)Impl).setEvaluationMeasure(new SelectedTag((int) value, DecisionTable.TAGS_EVALUATION));
+    public DecisionTable<T> EvaluationMeasure (EEvaluationMeasure newMethod) {
+      ((DecisionTable)Impl).setEvaluationMeasure(new weka.core.SelectedTag((int) newMethod, DecisionTable.TAGS_EVALUATION));
       return this;
     }
 
@@ -25,40 +25,40 @@ namespace Ml2.Clss
     /// The search method used to find good attribute combinations for the
     /// decision table.
     /// </summary>    
-    public DecisionTable<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> value) {
-      ((DecisionTable)Impl).setSearch(value.Impl);
+    public DecisionTable<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> search) {
+      ((DecisionTable)Impl).setSearch(search.Impl);
       return this;
     }
 
     /// <summary>
     /// Sets the number of folds for cross validation (1 = leave one out).
     /// </summary>    
-    public DecisionTable<T> CrossVal (int value) {
-      ((DecisionTable)Impl).setCrossVal(value);
+    public DecisionTable<T> CrossVal (int folds) {
+      ((DecisionTable)Impl).setCrossVal(folds);
       return this;
     }
 
     /// <summary>
     /// Sets whether IBk should be used instead of the majority class.
     /// </summary>    
-    public DecisionTable<T> UseIBk (bool value) {
-      ((DecisionTable)Impl).setUseIBk(value);
+    public DecisionTable<T> UseIBk (bool ibk) {
+      ((DecisionTable)Impl).setUseIBk(ibk);
       return this;
     }
 
     /// <summary>
     /// Sets whether rules are to be printed.
     /// </summary>    
-    public DecisionTable<T> DisplayRules (bool value) {
-      ((DecisionTable)Impl).setDisplayRules(value);
+    public DecisionTable<T> DisplayRules (bool rules) {
+      ((DecisionTable)Impl).setDisplayRules(rules);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public DecisionTable<T> Debug (bool value) {
-      ((DecisionTable)Impl).setDebug(value);
+    public DecisionTable<T> Debug (bool debug) {
+      ((DecisionTable)Impl).setDebug(debug);
       return this;
     }
 

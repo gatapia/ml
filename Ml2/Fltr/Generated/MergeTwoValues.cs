@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,32 +15,32 @@ namespace Ml2.Fltr
     /// Sets which attribute to process. This attribute must be nominal ("first"
     /// and "last" are valid values)
     /// </summary>    
-    public MergeTwoValues<T> AttributeIndex (string value) {
-      ((MergeTwoValues)Impl).setAttributeIndex(value);
+    public MergeTwoValues<T> AttributeIndex (string attIndex) {
+      ((MergeTwoValues)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
     /// <summary>
     /// Sets the first value to be merged. ("first" and "last" are valid values)
     /// </summary>    
-    public MergeTwoValues<T> FirstValueIndex (string value) {
-      ((MergeTwoValues)Impl).setFirstValueIndex(value);
+    public MergeTwoValues<T> FirstValueIndex (string firstIndex) {
+      ((MergeTwoValues)Impl).setFirstValueIndex(firstIndex);
       return this;
     }
 
     /// <summary>
     /// Sets the second value to be merged. ("first" and "last" are valid values)
     /// </summary>    
-    public MergeTwoValues<T> SecondValueIndex (string value) {
-      ((MergeTwoValues)Impl).setSecondValueIndex(value);
+    public MergeTwoValues<T> SecondValueIndex (string secondIndex) {
+      ((MergeTwoValues)Impl).setSecondValueIndex(secondIndex);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MergeTwoValues<T> InputFormat (Runtime<T> value) {
-      ((MergeTwoValues)Impl).setInputFormat(value.Instances);
+    public MergeTwoValues<T> InputFormat (Runtime<T> instanceInfo) {
+      ((MergeTwoValues)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

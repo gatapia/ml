@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -15,8 +15,8 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public RandomTree<T> KValue (int value) {
-      ((RandomTree)Impl).setKValue(value);
+    public RandomTree<T> KValue (int k) {
+      ((RandomTree)Impl).setKValue(k);
       return this;
     }
 
@@ -31,24 +31,24 @@ namespace Ml2.Clss
     /// <summary>
     /// The random number seed used for selecting attributes.
     /// </summary>    
-    public RandomTree<T> Seed (int value) {
-      ((RandomTree)Impl).setSeed(value);
+    public RandomTree<T> Seed (int seed) {
+      ((RandomTree)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// Whether to allow unclassified instances.
     /// </summary>    
-    public RandomTree<T> AllowUnclassifiedInstances (bool value) {
-      ((RandomTree)Impl).setAllowUnclassifiedInstances(value);
+    public RandomTree<T> AllowUnclassifiedInstances (bool newAllowUnclassifiedInstances) {
+      ((RandomTree)Impl).setAllowUnclassifiedInstances(newAllowUnclassifiedInstances);
       return this;
     }
 
     /// <summary>
     /// The minimum total weight of the instances in a leaf.
     /// </summary>    
-    public RandomTree<T> MinNum (double value) {
-      ((RandomTree)Impl).setMinNum(value);
+    public RandomTree<T> MinNum (double newMinNum) {
+      ((RandomTree)Impl).setMinNum(newMinNum);
       return this;
     }
 
@@ -56,16 +56,16 @@ namespace Ml2.Clss
     /// Determines the amount of data used for backfitting. One fold is used for
     /// backfitting, the rest for growing the tree. (Default: 0, no backfitting)
     /// </summary>    
-    public RandomTree<T> NumFolds (int value) {
-      ((RandomTree)Impl).setNumFolds(value);
+    public RandomTree<T> NumFolds (int newNumFolds) {
+      ((RandomTree)Impl).setNumFolds(newNumFolds);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public RandomTree<T> Debug (bool value) {
-      ((RandomTree)Impl).setDebug(value);
+    public RandomTree<T> Debug (bool debug) {
+      ((RandomTree)Impl).setDebug(debug);
       return this;
     }
 

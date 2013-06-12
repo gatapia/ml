@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Algs
 {
   /// <summary>
@@ -18,16 +19,16 @@ namespace Ml2.AttrSel.Algs
     /// <summary>
     /// Set to true if a ranked list is required.
     /// </summary>    
-    public GreedyStepwise<T> GenerateRanking (bool value) {
-      ((GreedyStepwise)Impl).setGenerateRanking(value);
+    public GreedyStepwise<T> GenerateRanking (bool doRank) {
+      ((GreedyStepwise)Impl).setGenerateRanking(doRank);
       return this;
     }
 
     /// <summary>
     /// Search backwards rather than forwards.
     /// </summary>    
-    public GreedyStepwise<T> SearchBackwards (bool value) {
-      ((GreedyStepwise)Impl).setSearchBackwards(value);
+    public GreedyStepwise<T> SearchBackwards (bool back) {
+      ((GreedyStepwise)Impl).setSearchBackwards(back);
       return this;
     }
 
@@ -35,8 +36,8 @@ namespace Ml2.AttrSel.Algs
     /// If true (and forward search is selected) then attributes will continue to
     /// be added to the best subset as long as merit does not degrade.
     /// </summary>    
-    public GreedyStepwise<T> ConservativeForwardSelection (bool value) {
-      ((GreedyStepwise)Impl).setConservativeForwardSelection(value);
+    public GreedyStepwise<T> ConservativeForwardSelection (bool c) {
+      ((GreedyStepwise)Impl).setConservativeForwardSelection(c);
       return this;
     }
 
@@ -45,8 +46,8 @@ namespace Ml2.AttrSel.Algs
     /// seperated list off attribute indexes starting at 1. It can include ranges. Eg.
     /// 1,2,5-9,17.
     /// </summary>    
-    public GreedyStepwise<T> StartSet (string value) {
-      ((GreedyStepwise)Impl).setStartSet(value);
+    public GreedyStepwise<T> StartSet (string startSet) {
+      ((GreedyStepwise)Impl).setStartSet(startSet);
       return this;
     }
 
@@ -54,8 +55,8 @@ namespace Ml2.AttrSel.Algs
     /// Set threshold by which attributes can be discarded. Default value results
     /// in no attributes being discarded. Use in conjunction with generateRanking
     /// </summary>    
-    public GreedyStepwise<T> Threshold (double value) {
-      ((GreedyStepwise)Impl).setThreshold(value);
+    public GreedyStepwise<T> Threshold (double threshold) {
+      ((GreedyStepwise)Impl).setThreshold(threshold);
       return this;
     }
 
@@ -64,8 +65,8 @@ namespace Ml2.AttrSel.Algs
     /// indicates that all attributes are to be retained. Use either this option or a
     /// threshold to reduce the attribute set.
     /// </summary>    
-    public GreedyStepwise<T> NumToSelect (int value) {
-      ((GreedyStepwise)Impl).setNumToSelect(value);
+    public GreedyStepwise<T> NumToSelect (int n) {
+      ((GreedyStepwise)Impl).setNumToSelect(n);
       return this;
     }
 

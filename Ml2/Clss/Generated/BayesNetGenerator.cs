@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes.net;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,16 +17,48 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public BayesNetGenerator<T> Data (Runtime<T> value) {
-      ((BayesNetGenerator)Impl).setData(value.Instances);
+    public BayesNetGenerator<T> Evidence (int iNode, int iValue) {
+      ((BayesNetGenerator)Impl).setEvidence(iNode, iValue);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public BayesNetGenerator<T> BIFFile (string value) {
-      ((BayesNetGenerator)Impl).setBIFFile(value);
+    public BayesNetGenerator<T> Data (Runtime<T> instances) {
+      ((BayesNetGenerator)Impl).setData(instances.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public BayesNetGenerator<T> NodeName (int nTargetNode, string sName) {
+      ((BayesNetGenerator)Impl).setNodeName(nTargetNode, sName);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public BayesNetGenerator<T> Position (int iNode, int nX, int nY) {
+      ((BayesNetGenerator)Impl).setPosition(iNode, nX, nY);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public BayesNetGenerator<T> Margin (int iNode, double[] fMarginP) {
+      ((BayesNetGenerator)Impl).setMargin(iNode, fMarginP);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public BayesNetGenerator<T> BIFFile (string sBIFFile) {
+      ((BayesNetGenerator)Impl).setBIFFile(sBIFFile);
       return this;
     }
 
@@ -37,16 +69,16 @@ namespace Ml2.Clss
     /// problems may occur. Switching this option off makes the structure learning
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
-    public BayesNetGenerator<T> UseADTree (bool value) {
-      ((BayesNetGenerator)Impl).setUseADTree(value);
+    public BayesNetGenerator<T> UseADTree (bool bUseADTree) {
+      ((BayesNetGenerator)Impl).setUseADTree(bUseADTree);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public BayesNetGenerator<T> Debug (bool value) {
-      ((BayesNetGenerator)Impl).setDebug(value);
+    public BayesNetGenerator<T> Debug (bool debug) {
+      ((BayesNetGenerator)Impl).setDebug(debug);
       return this;
     }
 

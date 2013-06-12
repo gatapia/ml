@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -14,8 +14,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// Choose attribute to be used for selection (default last).
     /// </summary>    
-    public RemoveWithValues<T> AttributeIndex (string value) {
-      ((RemoveWithValues)Impl).setAttributeIndex(value);
+    public RemoveWithValues<T> AttributeIndex (string attIndex) {
+      ((RemoveWithValues)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
@@ -23,32 +23,32 @@ namespace Ml2.Fltr
     /// When selecting on nominal attributes, removes header references to
     /// excluded values.
     /// </summary>    
-    public RemoveWithValues<T> ModifyHeader (bool value) {
-      ((RemoveWithValues)Impl).setModifyHeader(value);
+    public RemoveWithValues<T> ModifyHeader (bool newModifyHeader) {
+      ((RemoveWithValues)Impl).setModifyHeader(newModifyHeader);
       return this;
     }
 
     /// <summary>
     /// Invert matching sense.
     /// </summary>    
-    public RemoveWithValues<T> InvertSelection (bool value) {
-      ((RemoveWithValues)Impl).setInvertSelection(value);
+    public RemoveWithValues<T> InvertSelection (bool invert) {
+      ((RemoveWithValues)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveWithValues<T> NominalIndicesArr (int[] value) {
-      ((RemoveWithValues)Impl).setNominalIndicesArr(value);
+    public RemoveWithValues<T> NominalIndicesArr (int[] values) {
+      ((RemoveWithValues)Impl).setNominalIndicesArr(values);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemoveWithValues<T> InputFormat (Runtime<T> value) {
-      ((RemoveWithValues)Impl).setInputFormat(value.Instances);
+    public RemoveWithValues<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemoveWithValues)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -65,8 +65,8 @@ namespace Ml2.Fltr
     /// Range of label indices to be used for selection on nominal attribute.
     /// First and last are valid indexes.
     /// </summary>    
-    public RemoveWithValues<T> NominalIndices (string value) {
-      ((RemoveWithValues)Impl).setNominalIndices(value);
+    public RemoveWithValues<T> NominalIndices (string rangeList) {
+      ((RemoveWithValues)Impl).setNominalIndices(rangeList);
       return this;
     }
 
@@ -74,8 +74,8 @@ namespace Ml2.Fltr
     /// Missing values count as a match. This setting is independent of the
     /// invertSelection option.
     /// </summary>    
-    public RemoveWithValues<T> MatchMissingValues (bool value) {
-      ((RemoveWithValues)Impl).setMatchMissingValues(value);
+    public RemoveWithValues<T> MatchMissingValues (bool newMatchMissingValues) {
+      ((RemoveWithValues)Impl).setMatchMissingValues(newMatchMissingValues);
       return this;
     }
 
@@ -84,8 +84,8 @@ namespace Ml2.Fltr
     /// the first (training) batch. The default is false so instances in subsequent
     /// batches can potentially get 'consumed' by the filter.
     /// </summary>    
-    public RemoveWithValues<T> DontFilterAfterFirstBatch (bool value) {
-      ((RemoveWithValues)Impl).setDontFilterAfterFirstBatch(value);
+    public RemoveWithValues<T> DontFilterAfterFirstBatch (bool b) {
+      ((RemoveWithValues)Impl).setDontFilterAfterFirstBatch(b);
       return this;
     }
 

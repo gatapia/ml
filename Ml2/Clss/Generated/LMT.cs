@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -21,8 +21,8 @@ namespace Ml2.Clss
     /// Convert all nominal attributes to binary ones before building the tree.
     /// This means that all splits in the final tree will be binary.
     /// </summary>    
-    public LMT<T> ConvertNominal (bool value) {
-      ((LMT)Impl).setConvertNominal(value);
+    public LMT<T> ConvertNominal (bool c) {
+      ((LMT)Impl).setConvertNominal(c);
       return this;
     }
 
@@ -35,8 +35,8 @@ namespace Ml2.Clss
     /// criterion does not usually affect classification accuracy much, but can
     /// produce different trees.
     /// </summary>    
-    public LMT<T> SplitOnResiduals (bool value) {
-      ((LMT)Impl).setSplitOnResiduals(value);
+    public LMT<T> SplitOnResiduals (bool c) {
+      ((LMT)Impl).setSplitOnResiduals(c);
       return this;
     }
 
@@ -49,8 +49,8 @@ namespace Ml2.Clss
     /// number at every node in the tree. Usually this does not decrease accuracy
     /// but improves runtime considerably.
     /// </summary>    
-    public LMT<T> FastRegression (bool value) {
-      ((LMT)Impl).setFastRegression(value);
+    public LMT<T> FastRegression (bool c) {
+      ((LMT)Impl).setFastRegression(c);
       return this;
     }
 
@@ -60,8 +60,8 @@ namespace Ml2.Clss
     /// of LogitBoost iterations is chosen that minimizes the root mean squared
     /// error instead of the misclassification error.
     /// </summary>    
-    public LMT<T> ErrorOnProbabilities (bool value) {
-      ((LMT)Impl).setErrorOnProbabilities(value);
+    public LMT<T> ErrorOnProbabilities (bool c) {
+      ((LMT)Impl).setErrorOnProbabilities(c);
       return this;
     }
 
@@ -70,8 +70,8 @@ namespace Ml2.Clss
     /// fixed number of LogitBoost iterations that is used everywhere in the tree. If
     /// < 0, the number is cross-validated.
     /// </summary>    
-    public LMT<T> NumBoostingIterations (int value) {
-      ((LMT)Impl).setNumBoostingIterations(value);
+    public LMT<T> NumBoostingIterations (int c) {
+      ((LMT)Impl).setNumBoostingIterations(c);
       return this;
     }
 
@@ -79,8 +79,8 @@ namespace Ml2.Clss
     /// Set the minimum number of instances at which a node is considered for
     /// splitting. The default value is 15.
     /// </summary>    
-    public LMT<T> MinNumInstances (int value) {
-      ((LMT)Impl).setMinNumInstances(value);
+    public LMT<T> MinNumInstances (int c) {
+      ((LMT)Impl).setMinNumInstances(c);
       return this;
     }
 
@@ -89,8 +89,8 @@ namespace Ml2.Clss
     /// carrying (1 - beta)% of the weight from previous iteration are used in the
     /// next iteration. Set to 0 for no weight trimming. The default value is 0.
     /// </summary>    
-    public LMT<T> WeightTrimBeta (double value) {
-      ((LMT)Impl).setWeightTrimBeta(value);
+    public LMT<T> WeightTrimBeta (double n) {
+      ((LMT)Impl).setWeightTrimBeta(n);
       return this;
     }
 
@@ -98,16 +98,16 @@ namespace Ml2.Clss
     /// The AIC is used to determine when to stop LogitBoost iterations. The
     /// default is not to use AIC.
     /// </summary>    
-    public LMT<T> UseAIC (bool value) {
-      ((LMT)Impl).setUseAIC(value);
+    public LMT<T> UseAIC (bool c) {
+      ((LMT)Impl).setUseAIC(c);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public LMT<T> Debug (bool value) {
-      ((LMT)Impl).setDebug(value);
+    public LMT<T> Debug (bool debug) {
+      ((LMT)Impl).setDebug(debug);
       return this;
     }
 

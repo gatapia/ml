@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees.lmt;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -13,40 +13,40 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public LogisticBase<T> MaxIterations (int value) {
-      ((LogisticBase)Impl).setMaxIterations(value);
+    public LogisticBase<T> MaxIterations (int maxIterations) {
+      ((LogisticBase)Impl).setMaxIterations(maxIterations);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public LogisticBase<T> HeuristicStop (int value) {
-      ((LogisticBase)Impl).setHeuristicStop(value);
+    public LogisticBase<T> HeuristicStop (int heuristicStop) {
+      ((LogisticBase)Impl).setHeuristicStop(heuristicStop);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public LogisticBase<T> WeightTrimBeta (double value) {
-      ((LogisticBase)Impl).setWeightTrimBeta(value);
+    public LogisticBase<T> WeightTrimBeta (double w) {
+      ((LogisticBase)Impl).setWeightTrimBeta(w);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public LogisticBase<T> UseAIC (bool value) {
-      ((LogisticBase)Impl).setUseAIC(value);
+    public LogisticBase<T> UseAIC (bool c) {
+      ((LogisticBase)Impl).setUseAIC(c);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public LogisticBase<T> Debug (bool value) {
-      ((LogisticBase)Impl).setDebug(value);
+    public LogisticBase<T> Debug (bool debug) {
+      ((LogisticBase)Impl).setDebug(debug);
       return this;
     }
 

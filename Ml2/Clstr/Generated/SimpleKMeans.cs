@@ -1,6 +1,7 @@
 using weka.core;
 using weka.clusterers;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   /// <summary>
@@ -18,8 +19,8 @@ namespace Ml2.Clstr
     /// <summary>
     /// set number of clusters
     /// </summary>    
-    public SimpleKMeans<T> NumClusters (int value) {
-      ((SimpleKMeans)Impl).setNumClusters(value);
+    public SimpleKMeans<T> NumClusters (int n) {
+      ((SimpleKMeans)Impl).setNumClusters(n);
       return this;
     }
 
@@ -27,8 +28,8 @@ namespace Ml2.Clstr
     /// The number of execution slots (threads) to use. Set equal to the number
     /// of available cpu/cores
     /// </summary>    
-    public SimpleKMeans<T> NumExecutionSlots (int value) {
-      ((SimpleKMeans)Impl).setNumExecutionSlots(value);
+    public SimpleKMeans<T> NumExecutionSlots (int slots) {
+      ((SimpleKMeans)Impl).setNumExecutionSlots(slots);
       return this;
     }
 
@@ -36,16 +37,16 @@ namespace Ml2.Clstr
     /// Display std deviations of numeric attributes and counts of nominal
     /// attributes.
     /// </summary>    
-    public SimpleKMeans<T> DisplayStdDevs (bool value) {
-      ((SimpleKMeans)Impl).setDisplayStdDevs(value);
+    public SimpleKMeans<T> DisplayStdDevs (bool stdD) {
+      ((SimpleKMeans)Impl).setDisplayStdDevs(stdD);
       return this;
     }
 
     /// <summary>
     /// set maximum number of iterations
     /// </summary>    
-    public SimpleKMeans<T> MaxIterations (int value) {
-      ((SimpleKMeans)Impl).setMaxIterations(value);
+    public SimpleKMeans<T> MaxIterations (int n) {
+      ((SimpleKMeans)Impl).setMaxIterations(n);
       return this;
     }
 
@@ -53,24 +54,24 @@ namespace Ml2.Clstr
     /// Initialize cluster centers using the probabilistic farthest first method
     /// of the k-means++ algorithm
     /// </summary>    
-    public SimpleKMeans<T> InitializeUsingKMeansPlusPlusMethod (bool value) {
-      ((SimpleKMeans)Impl).setInitializeUsingKMeansPlusPlusMethod(value);
+    public SimpleKMeans<T> InitializeUsingKMeansPlusPlusMethod (bool k) {
+      ((SimpleKMeans)Impl).setInitializeUsingKMeansPlusPlusMethod(k);
       return this;
     }
 
     /// <summary>
     /// Replace missing values globally with mean/mode.
     /// </summary>    
-    public SimpleKMeans<T> DontReplaceMissingValues (bool value) {
-      ((SimpleKMeans)Impl).setDontReplaceMissingValues(value);
+    public SimpleKMeans<T> DontReplaceMissingValues (bool r) {
+      ((SimpleKMeans)Impl).setDontReplaceMissingValues(r);
       return this;
     }
 
     /// <summary>
     /// Preserve order of instances.
     /// </summary>    
-    public SimpleKMeans<T> PreserveInstancesOrder (bool value) {
-      ((SimpleKMeans)Impl).setPreserveInstancesOrder(value);
+    public SimpleKMeans<T> PreserveInstancesOrder (bool r) {
+      ((SimpleKMeans)Impl).setPreserveInstancesOrder(r);
       return this;
     }
 

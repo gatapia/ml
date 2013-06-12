@@ -28,58 +28,58 @@ namespace Ml2.Tasks.Generator.Fltr
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("namespace Ml2.Fltr\r\n{\r\n  public class ");
+            this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Fltr\r\n{\r\n  public class ");
             
-            #line 8 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 9 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
             
             #line default
             #line hidden
             this.Write("<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public ");
             
-            #line 11 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 12 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
             
             #line default
             #line hidden
             this.Write("(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
             
-            #line 13 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
  foreach (var ctr in AllFilters) { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.GetClassDescription("    /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T>(rt); }\r\n\r\n");
             
-            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
+            #line 20 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
  } 
             
             #line default

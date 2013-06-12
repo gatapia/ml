@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.lazy;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -19,32 +19,32 @@ namespace Ml2.Clss
     /// <summary>
     /// The parameter for global blending. Values are restricted to [0,100].
     /// </summary>    
-    public KStar<T> GlobalBlend (int value) {
-      ((KStar)Impl).setGlobalBlend(value);
+    public KStar<T> GlobalBlend (int b) {
+      ((KStar)Impl).setGlobalBlend(b);
       return this;
     }
 
     /// <summary>
     /// Whether entropy-based blending is to be used.
     /// </summary>    
-    public KStar<T> EntropicAutoBlend (bool value) {
-      ((KStar)Impl).setEntropicAutoBlend(value);
+    public KStar<T> EntropicAutoBlend (bool e) {
+      ((KStar)Impl).setEntropicAutoBlend(e);
       return this;
     }
 
     /// <summary>
     /// Determines how missing attribute values are treated.
     /// </summary>    
-    public KStar<T> MissingMode (EMissingMode value) {
-      ((KStar)Impl).setMissingMode(new SelectedTag((int) value, KStar.TAGS_MISSING));
+    public KStar<T> MissingMode (EMissingMode newMode) {
+      ((KStar)Impl).setMissingMode(new weka.core.SelectedTag((int) newMode, KStar.TAGS_MISSING));
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public KStar<T> Debug (bool value) {
-      ((KStar)Impl).setDebug(value);
+    public KStar<T> Debug (bool debug) {
+      ((KStar)Impl).setDebug(debug);
       return this;
     }
 

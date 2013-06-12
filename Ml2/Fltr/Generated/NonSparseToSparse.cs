@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,8 +15,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// Treat missing values in the same way as zeros.
     /// </summary>    
-    public NonSparseToSparse<T> TreatMissingValuesAsZero (bool value) {
-      ((NonSparseToSparse)Impl).setTreatMissingValuesAsZero(value);
+    public NonSparseToSparse<T> TreatMissingValuesAsZero (bool m) {
+      ((NonSparseToSparse)Impl).setTreatMissingValuesAsZero(m);
       return this;
     }
 
@@ -26,16 +26,16 @@ namespace Ml2.Fltr
     /// Apriori to sparse format. Typically used in conjuction with treat missing
     /// values as zero.
     /// </summary>    
-    public NonSparseToSparse<T> InsertDummyNominalFirstValue (bool value) {
-      ((NonSparseToSparse)Impl).setInsertDummyNominalFirstValue(value);
+    public NonSparseToSparse<T> InsertDummyNominalFirstValue (bool d) {
+      ((NonSparseToSparse)Impl).setInsertDummyNominalFirstValue(d);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public NonSparseToSparse<T> InputFormat (Runtime<T> value) {
-      ((NonSparseToSparse)Impl).setInputFormat(value.Instances);
+    public NonSparseToSparse<T> InputFormat (Runtime<T> instanceInfo) {
+      ((NonSparseToSparse)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

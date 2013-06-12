@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Clss
     /// Sets the method to use for transforming the multi-class problem into
     /// several 2-class ones.
     /// </summary>    
-    public MultiClassClassifier<T> Method (EMethod value) {
-      ((MultiClassClassifier)Impl).setMethod(new SelectedTag((int) value, MultiClassClassifier.TAGS_METHOD));
+    public MultiClassClassifier<T> Method (EMethod newMethod) {
+      ((MultiClassClassifier)Impl).setMethod(new weka.core.SelectedTag((int) newMethod, MultiClassClassifier.TAGS_METHOD));
       return this;
     }
 
@@ -25,40 +25,40 @@ namespace Ml2.Clss
     /// Sets the width multiplier when using random codes. The number of codes
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
-    public MultiClassClassifier<T> RandomWidthFactor (double value) {
-      ((MultiClassClassifier)Impl).setRandomWidthFactor(value);
+    public MultiClassClassifier<T> RandomWidthFactor (double newRandomWidthFactor) {
+      ((MultiClassClassifier)Impl).setRandomWidthFactor(newRandomWidthFactor);
       return this;
     }
 
     /// <summary>
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
-    public MultiClassClassifier<T> UsePairwiseCoupling (bool value) {
-      ((MultiClassClassifier)Impl).setUsePairwiseCoupling(value);
+    public MultiClassClassifier<T> UsePairwiseCoupling (bool p) {
+      ((MultiClassClassifier)Impl).setUsePairwiseCoupling(p);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public MultiClassClassifier<T> Seed (int value) {
-      ((MultiClassClassifier)Impl).setSeed(value);
+    public MultiClassClassifier<T> Seed (int seed) {
+      ((MultiClassClassifier)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public MultiClassClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((MultiClassClassifier)Impl).setClassifier(value.Impl);
+    public MultiClassClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((MultiClassClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public MultiClassClassifier<T> Debug (bool value) {
-      ((MultiClassClassifier)Impl).setDebug(value);
+    public MultiClassClassifier<T> Debug (bool debug) {
+      ((MultiClassClassifier)Impl).setDebug(debug);
       return this;
     }
 

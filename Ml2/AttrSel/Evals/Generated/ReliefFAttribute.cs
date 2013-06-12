@@ -1,6 +1,7 @@
 using weka.core;
 using weka.attributeSelection;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
@@ -22,8 +23,8 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Weight nearest neighbours by their distance.
     /// </summary>    
-    public ReliefFAttribute<T> WeightByDistance (bool value) {
-      ((ReliefFAttributeEval)Impl).setWeightByDistance(value);
+    public ReliefFAttribute<T> WeightByDistance (bool b) {
+      ((ReliefFAttributeEval)Impl).setWeightByDistance(b);
       return this;
     }
 
@@ -31,24 +32,24 @@ namespace Ml2.AttrSel.Evals
     /// Number of instances to sample. Default (-1) indicates that all instances
     /// will be used for attribute estimation.
     /// </summary>    
-    public ReliefFAttribute<T> SampleSize (int value) {
-      ((ReliefFAttributeEval)Impl).setSampleSize(value);
+    public ReliefFAttribute<T> SampleSize (int s) {
+      ((ReliefFAttributeEval)Impl).setSampleSize(s);
       return this;
     }
 
     /// <summary>
     /// Random seed for sampling instances.
     /// </summary>    
-    public ReliefFAttribute<T> Seed (int value) {
-      ((ReliefFAttributeEval)Impl).setSeed(value);
+    public ReliefFAttribute<T> Seed (int s) {
+      ((ReliefFAttributeEval)Impl).setSeed(s);
       return this;
     }
 
     /// <summary>
     /// Number of nearest neighbours for attribute estimation.
     /// </summary>    
-    public ReliefFAttribute<T> NumNeighbours (int value) {
-      ((ReliefFAttributeEval)Impl).setNumNeighbours(value);
+    public ReliefFAttribute<T> NumNeighbours (int n) {
+      ((ReliefFAttributeEval)Impl).setNumNeighbours(n);
       return this;
     }
 
@@ -58,8 +59,8 @@ namespace Ml2.AttrSel.Evals
     /// with weightByDistance. Sensible values = 1/5 to 1/10 the number of nearest
     /// neighbours.
     /// </summary>    
-    public ReliefFAttribute<T> Sigma (int value) {
-      ((ReliefFAttributeEval)Impl).setSigma(value);
+    public ReliefFAttribute<T> Sigma (int s) {
+      ((ReliefFAttributeEval)Impl).setSigma(s);
       return this;
     }
 

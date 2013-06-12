@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.trees;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -20,48 +20,48 @@ namespace Ml2.Clss
     /// Whether to save instance data at each node in the tree for visualization
     /// purposes.
     /// </summary>    
-    public M5P<T> SaveInstances (bool value) {
-      ((M5P)Impl).setSaveInstances(value);
+    public M5P<T> SaveInstances (bool save) {
+      ((M5P)Impl).setSaveInstances(save);
       return this;
     }
 
     /// <summary>
     /// Whether unpruned tree/rules are to be generated.
     /// </summary>    
-    public M5P<T> Unpruned (bool value) {
-      ((M5P)Impl).setUnpruned(value);
+    public M5P<T> Unpruned (bool unpruned) {
+      ((M5P)Impl).setUnpruned(unpruned);
       return this;
     }
 
     /// <summary>
     /// Whether to use unsmoothed predictions.
     /// </summary>    
-    public M5P<T> UseUnsmoothed (bool value) {
-      ((M5P)Impl).setUseUnsmoothed(value);
+    public M5P<T> UseUnsmoothed (bool s) {
+      ((M5P)Impl).setUseUnsmoothed(s);
       return this;
     }
 
     /// <summary>
     /// Whether to generate a regression tree/rule instead of a model tree/rule.
     /// </summary>    
-    public M5P<T> BuildRegressionTree (bool value) {
-      ((M5P)Impl).setBuildRegressionTree(value);
+    public M5P<T> BuildRegressionTree (bool newregressionTree) {
+      ((M5P)Impl).setBuildRegressionTree(newregressionTree);
       return this;
     }
 
     /// <summary>
     /// The minimum number of instances to allow at a leaf node.
     /// </summary>    
-    public M5P<T> MinNumInstances (double value) {
-      ((M5P)Impl).setMinNumInstances(value);
+    public M5P<T> MinNumInstances (double minNum) {
+      ((M5P)Impl).setMinNumInstances(minNum);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public M5P<T> Debug (bool value) {
-      ((M5P)Impl).setDebug(value);
+    public M5P<T> Debug (bool debug) {
+      ((M5P)Impl).setDebug(debug);
       return this;
     }
 

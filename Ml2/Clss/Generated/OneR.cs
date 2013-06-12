@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.rules;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,16 +16,16 @@ namespace Ml2.Clss
     /// <summary>
     /// The minimum bucket size used for discretizing numeric attributes.
     /// </summary>    
-    public OneR<T> MinBucketSize (int value) {
-      ((OneR)Impl).setMinBucketSize(value);
+    public OneR<T> MinBucketSize (int v) {
+      ((OneR)Impl).setMinBucketSize(v);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public OneR<T> Debug (bool value) {
-      ((OneR)Impl).setDebug(value);
+    public OneR<T> Debug (bool debug) {
+      ((OneR)Impl).setDebug(debug);
       return this;
     }
 

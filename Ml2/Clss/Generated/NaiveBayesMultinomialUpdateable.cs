@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.bayes;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -18,8 +18,8 @@ namespace Ml2.Clss
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public NaiveBayesMultinomialUpdateable<T> Debug (bool value) {
-      ((NaiveBayesMultinomialUpdateable)Impl).setDebug(value);
+    public NaiveBayesMultinomialUpdateable<T> Debug (bool debug) {
+      ((NaiveBayesMultinomialUpdateable)Impl).setDebug(debug);
       return this;
     }
 

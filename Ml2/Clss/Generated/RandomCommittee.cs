@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -16,8 +16,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public RandomCommittee<T> Seed (int value) {
-      ((RandomCommittee)Impl).setSeed(value);
+    public RandomCommittee<T> Seed (int seed) {
+      ((RandomCommittee)Impl).setSeed(seed);
       return this;
     }
 
@@ -25,32 +25,32 @@ namespace Ml2.Clss
     /// The number of execution slots (threads) to use for constructing the
     /// ensemble.
     /// </summary>    
-    public RandomCommittee<T> NumExecutionSlots (int value) {
-      ((RandomCommittee)Impl).setNumExecutionSlots(value);
+    public RandomCommittee<T> NumExecutionSlots (int numSlots) {
+      ((RandomCommittee)Impl).setNumExecutionSlots(numSlots);
       return this;
     }
 
     /// <summary>
     /// The number of iterations to be performed.
     /// </summary>    
-    public RandomCommittee<T> NumIterations (int value) {
-      ((RandomCommittee)Impl).setNumIterations(value);
+    public RandomCommittee<T> NumIterations (int numIterations) {
+      ((RandomCommittee)Impl).setNumIterations(numIterations);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RandomCommittee<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((RandomCommittee)Impl).setClassifier(value.Impl);
+    public RandomCommittee<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((RandomCommittee)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public RandomCommittee<T> Debug (bool value) {
-      ((RandomCommittee)Impl).setDebug(value);
+    public RandomCommittee<T> Debug (bool debug) {
+      ((RandomCommittee)Impl).setDebug(debug);
       return this;
     }
 

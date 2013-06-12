@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -20,24 +20,24 @@ namespace Ml2.Clss
     /// The level of Gaussian Noise (added to the diagonal of the Covariance
     /// Matrix), after the target has been normalized/standardized/left unchanged).
     /// </summary>    
-    public GaussianProcesses<T> Noise (double value) {
-      ((GaussianProcesses)Impl).setNoise(value);
+    public GaussianProcesses<T> Noise (double v) {
+      ((GaussianProcesses)Impl).setNoise(v);
       return this;
     }
 
     /// <summary>
     /// Determines how/if the data will be transformed.
     /// </summary>    
-    public GaussianProcesses<T> FilterType (EFilterType value) {
-      ((GaussianProcesses)Impl).setFilterType(new SelectedTag((int) value, GaussianProcesses.TAGS_FILTER));
+    public GaussianProcesses<T> FilterType (EFilterType newType) {
+      ((GaussianProcesses)Impl).setFilterType(new weka.core.SelectedTag((int) newType, GaussianProcesses.TAGS_FILTER));
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public GaussianProcesses<T> Debug (bool value) {
-      ((GaussianProcesses)Impl).setDebug(value);
+    public GaussianProcesses<T> Debug (bool debug) {
+      ((GaussianProcesses)Impl).setDebug(debug);
       return this;
     }
 

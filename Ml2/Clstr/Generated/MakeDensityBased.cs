@@ -1,6 +1,7 @@
 using weka.core;
 using weka.clusterers;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   /// <summary>
@@ -16,24 +17,24 @@ namespace Ml2.Clstr
     /// <summary>
     /// the clusterer to wrap
     /// </summary>    
-    public MakeDensityBased<T> Clusterer (Clstr.BaseClusterer<T> value) {
-      ((MakeDensityBasedClusterer)Impl).setClusterer(value.Impl);
+    public MakeDensityBased<T> Clusterer (Clstr.BaseClusterer<T> toWrap) {
+      ((MakeDensityBasedClusterer)Impl).setClusterer(toWrap.Impl);
       return this;
     }
 
     /// <summary>
     /// set minimum allowable standard deviation
     /// </summary>    
-    public MakeDensityBased<T> MinStdDev (double value) {
-      ((MakeDensityBasedClusterer)Impl).setMinStdDev(value);
+    public MakeDensityBased<T> MinStdDev (double m) {
+      ((MakeDensityBasedClusterer)Impl).setMinStdDev(m);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MakeDensityBased<T> NumClusters (int value) {
-      ((MakeDensityBasedClusterer)Impl).setNumClusters(value);
+    public MakeDensityBased<T> NumClusters (int n) {
+      ((MakeDensityBasedClusterer)Impl).setNumClusters(n);
       return this;
     }
 

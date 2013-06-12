@@ -1,5 +1,6 @@
 using weka.core;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Algs
 {
   public class Algorithms<T>

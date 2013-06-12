@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -16,48 +16,48 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public NumericTransform<T> AttributeIndices (string value) {
-      ((NumericTransform)Impl).setAttributeIndices(value);
+    public NumericTransform<T> AttributeIndices (string rangeList) {
+      ((NumericTransform)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
     /// <summary>
     /// Whether to process the inverse of the given attribute ranges.
     /// </summary>    
-    public NumericTransform<T> InvertSelection (bool value) {
-      ((NumericTransform)Impl).setInvertSelection(value);
+    public NumericTransform<T> InvertSelection (bool invert) {
+      ((NumericTransform)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// Name of the class containing the method used for the transformation.
     /// </summary>    
-    public NumericTransform<T> ClassName (string value) {
-      ((NumericTransform)Impl).setClassName(value);
+    public NumericTransform<T> ClassName (string name) {
+      ((NumericTransform)Impl).setClassName(name);
       return this;
     }
 
     /// <summary>
     /// Name of the method used for the transformation.
     /// </summary>    
-    public NumericTransform<T> MethodName (string value) {
-      ((NumericTransform)Impl).setMethodName(value);
+    public NumericTransform<T> MethodName (string name) {
+      ((NumericTransform)Impl).setMethodName(name);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public NumericTransform<T> InputFormat (Runtime<T> value) {
-      ((NumericTransform)Impl).setInputFormat(value.Instances);
+    public NumericTransform<T> InputFormat (Runtime<T> instanceInfo) {
+      ((NumericTransform)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public NumericTransform<T> AttributeIndicesArray (int[] value) {
-      ((NumericTransform)Impl).setAttributeIndicesArray(value);
+    public NumericTransform<T> AttributeIndicesArray (int[] attributes) {
+      ((NumericTransform)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,8 +18,8 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public Remove<T> AttributeIndices (string value) {
-      ((Remove)Impl).setAttributeIndices(value);
+    public Remove<T> AttributeIndices (string rangeList) {
+      ((Remove)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
@@ -28,24 +28,24 @@ namespace Ml2.Fltr
     /// the specified attributes will be kept; If set to false, specified attributes
     /// will be deleted.
     /// </summary>    
-    public Remove<T> InvertSelection (bool value) {
-      ((Remove)Impl).setInvertSelection(value);
+    public Remove<T> InvertSelection (bool invert) {
+      ((Remove)Impl).setInvertSelection(invert);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public Remove<T> InputFormat (Runtime<T> value) {
-      ((Remove)Impl).setInputFormat(value.Instances);
+    public Remove<T> InputFormat (Runtime<T> instanceInfo) {
+      ((Remove)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public Remove<T> AttributeIndicesArray (int[] value) {
-      ((Remove)Impl).setAttributeIndicesArray(value);
+    public Remove<T> AttributeIndicesArray (int[] attributes) {
+      ((Remove)Impl).setAttributeIndicesArray(attributes);
       return this;
     }
 

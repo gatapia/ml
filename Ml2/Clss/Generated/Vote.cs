@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -18,24 +18,24 @@ namespace Ml2.Clss
     /// <summary>
     /// The combination rule used.
     /// </summary>    
-    public Vote<T> CombinationRule (ECombinationRule value) {
-      ((Vote)Impl).setCombinationRule(new SelectedTag((int) value, Vote.TAGS_RULES));
+    public Vote<T> CombinationRule (ECombinationRule newRule) {
+      ((Vote)Impl).setCombinationRule(new weka.core.SelectedTag((int) newRule, Vote.TAGS_RULES));
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public Vote<T> Seed (int value) {
-      ((Vote)Impl).setSeed(value);
+    public Vote<T> Seed (int seed) {
+      ((Vote)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public Vote<T> Debug (bool value) {
-      ((Vote)Impl).setDebug(value);
+    public Vote<T> Debug (bool debug) {
+      ((Vote)Impl).setDebug(debug);
       return this;
     }
 

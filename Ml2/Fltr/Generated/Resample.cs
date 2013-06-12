@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -17,16 +17,16 @@ namespace Ml2.Fltr
     /// <summary>
     /// The seed used for random sampling.
     /// </summary>    
-    public Resample<T> RandomSeed (int value) {
-      ((Resample)Impl).setRandomSeed(value);
+    public Resample<T> RandomSeed (int newSeed) {
+      ((Resample)Impl).setRandomSeed(newSeed);
       return this;
     }
 
     /// <summary>
     /// Size of the subsample as a percentage of the original dataset.
     /// </summary>    
-    public Resample<T> SampleSizePercent (double value) {
-      ((Resample)Impl).setSampleSizePercent(value);
+    public Resample<T> SampleSizePercent (double newSampleSizePercent) {
+      ((Resample)Impl).setSampleSizePercent(newSampleSizePercent);
       return this;
     }
 
@@ -49,8 +49,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public Resample<T> InputFormat (Runtime<T> value) {
-      ((Resample)Impl).setInputFormat(value.Instances);
+    public Resample<T> InputFormat (Runtime<T> instanceInfo) {
+      ((Resample)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

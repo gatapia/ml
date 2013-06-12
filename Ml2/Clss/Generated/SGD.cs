@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -21,16 +21,16 @@ namespace Ml2.Clss
     /// The loss function to use. Hinge loss (SVM), log loss (logistic
     /// regression) or squared loss (regression).
     /// </summary>    
-    public SGD<T> LossFunction (ELossFunction value) {
-      ((SGD)Impl).setLossFunction(new SelectedTag((int) value, SGD.TAGS_SELECTION));
+    public SGD<T> LossFunction (ELossFunction function) {
+      ((SGD)Impl).setLossFunction(new weka.core.SelectedTag((int) function, SGD.TAGS_SELECTION));
       return this;
     }
 
     /// <summary>
     /// The regularization constant. (default = 0.0001)
     /// </summary>    
-    public SGD<T> Lambda (double value) {
-      ((SGD)Impl).setLambda(value);
+    public SGD<T> Lambda (double lambda) {
+      ((SGD)Impl).setLambda(lambda);
       return this;
     }
 
@@ -39,8 +39,8 @@ namespace Ml2.Clss
     /// for streaming data), thenthe default learning rate will need to be reduced
     /// (try 0.0001).
     /// </summary>    
-    public SGD<T> LearningRate (double value) {
-      ((SGD)Impl).setLearningRate(value);
+    public SGD<T> LearningRate (double lr) {
+      ((SGD)Impl).setLearningRate(lr);
       return this;
     }
 
@@ -48,8 +48,8 @@ namespace Ml2.Clss
     /// The number of epochs to perform (batch learning). The total number of
     /// iterations is epochs * num instances.
     /// </summary>    
-    public SGD<T> Epochs (int value) {
-      ((SGD)Impl).setEpochs(value);
+    public SGD<T> Epochs (int e) {
+      ((SGD)Impl).setEpochs(e);
       return this;
     }
 
@@ -59,40 +59,40 @@ namespace Ml2.Clss
     /// insensitive loss. For Huber loss this is the boundary between the quadratic and
     /// linear parts of the loss function.
     /// </summary>    
-    public SGD<T> Epsilon (double value) {
-      ((SGD)Impl).setEpsilon(value);
+    public SGD<T> Epsilon (double e) {
+      ((SGD)Impl).setEpsilon(e);
       return this;
     }
 
     /// <summary>
     /// Turn normalization off
     /// </summary>    
-    public SGD<T> DontNormalize (bool value) {
-      ((SGD)Impl).setDontNormalize(value);
+    public SGD<T> DontNormalize (bool m) {
+      ((SGD)Impl).setDontNormalize(m);
       return this;
     }
 
     /// <summary>
     /// Turn off global replacement of missing values
     /// </summary>    
-    public SGD<T> DontReplaceMissing (bool value) {
-      ((SGD)Impl).setDontReplaceMissing(value);
+    public SGD<T> DontReplaceMissing (bool m) {
+      ((SGD)Impl).setDontReplaceMissing(m);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public SGD<T> Seed (int value) {
-      ((SGD)Impl).setSeed(value);
+    public SGD<T> Seed (int seed) {
+      ((SGD)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public SGD<T> Debug (bool value) {
-      ((SGD)Impl).setDebug(value);
+    public SGD<T> Debug (bool debug) {
+      ((SGD)Impl).setDebug(debug);
       return this;
     }
 

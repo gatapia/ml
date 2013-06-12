@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -21,16 +21,16 @@ namespace Ml2.Clss
     /// <summary>
     /// Number of bins for discretization.
     /// </summary>    
-    public RegressionByDiscretization<T> NumBins (int value) {
-      ((RegressionByDiscretization)Impl).setNumBins(value);
+    public RegressionByDiscretization<T> NumBins (int numBins) {
+      ((RegressionByDiscretization)Impl).setNumBins(numBins);
       return this;
     }
 
     /// <summary>
     /// Whether to delete empty bins after discretization.
     /// </summary>    
-    public RegressionByDiscretization<T> DeleteEmptyBins (bool value) {
-      ((RegressionByDiscretization)Impl).setDeleteEmptyBins(value);
+    public RegressionByDiscretization<T> DeleteEmptyBins (bool b) {
+      ((RegressionByDiscretization)Impl).setDeleteEmptyBins(b);
       return this;
     }
 
@@ -38,40 +38,40 @@ namespace Ml2.Clss
     /// If set to true, equal-frequency binning will be used instead of
     /// equal-width binning.
     /// </summary>    
-    public RegressionByDiscretization<T> UseEqualFrequency (bool value) {
-      ((RegressionByDiscretization)Impl).setUseEqualFrequency(value);
+    public RegressionByDiscretization<T> UseEqualFrequency (bool newUseEqualFrequency) {
+      ((RegressionByDiscretization)Impl).setUseEqualFrequency(newUseEqualFrequency);
       return this;
     }
 
     /// <summary>
     /// Whether to minimize absolute error.
     /// </summary>    
-    public RegressionByDiscretization<T> MinimizeAbsoluteError (bool value) {
-      ((RegressionByDiscretization)Impl).setMinimizeAbsoluteError(value);
+    public RegressionByDiscretization<T> MinimizeAbsoluteError (bool b) {
+      ((RegressionByDiscretization)Impl).setMinimizeAbsoluteError(b);
       return this;
     }
 
     /// <summary>
     /// The density estimator to use.
     /// </summary>    
-    public RegressionByDiscretization<T> EstimatorType (EEstimatorType value) {
-      ((RegressionByDiscretization)Impl).setEstimatorType(new SelectedTag((int) value, RegressionByDiscretization.TAGS_ESTIMATOR));
+    public RegressionByDiscretization<T> EstimatorType (EEstimatorType newEstimator) {
+      ((RegressionByDiscretization)Impl).setEstimatorType(new weka.core.SelectedTag((int) newEstimator, RegressionByDiscretization.TAGS_ESTIMATOR));
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RegressionByDiscretization<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((RegressionByDiscretization)Impl).setClassifier(value.Impl);
+    public RegressionByDiscretization<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((RegressionByDiscretization)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public RegressionByDiscretization<T> Debug (bool value) {
-      ((RegressionByDiscretization)Impl).setDebug(value);
+    public RegressionByDiscretization<T> Debug (bool debug) {
+      ((RegressionByDiscretization)Impl).setDebug(debug);
       return this;
     }
 

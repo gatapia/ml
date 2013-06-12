@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,40 +17,40 @@ namespace Ml2.Clss
     /// <summary>
     /// The maximum number of alterations to the perceptron.
     /// </summary>    
-    public VotedPerceptron<T> MaxK (int value) {
-      ((VotedPerceptron)Impl).setMaxK(value);
+    public VotedPerceptron<T> MaxK (int v) {
+      ((VotedPerceptron)Impl).setMaxK(v);
       return this;
     }
 
     /// <summary>
     /// Number of iterations to be performed.
     /// </summary>    
-    public VotedPerceptron<T> NumIterations (int value) {
-      ((VotedPerceptron)Impl).setNumIterations(value);
+    public VotedPerceptron<T> NumIterations (int v) {
+      ((VotedPerceptron)Impl).setNumIterations(v);
       return this;
     }
 
     /// <summary>
     /// Exponent for the polynomial kernel.
     /// </summary>    
-    public VotedPerceptron<T> Exponent (double value) {
-      ((VotedPerceptron)Impl).setExponent(value);
+    public VotedPerceptron<T> Exponent (double v) {
+      ((VotedPerceptron)Impl).setExponent(v);
       return this;
     }
 
     /// <summary>
     /// Seed for the random number generator.
     /// </summary>    
-    public VotedPerceptron<T> Seed (int value) {
-      ((VotedPerceptron)Impl).setSeed(value);
+    public VotedPerceptron<T> Seed (int v) {
+      ((VotedPerceptron)Impl).setSeed(v);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public VotedPerceptron<T> Debug (bool value) {
-      ((VotedPerceptron)Impl).setDebug(value);
+    public VotedPerceptron<T> Debug (bool debug) {
+      ((VotedPerceptron)Impl).setDebug(debug);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -17,8 +17,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The clusterer to assign clusters with.
     /// </summary>    
-    public AddCluster<T> Clusterer (Clstr.BaseClusterer<T> value) {
-      ((AddCluster)Impl).setClusterer(value.Impl);
+    public AddCluster<T> Clusterer (Clstr.BaseClusterer<T> clusterer) {
+      ((AddCluster)Impl).setClusterer(clusterer.Impl);
       return this;
     }
 
@@ -26,16 +26,16 @@ namespace Ml2.Fltr
     /// The range of attributes to be ignored by the clusterer. eg:
     /// first-3,5,9-last
     /// </summary>    
-    public AddCluster<T> IgnoredAttributeIndices (string value) {
-      ((AddCluster)Impl).setIgnoredAttributeIndices(value);
+    public AddCluster<T> IgnoredAttributeIndices (string rangeList) {
+      ((AddCluster)Impl).setIgnoredAttributeIndices(rangeList);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public AddCluster<T> InputFormat (Runtime<T> value) {
-      ((AddCluster)Impl).setInputFormat(value.Instances);
+    public AddCluster<T> InputFormat (Runtime<T> instanceInfo) {
+      ((AddCluster)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

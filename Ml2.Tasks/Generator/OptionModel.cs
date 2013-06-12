@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using weka.core;
 
 namespace Ml2.Tasks.Generator
 {
@@ -44,29 +46,45 @@ namespace Ml2.Tasks.Generator
       {
         try
         {
-          if (!String.IsNullOrEmpty(TemplatedSetters.GetSetterTemplate(this))) return true;
-          var ot = OptionType;
-          return true;
+          return !String.IsNullOrEmpty(TemplatedSetters.GetSetterTemplate(this)) || 
+              OptionArgsTypes != null;
         }
         catch (NotSupportedException)
         {
-          Console.WriteLine("\tOption: " + Method.Name + " of internal type: " + 
-              GetParameterType().Name + " is not supported.");
-        } catch (InvalidOperationException)
-        {
-          Console.WriteLine("Error with method [" + Method.Name + "] with multiple parameters: [" + 
-            String.Join(", ", Method.GetParameters().Select(p => p.Name)) +"]");
-        }
+          Console.WriteLine("\tOption: " + Method.Name + " of internal types [" + 
+              String.Join(", ", Method.GetParameters().Select(p => p.ParameterType.Name)) + 
+                  "] is not supported.");
+        } 
         return false;
       }
     }
 
-    public string OptionType
+    private string[] OptionArgsTypes
     {
       get
       {
-        var raw = GetParameterType().Name;
-        switch (raw)
+        return Method.GetParameters().Select(GetCsSafeType).ToArray();        
+      }
+    }
+
+    private string[] OptionArgsNames
+    {
+      get
+      {
+        return Method.GetParameters().Select(GetCsSafeName).ToArray();        
+      }
+    }
+
+    private string GetCsSafeName(ParameterInfo pi) {
+      switch (pi.Name) {
+        case "bool":
+          return "value";
+        default: return pi.Name;
+      }
+    }
+
+    private string GetCsSafeType(ParameterInfo pi) {
+      switch (pi.ParameterType.Name)
         {
           case "Boolean": return "bool";
           case "String": return "string";
@@ -84,31 +102,32 @@ namespace Ml2.Tasks.Generator
             }
             return Utils.GetEnumNameFromSetter(Method.Name);
           default:
-            throw new NotSupportedException("Type: " + raw + " not supported.");
+            throw new NotSupportedException("Type: " + pi.ParameterType.Name + " not supported.");
         }
-      }
     }
 
     public string SetterCode {
       get {  
         var templated = TemplatedSetters.GetSetterTemplate(this);
         if (!String.IsNullOrEmpty(templated)) return templated;
-        var setterimpl = GetParameterType().Name == "SelectedTag" ?
-          "((" + Model.ImplTypeName + ")Impl)." + Method.Name + "(new SelectedTag((int) value, " + Model.ImplTypeName + "." + Utils.GetEnumImplType(Method).Name + "));" :
-          "((" + Model.ImplTypeName + ")Impl)." + OptionImplSetterName + "(value);";
 
-        return Utils.GetSetterCode(OptionDescription, Model.TypeName, OptionName, OptionType, setterimpl);
+        var args = GetPassedArgumentNames();
+        var impl = String.Format("(({0})Impl).{1}({2});", Model.ImplTypeName, Method.Name, args);
+        var signature = OptionArgsTypes.Zip(OptionArgsNames, (a, b) => a + " " + b).ToArray();
+        return Utils.GetSetterCode(OptionDescription, Model.TypeName, OptionName, signature, impl);
       }
     }
 
-    private Type GetParameterType()
-    {
-      return Method.GetParameters().Single().ParameterType;
-    }
-
-    public string OptionImplSetterName
-    {
-      get { return Method.Name; }
-    }
+    private string GetPassedArgumentNames() {
+      var args = new List<string>();
+      foreach (var pi in Method.GetParameters()) {
+        var name = GetCsSafeName(pi);
+        var type = pi.ParameterType;
+        
+        if (type == typeof (SelectedTag)) { name = String.Format("new weka.core.SelectedTag((int) {1}, {0}.{2})", Model.ImplTypeName, name, Utils.GetEnumImplType(Method).Name); }
+        args.Add(name);
+      }
+      return String.Join(", ", args);
+    }    
   }
 }

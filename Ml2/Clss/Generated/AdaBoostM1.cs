@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -18,48 +18,48 @@ namespace Ml2.Clss
     /// <summary>
     /// Weight threshold for weight pruning.
     /// </summary>    
-    public AdaBoostM1<T> WeightThreshold (int value) {
-      ((AdaBoostM1)Impl).setWeightThreshold(value);
+    public AdaBoostM1<T> WeightThreshold (int threshold) {
+      ((AdaBoostM1)Impl).setWeightThreshold(threshold);
       return this;
     }
 
     /// <summary>
     /// Whether resampling is used instead of reweighting.
     /// </summary>    
-    public AdaBoostM1<T> UseResampling (bool value) {
-      ((AdaBoostM1)Impl).setUseResampling(value);
+    public AdaBoostM1<T> UseResampling (bool r) {
+      ((AdaBoostM1)Impl).setUseResampling(r);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public AdaBoostM1<T> Seed (int value) {
-      ((AdaBoostM1)Impl).setSeed(value);
+    public AdaBoostM1<T> Seed (int seed) {
+      ((AdaBoostM1)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// The number of iterations to be performed.
     /// </summary>    
-    public AdaBoostM1<T> NumIterations (int value) {
-      ((AdaBoostM1)Impl).setNumIterations(value);
+    public AdaBoostM1<T> NumIterations (int numIterations) {
+      ((AdaBoostM1)Impl).setNumIterations(numIterations);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdaBoostM1<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((AdaBoostM1)Impl).setClassifier(value.Impl);
+    public AdaBoostM1<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((AdaBoostM1)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public AdaBoostM1<T> Debug (bool value) {
-      ((AdaBoostM1)Impl).setDebug(value);
+    public AdaBoostM1<T> Debug (bool debug) {
+      ((AdaBoostM1)Impl).setDebug(debug);
       return this;
     }
 

@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.meta;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -17,8 +17,8 @@ namespace Ml2.Clss
     /// Sets the method to use for transforming the multi-class problem into
     /// several 2-class ones.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> Method (EMethod value) {
-      ((MultiClassClassifierUpdateable)Impl).setMethod(new SelectedTag((int) value, MultiClassClassifierUpdateable.TAGS_METHOD));
+    public MultiClassClassifierUpdateable<T> Method (EMethod newMethod) {
+      ((MultiClassClassifierUpdateable)Impl).setMethod(new weka.core.SelectedTag((int) newMethod, MultiClassClassifierUpdateable.TAGS_METHOD));
       return this;
     }
 
@@ -26,40 +26,40 @@ namespace Ml2.Clss
     /// Sets the width multiplier when using random codes. The number of codes
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> RandomWidthFactor (double value) {
-      ((MultiClassClassifierUpdateable)Impl).setRandomWidthFactor(value);
+    public MultiClassClassifierUpdateable<T> RandomWidthFactor (double newRandomWidthFactor) {
+      ((MultiClassClassifierUpdateable)Impl).setRandomWidthFactor(newRandomWidthFactor);
       return this;
     }
 
     /// <summary>
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> UsePairwiseCoupling (bool value) {
-      ((MultiClassClassifierUpdateable)Impl).setUsePairwiseCoupling(value);
+    public MultiClassClassifierUpdateable<T> UsePairwiseCoupling (bool p) {
+      ((MultiClassClassifierUpdateable)Impl).setUsePairwiseCoupling(p);
       return this;
     }
 
     /// <summary>
     /// The random number seed to be used.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> Seed (int value) {
-      ((MultiClassClassifierUpdateable)Impl).setSeed(value);
+    public MultiClassClassifierUpdateable<T> Seed (int seed) {
+      ((MultiClassClassifierUpdateable)Impl).setSeed(seed);
       return this;
     }
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> Classifier (Clss.BaseClassifier<T> value) {
-      ((MultiClassClassifierUpdateable)Impl).setClassifier(value.Impl);
+    public MultiClassClassifierUpdateable<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+      ((MultiClassClassifierUpdateable)Impl).setClassifier(newClassifier.Impl);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> Debug (bool value) {
-      ((MultiClassClassifierUpdateable)Impl).setDebug(value);
+    public MultiClassClassifierUpdateable<T> Debug (bool debug) {
+      ((MultiClassClassifierUpdateable)Impl).setDebug(debug);
       return this;
     }
 

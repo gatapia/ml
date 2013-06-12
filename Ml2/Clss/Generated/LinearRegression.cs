@@ -1,6 +1,6 @@
-using weka.core;
 using weka.classifiers.functions;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
   /// <summary>
@@ -19,24 +19,24 @@ namespace Ml2.Clss
     /// of the error given by the Akaike information criterion), and a greedy
     /// selection using the Akaike information metric.
     /// </summary>    
-    public LinearRegression<T> AttributeSelectionMethod (EAttributeSelectionMethod value) {
-      ((LinearRegression)Impl).setAttributeSelectionMethod(new SelectedTag((int) value, LinearRegression.TAGS_SELECTION));
+    public LinearRegression<T> AttributeSelectionMethod (EAttributeSelectionMethod method) {
+      ((LinearRegression)Impl).setAttributeSelectionMethod(new weka.core.SelectedTag((int) method, LinearRegression.TAGS_SELECTION));
       return this;
     }
 
     /// <summary>
     /// The value of the Ridge parameter.
     /// </summary>    
-    public LinearRegression<T> Ridge (double value) {
-      ((LinearRegression)Impl).setRidge(value);
+    public LinearRegression<T> Ridge (double newRidge) {
+      ((LinearRegression)Impl).setRidge(newRidge);
       return this;
     }
 
     /// <summary>
     /// Eliminate colinear attributes.
     /// </summary>    
-    public LinearRegression<T> EliminateColinearAttributes (bool value) {
-      ((LinearRegression)Impl).setEliminateColinearAttributes(value);
+    public LinearRegression<T> EliminateColinearAttributes (bool newEliminateColinearAttributes) {
+      ((LinearRegression)Impl).setEliminateColinearAttributes(newEliminateColinearAttributes);
       return this;
     }
 
@@ -52,8 +52,8 @@ namespace Ml2.Clss
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public LinearRegression<T> Debug (bool value) {
-      ((LinearRegression)Impl).setDebug(value);
+    public LinearRegression<T> Debug (bool debug) {
+      ((LinearRegression)Impl).setDebug(debug);
       return this;
     }
 

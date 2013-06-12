@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -19,24 +19,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// Set the name of the new attribute.
     /// </summary>    
-    public AddExpression<T> Name (string value) {
-      ((AddExpression)Impl).setName(value);
+    public AddExpression<T> Name (string name) {
+      ((AddExpression)Impl).setName(name);
       return this;
     }
 
     /// <summary>
     /// Set the math expression to apply. Eg. a1^2*a5/log(a7*4.0)
     /// </summary>    
-    public AddExpression<T> Expression (string value) {
-      ((AddExpression)Impl).setExpression(value);
+    public AddExpression<T> Expression (string expr) {
+      ((AddExpression)Impl).setExpression(expr);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public AddExpression<T> InputFormat (Runtime<T> value) {
-      ((AddExpression)Impl).setInputFormat(value.Instances);
+    public AddExpression<T> InputFormat (Runtime<T> instanceInfo) {
+      ((AddExpression)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -44,8 +44,8 @@ namespace Ml2.Fltr
     /// Set debug mode. If true then the new attribute will be named with the
     /// postfix parse of the supplied expression.
     /// </summary>    
-    public AddExpression<T> Debug (bool value) {
-      ((AddExpression)Impl).setDebug(value);
+    public AddExpression<T> Debug (bool d) {
+      ((AddExpression)Impl).setDebug(d);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,8 +15,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The base filters to be used.
     /// </summary>    
-    public MultiFilter<T> Filters (Fltr.BaseFilter<T>[] value) {
-      ((MultiFilter)Impl).setFilters(value.Select(v => v.Impl).ToArray());
+    public MultiFilter<T> Filters (Fltr.BaseFilter<T>[] filters) {
+      ((MultiFilter)Impl).setFilters(filters.Select(v => v.Impl).ToArray());
       return this;
     }
 
@@ -31,8 +31,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public MultiFilter<T> InputFormat (Runtime<T> value) {
-      ((MultiFilter)Impl).setInputFormat(value.Instances);
+    public MultiFilter<T> InputFormat (Runtime<T> instanceInfo) {
+      ((MultiFilter)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,16 +18,16 @@ namespace Ml2.Fltr
     /// Sets which attribute should be replaced by the indicator. This attribute
     /// must be nominal.
     /// </summary>    
-    public MakeIndicator<T> AttributeIndex (string value) {
-      ((MakeIndicator)Impl).setAttributeIndex(value);
+    public MakeIndicator<T> AttributeIndex (string attIndex) {
+      ((MakeIndicator)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MakeIndicator<T> ValueIndex (int value) {
-      ((MakeIndicator)Impl).setValueIndex(value);
+    public MakeIndicator<T> ValueIndex (int index) {
+      ((MakeIndicator)Impl).setValueIndex(index);
       return this;
     }
 
@@ -43,8 +43,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public MakeIndicator<T> InputFormat (Runtime<T> value) {
-      ((MakeIndicator)Impl).setInputFormat(value.Instances);
+    public MakeIndicator<T> InputFormat (Runtime<T> instanceInfo) {
+      ((MakeIndicator)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -53,16 +53,16 @@ namespace Ml2.Fltr
     /// of attribute indices (numbered from 1), with "first" and "last" valid
     /// values. Specify an inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public MakeIndicator<T> ValueIndices (string value) {
-      ((MakeIndicator)Impl).setValueIndices(value);
+    public MakeIndicator<T> ValueIndices (string range) {
+      ((MakeIndicator)Impl).setValueIndices(range);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MakeIndicator<T> ValueIndicesArray (int[] value) {
-      ((MakeIndicator)Impl).setValueIndicesArray(value);
+    public MakeIndicator<T> ValueIndicesArray (int[] indices) {
+      ((MakeIndicator)Impl).setValueIndicesArray(indices);
       return this;
     }
 

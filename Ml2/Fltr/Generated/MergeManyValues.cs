@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -15,32 +15,32 @@ namespace Ml2.Fltr
     /// Sets which attribute to process. This attribute must be nominal ("first"
     /// and "last" are valid values)
     /// </summary>    
-    public MergeManyValues<T> AttributeIndex (string value) {
-      ((MergeManyValues)Impl).setAttributeIndex(value);
+    public MergeManyValues<T> AttributeIndex (string attIndex) {
+      ((MergeManyValues)Impl).setAttributeIndex(attIndex);
       return this;
     }
 
     /// <summary>
     /// The new label for the merged values.
     /// </summary>    
-    public MergeManyValues<T> Label (string value) {
-      ((MergeManyValues)Impl).setLabel(value);
+    public MergeManyValues<T> Label (string alabel) {
+      ((MergeManyValues)Impl).setLabel(alabel);
       return this;
     }
 
     /// <summary>
     /// The range of values to merge.
     /// </summary>    
-    public MergeManyValues<T> MergeValueRange (string value) {
-      ((MergeManyValues)Impl).setMergeValueRange(value);
+    public MergeManyValues<T> MergeValueRange (string range) {
+      ((MergeManyValues)Impl).setMergeValueRange(range);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public MergeManyValues<T> InputFormat (Runtime<T> value) {
-      ((MergeManyValues)Impl).setInputFormat(value.Instances);
+    public MergeManyValues<T> InputFormat (Runtime<T> instanceInfo) {
+      ((MergeManyValues)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

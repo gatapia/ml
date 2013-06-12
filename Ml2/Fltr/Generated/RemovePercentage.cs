@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.instance;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -14,24 +14,24 @@ namespace Ml2.Fltr
     /// <summary>
     /// The percentage of the data to select.
     /// </summary>    
-    public RemovePercentage<T> Percentage (double value) {
-      ((RemovePercentage)Impl).setPercentage(value);
+    public RemovePercentage<T> Percentage (double percent) {
+      ((RemovePercentage)Impl).setPercentage(percent);
       return this;
     }
 
     /// <summary>
     /// Whether to invert the selection.
     /// </summary>    
-    public RemovePercentage<T> InvertSelection (bool value) {
-      ((RemovePercentage)Impl).setInvertSelection(value);
+    public RemovePercentage<T> InvertSelection (bool inverse) {
+      ((RemovePercentage)Impl).setInvertSelection(inverse);
       return this;
     }
 
     /// <summary>
     /// 
     /// </summary>    
-    public RemovePercentage<T> InputFormat (Runtime<T> value) {
-      ((RemovePercentage)Impl).setInputFormat(value.Instances);
+    public RemovePercentage<T> InputFormat (Runtime<T> instanceInfo) {
+      ((RemovePercentage)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 

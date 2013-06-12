@@ -1,7 +1,7 @@
-using weka.core;
 using weka.filters.unsupervised.attribute;
 using System.Linq;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
   /// <summary>
@@ -18,8 +18,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public NominalToBinary<T> InputFormat (Runtime<T> value) {
-      ((NominalToBinary)Impl).setInputFormat(value.Instances);
+    public NominalToBinary<T> InputFormat (Runtime<T> instanceInfo) {
+      ((NominalToBinary)Impl).setInputFormat(instanceInfo.Instances);
       return this;
     }
 
@@ -28,8 +28,8 @@ namespace Ml2.Fltr
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
-    public NominalToBinary<T> AttributeIndices (string value) {
-      ((NominalToBinary)Impl).setAttributeIndices(value);
+    public NominalToBinary<T> AttributeIndices (string rangeList) {
+      ((NominalToBinary)Impl).setAttributeIndices(rangeList);
       return this;
     }
 
@@ -55,8 +55,8 @@ namespace Ml2.Fltr
     /// attributes in the range will be discretized; if true, only non-selected attributes
     /// will be discretized.
     /// </summary>    
-    public NominalToBinary<T> InvertSelection (bool value) {
-      ((NominalToBinary)Impl).setInvertSelection(value);
+    public NominalToBinary<T> InvertSelection (bool invert) {
+      ((NominalToBinary)Impl).setInvertSelection(invert);
       return this;
     }
 

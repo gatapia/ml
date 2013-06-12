@@ -28,14 +28,15 @@ namespace Ml2.Tasks.Generator.Fltr
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using weka.core;\r\nusing ");
+            this.Write("using ");
             
-            #line 7 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\FilterAlgorithm.tt"
+            #line 6 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\FilterAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeNamespace));
             
             #line default
             #line hidden
-            this.Write(";\r\nusing System.Linq;\r\n\r\nnamespace Ml2.Fltr\r\n{\r\n  /// <summary>\r\n  /// ");
+            this.Write(";\r\nusing System.Linq;\r\n\r\n// ReSharper disable once CheckNamespace\r\nnamespace Ml2." +
+                    "Fltr\r\n{\r\n  /// <summary>\r\n  /// ");
             
             #line 13 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\FilterAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetClassDescription("  /// ")));

@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   public class Clusterers<T>

@@ -1,6 +1,7 @@
 using weka.core;
 using weka.clusterers;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
   /// <summary>
@@ -15,16 +16,16 @@ namespace Ml2.Clstr
     /// Sets the number of clusters. If a single hierarchy is desired, set this
     /// to 1.
     /// </summary>    
-    public Hierarchical<T> NumClusters (int value) {
-      ((HierarchicalClusterer)Impl).setNumClusters(value);
+    public Hierarchical<T> NumClusters (int nClusters) {
+      ((HierarchicalClusterer)Impl).setNumClusters(nClusters);
       return this;
     }
 
     /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
-    public Hierarchical<T> Debug (bool value) {
-      ((HierarchicalClusterer)Impl).setDebug(value);
+    public Hierarchical<T> Debug (bool debug) {
+      ((HierarchicalClusterer)Impl).setDebug(debug);
       return this;
     }
 
@@ -35,8 +36,8 @@ namespace Ml2.Clstr
     /// interpreted as branch length. Set this flag to get the latter
     /// interpretation.
     /// </summary>    
-    public Hierarchical<T> DistanceIsBranchLength (bool value) {
-      ((HierarchicalClusterer)Impl).setDistanceIsBranchLength(value);
+    public Hierarchical<T> DistanceIsBranchLength (bool bDistanceIsHeight) {
+      ((HierarchicalClusterer)Impl).setDistanceIsBranchLength(bDistanceIsHeight);
       return this;
     }
 
@@ -55,8 +56,8 @@ namespace Ml2.Clstr
     /// centroids of the cluster and its members. NEIGHBOR_JOINING use neighbor
     /// joining algorithm.
     /// </summary>    
-    public Hierarchical<T> LinkType (ELinkType value) {
-      ((HierarchicalClusterer)Impl).setLinkType(new SelectedTag((int) value, HierarchicalClusterer.TAGS_LINK_TYPE));
+    public Hierarchical<T> LinkType (ELinkType newLinkType) {
+      ((HierarchicalClusterer)Impl).setLinkType(new weka.core.SelectedTag((int) newLinkType, HierarchicalClusterer.TAGS_LINK_TYPE));
       return this;
     }
 
@@ -66,8 +67,8 @@ namespace Ml2.Clstr
     /// a lot of text may be produced, which may not be a nuisance when the Newick
     /// format is not required
     /// </summary>    
-    public Hierarchical<T> PrintNewick (bool value) {
-      ((HierarchicalClusterer)Impl).setPrintNewick(value);
+    public Hierarchical<T> PrintNewick (bool bPrintNewick) {
+      ((HierarchicalClusterer)Impl).setPrintNewick(bPrintNewick);
       return this;
     }
 

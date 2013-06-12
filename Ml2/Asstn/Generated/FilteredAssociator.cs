@@ -1,6 +1,7 @@
 using weka.core;
 using weka.associations;
 
+// ReSharper disable once CheckNamespace
 namespace Ml2.Asstn
 {
   /// <summary>

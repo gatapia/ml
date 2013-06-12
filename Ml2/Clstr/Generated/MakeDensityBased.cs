@@ -14,10 +14,18 @@ namespace Ml2.Clstr
     public MakeDensityBased(Runtime<T> rt) : base(rt, new MakeDensityBasedClusterer()) {}
 
     /// <summary>
+    /// the clusterer to wrap
+    /// </summary>    
+    public MakeDensityBased<T> Clusterer (Clstr.BaseClusterer<T> value) {
+      ((MakeDensityBasedClusterer)Impl).setClusterer(value.Impl);
+      return this;
+    }
+
+    /// <summary>
     /// set minimum allowable standard deviation
     /// </summary>    
     public MakeDensityBased<T> MinStdDev (double value) {
-      ((MakeDensityBasedClusterer)impl).setMinStdDev(value);
+      ((MakeDensityBasedClusterer)Impl).setMinStdDev(value);
       return this;
     }
 
@@ -25,7 +33,7 @@ namespace Ml2.Clstr
     /// 
     /// </summary>    
     public MakeDensityBased<T> NumClusters (int value) {
-      ((MakeDensityBasedClusterer)impl).setNumClusters(value);
+      ((MakeDensityBasedClusterer)Impl).setNumClusters(value);
       return this;
     }
 

@@ -16,9 +16,9 @@ namespace Ml2.AttrSel.Algs
     /// Ranker will not evaluate the attributes in this list. This is specified as a
     /// comma seperated list off attribute indexes starting at 1. It can include
     /// ranges. Eg. 1,2,5-9,17.
-    /// </summary>
+    /// </summary>    
     public Ranker<T> StartSet (string value) {
-      ((Ranker)impl).setStartSet(value);
+      ((Ranker)Impl).setStartSet(value);
       return this;
     }
 
@@ -26,9 +26,9 @@ namespace Ml2.AttrSel.Algs
     /// Set threshold by which attributes can be discarded. Default value results
     /// in no attributes being discarded. Use either this option or numToSelect to
     /// reduce the attribute set.
-    /// </summary>
+    /// </summary>    
     public Ranker<T> Threshold (double value) {
-      ((Ranker)impl).setThreshold(value);
+      ((Ranker)Impl).setThreshold(value);
       return this;
     }
 
@@ -36,18 +36,18 @@ namespace Ml2.AttrSel.Algs
     /// Specify the number of attributes to retain. The default value (-1)
     /// indicates that all attributes are to be retained. Use either this option or a
     /// threshold to reduce the attribute set.
-    /// </summary>
+    /// </summary>    
     public Ranker<T> NumToSelect (int value) {
-      ((Ranker)impl).setNumToSelect(value);
+      ((Ranker)Impl).setNumToSelect(value);
       return this;
     }
 
     /// <summary>
     /// A constant option. Ranker is only capable of generating attribute
     /// rankings.
-    /// </summary>
+    /// </summary>    
     public Ranker<T> GenerateRanking (bool value) {
-      ((Ranker)impl).setGenerateRanking(value);
+      ((Ranker)Impl).setGenerateRanking(value);
       return this;
     }
 

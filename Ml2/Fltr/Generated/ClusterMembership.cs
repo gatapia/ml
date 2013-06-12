@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -20,7 +21,15 @@ namespace Ml2.Fltr
     /// first-3,5,9-last
     /// </summary>    
     public ClusterMembership<T> IgnoredAttributeIndices (string value) {
-      ((ClusterMembership)impl).setIgnoredAttributeIndices(value);
+      ((ClusterMembership)Impl).setIgnoredAttributeIndices(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public ClusterMembership<T> InputFormat (Runtime<T> value) {
+      ((ClusterMembership)Impl).setInputFormat(value.Instances);
       return this;
     }
 

@@ -70,72 +70,44 @@ namespace Ml2.Tasks.Generator.AttrSel
             
             #line default
             #line hidden
-            this.Write("    /// <summary>\r\n    /// ");
+            this.Write("    ");
             
-            #line 20 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionDescription));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    /// </summary>    \r\n    public ");
-            
-            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
-            
-            #line default
-            #line hidden
-            this.Write("<T> ");
-            
-            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionName));
-            
-            #line default
-            #line hidden
-            this.Write(" (");
-            
-            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(o.OptionType));
-            
-            #line default
-            #line hidden
-            this.Write(" value) {\r\n      ");
-            
-            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.SetterCode));
             
             #line default
             #line hidden
-            this.Write("\r\n      return this;\r\n    }\r\n\r\n");
+            this.Write("\r\n\r\n");
             
-            #line 27 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
+            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
  }); 
             
             #line default
             #line hidden
             this.Write("            \r\n");
             
-            #line 28 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
  Array.ForEach(Model.Enumerations, e => { 
             
             #line default
             #line hidden
             this.Write("    public enum ");
             
-            #line 29 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
+            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(e.Name));
             
             #line default
             #line hidden
             this.Write(" {\r\n      ");
             
-            #line 30 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
+            #line 24 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(",\n      ", e.Values.Select(v => v.Key + " = " + v.Value))));
             
             #line default
             #line hidden
             this.Write("\r\n    }\r\n\r\n");
             
-            #line 33 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
+            #line 27 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionEvaluator.tt"
  }); 
             
             #line default

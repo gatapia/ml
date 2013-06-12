@@ -15,7 +15,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public ZeroR<T> Debug (bool value) {
-      ((ZeroR)impl).setDebug(value);
+      ((ZeroR)Impl).setDebug(value);
       return this;
     }
 

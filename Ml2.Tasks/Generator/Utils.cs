@@ -55,5 +55,15 @@ namespace Ml2.Tasks.Generator
       var alltaggs = statics.Where(f => f.PropertyType == typeof(Tag[])).ToArray();
       return alltaggs.Single();
     }
+
+    public static string GetSetterCode(string summary, string modeltype, string settername, string settertype, string impl) {
+      return String.Format(@"/// <summary>
+    /// {0}
+    /// </summary>    
+    public {1}<T> {2} ({3} value) {{
+      {4}
+      return this;
+    }}", summary, modeltype, settername, settertype, impl);
+    }
   }
 }

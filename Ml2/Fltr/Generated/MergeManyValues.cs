@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public MergeManyValues<T> AttributeIndex (string value) {
-      ((MergeManyValues)impl).setAttributeIndex(value);
+      ((MergeManyValues)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Fltr
     /// The new label for the merged values.
     /// </summary>    
     public MergeManyValues<T> Label (string value) {
-      ((MergeManyValues)impl).setLabel(value);
+      ((MergeManyValues)Impl).setLabel(value);
       return this;
     }
 
@@ -31,7 +32,15 @@ namespace Ml2.Fltr
     /// The range of values to merge.
     /// </summary>    
     public MergeManyValues<T> MergeValueRange (string value) {
-      ((MergeManyValues)impl).setMergeValueRange(value);
+      ((MergeManyValues)Impl).setMergeValueRange(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public MergeManyValues<T> InputFormat (Runtime<T> value) {
+      ((MergeManyValues)Impl).setInputFormat(value.Instances);
       return this;
     }
 

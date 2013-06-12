@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,15 @@ namespace Ml2.Fltr
     /// will be deleted.
     /// </summary>    
     public RemoveType<T> InvertSelection (bool value) {
-      ((RemoveType)impl).setInvertSelection(value);
+      ((RemoveType)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveType<T> InputFormat (Runtime<T> value) {
+      ((RemoveType)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -24,7 +33,7 @@ namespace Ml2.Fltr
     /// The type of attribute to remove.
     /// </summary>    
     public RemoveType<T> AttributeType (EAttributeType value) {
-      ((RemoveType)impl).setAttributeType(new SelectedTag((int) value, RemoveType.TAGS_ATTRIBUTETYPE));
+      ((RemoveType)Impl).setAttributeType(new SelectedTag((int) value, RemoveType.TAGS_ATTRIBUTETYPE));
       return this;
     }
 

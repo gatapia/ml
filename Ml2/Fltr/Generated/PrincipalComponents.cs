@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,7 +19,7 @@ namespace Ml2.Fltr
     /// Retain enough PC attributes to account for this proportion of variance.
     /// </summary>    
     public PrincipalComponents<T> VarianceCovered (double value) {
-      ((PrincipalComponents)impl).setVarianceCovered(value);
+      ((PrincipalComponents)Impl).setVarianceCovered(value);
       return this;
     }
 
@@ -27,7 +28,7 @@ namespace Ml2.Fltr
     /// names.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributeNames (int value) {
-      ((PrincipalComponents)impl).setMaximumAttributeNames(value);
+      ((PrincipalComponents)Impl).setMaximumAttributeNames(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Fltr
     /// The maximum number of PC attributes to retain.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributes (int value) {
-      ((PrincipalComponents)impl).setMaximumAttributes(value);
+      ((PrincipalComponents)Impl).setMaximumAttributes(value);
       return this;
     }
 
@@ -44,7 +45,15 @@ namespace Ml2.Fltr
     /// covariance (rather than correlation) matrix
     /// </summary>    
     public PrincipalComponents<T> CenterData (bool value) {
-      ((PrincipalComponents)impl).setCenterData(value);
+      ((PrincipalComponents)Impl).setCenterData(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public PrincipalComponents<T> InputFormat (Runtime<T> value) {
+      ((PrincipalComponents)Impl).setInputFormat(value.Instances);
       return this;
     }
 

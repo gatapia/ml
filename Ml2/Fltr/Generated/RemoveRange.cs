@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -14,7 +15,7 @@ namespace Ml2.Fltr
     /// The range of instances to select. First and last are valid indexes.
     /// </summary>    
     public RemoveRange<T> InstancesIndices (string value) {
-      ((RemoveRange)impl).setInstancesIndices(value);
+      ((RemoveRange)Impl).setInstancesIndices(value);
       return this;
     }
 
@@ -22,7 +23,15 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public RemoveRange<T> InvertSelection (bool value) {
-      ((RemoveRange)impl).setInvertSelection(value);
+      ((RemoveRange)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveRange<T> InputFormat (Runtime<T> value) {
+      ((RemoveRange)Impl).setInputFormat(value.Instances);
       return this;
     }
 

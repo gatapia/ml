@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -14,13 +15,21 @@ namespace Ml2.Fltr
     public RemoveUseless(Runtime<T> rt) : base(rt, new RemoveUseless()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveUseless<T> InputFormat (Runtime<T> value) {
+      ((RemoveUseless)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// Set the threshold for the highest variance allowed before a nominal
     /// attribute will be deleted.Specifically, if (number_of_distinct_values /
     /// total_number_of_values * 100) is greater than this value then the attribute will be
     /// removed.
     /// </summary>    
     public RemoveUseless<T> MaximumVariancePercentageAllowed (double value) {
-      ((RemoveUseless)impl).setMaximumVariancePercentageAllowed(value);
+      ((RemoveUseless)Impl).setMaximumVariancePercentageAllowed(value);
       return this;
     }
 

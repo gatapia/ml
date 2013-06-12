@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// Treat missing values in the same way as zeros.
     /// </summary>    
     public NonSparseToSparse<T> TreatMissingValuesAsZero (bool value) {
-      ((NonSparseToSparse)impl).setTreatMissingValuesAsZero(value);
+      ((NonSparseToSparse)Impl).setTreatMissingValuesAsZero(value);
       return this;
     }
 
@@ -26,7 +27,15 @@ namespace Ml2.Fltr
     /// values as zero.
     /// </summary>    
     public NonSparseToSparse<T> InsertDummyNominalFirstValue (bool value) {
-      ((NonSparseToSparse)impl).setInsertDummyNominalFirstValue(value);
+      ((NonSparseToSparse)Impl).setInsertDummyNominalFirstValue(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NonSparseToSparse<T> InputFormat (Runtime<T> value) {
+      ((NonSparseToSparse)Impl).setInputFormat(value.Instances);
       return this;
     }
 

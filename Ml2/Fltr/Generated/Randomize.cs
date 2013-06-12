@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,15 @@ namespace Ml2.Fltr
     /// Seed for the random number generator.
     /// </summary>    
     public Randomize<T> RandomSeed (int value) {
-      ((Randomize)impl).setRandomSeed(value);
+      ((Randomize)Impl).setRandomSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Randomize<T> InputFormat (Runtime<T> value) {
+      ((Randomize)Impl).setInputFormat(value.Instances);
       return this;
     }
 

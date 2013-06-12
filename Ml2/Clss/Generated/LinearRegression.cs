@@ -20,7 +20,7 @@ namespace Ml2.Clss
     /// selection using the Akaike information metric.
     /// </summary>    
     public LinearRegression<T> AttributeSelectionMethod (EAttributeSelectionMethod value) {
-      ((LinearRegression)impl).setAttributeSelectionMethod(new SelectedTag((int) value, LinearRegression.TAGS_SELECTION));
+      ((LinearRegression)Impl).setAttributeSelectionMethod(new SelectedTag((int) value, LinearRegression.TAGS_SELECTION));
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Clss
     /// The value of the Ridge parameter.
     /// </summary>    
     public LinearRegression<T> Ridge (double value) {
-      ((LinearRegression)impl).setRidge(value);
+      ((LinearRegression)Impl).setRidge(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clss
     /// Eliminate colinear attributes.
     /// </summary>    
     public LinearRegression<T> EliminateColinearAttributes (bool value) {
-      ((LinearRegression)impl).setEliminateColinearAttributes(value);
+      ((LinearRegression)Impl).setEliminateColinearAttributes(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Clss
     /// memory; also, the model cannot be printed out.
     /// </summary>    
     public LinearRegression<T> Minimal (bool value) {
-      ((LinearRegression)impl).setMinimal(value);
+      ((LinearRegression)Impl).setMinimal(value);
       return this;
     }
 
@@ -53,7 +53,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public LinearRegression<T> Debug (bool value) {
-      ((LinearRegression)impl).setDebug(value);
+      ((LinearRegression)Impl).setDebug(value);
       return this;
     }
 

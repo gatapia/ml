@@ -17,26 +17,26 @@ namespace Ml2.AttrSel.Algs
 
     /// <summary>
     /// Set to true if a ranked list is required.
-    /// </summary>
+    /// </summary>    
     public GreedyStepwise<T> GenerateRanking (bool value) {
-      ((GreedyStepwise)impl).setGenerateRanking(value);
+      ((GreedyStepwise)Impl).setGenerateRanking(value);
       return this;
     }
 
     /// <summary>
     /// Search backwards rather than forwards.
-    /// </summary>
+    /// </summary>    
     public GreedyStepwise<T> SearchBackwards (bool value) {
-      ((GreedyStepwise)impl).setSearchBackwards(value);
+      ((GreedyStepwise)Impl).setSearchBackwards(value);
       return this;
     }
 
     /// <summary>
     /// If true (and forward search is selected) then attributes will continue to
     /// be added to the best subset as long as merit does not degrade.
-    /// </summary>
+    /// </summary>    
     public GreedyStepwise<T> ConservativeForwardSelection (bool value) {
-      ((GreedyStepwise)impl).setConservativeForwardSelection(value);
+      ((GreedyStepwise)Impl).setConservativeForwardSelection(value);
       return this;
     }
 
@@ -44,18 +44,18 @@ namespace Ml2.AttrSel.Algs
     /// Set the start point for the search. This is specified as a comma
     /// seperated list off attribute indexes starting at 1. It can include ranges. Eg.
     /// 1,2,5-9,17.
-    /// </summary>
+    /// </summary>    
     public GreedyStepwise<T> StartSet (string value) {
-      ((GreedyStepwise)impl).setStartSet(value);
+      ((GreedyStepwise)Impl).setStartSet(value);
       return this;
     }
 
     /// <summary>
     /// Set threshold by which attributes can be discarded. Default value results
     /// in no attributes being discarded. Use in conjunction with generateRanking
-    /// </summary>
+    /// </summary>    
     public GreedyStepwise<T> Threshold (double value) {
-      ((GreedyStepwise)impl).setThreshold(value);
+      ((GreedyStepwise)Impl).setThreshold(value);
       return this;
     }
 
@@ -63,9 +63,9 @@ namespace Ml2.AttrSel.Algs
     /// Specify the number of attributes to retain. The default value (-1)
     /// indicates that all attributes are to be retained. Use either this option or a
     /// threshold to reduce the attribute set.
-    /// </summary>
+    /// </summary>    
     public GreedyStepwise<T> NumToSelect (int value) {
-      ((GreedyStepwise)impl).setNumToSelect(value);
+      ((GreedyStepwise)Impl).setNumToSelect(value);
       return this;
     }
 

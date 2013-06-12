@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public IBk<T> KNN (int value) {
-      ((IBk)impl).setKNN(value);
+      ((IBk)Impl).setKNN(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Clss
     /// instances.
     /// </summary>    
     public IBk<T> WindowSize (int value) {
-      ((IBk)impl).setWindowSize(value);
+      ((IBk)Impl).setWindowSize(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clss
     /// Gets the distance weighting method used.
     /// </summary>    
     public IBk<T> DistanceWeighting (EDistanceWeighting value) {
-      ((IBk)impl).setDistanceWeighting(new SelectedTag((int) value, IBk.TAGS_WEIGHTING));
+      ((IBk)Impl).setDistanceWeighting(new SelectedTag((int) value, IBk.TAGS_WEIGHTING));
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Clss
     /// value.
     /// </summary>    
     public IBk<T> CrossValidate (bool value) {
-      ((IBk)impl).setCrossValidate(value);
+      ((IBk)Impl).setCrossValidate(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Clss
     /// when doing cross-validation for regression problems.
     /// </summary>    
     public IBk<T> MeanSquared (bool value) {
-      ((IBk)impl).setMeanSquared(value);
+      ((IBk)Impl).setMeanSquared(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public IBk<T> Debug (bool value) {
-      ((IBk)impl).setDebug(value);
+      ((IBk)Impl).setDebug(value);
       return this;
     }
 

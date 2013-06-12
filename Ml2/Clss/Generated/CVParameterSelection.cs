@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// Get the number of folds used for cross-validation.
     /// </summary>    
     public CVParameterSelection<T> NumFolds (int value) {
-      ((CVParameterSelection)impl).setNumFolds(value);
+      ((CVParameterSelection)Impl).setNumFolds(value);
       return this;
     }
 
@@ -25,7 +25,15 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CVParameterSelection<T> Seed (int value) {
-      ((CVParameterSelection)impl).setSeed(value);
+      ((CVParameterSelection)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public CVParameterSelection<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((CVParameterSelection)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -33,7 +41,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public CVParameterSelection<T> Debug (bool value) {
-      ((CVParameterSelection)impl).setDebug(value);
+      ((CVParameterSelection)Impl).setDebug(value);
       return this;
     }
 

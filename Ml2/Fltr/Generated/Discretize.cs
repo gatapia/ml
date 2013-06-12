@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,7 +19,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Discretize<T> AttributeIndices (string value) {
-      ((Discretize)impl).setAttributeIndices(value);
+      ((Discretize)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -26,7 +27,7 @@ namespace Ml2.Fltr
     /// Number of bins.
     /// </summary>    
     public Discretize<T> Bins (int value) {
-      ((Discretize)impl).setBins(value);
+      ((Discretize)Impl).setBins(value);
       return this;
     }
 
@@ -35,7 +36,15 @@ namespace Ml2.Fltr
     /// equal-width binning.
     /// </summary>    
     public Discretize<T> UseEqualFrequency (bool value) {
-      ((Discretize)impl).setUseEqualFrequency(value);
+      ((Discretize)Impl).setUseEqualFrequency(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Discretize<T> InputFormat (Runtime<T> value) {
+      ((Discretize)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -45,7 +54,7 @@ namespace Ml2.Fltr
     /// will be discretized.
     /// </summary>    
     public Discretize<T> InvertSelection (bool value) {
-      ((Discretize)impl).setInvertSelection(value);
+      ((Discretize)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -53,7 +62,7 @@ namespace Ml2.Fltr
     /// Make resulting attributes binary.
     /// </summary>    
     public Discretize<T> MakeBinary (bool value) {
-      ((Discretize)impl).setMakeBinary(value);
+      ((Discretize)Impl).setMakeBinary(value);
       return this;
     }
 
@@ -62,7 +71,7 @@ namespace Ml2.Fltr
     /// attributes
     /// </summary>    
     public Discretize<T> UseBinNumbers (bool value) {
-      ((Discretize)impl).setUseBinNumbers(value);
+      ((Discretize)Impl).setUseBinNumbers(value);
       return this;
     }
 
@@ -71,7 +80,7 @@ namespace Ml2.Fltr
     /// equal-frequency binning
     /// </summary>    
     public Discretize<T> FindNumBins (bool value) {
-      ((Discretize)impl).setFindNumBins(value);
+      ((Discretize)Impl).setFindNumBins(value);
       return this;
     }
 
@@ -80,7 +89,15 @@ namespace Ml2.Fltr
     /// binning.
     /// </summary>    
     public Discretize<T> DesiredWeightOfInstancesPerInterval (double value) {
-      ((Discretize)impl).setDesiredWeightOfInstancesPerInterval(value);
+      ((Discretize)Impl).setDesiredWeightOfInstancesPerInterval(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Discretize<T> AttributeIndicesArray (int[] value) {
+      ((Discretize)Impl).setAttributeIndicesArray(value);
       return this;
     }
 
@@ -88,7 +105,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Discretize<T> IgnoreClass (bool value) {
-      ((Discretize)impl).setIgnoreClass(value);
+      ((Discretize)Impl).setIgnoreClass(value);
       return this;
     }
 

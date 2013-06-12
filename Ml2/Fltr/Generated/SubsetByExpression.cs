@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -34,7 +35,7 @@ namespace Ml2.Fltr
     /// The expression to used for filtering the dataset.
     /// </summary>    
     public SubsetByExpression<T> Expression (string value) {
-      ((SubsetByExpression)impl).setExpression(value);
+      ((SubsetByExpression)Impl).setExpression(value);
       return this;
     }
 
@@ -45,7 +46,7 @@ namespace Ml2.Fltr
     /// filter an a prediction is always made.
     /// </summary>    
     public SubsetByExpression<T> FilterAfterFirstBatch (bool value) {
-      ((SubsetByExpression)impl).setFilterAfterFirstBatch(value);
+      ((SubsetByExpression)Impl).setFilterAfterFirstBatch(value);
       return this;
     }
 
@@ -53,7 +54,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public SubsetByExpression<T> Debug (bool value) {
-      ((SubsetByExpression)impl).setDebug(value);
+      ((SubsetByExpression)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public SubsetByExpression<T> InputFormat (Runtime<T> value) {
+      ((SubsetByExpression)Impl).setInputFormat(value.Instances);
       return this;
     }
 

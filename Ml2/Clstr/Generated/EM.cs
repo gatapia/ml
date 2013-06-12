@@ -26,7 +26,7 @@ namespace Ml2.Clstr
     /// If set to true, clusterer may output additional info to the console.
     /// </summary>    
     public EM<T> Debug (bool value) {
-      ((EM)impl).setDebug(value);
+      ((EM)Impl).setDebug(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clstr
     /// maximum number of iterations
     /// </summary>    
     public EM<T> MaxIterations (int value) {
-      ((EM)impl).setMaxIterations(value);
+      ((EM)Impl).setMaxIterations(value);
       return this;
     }
 
@@ -43,7 +43,7 @@ namespace Ml2.Clstr
     /// of clusters (default = 10)
     /// </summary>    
     public EM<T> NumFolds (int value) {
-      ((EM)impl).setNumFolds(value);
+      ((EM)Impl).setNumFolds(value);
       return this;
     }
 
@@ -52,7 +52,7 @@ namespace Ml2.Clstr
     /// iteration of the E and M steps
     /// </summary>    
     public EM<T> MinLogLikelihoodImprovementIterating (double value) {
-      ((EM)impl).setMinLogLikelihoodImprovementIterating(value);
+      ((EM)Impl).setMinLogLikelihoodImprovementIterating(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Clstr
     /// find the best number of clusters
     /// </summary>    
     public EM<T> MinLogLikelihoodImprovementCV (double value) {
-      ((EM)impl).setMinLogLikelihoodImprovementCV(value);
+      ((EM)Impl).setMinLogLikelihoodImprovementCV(value);
       return this;
     }
 
@@ -71,7 +71,7 @@ namespace Ml2.Clstr
     /// cross validation.
     /// </summary>    
     public EM<T> NumClusters (int value) {
-      ((EM)impl).setNumClusters(value);
+      ((EM)Impl).setNumClusters(value);
       return this;
     }
 
@@ -80,7 +80,7 @@ namespace Ml2.Clstr
     /// select the best number of clusters
     /// </summary>    
     public EM<T> MaximumNumberOfClusters (int value) {
-      ((EM)impl).setMaximumNumberOfClusters(value);
+      ((EM)Impl).setMaximumNumberOfClusters(value);
       return this;
     }
 
@@ -88,7 +88,7 @@ namespace Ml2.Clstr
     /// set minimum allowable standard deviation
     /// </summary>    
     public EM<T> MinStdDev (double value) {
-      ((EM)impl).setMinStdDev(value);
+      ((EM)Impl).setMinStdDev(value);
       return this;
     }
 
@@ -98,7 +98,7 @@ namespace Ml2.Clstr
     /// many attributes.
     /// </summary>    
     public EM<T> DisplayModelInOldFormat (bool value) {
-      ((EM)impl).setDisplayModelInOldFormat(value);
+      ((EM)Impl).setDisplayModelInOldFormat(value);
       return this;
     }
 
@@ -107,7 +107,7 @@ namespace Ml2.Clstr
     /// of available cpu/cores
     /// </summary>    
     public EM<T> NumExecutionSlots (int value) {
-      ((EM)impl).setNumExecutionSlots(value);
+      ((EM)Impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -115,7 +115,7 @@ namespace Ml2.Clstr
     /// 
     /// </summary>    
     public EM<T> MinStdDevPerAtt (double[] value) {
-      ((EM)impl).setMinStdDevPerAtt(value);
+      ((EM)Impl).setMinStdDevPerAtt(value);
       return this;
     }
 
@@ -123,7 +123,7 @@ namespace Ml2.Clstr
     /// The random number seed to be used.
     /// </summary>    
     public EM<T> Seed (int value) {
-      ((EM)impl).setSeed(value);
+      ((EM)Impl).setSeed(value);
       return this;
     }
 

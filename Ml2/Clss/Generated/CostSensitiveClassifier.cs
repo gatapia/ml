@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// to each class. If true, the minimum expected cost criteria will be used.
     /// </summary>    
     public CostSensitiveClassifier<T> MinimizeExpectedCost (bool value) {
-      ((CostSensitiveClassifier)impl).setMinimizeExpectedCost(value);
+      ((CostSensitiveClassifier)Impl).setMinimizeExpectedCost(value);
       return this;
     }
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// relation_name.cost).
     /// </summary>    
     public CostSensitiveClassifier<T> CostMatrixSource (ECostMatrixSource value) {
-      ((CostSensitiveClassifier)impl).setCostMatrixSource(new SelectedTag((int) value, CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
+      ((CostSensitiveClassifier)Impl).setCostMatrixSource(new SelectedTag((int) value, CostSensitiveClassifier.TAGS_MATRIX_SOURCE));
       return this;
     }
 
@@ -41,7 +41,15 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CostSensitiveClassifier<T> Seed (int value) {
-      ((CostSensitiveClassifier)impl).setSeed(value);
+      ((CostSensitiveClassifier)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public CostSensitiveClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((CostSensitiveClassifier)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -49,7 +57,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public CostSensitiveClassifier<T> Debug (bool value) {
-      ((CostSensitiveClassifier)impl).setDebug(value);
+      ((CostSensitiveClassifier)Impl).setDebug(value);
       return this;
     }
 

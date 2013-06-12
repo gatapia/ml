@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -12,11 +13,19 @@ namespace Ml2.Fltr
     public RemoveMisclassified(Runtime<T> rt) : base(rt, new RemoveMisclassified()) {}
 
     /// <summary>
+    /// The classifier upon which to base the misclassifications.
+    /// </summary>    
+    public RemoveMisclassified<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((RemoveMisclassified)Impl).setClassifier(value.Impl);
+      return this;
+    }
+
+    /// <summary>
     /// Index of the class upon which to base the misclassifications. If < 0 will
     /// use any current set class or default to the last attribute.
     /// </summary>    
     public RemoveMisclassified<T> ClassIndex (int value) {
-      ((RemoveMisclassified)impl).setClassIndex(value);
+      ((RemoveMisclassified)Impl).setClassIndex(value);
       return this;
     }
 
@@ -25,7 +34,7 @@ namespace Ml2.Fltr
     /// cross-validation will be performed.
     /// </summary>    
     public RemoveMisclassified<T> NumFolds (int value) {
-      ((RemoveMisclassified)impl).setNumFolds(value);
+      ((RemoveMisclassified)Impl).setNumFolds(value);
       return this;
     }
 
@@ -34,7 +43,7 @@ namespace Ml2.Fltr
     /// Should be >= 0.
     /// </summary>    
     public RemoveMisclassified<T> Threshold (double value) {
-      ((RemoveMisclassified)impl).setThreshold(value);
+      ((RemoveMisclassified)Impl).setThreshold(value);
       return this;
     }
 
@@ -43,7 +52,7 @@ namespace Ml2.Fltr
     /// until fully cleansed.
     /// </summary>    
     public RemoveMisclassified<T> MaxIterations (int value) {
-      ((RemoveMisclassified)impl).setMaxIterations(value);
+      ((RemoveMisclassified)Impl).setMaxIterations(value);
       return this;
     }
 
@@ -52,7 +61,15 @@ namespace Ml2.Fltr
     /// instances will be discarded.
     /// </summary>    
     public RemoveMisclassified<T> Invert (bool value) {
-      ((RemoveMisclassified)impl).setInvert(value);
+      ((RemoveMisclassified)Impl).setInvert(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveMisclassified<T> InputFormat (Runtime<T> value) {
+      ((RemoveMisclassified)Impl).setInputFormat(value.Instances);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.supervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,7 +19,7 @@ namespace Ml2.Fltr
     /// Sets the random number seed for subsampling.
     /// </summary>    
     public SpreadSubsample<T> RandomSeed (int value) {
-      ((SpreadSubsample)impl).setRandomSeed(value);
+      ((SpreadSubsample)Impl).setRandomSeed(value);
       return this;
     }
 
@@ -27,7 +28,7 @@ namespace Ml2.Fltr
     /// uniform distribution, 10 = allow at most a 10:1 ratio between the classes).
     /// </summary>    
     public SpreadSubsample<T> DistributionSpread (double value) {
-      ((SpreadSubsample)impl).setDistributionSpread(value);
+      ((SpreadSubsample)Impl).setDistributionSpread(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Fltr
     /// The maximum count for any class value (0 = unlimited).
     /// </summary>    
     public SpreadSubsample<T> MaxCount (double value) {
-      ((SpreadSubsample)impl).setMaxCount(value);
+      ((SpreadSubsample)Impl).setMaxCount(value);
       return this;
     }
 
@@ -44,7 +45,15 @@ namespace Ml2.Fltr
     /// class.
     /// </summary>    
     public SpreadSubsample<T> AdjustWeights (bool value) {
-      ((SpreadSubsample)impl).setAdjustWeights(value);
+      ((SpreadSubsample)Impl).setAdjustWeights(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public SpreadSubsample<T> InputFormat (Runtime<T> value) {
+      ((SpreadSubsample)Impl).setInputFormat(value.Instances);
       return this;
     }
 

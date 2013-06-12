@@ -14,13 +14,29 @@ namespace Ml2.Asstn
     public FilteredAssociator(Runtime<T> rt) : base(rt, new FilteredAssociator()) {}
 
     /// <summary>
+    /// The filter to be used.
+    /// </summary>    
+    public FilteredAssociator<T> Filter (Fltr.BaseFilter<T> value) {
+      ((FilteredAssociator)Impl).setFilter(value.Impl);
+      return this;
+    }    
+
+    /// <summary>
     /// Index of the class attribute. If set to -1, the last attribute is taken
     /// as class attribute.
     /// </summary>    
     public FilteredAssociator<T> ClassIndex (int value) {
-      ((FilteredAssociator)impl).setClassIndex(value);
+      ((FilteredAssociator)Impl).setClassIndex(value);
       return this;
-    }
+    }    
+
+    /// <summary>
+    /// The base associator to be used.
+    /// </summary>    
+    public FilteredAssociator<T> Associator (Asstn.BaseAssociation<T> value) {
+      ((FilteredAssociator)Impl).setAssociator(value.Impl);
+      return this;
+    }    
 
           
         

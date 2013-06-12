@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -17,7 +18,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public AddValues<T> AttributeIndex (string value) {
-      ((AddValues)impl).setAttributeIndex(value);
+      ((AddValues)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Fltr
     /// Comma-separated list of lables to add.
     /// </summary>    
     public AddValues<T> Labels (string value) {
-      ((AddValues)impl).setLabels(value);
+      ((AddValues)Impl).setLabels(value);
       return this;
     }
 
@@ -33,7 +34,15 @@ namespace Ml2.Fltr
     /// Whether to sort the labels alphabetically.
     /// </summary>    
     public AddValues<T> Sort (bool value) {
-      ((AddValues)impl).setSort(value);
+      ((AddValues)Impl).setSort(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public AddValues<T> InputFormat (Runtime<T> value) {
+      ((AddValues)Impl).setInputFormat(value.Instances);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public MergeTwoValues<T> AttributeIndex (string value) {
-      ((MergeTwoValues)impl).setAttributeIndex(value);
+      ((MergeTwoValues)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Fltr
     /// Sets the first value to be merged. ("first" and "last" are valid values)
     /// </summary>    
     public MergeTwoValues<T> FirstValueIndex (string value) {
-      ((MergeTwoValues)impl).setFirstValueIndex(value);
+      ((MergeTwoValues)Impl).setFirstValueIndex(value);
       return this;
     }
 
@@ -31,7 +32,15 @@ namespace Ml2.Fltr
     /// Sets the second value to be merged. ("first" and "last" are valid values)
     /// </summary>    
     public MergeTwoValues<T> SecondValueIndex (string value) {
-      ((MergeTwoValues)impl).setSecondValueIndex(value);
+      ((MergeTwoValues)Impl).setSecondValueIndex(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public MergeTwoValues<T> InputFormat (Runtime<T> value) {
+      ((MergeTwoValues)Impl).setInputFormat(value.Instances);
       return this;
     }
 

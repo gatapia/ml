@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -25,7 +26,7 @@ namespace Ml2.Fltr
     /// ignored if this option is present or is greater than zero.
     /// </summary>    
     public RandomProjection<T> Percent (double value) {
-      ((RandomProjection)impl).setPercent(value);
+      ((RandomProjection)Impl).setPercent(value);
       return this;
     }
 
@@ -33,7 +34,16 @@ namespace Ml2.Fltr
     /// The number of dimensions (attributes) the data should be reduced to.
     /// </summary>    
     public RandomProjection<T> NumberOfAttributes (int value) {
-      ((RandomProjection)impl).setNumberOfAttributes(value);
+      ((RandomProjection)Impl).setNumberOfAttributes(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The random seed used by the random number generator used for generating
+    /// the random matrix
+    /// </summary>    
+    public RandomProjection<T> RandomSeed (long value) {
+      ((RandomProjection)Impl).setRandomSeed(value);
       return this;
     }
 
@@ -43,7 +53,7 @@ namespace Ml2.Fltr
     /// is: { -1 with prob(1/2), +1 with prob(1/2) }
     /// </summary>    
     public RandomProjection<T> Distribution (EDistribution value) {
-      ((RandomProjection)impl).setDistribution(new SelectedTag((int) value, RandomProjection.TAGS_DSTRS_TYPE));
+      ((RandomProjection)Impl).setDistribution(new SelectedTag((int) value, RandomProjection.TAGS_DSTRS_TYPE));
       return this;
     }
 
@@ -52,7 +62,15 @@ namespace Ml2.Fltr
     /// weka.filters.unsupervised.attribute.ReplaceMissingValues to replace the missing values
     /// </summary>    
     public RandomProjection<T> ReplaceMissingValues (bool value) {
-      ((RandomProjection)impl).setReplaceMissingValues(value);
+      ((RandomProjection)Impl).setReplaceMissingValues(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RandomProjection<T> InputFormat (Runtime<T> value) {
+      ((RandomProjection)Impl).setInputFormat(value.Instances);
       return this;
     }
 

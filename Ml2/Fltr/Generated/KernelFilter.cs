@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -22,7 +23,7 @@ namespace Ml2.Fltr
     /// Turns time-consuming checks off - use with caution.
     /// </summary>    
     public KernelFilter<T> ChecksTurnedOff (bool value) {
-      ((KernelFilter)impl).setChecksTurnedOff(value);
+      ((KernelFilter)Impl).setChecksTurnedOff(value);
       return this;
     }
 
@@ -31,7 +32,7 @@ namespace Ml2.Fltr
     /// last are valid).
     /// </summary>    
     public KernelFilter<T> InitFileClassIndex (string value) {
-      ((KernelFilter)impl).setInitFileClassIndex(value);
+      ((KernelFilter)Impl).setInitFileClassIndex(value);
       return this;
     }
 
@@ -40,7 +41,16 @@ namespace Ml2.Fltr
     /// instances.
     /// </summary>    
     public KernelFilter<T> KernelFactorExpression (string value) {
-      ((KernelFilter)impl).setKernelFactorExpression(value);
+      ((KernelFilter)Impl).setKernelFactorExpression(value);
+      return this;
+    }
+
+    /// <summary>
+    /// Sets the filter to use for preprocessing (use the AllFilter for no
+    /// preprocessing).
+    /// </summary>    
+    public KernelFilter<T> Preprocessing (Fltr.BaseFilter<T> value) {
+      ((KernelFilter)Impl).setPreprocessing(value.Impl);
       return this;
     }
 
@@ -48,7 +58,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public KernelFilter<T> Debug (bool value) {
-      ((KernelFilter)impl).setDebug(value);
+      ((KernelFilter)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public KernelFilter<T> InputFormat (Runtime<T> value) {
+      ((KernelFilter)Impl).setInputFormat(value.Instances);
       return this;
     }
 

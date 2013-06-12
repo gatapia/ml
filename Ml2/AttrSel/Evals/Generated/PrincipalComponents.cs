@@ -19,7 +19,7 @@ namespace Ml2.AttrSel.Evals
     /// Retain enough PC attributes to account for this proportion of variance.
     /// </summary>    
     public PrincipalComponents<T> VarianceCovered (double value) {
-      ((PrincipalComponents)impl).setVarianceCovered(value);
+      ((PrincipalComponents)Impl).setVarianceCovered(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.AttrSel.Evals
     /// names.
     /// </summary>    
     public PrincipalComponents<T> MaximumAttributeNames (int value) {
-      ((PrincipalComponents)impl).setMaximumAttributeNames(value);
+      ((PrincipalComponents)Impl).setMaximumAttributeNames(value);
       return this;
     }
 
@@ -38,7 +38,7 @@ namespace Ml2.AttrSel.Evals
     /// will give a dataset in the original space but with less attribute noise.
     /// </summary>    
     public PrincipalComponents<T> TransformBackToOriginal (bool value) {
-      ((PrincipalComponents)impl).setTransformBackToOriginal(value);
+      ((PrincipalComponents)Impl).setTransformBackToOriginal(value);
       return this;
     }
 
@@ -47,7 +47,7 @@ namespace Ml2.AttrSel.Evals
     /// covariance (rather than correlation) matrix
     /// </summary>    
     public PrincipalComponents<T> CenterData (bool value) {
-      ((PrincipalComponents)impl).setCenterData(value);
+      ((PrincipalComponents)Impl).setCenterData(value);
       return this;
     }
 

@@ -17,8 +17,16 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
+    public EditableBayesNet<T> Data (Runtime<T> value) {
+      ((EditableBayesNet)Impl).setData(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
     public EditableBayesNet<T> BIFFile (string value) {
-      ((EditableBayesNet)impl).setBIFFile(value);
+      ((EditableBayesNet)Impl).setBIFFile(value);
       return this;
     }
 
@@ -30,7 +38,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public EditableBayesNet<T> UseADTree (bool value) {
-      ((EditableBayesNet)impl).setUseADTree(value);
+      ((EditableBayesNet)Impl).setUseADTree(value);
       return this;
     }
 
@@ -38,7 +46,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public EditableBayesNet<T> Debug (bool value) {
-      ((EditableBayesNet)impl).setDebug(value);
+      ((EditableBayesNet)Impl).setDebug(value);
       return this;
     }
 

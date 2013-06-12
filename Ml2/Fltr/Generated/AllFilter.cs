@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -10,6 +11,14 @@ namespace Ml2.Fltr
   public class AllFilter<T> : BaseFilter<T>
   {
     public AllFilter(Runtime<T> rt) : base(rt, new AllFilter()) {}
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public AllFilter<T> InputFormat (Runtime<T> value) {
+      ((AllFilter)Impl).setInputFormat(value.Instances);
+      return this;
+    }
 
         
         

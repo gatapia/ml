@@ -6,21 +6,21 @@ namespace Ml2.Tasks.Generator
 {
   public class OptionModel
   {
-    private readonly WekaTypeModel model;
-    private readonly MethodInfo method;
+    internal WekaTypeModel Model {get;private set; }
+    internal MethodInfo Method {get;private set; }
 
     public OptionModel(WekaTypeModel model, MethodInfo method)
     {
-      this.model = model;
-      this.method = method;
+      Model = model;
+      Method = method;
     }
 
     public string OptionName
     {
       get
       {
-        var name = method.Name.Substring(3);
-        if (name == model.ImplementationType.Name) { name = "Set" + name; }
+        var name = Method.Name.Substring(3);
+        if (name == Model.ImplementationType.Name) { name = "Set" + name; }
         return name;
       }
     }
@@ -31,9 +31,9 @@ namespace Ml2.Tasks.Generator
       {
         var tiptextmname = OptionName + "TipText";
         tiptextmname = Char.ToLower(tiptextmname[0]) + tiptextmname.Substring(1);
-        var mi = model.ImplementationType.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
+        var mi = Model.ImplementationType.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
         if (mi == null) return String.Empty;
-        var desc = (string) mi.Invoke(Activator.CreateInstance(model.ImplementationType), null);
+        var desc = (string) mi.Invoke(Activator.CreateInstance(Model.ImplementationType), null);
         return String.Join("\n    /// ", Utils.SplitIntoChunks(desc, 75));
       }
     }
@@ -44,17 +44,18 @@ namespace Ml2.Tasks.Generator
       {
         try
         {
+          if (!String.IsNullOrEmpty(TemplatedSetters.GetSetterTemplate(this))) return true;
           var ot = OptionType;
           return true;
         }
         catch (NotSupportedException)
         {
-          Console.WriteLine("\tOption: " + method.Name + " of internal type: " + 
+          Console.WriteLine("\tOption: " + Method.Name + " of internal type: " + 
               GetParameterType().Name + " is not supported.");
         } catch (InvalidOperationException)
         {
-          Console.WriteLine("Error with method [" + method.Name + "] with multiple parameters: [" + 
-            String.Join(", ", method.GetParameters().Select(p => p.Name)) +"]");
+          Console.WriteLine("Error with method [" + Method.Name + "] with multiple parameters: [" + 
+            String.Join(", ", Method.GetParameters().Select(p => p.Name)) +"]");
         }
         return false;
       }
@@ -71,14 +72,17 @@ namespace Ml2.Tasks.Generator
           case "String": return "string";
           case "String[]": return "string[]";
           case "Int32": return "int";
+          case "Int32[]": return "int[]";
+          case "Int64": return "long";
+          case "Int64[]": return "long[]";
           case "Double": return "double";
           case "Double[]": return "double[]";
           case "SelectedTag": 
-            try { Utils.GetEnumImplType(method); }
+            try { Utils.GetEnumImplType(Method); }
             catch (InvalidOperationException) {
-              throw new NotSupportedException("Enum: " + method.Name + " not supported. No values found.");
+              throw new NotSupportedException("Enum: " + Method.Name + " not supported. No values found.");
             }
-            return Utils.GetEnumNameFromSetter(method.Name);
+            return Utils.GetEnumNameFromSetter(Method.Name);
           default:
             throw new NotSupportedException("Type: " + raw + " not supported.");
         }
@@ -86,23 +90,25 @@ namespace Ml2.Tasks.Generator
     }
 
     public string SetterCode {
-      get {        
-        if (GetParameterType().Name == "SelectedTag") {
-          var implenumname = Utils.GetEnumImplType(method).Name;
-          return "((" + model.ImplTypeName + ")impl)." + method.Name + "(new SelectedTag((int) value, " + model.ImplTypeName + "." + implenumname + "));";
-        }
-        return "((" + model.ImplTypeName + ")impl)." + OptionImplSetterName + "(value);";
+      get {  
+        var templated = TemplatedSetters.GetSetterTemplate(this);
+        if (!String.IsNullOrEmpty(templated)) return templated;
+        var setterimpl = GetParameterType().Name == "SelectedTag" ?
+          "((" + Model.ImplTypeName + ")Impl)." + Method.Name + "(new SelectedTag((int) value, " + Model.ImplTypeName + "." + Utils.GetEnumImplType(Method).Name + "));" :
+          "((" + Model.ImplTypeName + ")Impl)." + OptionImplSetterName + "(value);";
+
+        return Utils.GetSetterCode(OptionDescription, Model.TypeName, OptionName, OptionType, setterimpl);
       }
     }
 
     private Type GetParameterType()
     {
-      return method.GetParameters().Single().ParameterType;
+      return Method.GetParameters().Single().ParameterType;
     }
 
     public string OptionImplSetterName
     {
-      get { return method.Name; }
+      get { return Method.Name; }
     }
   }
 }

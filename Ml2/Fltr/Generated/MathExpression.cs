@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// attributes will not be modified.
     /// </summary>    
     public MathExpression<T> InvertSelection (bool value) {
-      ((MathExpression)impl).setInvertSelection(value);
+      ((MathExpression)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -31,7 +32,7 @@ namespace Ml2.Fltr
     /// && A<15])
     /// </summary>    
     public MathExpression<T> Expression (string value) {
-      ((MathExpression)impl).setExpression(value);
+      ((MathExpression)Impl).setExpression(value);
       return this;
     }
 
@@ -41,7 +42,15 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public MathExpression<T> IgnoreRange (string value) {
-      ((MathExpression)impl).setIgnoreRange(value);
+      ((MathExpression)Impl).setIgnoreRange(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public MathExpression<T> InputFormat (Runtime<T> value) {
+      ((MathExpression)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -49,7 +58,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public MathExpression<T> IgnoreClass (bool value) {
-      ((MathExpression)impl).setIgnoreClass(value);
+      ((MathExpression)Impl).setIgnoreClass(value);
       return this;
     }
 

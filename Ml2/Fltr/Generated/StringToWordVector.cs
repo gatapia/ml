@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -17,7 +18,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public StringToWordVector<T> SelectedRange (string value) {
-      ((StringToWordVector)impl).setSelectedRange(value);
+      ((StringToWordVector)Impl).setSelectedRange(value);
       return this;
     }
 
@@ -27,7 +28,7 @@ namespace Ml2.Fltr
     /// processed.
     /// </summary>    
     public StringToWordVector<T> InvertSelection (bool value) {
-      ((StringToWordVector)impl).setInvertSelection(value);
+      ((StringToWordVector)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Fltr
     /// Prefix for the created attribute names. (default: "")
     /// </summary>    
     public StringToWordVector<T> AttributeNamePrefix (string value) {
-      ((StringToWordVector)impl).setAttributeNamePrefix(value);
+      ((StringToWordVector)Impl).setAttributeNamePrefix(value);
       return this;
     }
 
@@ -44,7 +45,7 @@ namespace Ml2.Fltr
     /// attempt to keep.
     /// </summary>    
     public StringToWordVector<T> WordsToKeep (int value) {
-      ((StringToWordVector)impl).setWordsToKeep(value);
+      ((StringToWordVector)Impl).setWordsToKeep(value);
       return this;
     }
 
@@ -54,7 +55,7 @@ namespace Ml2.Fltr
     /// may not have enough memory for this approach.
     /// </summary>    
     public StringToWordVector<T> PeriodicPruning (double value) {
-      ((StringToWordVector)impl).setPeriodicPruning(value);
+      ((StringToWordVector)Impl).setPeriodicPruning(value);
       return this;
     }
 
@@ -62,7 +63,7 @@ namespace Ml2.Fltr
     /// Sets the minimum term frequency. This is enforced on a per-class basis.
     /// </summary>    
     public StringToWordVector<T> MinTermFreq (int value) {
-      ((StringToWordVector)impl).setMinTermFreq(value);
+      ((StringToWordVector)Impl).setMinTermFreq(value);
       return this;
     }
 
@@ -71,7 +72,7 @@ namespace Ml2.Fltr
     /// absence of a word).
     /// </summary>    
     public StringToWordVector<T> OutputWordCounts (bool value) {
-      ((StringToWordVector)impl).setOutputWordCounts(value);
+      ((StringToWordVector)Impl).setOutputWordCounts(value);
       return this;
     }
 
@@ -79,7 +80,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public StringToWordVector<T> TFTransform (bool value) {
-      ((StringToWordVector)impl).setTFTransform(value);
+      ((StringToWordVector)Impl).setTFTransform(value);
       return this;
     }
 
@@ -87,7 +88,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public StringToWordVector<T> IDFTransform (bool value) {
-      ((StringToWordVector)impl).setIDFTransform(value);
+      ((StringToWordVector)Impl).setIDFTransform(value);
       return this;
     }
 
@@ -97,7 +98,7 @@ namespace Ml2.Fltr
     /// the classes (even if a class attribute is set).
     /// </summary>    
     public StringToWordVector<T> DoNotOperateOnPerClassBasis (bool value) {
-      ((StringToWordVector)impl).setDoNotOperateOnPerClassBasis(value);
+      ((StringToWordVector)Impl).setDoNotOperateOnPerClassBasis(value);
       return this;
     }
 
@@ -106,7 +107,7 @@ namespace Ml2.Fltr
     /// normalized or not.
     /// </summary>    
     public StringToWordVector<T> NormalizeDocLength (ENormalizeDocLength value) {
-      ((StringToWordVector)impl).setNormalizeDocLength(new SelectedTag((int) value, StringToWordVector.TAGS_FILTER));
+      ((StringToWordVector)Impl).setNormalizeDocLength(new SelectedTag((int) value, StringToWordVector.TAGS_FILTER));
       return this;
     }
 
@@ -115,7 +116,7 @@ namespace Ml2.Fltr
     /// added to the dictionary.
     /// </summary>    
     public StringToWordVector<T> LowerCaseTokens (bool value) {
-      ((StringToWordVector)impl).setLowerCaseTokens(value);
+      ((StringToWordVector)Impl).setLowerCaseTokens(value);
       return this;
     }
 
@@ -123,7 +124,7 @@ namespace Ml2.Fltr
     /// Ignores all the words that are on the stoplist, if set to true.
     /// </summary>    
     public StringToWordVector<T> UseStoplist (bool value) {
-      ((StringToWordVector)impl).setUseStoplist(value);
+      ((StringToWordVector)Impl).setUseStoplist(value);
       return this;
     }
 
@@ -133,7 +134,23 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public StringToWordVector<T> AttributeIndices (string value) {
-      ((StringToWordVector)impl).setAttributeIndices(value);
+      ((StringToWordVector)Impl).setAttributeIndices(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public StringToWordVector<T> InputFormat (Runtime<T> value) {
+      ((StringToWordVector)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public StringToWordVector<T> AttributeIndicesArray (int[] value) {
+      ((StringToWordVector)Impl).setAttributeIndicesArray(value);
       return this;
     }
 

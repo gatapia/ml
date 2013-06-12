@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// and "last" are valid values)
     /// </summary>    
     public SwapValues<T> AttributeIndex (string value) {
-      ((SwapValues)impl).setAttributeIndex(value);
+      ((SwapValues)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Fltr
     /// The index of the first value.("first" and "last" are valid values)
     /// </summary>    
     public SwapValues<T> FirstValueIndex (string value) {
-      ((SwapValues)impl).setFirstValueIndex(value);
+      ((SwapValues)Impl).setFirstValueIndex(value);
       return this;
     }
 
@@ -31,7 +32,15 @@ namespace Ml2.Fltr
     /// The index of the second value.("first" and "last" are valid values)
     /// </summary>    
     public SwapValues<T> SecondValueIndex (string value) {
-      ((SwapValues)impl).setSecondValueIndex(value);
+      ((SwapValues)Impl).setSecondValueIndex(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public SwapValues<T> InputFormat (Runtime<T> value) {
+      ((SwapValues)Impl).setInputFormat(value.Instances);
       return this;
     }
 

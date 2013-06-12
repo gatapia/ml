@@ -15,10 +15,18 @@ namespace Ml2.Clss
     public ClassificationViaRegression(Runtime<T> rt) : base(rt, new ClassificationViaRegression()) {}
 
     /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public ClassificationViaRegression<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((ClassificationViaRegression)Impl).setClassifier(value.Impl);
+      return this;
+    }
+
+    /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public ClassificationViaRegression<T> Debug (bool value) {
-      ((ClassificationViaRegression)impl).setDebug(value);
+      ((ClassificationViaRegression)Impl).setDebug(value);
       return this;
     }
 

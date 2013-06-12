@@ -22,7 +22,7 @@ namespace Ml2.Clss
     /// Number of bins for discretization.
     /// </summary>    
     public RegressionByDiscretization<T> NumBins (int value) {
-      ((RegressionByDiscretization)impl).setNumBins(value);
+      ((RegressionByDiscretization)Impl).setNumBins(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// Whether to delete empty bins after discretization.
     /// </summary>    
     public RegressionByDiscretization<T> DeleteEmptyBins (bool value) {
-      ((RegressionByDiscretization)impl).setDeleteEmptyBins(value);
+      ((RegressionByDiscretization)Impl).setDeleteEmptyBins(value);
       return this;
     }
 
@@ -39,7 +39,7 @@ namespace Ml2.Clss
     /// equal-width binning.
     /// </summary>    
     public RegressionByDiscretization<T> UseEqualFrequency (bool value) {
-      ((RegressionByDiscretization)impl).setUseEqualFrequency(value);
+      ((RegressionByDiscretization)Impl).setUseEqualFrequency(value);
       return this;
     }
 
@@ -47,7 +47,7 @@ namespace Ml2.Clss
     /// Whether to minimize absolute error.
     /// </summary>    
     public RegressionByDiscretization<T> MinimizeAbsoluteError (bool value) {
-      ((RegressionByDiscretization)impl).setMinimizeAbsoluteError(value);
+      ((RegressionByDiscretization)Impl).setMinimizeAbsoluteError(value);
       return this;
     }
 
@@ -55,7 +55,15 @@ namespace Ml2.Clss
     /// The density estimator to use.
     /// </summary>    
     public RegressionByDiscretization<T> EstimatorType (EEstimatorType value) {
-      ((RegressionByDiscretization)impl).setEstimatorType(new SelectedTag((int) value, RegressionByDiscretization.TAGS_ESTIMATOR));
+      ((RegressionByDiscretization)Impl).setEstimatorType(new SelectedTag((int) value, RegressionByDiscretization.TAGS_ESTIMATOR));
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public RegressionByDiscretization<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((RegressionByDiscretization)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -63,7 +71,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RegressionByDiscretization<T> Debug (bool value) {
-      ((RegressionByDiscretization)impl).setDebug(value);
+      ((RegressionByDiscretization)Impl).setDebug(value);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -19,7 +20,7 @@ namespace Ml2.Fltr
     /// Set the name of the new attribute.
     /// </summary>    
     public AddExpression<T> Name (string value) {
-      ((AddExpression)impl).setName(value);
+      ((AddExpression)Impl).setName(value);
       return this;
     }
 
@@ -27,7 +28,15 @@ namespace Ml2.Fltr
     /// Set the math expression to apply. Eg. a1^2*a5/log(a7*4.0)
     /// </summary>    
     public AddExpression<T> Expression (string value) {
-      ((AddExpression)impl).setExpression(value);
+      ((AddExpression)Impl).setExpression(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public AddExpression<T> InputFormat (Runtime<T> value) {
+      ((AddExpression)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -36,7 +45,7 @@ namespace Ml2.Fltr
     /// postfix parse of the supplied expression.
     /// </summary>    
     public AddExpression<T> Debug (bool value) {
-      ((AddExpression)impl).setDebug(value);
+      ((AddExpression)Impl).setDebug(value);
       return this;
     }
 

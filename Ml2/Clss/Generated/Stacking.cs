@@ -16,7 +16,15 @@ namespace Ml2.Clss
     /// The number of folds used for cross-validation.
     /// </summary>    
     public Stacking<T> NumFolds (int value) {
-      ((Stacking)impl).setNumFolds(value);
+      ((Stacking)Impl).setNumFolds(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The meta classifiers to be used.
+    /// </summary>    
+    public Stacking<T> MetaClassifier (Clss.BaseClassifier<T> value) {
+      ((Stacking)Impl).setMetaClassifier(value.Impl);
       return this;
     }
 
@@ -24,7 +32,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public Stacking<T> Seed (int value) {
-      ((Stacking)impl).setSeed(value);
+      ((Stacking)Impl).setSeed(value);
       return this;
     }
 
@@ -33,7 +41,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public Stacking<T> NumExecutionSlots (int value) {
-      ((Stacking)impl).setNumExecutionSlots(value);
+      ((Stacking)Impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -41,7 +49,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Stacking<T> Debug (bool value) {
-      ((Stacking)impl).setDebug(value);
+      ((Stacking)Impl).setDebug(value);
       return this;
     }
 

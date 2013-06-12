@@ -18,7 +18,7 @@ namespace Ml2.AttrSel.Evals
     /// a separate value.
     /// </summary>    
     public GainRatioAttribute<T> MissingMerge (bool value) {
-      ((GainRatioAttributeEval)impl).setMissingMerge(value);
+      ((GainRatioAttributeEval)Impl).setMissingMerge(value);
       return this;
     }
 

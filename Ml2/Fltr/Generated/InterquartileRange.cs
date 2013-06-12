@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -21,7 +22,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-", eg: "first-3,5,6-10,last".
     /// </summary>    
     public InterquartileRange<T> AttributeIndices (string value) {
-      ((InterquartileRange)impl).setAttributeIndices(value);
+      ((InterquartileRange)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -29,7 +30,7 @@ namespace Ml2.Fltr
     /// The factor for determining the thresholds for outliers.
     /// </summary>    
     public InterquartileRange<T> OutlierFactor (double value) {
-      ((InterquartileRange)impl).setOutlierFactor(value);
+      ((InterquartileRange)Impl).setOutlierFactor(value);
       return this;
     }
 
@@ -37,7 +38,7 @@ namespace Ml2.Fltr
     /// The factor for determining the thresholds for extreme values.
     /// </summary>    
     public InterquartileRange<T> ExtremeValuesFactor (double value) {
-      ((InterquartileRange)impl).setExtremeValuesFactor(value);
+      ((InterquartileRange)Impl).setExtremeValuesFactor(value);
       return this;
     }
 
@@ -45,7 +46,7 @@ namespace Ml2.Fltr
     /// Whether to tag extreme values also as outliers.
     /// </summary>    
     public InterquartileRange<T> ExtremeValuesAsOutliers (bool value) {
-      ((InterquartileRange)impl).setExtremeValuesAsOutliers(value);
+      ((InterquartileRange)Impl).setExtremeValuesAsOutliers(value);
       return this;
     }
 
@@ -54,7 +55,7 @@ namespace Ml2.Fltr
     /// not just a single pair for all numeric attributes together.
     /// </summary>    
     public InterquartileRange<T> DetectionPerAttribute (bool value) {
-      ((InterquartileRange)impl).setDetectionPerAttribute(value);
+      ((InterquartileRange)Impl).setDetectionPerAttribute(value);
       return this;
     }
 
@@ -63,7 +64,15 @@ namespace Ml2.Fltr
     /// the value is off the median: value = median + 'multiplier' * IQR
     /// </summary>    
     public InterquartileRange<T> OutputOffsetMultiplier (bool value) {
-      ((InterquartileRange)impl).setOutputOffsetMultiplier(value);
+      ((InterquartileRange)Impl).setOutputOffsetMultiplier(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public InterquartileRange<T> AttributeIndicesArray (int[] value) {
+      ((InterquartileRange)Impl).setAttributeIndicesArray(value);
       return this;
     }
 
@@ -71,7 +80,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public InterquartileRange<T> Debug (bool value) {
-      ((InterquartileRange)impl).setDebug(value);
+      ((InterquartileRange)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public InterquartileRange<T> InputFormat (Runtime<T> value) {
+      ((InterquartileRange)Impl).setInputFormat(value.Instances);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,10 +16,18 @@ namespace Ml2.Fltr
     public Normalize(Runtime<T> rt) : base(rt, new Normalize()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public Normalize<T> InputFormat (Runtime<T> value) {
+      ((Normalize)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// The factor for scaling the output range (default: 1).
     /// </summary>    
     public Normalize<T> Scale (double value) {
-      ((Normalize)impl).setScale(value);
+      ((Normalize)Impl).setScale(value);
       return this;
     }
 
@@ -26,7 +35,7 @@ namespace Ml2.Fltr
     /// The translation of the output range (default: 0).
     /// </summary>    
     public Normalize<T> Translation (double value) {
-      ((Normalize)impl).setTranslation(value);
+      ((Normalize)Impl).setTranslation(value);
       return this;
     }
 
@@ -34,7 +43,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Normalize<T> IgnoreClass (bool value) {
-      ((Normalize)impl).setIgnoreClass(value);
+      ((Normalize)Impl).setIgnoreClass(value);
       return this;
     }
 

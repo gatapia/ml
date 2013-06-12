@@ -13,6 +13,22 @@ namespace Ml2.Clstr
   {    
     public Filtered(Runtime<T> rt) : base(rt, new FilteredClusterer()) {}
 
+    /// <summary>
+    /// The filter to be used.
+    /// </summary>    
+    public Filtered<T> Filter (Fltr.BaseFilter<T> value) {
+      ((FilteredClusterer)Impl).setFilter(value.Impl);
+      return this;
+    }
+
+    /// <summary>
+    /// The base clusterer to be used.
+    /// </summary>    
+    public Filtered<T> Clusterer (Clstr.BaseClusterer<T> value) {
+      ((FilteredClusterer)Impl).setClusterer(value.Impl);
+      return this;
+    }
+
             
 
         

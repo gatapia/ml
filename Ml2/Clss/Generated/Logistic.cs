@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// Output debug information to the console.
     /// </summary>    
     public Logistic<T> Debug (bool value) {
-      ((Logistic)impl).setDebug(value);
+      ((Logistic)Impl).setDebug(value);
       return this;
     }
 
@@ -43,7 +43,7 @@ namespace Ml2.Clss
     /// problems with many parameters.
     /// </summary>    
     public Logistic<T> UseConjugateGradientDescent (bool value) {
-      ((Logistic)impl).setUseConjugateGradientDescent(value);
+      ((Logistic)Impl).setUseConjugateGradientDescent(value);
       return this;
     }
 
@@ -51,7 +51,7 @@ namespace Ml2.Clss
     /// Set the Ridge value in the log-likelihood.
     /// </summary>    
     public Logistic<T> Ridge (double value) {
-      ((Logistic)impl).setRidge(value);
+      ((Logistic)Impl).setRidge(value);
       return this;
     }
 
@@ -59,7 +59,7 @@ namespace Ml2.Clss
     /// Maximum number of iterations to perform.
     /// </summary>    
     public Logistic<T> MaxIts (int value) {
-      ((Logistic)impl).setMaxIts(value);
+      ((Logistic)Impl).setMaxIts(value);
       return this;
     }
 

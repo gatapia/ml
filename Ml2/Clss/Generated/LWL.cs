@@ -20,7 +20,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public LWL<T> KNN (int value) {
-      ((LWL)impl).setKNN(value);
+      ((LWL)Impl).setKNN(value);
       return this;
     }
 
@@ -29,7 +29,15 @@ namespace Ml2.Clss
     /// 3 = Inverse, 4 = Gaussian and 5 = Constant. (default 0 = Linear)].
     /// </summary>    
     public LWL<T> WeightingKernel (int value) {
-      ((LWL)impl).setWeightingKernel(value);
+      ((LWL)Impl).setWeightingKernel(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public LWL<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((LWL)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -37,7 +45,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public LWL<T> Debug (bool value) {
-      ((LWL)impl).setDebug(value);
+      ((LWL)Impl).setDebug(value);
       return this;
     }
 

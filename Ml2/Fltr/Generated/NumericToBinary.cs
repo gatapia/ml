@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,10 +17,18 @@ namespace Ml2.Fltr
     public NumericToBinary(Runtime<T> rt) : base(rt, new NumericToBinary()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public NumericToBinary<T> InputFormat (Runtime<T> value) {
+      ((NumericToBinary)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public NumericToBinary<T> IgnoreClass (bool value) {
-      ((NumericToBinary)impl).setIgnoreClass(value);
+      ((NumericToBinary)Impl).setIgnoreClass(value);
       return this;
     }
 

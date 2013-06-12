@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.supervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public StratifiedRemoveFolds<T> InvertSelection (bool value) {
-      ((StratifiedRemoveFolds)impl).setInvertSelection(value);
+      ((StratifiedRemoveFolds)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -24,7 +25,7 @@ namespace Ml2.Fltr
     /// The number of folds to split the dataset into.
     /// </summary>    
     public StratifiedRemoveFolds<T> NumFolds (int value) {
-      ((StratifiedRemoveFolds)impl).setNumFolds(value);
+      ((StratifiedRemoveFolds)Impl).setNumFolds(value);
       return this;
     }
 
@@ -32,7 +33,24 @@ namespace Ml2.Fltr
     /// The fold which is selected.
     /// </summary>    
     public StratifiedRemoveFolds<T> Fold (int value) {
-      ((StratifiedRemoveFolds)impl).setFold(value);
+      ((StratifiedRemoveFolds)Impl).setFold(value);
+      return this;
+    }
+
+    /// <summary>
+    /// the random number seed for shuffling the dataset. If seed is negative,
+    /// shuffling will not be performed.
+    /// </summary>    
+    public StratifiedRemoveFolds<T> Seed (long value) {
+      ((StratifiedRemoveFolds)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public StratifiedRemoveFolds<T> InputFormat (Runtime<T> value) {
+      ((StratifiedRemoveFolds)Impl).setInputFormat(value.Instances);
       return this;
     }
 

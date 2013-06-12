@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,10 +16,18 @@ namespace Ml2.Fltr
     public PKIDiscretize(Runtime<T> rt) : base(rt, new PKIDiscretize()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public PKIDiscretize<T> InputFormat (Runtime<T> value) {
+      ((PKIDiscretize)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// Ignored.
     /// </summary>    
     public PKIDiscretize<T> FindNumBins (bool value) {
-      ((PKIDiscretize)impl).setFindNumBins(value);
+      ((PKIDiscretize)Impl).setFindNumBins(value);
       return this;
     }
 
@@ -26,7 +35,7 @@ namespace Ml2.Fltr
     /// Always true.
     /// </summary>    
     public PKIDiscretize<T> UseEqualFrequency (bool value) {
-      ((PKIDiscretize)impl).setUseEqualFrequency(value);
+      ((PKIDiscretize)Impl).setUseEqualFrequency(value);
       return this;
     }
 
@@ -34,7 +43,7 @@ namespace Ml2.Fltr
     /// Ignored.
     /// </summary>    
     public PKIDiscretize<T> Bins (int value) {
-      ((PKIDiscretize)impl).setBins(value);
+      ((PKIDiscretize)Impl).setBins(value);
       return this;
     }
 
@@ -44,7 +53,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public PKIDiscretize<T> AttributeIndices (string value) {
-      ((PKIDiscretize)impl).setAttributeIndices(value);
+      ((PKIDiscretize)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -54,7 +63,7 @@ namespace Ml2.Fltr
     /// will be discretized.
     /// </summary>    
     public PKIDiscretize<T> InvertSelection (bool value) {
-      ((PKIDiscretize)impl).setInvertSelection(value);
+      ((PKIDiscretize)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -62,7 +71,7 @@ namespace Ml2.Fltr
     /// Make resulting attributes binary.
     /// </summary>    
     public PKIDiscretize<T> MakeBinary (bool value) {
-      ((PKIDiscretize)impl).setMakeBinary(value);
+      ((PKIDiscretize)Impl).setMakeBinary(value);
       return this;
     }
 
@@ -71,7 +80,7 @@ namespace Ml2.Fltr
     /// attributes
     /// </summary>    
     public PKIDiscretize<T> UseBinNumbers (bool value) {
-      ((PKIDiscretize)impl).setUseBinNumbers(value);
+      ((PKIDiscretize)Impl).setUseBinNumbers(value);
       return this;
     }
 
@@ -80,7 +89,15 @@ namespace Ml2.Fltr
     /// binning.
     /// </summary>    
     public PKIDiscretize<T> DesiredWeightOfInstancesPerInterval (double value) {
-      ((PKIDiscretize)impl).setDesiredWeightOfInstancesPerInterval(value);
+      ((PKIDiscretize)Impl).setDesiredWeightOfInstancesPerInterval(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public PKIDiscretize<T> AttributeIndicesArray (int[] value) {
+      ((PKIDiscretize)Impl).setAttributeIndicesArray(value);
       return this;
     }
 
@@ -88,7 +105,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public PKIDiscretize<T> IgnoreClass (bool value) {
-      ((PKIDiscretize)impl).setIgnoreClass(value);
+      ((PKIDiscretize)Impl).setIgnoreClass(value);
       return this;
     }
 

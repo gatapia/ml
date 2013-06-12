@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomCommittee<T> Seed (int value) {
-      ((RandomCommittee)impl).setSeed(value);
+      ((RandomCommittee)Impl).setSeed(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public RandomCommittee<T> NumExecutionSlots (int value) {
-      ((RandomCommittee)impl).setNumExecutionSlots(value);
+      ((RandomCommittee)Impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -34,7 +34,15 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public RandomCommittee<T> NumIterations (int value) {
-      ((RandomCommittee)impl).setNumIterations(value);
+      ((RandomCommittee)Impl).setNumIterations(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public RandomCommittee<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((RandomCommittee)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -42,7 +50,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomCommittee<T> Debug (bool value) {
-      ((RandomCommittee)impl).setDebug(value);
+      ((RandomCommittee)Impl).setDebug(value);
       return this;
     }
 

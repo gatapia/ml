@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -17,7 +18,15 @@ namespace Ml2.Fltr
     /// ranges) will be removed from the output.
     /// </summary>    
     public PartitionedMultiFilter<T> RemoveUnused (bool value) {
-      ((PartitionedMultiFilter)impl).setRemoveUnused(value);
+      ((PartitionedMultiFilter)Impl).setRemoveUnused(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base filters to be used.
+    /// </summary>    
+    public PartitionedMultiFilter<T> Filters (Fltr.BaseFilter<T>[] value) {
+      ((PartitionedMultiFilter)Impl).setFilters(value.Select(v => v.Impl).ToArray());
       return this;
     }
 
@@ -25,7 +34,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public PartitionedMultiFilter<T> Debug (bool value) {
-      ((PartitionedMultiFilter)impl).setDebug(value);
+      ((PartitionedMultiFilter)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public PartitionedMultiFilter<T> InputFormat (Runtime<T> value) {
+      ((PartitionedMultiFilter)Impl).setInputFormat(value.Instances);
       return this;
     }
 

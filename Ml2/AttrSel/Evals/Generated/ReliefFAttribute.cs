@@ -23,7 +23,7 @@ namespace Ml2.AttrSel.Evals
     /// Weight nearest neighbours by their distance.
     /// </summary>    
     public ReliefFAttribute<T> WeightByDistance (bool value) {
-      ((ReliefFAttributeEval)impl).setWeightByDistance(value);
+      ((ReliefFAttributeEval)Impl).setWeightByDistance(value);
       return this;
     }
 
@@ -32,7 +32,7 @@ namespace Ml2.AttrSel.Evals
     /// will be used for attribute estimation.
     /// </summary>    
     public ReliefFAttribute<T> SampleSize (int value) {
-      ((ReliefFAttributeEval)impl).setSampleSize(value);
+      ((ReliefFAttributeEval)Impl).setSampleSize(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.AttrSel.Evals
     /// Random seed for sampling instances.
     /// </summary>    
     public ReliefFAttribute<T> Seed (int value) {
-      ((ReliefFAttributeEval)impl).setSeed(value);
+      ((ReliefFAttributeEval)Impl).setSeed(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.AttrSel.Evals
     /// Number of nearest neighbours for attribute estimation.
     /// </summary>    
     public ReliefFAttribute<T> NumNeighbours (int value) {
-      ((ReliefFAttributeEval)impl).setNumNeighbours(value);
+      ((ReliefFAttributeEval)Impl).setNumNeighbours(value);
       return this;
     }
 
@@ -59,7 +59,7 @@ namespace Ml2.AttrSel.Evals
     /// neighbours.
     /// </summary>    
     public ReliefFAttribute<T> Sigma (int value) {
-      ((ReliefFAttributeEval)impl).setSigma(value);
+      ((ReliefFAttributeEval)Impl).setSigma(value);
       return this;
     }
 

@@ -23,7 +23,7 @@ namespace Ml2.Clss
     /// attributes, otherwise the absolute number of attributes.
     /// </summary>    
     public RandomSubSpace<T> SubSpaceSize (double value) {
-      ((RandomSubSpace)impl).setSubSpaceSize(value);
+      ((RandomSubSpace)Impl).setSubSpaceSize(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomSubSpace<T> Seed (int value) {
-      ((RandomSubSpace)impl).setSeed(value);
+      ((RandomSubSpace)Impl).setSeed(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public RandomSubSpace<T> NumExecutionSlots (int value) {
-      ((RandomSubSpace)impl).setNumExecutionSlots(value);
+      ((RandomSubSpace)Impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -48,7 +48,15 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public RandomSubSpace<T> NumIterations (int value) {
-      ((RandomSubSpace)impl).setNumIterations(value);
+      ((RandomSubSpace)Impl).setNumIterations(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public RandomSubSpace<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((RandomSubSpace)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -56,7 +64,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomSubSpace<T> Debug (bool value) {
-      ((RandomSubSpace)impl).setDebug(value);
+      ((RandomSubSpace)Impl).setDebug(value);
       return this;
     }
 

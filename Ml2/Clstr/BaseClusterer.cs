@@ -5,19 +5,19 @@ namespace Ml2.Clstr
   public abstract class BaseClusterer<T> : IClusterer<T>
   {
     protected readonly Runtime<T> rt;
-    protected readonly Clusterer impl;
+    public Clusterer Impl { get; private set; }
 
     protected BaseClusterer(Runtime<T> rt, Clusterer impl) { 
       this.rt = rt; 
-      this.impl = impl;
+      Impl = impl;
     }
 
     public IClusterer<T> Build()
     {
-      impl.buildClusterer(rt.Instances);
+      Impl.buildClusterer(rt.Instances);
       return this;
     }
 
-    public int Classify(T row) { return impl.clusterInstance(rt.GetRowInstance(row)); }
+    public int Classify(T row) { return Impl.clusterInstance(rt.GetRowInstance(row)); }
   }
 }

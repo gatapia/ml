@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -21,12 +22,28 @@ namespace Ml2.Fltr
     public Reorder(Runtime<T> rt) : base(rt, new Reorder()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public Reorder<T> AttributeIndicesArray (int[] value) {
+      ((Reorder)Impl).setAttributeIndicesArray(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Reorder<T> InputFormat (Runtime<T> value) {
+      ((Reorder)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Reorder<T> AttributeIndices (string value) {
-      ((Reorder)impl).setAttributeIndices(value);
+      ((Reorder)Impl).setAttributeIndices(value);
       return this;
     }
 

@@ -20,7 +20,7 @@ namespace Ml2.AttrSel.Evals
     /// are distributed across other values in proportion to their frequency.
     /// </summary>    
     public CfsSubset<T> MissingSeparate (bool value) {
-      ((CfsSubsetEval)impl).setMissingSeparate(value);
+      ((CfsSubsetEval)Impl).setMissingSeparate(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.AttrSel.Evals
     /// question
     /// </summary>    
     public CfsSubset<T> LocallyPredictive (bool value) {
-      ((CfsSubsetEval)impl).setLocallyPredictive(value);
+      ((CfsSubsetEval)Impl).setLocallyPredictive(value);
       return this;
     }
 

@@ -19,7 +19,7 @@ namespace Ml2.Clss
     /// Ignore case when matching attribute names and nomina values.
     /// </summary>    
     public InputMappedClassifier<T> IgnoreCaseForNames (bool value) {
-      ((InputMappedClassifier)impl).setIgnoreCaseForNames(value);
+      ((InputMappedClassifier)Impl).setIgnoreCaseForNames(value);
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Clss
     /// Don't output a report of model-to-input mappings.
     /// </summary>    
     public InputMappedClassifier<T> SuppressMappingReport (bool value) {
-      ((InputMappedClassifier)impl).setSuppressMappingReport(value);
+      ((InputMappedClassifier)Impl).setSuppressMappingReport(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clss
     /// before matching.
     /// </summary>    
     public InputMappedClassifier<T> Trim (bool value) {
-      ((InputMappedClassifier)impl).setTrim(value);
+      ((InputMappedClassifier)Impl).setTrim(value);
       return this;
     }
 
@@ -46,7 +46,31 @@ namespace Ml2.Clss
     /// path.
     /// </summary>    
     public InputMappedClassifier<T> ModelPath (string value) {
-      ((InputMappedClassifier)impl).setModelPath(value);
+      ((InputMappedClassifier)Impl).setModelPath(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public InputMappedClassifier<T> TestStructure (Runtime<T> value) {
+      ((InputMappedClassifier)Impl).setTestStructure(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public InputMappedClassifier<T> ModelHeader (Runtime<T> value) {
+      ((InputMappedClassifier)Impl).setModelHeader(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public InputMappedClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((InputMappedClassifier)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -54,7 +78,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public InputMappedClassifier<T> Debug (bool value) {
-      ((InputMappedClassifier)impl).setDebug(value);
+      ((InputMappedClassifier)Impl).setDebug(value);
       return this;
     }
 

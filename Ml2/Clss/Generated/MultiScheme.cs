@@ -18,7 +18,7 @@ namespace Ml2.Clss
     /// training data will be used).
     /// </summary>    
     public MultiScheme<T> NumFolds (int value) {
-      ((MultiScheme)impl).setNumFolds(value);
+      ((MultiScheme)Impl).setNumFolds(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// The seed used for randomizing the data for cross-validation.
     /// </summary>    
     public MultiScheme<T> Seed (int value) {
-      ((MultiScheme)impl).setSeed(value);
+      ((MultiScheme)Impl).setSeed(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// Whether debug information is output to console.
     /// </summary>    
     public MultiScheme<T> Debug (bool value) {
-      ((MultiScheme)impl).setDebug(value);
+      ((MultiScheme)Impl).setDebug(value);
       return this;
     }
 

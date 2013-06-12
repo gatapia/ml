@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// Turns time-consuming checks off - use with caution.
     /// </summary>    
     public SMO<T> ChecksTurnedOff (bool value) {
-      ((SMO)impl).setChecksTurnedOff(value);
+      ((SMO)Impl).setChecksTurnedOff(value);
       return this;
     }
 
@@ -41,7 +41,7 @@ namespace Ml2.Clss
     /// The complexity parameter C.
     /// </summary>    
     public SMO<T> C (double value) {
-      ((SMO)impl).setC(value);
+      ((SMO)Impl).setC(value);
       return this;
     }
 
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// The tolerance parameter (shouldn't be changed).
     /// </summary>    
     public SMO<T> ToleranceParameter (double value) {
-      ((SMO)impl).setToleranceParameter(value);
+      ((SMO)Impl).setToleranceParameter(value);
       return this;
     }
 
@@ -57,7 +57,7 @@ namespace Ml2.Clss
     /// The epsilon for round-off error (shouldn't be changed).
     /// </summary>    
     public SMO<T> Epsilon (double value) {
-      ((SMO)impl).setEpsilon(value);
+      ((SMO)Impl).setEpsilon(value);
       return this;
     }
 
@@ -65,7 +65,7 @@ namespace Ml2.Clss
     /// Determines how/if the data will be transformed.
     /// </summary>    
     public SMO<T> FilterType (EFilterType value) {
-      ((SMO)impl).setFilterType(new SelectedTag((int) value, SMO.TAGS_FILTER));
+      ((SMO)Impl).setFilterType(new SelectedTag((int) value, SMO.TAGS_FILTER));
       return this;
     }
 
@@ -74,7 +74,7 @@ namespace Ml2.Clss
     /// estimates).
     /// </summary>    
     public SMO<T> BuildLogisticModels (bool value) {
-      ((SMO)impl).setBuildLogisticModels(value);
+      ((SMO)Impl).setBuildLogisticModels(value);
       return this;
     }
 
@@ -83,7 +83,7 @@ namespace Ml2.Clss
     /// for logistic models (-1 means use training data).
     /// </summary>    
     public SMO<T> NumFolds (int value) {
-      ((SMO)impl).setNumFolds(value);
+      ((SMO)Impl).setNumFolds(value);
       return this;
     }
 
@@ -91,7 +91,7 @@ namespace Ml2.Clss
     /// Random number seed for the cross-validation.
     /// </summary>    
     public SMO<T> RandomSeed (int value) {
-      ((SMO)impl).setRandomSeed(value);
+      ((SMO)Impl).setRandomSeed(value);
       return this;
     }
 
@@ -99,7 +99,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SMO<T> Debug (bool value) {
-      ((SMO)impl).setDebug(value);
+      ((SMO)Impl).setDebug(value);
       return this;
     }
 

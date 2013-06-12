@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// The minimum threshold below values are replaced by a default.
     /// </summary>    
     public NumericCleaner<T> MinThreshold (double value) {
-      ((NumericCleaner)impl).setMinThreshold(value);
+      ((NumericCleaner)Impl).setMinThreshold(value);
       return this;
     }
 
@@ -24,7 +25,7 @@ namespace Ml2.Fltr
     /// The default value to replace values that are below the minimum threshold.
     /// </summary>    
     public NumericCleaner<T> MinDefault (double value) {
-      ((NumericCleaner)impl).setMinDefault(value);
+      ((NumericCleaner)Impl).setMinDefault(value);
       return this;
     }
 
@@ -32,7 +33,7 @@ namespace Ml2.Fltr
     /// The maximum threshold above values are replaced by a default.
     /// </summary>    
     public NumericCleaner<T> MaxThreshold (double value) {
-      ((NumericCleaner)impl).setMaxThreshold(value);
+      ((NumericCleaner)Impl).setMaxThreshold(value);
       return this;
     }
 
@@ -40,7 +41,7 @@ namespace Ml2.Fltr
     /// The default value to replace values that are above the maximum threshold.
     /// </summary>    
     public NumericCleaner<T> MaxDefault (double value) {
-      ((NumericCleaner)impl).setMaxDefault(value);
+      ((NumericCleaner)Impl).setMaxDefault(value);
       return this;
     }
 
@@ -49,7 +50,7 @@ namespace Ml2.Fltr
     /// replaced by a default.
     /// </summary>    
     public NumericCleaner<T> CloseTo (double value) {
-      ((NumericCleaner)impl).setCloseTo(value);
+      ((NumericCleaner)Impl).setCloseTo(value);
       return this;
     }
 
@@ -57,7 +58,7 @@ namespace Ml2.Fltr
     /// The default value to replace values with that are too close.
     /// </summary>    
     public NumericCleaner<T> CloseToDefault (double value) {
-      ((NumericCleaner)impl).setCloseToDefault(value);
+      ((NumericCleaner)Impl).setCloseToDefault(value);
       return this;
     }
 
@@ -65,7 +66,7 @@ namespace Ml2.Fltr
     /// The value below which values are considered close to.
     /// </summary>    
     public NumericCleaner<T> CloseToTolerance (double value) {
-      ((NumericCleaner)impl).setCloseToTolerance(value);
+      ((NumericCleaner)Impl).setCloseToTolerance(value);
       return this;
     }
 
@@ -74,7 +75,7 @@ namespace Ml2.Fltr
     /// are valid indices.
     /// </summary>    
     public NumericCleaner<T> AttributeIndices (string value) {
-      ((NumericCleaner)impl).setAttributeIndices(value);
+      ((NumericCleaner)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -82,7 +83,7 @@ namespace Ml2.Fltr
     /// If enabled the selection of the columns is inverted.
     /// </summary>    
     public NumericCleaner<T> InvertSelection (bool value) {
-      ((NumericCleaner)impl).setInvertSelection(value);
+      ((NumericCleaner)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -91,7 +92,7 @@ namespace Ml2.Fltr
     /// process.
     /// </summary>    
     public NumericCleaner<T> IncludeClass (bool value) {
-      ((NumericCleaner)impl).setIncludeClass(value);
+      ((NumericCleaner)Impl).setIncludeClass(value);
       return this;
     }
 
@@ -99,7 +100,7 @@ namespace Ml2.Fltr
     /// The number of decimals to round to, -1 means no rounding at all.
     /// </summary>    
     public NumericCleaner<T> Decimals (int value) {
-      ((NumericCleaner)impl).setDecimals(value);
+      ((NumericCleaner)Impl).setDecimals(value);
       return this;
     }
 
@@ -107,7 +108,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public NumericCleaner<T> Debug (bool value) {
-      ((NumericCleaner)impl).setDebug(value);
+      ((NumericCleaner)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NumericCleaner<T> InputFormat (Runtime<T> value) {
+      ((NumericCleaner)Impl).setInputFormat(value.Instances);
       return this;
     }
 

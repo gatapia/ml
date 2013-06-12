@@ -25,7 +25,7 @@ namespace Ml2.Clss
     /// ones.
     /// </summary>    
     public NaiveBayes<T> UseSupervisedDiscretization (bool value) {
-      ((NaiveBayes)impl).setUseSupervisedDiscretization(value);
+      ((NaiveBayes)Impl).setUseSupervisedDiscretization(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// distribution.
     /// </summary>    
     public NaiveBayes<T> UseKernelEstimator (bool value) {
-      ((NaiveBayes)impl).setUseKernelEstimator(value);
+      ((NaiveBayes)Impl).setUseKernelEstimator(value);
       return this;
     }
 
@@ -44,7 +44,7 @@ namespace Ml2.Clss
     /// and many attributes.
     /// </summary>    
     public NaiveBayes<T> DisplayModelInOldFormat (bool value) {
-      ((NaiveBayes)impl).setDisplayModelInOldFormat(value);
+      ((NaiveBayes)Impl).setDisplayModelInOldFormat(value);
       return this;
     }
 
@@ -52,7 +52,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public NaiveBayes<T> Debug (bool value) {
-      ((NaiveBayes)impl).setDebug(value);
+      ((NaiveBayes)Impl).setDebug(value);
       return this;
     }
 

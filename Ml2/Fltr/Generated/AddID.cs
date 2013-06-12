@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -13,10 +14,18 @@ namespace Ml2.Fltr
     public AddID(Runtime<T> rt) : base(rt, new AddID()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public AddID<T> InputFormat (Runtime<T> value) {
+      ((AddID)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// Set the new attribute's name.
     /// </summary>    
     public AddID<T> AttributeName (string value) {
-      ((AddID)impl).setAttributeName(value);
+      ((AddID)Impl).setAttributeName(value);
       return this;
     }
 
@@ -24,7 +33,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public AddID<T> IDIndex (string value) {
-      ((AddID)impl).setIDIndex(value);
+      ((AddID)Impl).setIDIndex(value);
       return this;
     }
 

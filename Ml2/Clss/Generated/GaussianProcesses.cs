@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// Matrix), after the target has been normalized/standardized/left unchanged).
     /// </summary>    
     public GaussianProcesses<T> Noise (double value) {
-      ((GaussianProcesses)impl).setNoise(value);
+      ((GaussianProcesses)Impl).setNoise(value);
       return this;
     }
 
@@ -29,7 +29,7 @@ namespace Ml2.Clss
     /// Determines how/if the data will be transformed.
     /// </summary>    
     public GaussianProcesses<T> FilterType (EFilterType value) {
-      ((GaussianProcesses)impl).setFilterType(new SelectedTag((int) value, GaussianProcesses.TAGS_FILTER));
+      ((GaussianProcesses)Impl).setFilterType(new SelectedTag((int) value, GaussianProcesses.TAGS_FILTER));
       return this;
     }
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public GaussianProcesses<T> Debug (bool value) {
-      ((GaussianProcesses)impl).setDebug(value);
+      ((GaussianProcesses)Impl).setDebug(value);
       return this;
     }
 

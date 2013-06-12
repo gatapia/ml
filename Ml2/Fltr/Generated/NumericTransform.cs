@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NumericTransform<T> AttributeIndices (string value) {
-      ((NumericTransform)impl).setAttributeIndices(value);
+      ((NumericTransform)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -24,7 +25,7 @@ namespace Ml2.Fltr
     /// Whether to process the inverse of the given attribute ranges.
     /// </summary>    
     public NumericTransform<T> InvertSelection (bool value) {
-      ((NumericTransform)impl).setInvertSelection(value);
+      ((NumericTransform)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -32,7 +33,7 @@ namespace Ml2.Fltr
     /// Name of the class containing the method used for the transformation.
     /// </summary>    
     public NumericTransform<T> ClassName (string value) {
-      ((NumericTransform)impl).setClassName(value);
+      ((NumericTransform)Impl).setClassName(value);
       return this;
     }
 
@@ -40,7 +41,23 @@ namespace Ml2.Fltr
     /// Name of the method used for the transformation.
     /// </summary>    
     public NumericTransform<T> MethodName (string value) {
-      ((NumericTransform)impl).setMethodName(value);
+      ((NumericTransform)Impl).setMethodName(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NumericTransform<T> InputFormat (Runtime<T> value) {
+      ((NumericTransform)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NumericTransform<T> AttributeIndicesArray (int[] value) {
+      ((NumericTransform)Impl).setAttributeIndicesArray(value);
       return this;
     }
 

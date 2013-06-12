@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,7 +19,7 @@ namespace Ml2.Fltr
     /// ("first" and "last" are valid values)
     /// </summary>    
     public ChangeDateFormat<T> AttributeIndex (string value) {
-      ((ChangeDateFormat)impl).setAttributeIndex(value);
+      ((ChangeDateFormat)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -27,7 +28,15 @@ namespace Ml2.Fltr
     /// Java's SimpleDateFormat class.
     /// </summary>    
     public ChangeDateFormat<T> DateFormat (string value) {
-      ((ChangeDateFormat)impl).setDateFormat(value);
+      ((ChangeDateFormat)Impl).setDateFormat(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public ChangeDateFormat<T> InputFormat (Runtime<T> value) {
+      ((ChangeDateFormat)Impl).setInputFormat(value.Instances);
       return this;
     }
 

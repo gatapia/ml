@@ -17,7 +17,7 @@ namespace Ml2.Clss
     /// several 2-class ones.
     /// </summary>    
     public MultiClassClassifier<T> Method (EMethod value) {
-      ((MultiClassClassifier)impl).setMethod(new SelectedTag((int) value, MultiClassClassifier.TAGS_METHOD));
+      ((MultiClassClassifier)Impl).setMethod(new SelectedTag((int) value, MultiClassClassifier.TAGS_METHOD));
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
     public MultiClassClassifier<T> RandomWidthFactor (double value) {
-      ((MultiClassClassifier)impl).setRandomWidthFactor(value);
+      ((MultiClassClassifier)Impl).setRandomWidthFactor(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
     public MultiClassClassifier<T> UsePairwiseCoupling (bool value) {
-      ((MultiClassClassifier)impl).setUsePairwiseCoupling(value);
+      ((MultiClassClassifier)Impl).setUsePairwiseCoupling(value);
       return this;
     }
 
@@ -42,7 +42,15 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public MultiClassClassifier<T> Seed (int value) {
-      ((MultiClassClassifier)impl).setSeed(value);
+      ((MultiClassClassifier)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public MultiClassClassifier<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((MultiClassClassifier)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -50,7 +58,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public MultiClassClassifier<T> Debug (bool value) {
-      ((MultiClassClassifier)impl).setDebug(value);
+      ((MultiClassClassifier)Impl).setDebug(value);
       return this;
     }
 

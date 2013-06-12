@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -14,7 +15,7 @@ namespace Ml2.Fltr
     /// The percentage of the data to select.
     /// </summary>    
     public RemovePercentage<T> Percentage (double value) {
-      ((RemovePercentage)impl).setPercentage(value);
+      ((RemovePercentage)Impl).setPercentage(value);
       return this;
     }
 
@@ -22,7 +23,15 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public RemovePercentage<T> InvertSelection (bool value) {
-      ((RemovePercentage)impl).setInvertSelection(value);
+      ((RemovePercentage)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemovePercentage<T> InputFormat (Runtime<T> value) {
+      ((RemovePercentage)Impl).setInputFormat(value.Instances);
       return this;
     }
 

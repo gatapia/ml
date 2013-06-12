@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -14,6 +15,14 @@ namespace Ml2.Fltr
   public class AddUserFields<T> : BaseFilter<T>
   {
     public AddUserFields(Runtime<T> rt) : base(rt, new AddUserFields()) {}
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public AddUserFields<T> InputFormat (Runtime<T> value) {
+      ((AddUserFields)Impl).setInputFormat(value.Instances);
+      return this;
+    }
 
         
         

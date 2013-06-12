@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// Set the new attribute's name.
     /// </summary>    
     public Add<T> AttributeName (string value) {
-      ((Add)impl).setAttributeName(value);
+      ((Add)Impl).setAttributeName(value);
       return this;
     }
 
@@ -25,7 +26,15 @@ namespace Ml2.Fltr
     /// attribute will be numeric.
     /// </summary>    
     public Add<T> NominalLabels (string value) {
-      ((Add)impl).setNominalLabels(value);
+      ((Add)Impl).setNominalLabels(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Add<T> InputFormat (Runtime<T> value) {
+      ((Add)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -33,7 +42,7 @@ namespace Ml2.Fltr
     /// Defines the type of the attribute to generate.
     /// </summary>    
     public Add<T> AttributeType (EAttributeType value) {
-      ((Add)impl).setAttributeType(new SelectedTag((int) value, Add.TAGS_TYPE));
+      ((Add)Impl).setAttributeType(new SelectedTag((int) value, Add.TAGS_TYPE));
       return this;
     }
 
@@ -42,7 +51,7 @@ namespace Ml2.Fltr
     /// (first and last are valid indices).
     /// </summary>    
     public Add<T> AttributeIndex (string value) {
-      ((Add)impl).setAttributeIndex(value);
+      ((Add)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -50,7 +59,7 @@ namespace Ml2.Fltr
     /// The format of the date values (see ISO-8601).
     /// </summary>    
     public Add<T> DateFormat (string value) {
-      ((Add)impl).setDateFormat(value);
+      ((Add)Impl).setDateFormat(value);
       return this;
     }
 

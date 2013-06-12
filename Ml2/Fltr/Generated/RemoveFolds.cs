@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// Whether to invert the selection.
     /// </summary>    
     public RemoveFolds<T> InvertSelection (bool value) {
-      ((RemoveFolds)impl).setInvertSelection(value);
+      ((RemoveFolds)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Fltr
     /// The number of folds to split the dataset into.
     /// </summary>    
     public RemoveFolds<T> NumFolds (int value) {
-      ((RemoveFolds)impl).setNumFolds(value);
+      ((RemoveFolds)Impl).setNumFolds(value);
       return this;
     }
 
@@ -31,7 +32,24 @@ namespace Ml2.Fltr
     /// The fold which is selected.
     /// </summary>    
     public RemoveFolds<T> Fold (int value) {
-      ((RemoveFolds)impl).setFold(value);
+      ((RemoveFolds)Impl).setFold(value);
+      return this;
+    }
+
+    /// <summary>
+    /// the random number seed for shuffling the dataset. If seed is negative,
+    /// shuffling will not be performed.
+    /// </summary>    
+    public RemoveFolds<T> Seed (long value) {
+      ((RemoveFolds)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveFolds<T> InputFormat (Runtime<T> value) {
+      ((RemoveFolds)Impl).setInputFormat(value.Instances);
       return this;
     }
 

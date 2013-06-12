@@ -17,8 +17,16 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
+    public BayesNetGenerator<T> Data (Runtime<T> value) {
+      ((BayesNetGenerator)Impl).setData(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
     public BayesNetGenerator<T> BIFFile (string value) {
-      ((BayesNetGenerator)impl).setBIFFile(value);
+      ((BayesNetGenerator)Impl).setBIFFile(value);
       return this;
     }
 
@@ -30,7 +38,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public BayesNetGenerator<T> UseADTree (bool value) {
-      ((BayesNetGenerator)impl).setUseADTree(value);
+      ((BayesNetGenerator)Impl).setUseADTree(value);
       return this;
     }
 
@@ -38,7 +46,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public BayesNetGenerator<T> Debug (bool value) {
-      ((BayesNetGenerator)impl).setDebug(value);
+      ((BayesNetGenerator)Impl).setDebug(value);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.supervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// Whether to add an attribute with the actual classification.
     /// </summary>    
     public AddClassification<T> OutputClassification (bool value) {
-      ((AddClassification)impl).setOutputClassification(value);
+      ((AddClassification)Impl).setOutputClassification(value);
       return this;
     }
 
@@ -24,7 +25,7 @@ namespace Ml2.Fltr
     /// Whether to remove the old class attribute.
     /// </summary>    
     public AddClassification<T> RemoveOldClass (bool value) {
-      ((AddClassification)impl).setRemoveOldClass(value);
+      ((AddClassification)Impl).setRemoveOldClass(value);
       return this;
     }
 
@@ -34,7 +35,7 @@ namespace Ml2.Fltr
     /// 'outputClassification').
     /// </summary>    
     public AddClassification<T> OutputDistribution (bool value) {
-      ((AddClassification)impl).setOutputDistribution(value);
+      ((AddClassification)Impl).setOutputDistribution(value);
       return this;
     }
 
@@ -43,7 +44,15 @@ namespace Ml2.Fltr
     /// wrong classification (for numeric classes this is the numeric difference).
     /// </summary>    
     public AddClassification<T> OutputErrorFlag (bool value) {
-      ((AddClassification)impl).setOutputErrorFlag(value);
+      ((AddClassification)Impl).setOutputErrorFlag(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The classifier to use for classification.
+    /// </summary>    
+    public AddClassification<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((AddClassification)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -51,7 +60,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public AddClassification<T> Debug (bool value) {
-      ((AddClassification)impl).setDebug(value);
+      ((AddClassification)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public AddClassification<T> InputFormat (Runtime<T> value) {
+      ((AddClassification)Impl).setInputFormat(value.Instances);
       return this;
     }
 

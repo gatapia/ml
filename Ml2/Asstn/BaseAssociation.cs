@@ -5,18 +5,18 @@ namespace Ml2.Asstn
   public class BaseAssociation<T>
   {
     protected readonly Runtime<T> rt;
-    protected readonly AbstractAssociator impl;    
+    protected internal AbstractAssociator Impl { get; private set; }
 
     public BaseAssociation(Runtime<T> rt, AbstractAssociator impl)
     {
       this.rt = rt;
-      this.impl = impl;
+      Impl = impl;
     }
 
     public string GetRules()
     {
-      impl.buildAssociations(rt.Instances);
-      return impl.ToString();
+      Impl.buildAssociations(rt.Instances);
+      return Impl.ToString();
     }
   }
 }

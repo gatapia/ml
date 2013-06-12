@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,12 +17,20 @@ namespace Ml2.Fltr
     public TimeSeriesDelta(Runtime<T> rt) : base(rt, new TimeSeriesDelta()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public TimeSeriesDelta<T> InputFormat (Runtime<T> value) {
+      ((TimeSeriesDelta)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public TimeSeriesDelta<T> AttributeIndices (string value) {
-      ((TimeSeriesDelta)impl).setAttributeIndices(value);
+      ((TimeSeriesDelta)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -29,7 +38,7 @@ namespace Ml2.Fltr
     /// Invert matching sense. ie calculate for all non-specified columns.
     /// </summary>    
     public TimeSeriesDelta<T> InvertSelection (bool value) {
-      ((TimeSeriesDelta)impl).setInvertSelection(value);
+      ((TimeSeriesDelta)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -39,7 +48,7 @@ namespace Ml2.Fltr
     /// instances)
     /// </summary>    
     public TimeSeriesDelta<T> FillWithMissing (bool value) {
-      ((TimeSeriesDelta)impl).setFillWithMissing(value);
+      ((TimeSeriesDelta)Impl).setFillWithMissing(value);
       return this;
     }
 
@@ -48,7 +57,15 @@ namespace Ml2.Fltr
     /// negative number indicates taking values from a past instance.
     /// </summary>    
     public TimeSeriesDelta<T> InstanceRange (int value) {
-      ((TimeSeriesDelta)impl).setInstanceRange(value);
+      ((TimeSeriesDelta)Impl).setInstanceRange(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public TimeSeriesDelta<T> AttributeIndicesArray (int[] value) {
+      ((TimeSeriesDelta)Impl).setAttributeIndicesArray(value);
       return this;
     }
 

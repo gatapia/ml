@@ -15,10 +15,18 @@ namespace Ml2.AttrSel.Evals
     public WrapperSubset(Runtime<T> rt) : base(rt, new WrapperSubsetEval()) {}
     
     /// <summary>
+    /// Classifier to use for estimating the accuracy of subsets
+    /// </summary>    
+    public WrapperSubset<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((WrapperSubsetEval)Impl).setClassifier(value.Impl);
+      return this;
+    }
+
+    /// <summary>
     /// Number of xval folds to use when estimating subset accuracy.
     /// </summary>    
     public WrapperSubset<T> Folds (int value) {
-      ((WrapperSubsetEval)impl).setFolds(value);
+      ((WrapperSubsetEval)Impl).setFolds(value);
       return this;
     }
 
@@ -26,7 +34,7 @@ namespace Ml2.AttrSel.Evals
     /// Seed to use for randomly generating xval splits.
     /// </summary>    
     public WrapperSubset<T> Seed (int value) {
-      ((WrapperSubsetEval)impl).setSeed(value);
+      ((WrapperSubsetEval)Impl).setSeed(value);
       return this;
     }
 
@@ -34,7 +42,7 @@ namespace Ml2.AttrSel.Evals
     /// Repeat xval if stdev of mean exceeds this value.
     /// </summary>    
     public WrapperSubset<T> Threshold (double value) {
-      ((WrapperSubsetEval)impl).setThreshold(value);
+      ((WrapperSubsetEval)Impl).setThreshold(value);
       return this;
     }
 
@@ -42,7 +50,7 @@ namespace Ml2.AttrSel.Evals
     /// The measure used to evaluate the performance of attribute combinations.
     /// </summary>    
     public WrapperSubset<T> EvaluationMeasure (EEvaluationMeasure value) {
-      ((WrapperSubsetEval)impl).setEvaluationMeasure(new SelectedTag((int) value, WrapperSubsetEval.TAGS_EVALUATION));
+      ((WrapperSubsetEval)Impl).setEvaluationMeasure(new SelectedTag((int) value, WrapperSubsetEval.TAGS_EVALUATION));
       return this;
     }
 
@@ -50,7 +58,7 @@ namespace Ml2.AttrSel.Evals
     /// 
     /// </summary>    
     public WrapperSubset<T> IRClassValue (string value) {
-      ((WrapperSubsetEval)impl).setIRClassValue(value);
+      ((WrapperSubsetEval)Impl).setIRClassValue(value);
       return this;
     }
 

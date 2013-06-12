@@ -15,7 +15,7 @@ namespace Ml2.AttrSel.Evals
     /// Set the seed for use in cross validation.
     /// </summary>    
     public OneRAttribute<T> Seed (int value) {
-      ((OneRAttributeEval)impl).setSeed(value);
+      ((OneRAttributeEval)Impl).setSeed(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.AttrSel.Evals
     /// Set the number of folds for cross validation.
     /// </summary>    
     public OneRAttribute<T> Folds (int value) {
-      ((OneRAttributeEval)impl).setFolds(value);
+      ((OneRAttributeEval)Impl).setFolds(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.AttrSel.Evals
     /// The minimum number of objects in a bucket (passed to OneR).
     /// </summary>    
     public OneRAttribute<T> MinimumBucketSize (int value) {
-      ((OneRAttributeEval)impl).setMinimumBucketSize(value);
+      ((OneRAttributeEval)Impl).setMinimumBucketSize(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.AttrSel.Evals
     /// validation.
     /// </summary>    
     public OneRAttribute<T> EvalUsingTrainingData (bool value) {
-      ((OneRAttributeEval)impl).setEvalUsingTrainingData(value);
+      ((OneRAttributeEval)Impl).setEvalUsingTrainingData(value);
       return this;
     }
 

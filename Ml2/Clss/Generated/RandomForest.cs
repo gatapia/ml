@@ -15,7 +15,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomForest<T> Seed (int value) {
-      ((RandomForest)impl).setSeed(value);
+      ((RandomForest)Impl).setSeed(value);
       return this;
     }
 
@@ -23,7 +23,7 @@ namespace Ml2.Clss
     /// The maximum depth of the trees, 0 for unlimited.
     /// </summary>    
     public RandomForest<T> MaxDepth (int value) {
-      ((RandomForest)impl).setMaxDepth(value);
+      ((RandomForest)Impl).setMaxDepth(value);
       return this;
     }
 
@@ -31,7 +31,7 @@ namespace Ml2.Clss
     /// Print the individual trees in the output
     /// </summary>    
     public RandomForest<T> PrintTrees (bool value) {
-      ((RandomForest)impl).setPrintTrees(value);
+      ((RandomForest)Impl).setPrintTrees(value);
       return this;
     }
 
@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// ensemble.
     /// </summary>    
     public RandomForest<T> NumExecutionSlots (int value) {
-      ((RandomForest)impl).setNumExecutionSlots(value);
+      ((RandomForest)Impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -48,7 +48,7 @@ namespace Ml2.Clss
     /// The number of trees to be generated.
     /// </summary>    
     public RandomForest<T> NumTrees (int value) {
-      ((RandomForest)impl).setNumTrees(value);
+      ((RandomForest)Impl).setNumTrees(value);
       return this;
     }
 
@@ -56,7 +56,7 @@ namespace Ml2.Clss
     /// The number of attributes to be used in random selection (see RandomTree).
     /// </summary>    
     public RandomForest<T> NumFeatures (int value) {
-      ((RandomForest)impl).setNumFeatures(value);
+      ((RandomForest)Impl).setNumFeatures(value);
       return this;
     }
 
@@ -64,7 +64,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public RandomForest<T> Debug (bool value) {
-      ((RandomForest)impl).setDebug(value);
+      ((RandomForest)Impl).setDebug(value);
       return this;
     }
 

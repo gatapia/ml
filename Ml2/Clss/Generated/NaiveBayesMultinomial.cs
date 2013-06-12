@@ -19,7 +19,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public NaiveBayesMultinomial<T> Debug (bool value) {
-      ((NaiveBayesMultinomial)impl).setDebug(value);
+      ((NaiveBayesMultinomial)Impl).setDebug(value);
       return this;
     }
 

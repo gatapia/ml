@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -14,7 +15,7 @@ namespace Ml2.Fltr
     /// Choose attribute to be used for selection (default last).
     /// </summary>    
     public RemoveWithValues<T> AttributeIndex (string value) {
-      ((RemoveWithValues)impl).setAttributeIndex(value);
+      ((RemoveWithValues)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -23,7 +24,7 @@ namespace Ml2.Fltr
     /// excluded values.
     /// </summary>    
     public RemoveWithValues<T> ModifyHeader (bool value) {
-      ((RemoveWithValues)impl).setModifyHeader(value);
+      ((RemoveWithValues)Impl).setModifyHeader(value);
       return this;
     }
 
@@ -31,7 +32,23 @@ namespace Ml2.Fltr
     /// Invert matching sense.
     /// </summary>    
     public RemoveWithValues<T> InvertSelection (bool value) {
-      ((RemoveWithValues)impl).setInvertSelection(value);
+      ((RemoveWithValues)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveWithValues<T> NominalIndicesArr (int[] value) {
+      ((RemoveWithValues)Impl).setNominalIndicesArr(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveWithValues<T> InputFormat (Runtime<T> value) {
+      ((RemoveWithValues)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -40,7 +57,7 @@ namespace Ml2.Fltr
     /// with values smaller than given value will be selected.
     /// </summary>    
     public RemoveWithValues<T> SplitPoint (double value) {
-      ((RemoveWithValues)impl).setSplitPoint(value);
+      ((RemoveWithValues)Impl).setSplitPoint(value);
       return this;
     }
 
@@ -49,7 +66,7 @@ namespace Ml2.Fltr
     /// First and last are valid indexes.
     /// </summary>    
     public RemoveWithValues<T> NominalIndices (string value) {
-      ((RemoveWithValues)impl).setNominalIndices(value);
+      ((RemoveWithValues)Impl).setNominalIndices(value);
       return this;
     }
 
@@ -58,7 +75,7 @@ namespace Ml2.Fltr
     /// invertSelection option.
     /// </summary>    
     public RemoveWithValues<T> MatchMissingValues (bool value) {
-      ((RemoveWithValues)impl).setMatchMissingValues(value);
+      ((RemoveWithValues)Impl).setMatchMissingValues(value);
       return this;
     }
 
@@ -68,7 +85,7 @@ namespace Ml2.Fltr
     /// batches can potentially get 'consumed' by the filter.
     /// </summary>    
     public RemoveWithValues<T> DontFilterAfterFirstBatch (bool value) {
-      ((RemoveWithValues)impl).setDontFilterAfterFirstBatch(value);
+      ((RemoveWithValues)Impl).setDontFilterAfterFirstBatch(value);
       return this;
     }
 

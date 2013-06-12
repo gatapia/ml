@@ -22,7 +22,7 @@ namespace Ml2.Clss
     /// Whether unpruned tree/rules are to be generated.
     /// </summary>    
     public M5Rules<T> Unpruned (bool value) {
-      ((M5Rules)impl).setUnpruned(value);
+      ((M5Rules)Impl).setUnpruned(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// Whether to use unsmoothed predictions.
     /// </summary>    
     public M5Rules<T> UseUnsmoothed (bool value) {
-      ((M5Rules)impl).setUseUnsmoothed(value);
+      ((M5Rules)Impl).setUseUnsmoothed(value);
       return this;
     }
 
@@ -38,7 +38,7 @@ namespace Ml2.Clss
     /// Whether to generate a regression tree/rule instead of a model tree/rule.
     /// </summary>    
     public M5Rules<T> BuildRegressionTree (bool value) {
-      ((M5Rules)impl).setBuildRegressionTree(value);
+      ((M5Rules)Impl).setBuildRegressionTree(value);
       return this;
     }
 
@@ -46,7 +46,7 @@ namespace Ml2.Clss
     /// The minimum number of instances to allow at a leaf node.
     /// </summary>    
     public M5Rules<T> MinNumInstances (double value) {
-      ((M5Rules)impl).setMinNumInstances(value);
+      ((M5Rules)Impl).setMinNumInstances(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public M5Rules<T> Debug (bool value) {
-      ((M5Rules)impl).setDebug(value);
+      ((M5Rules)Impl).setDebug(value);
       return this;
     }
 

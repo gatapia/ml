@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,15 @@ namespace Ml2.Fltr
     /// range are left untouched ("first" and "last" are valid values)
     /// </summary>    
     public NominalToString<T> AttributeIndexes (string value) {
-      ((NominalToString)impl).setAttributeIndexes(value);
+      ((NominalToString)Impl).setAttributeIndexes(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NominalToString<T> InputFormat (Runtime<T> value) {
+      ((NominalToString)Impl).setInputFormat(value.Instances);
       return this;
     }
 

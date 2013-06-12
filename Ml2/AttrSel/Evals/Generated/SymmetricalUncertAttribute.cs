@@ -19,7 +19,7 @@ namespace Ml2.AttrSel.Evals
     /// a separate value.
     /// </summary>    
     public SymmetricalUncertAttribute<T> MissingMerge (bool value) {
-      ((SymmetricalUncertAttributeEval)impl).setMissingMerge(value);
+      ((SymmetricalUncertAttributeEval)Impl).setMissingMerge(value);
       return this;
     }
 

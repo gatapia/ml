@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// accepted as well, '0' unsets the class index.
     /// </summary>    
     public ClassAssigner<T> ClassIndex (string value) {
-      ((ClassAssigner)impl).setClassIndex(value);
+      ((ClassAssigner)Impl).setClassIndex(value);
       return this;
     }
 
@@ -23,7 +24,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public ClassAssigner<T> Debug (bool value) {
-      ((ClassAssigner)impl).setDebug(value);
+      ((ClassAssigner)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public ClassAssigner<T> InputFormat (Runtime<T> value) {
+      ((ClassAssigner)Impl).setInputFormat(value.Instances);
       return this;
     }
 

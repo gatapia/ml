@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -22,7 +23,23 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public FirstOrder<T> AttributeIndices (string value) {
-      ((FirstOrder)impl).setAttributeIndices(value);
+      ((FirstOrder)Impl).setAttributeIndices(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public FirstOrder<T> InputFormat (Runtime<T> value) {
+      ((FirstOrder)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public FirstOrder<T> AttributeIndicesArray (int[] value) {
+      ((FirstOrder)Impl).setAttributeIndicesArray(value);
       return this;
     }
 

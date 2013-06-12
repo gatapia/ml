@@ -18,7 +18,7 @@ namespace Ml2.Clss
     /// 
     /// </summary>    
     public BayesNet<T> BIFFile (string value) {
-      ((BayesNet)impl).setBIFFile(value);
+      ((BayesNet)Impl).setBIFFile(value);
       return this;
     }
 
@@ -30,7 +30,7 @@ namespace Ml2.Clss
     /// algorithms slower, and run with less memory. By default, ADTrees are used.
     /// </summary>    
     public BayesNet<T> UseADTree (bool value) {
-      ((BayesNet)impl).setUseADTree(value);
+      ((BayesNet)Impl).setUseADTree(value);
       return this;
     }
 
@@ -38,7 +38,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public BayesNet<T> Debug (bool value) {
-      ((BayesNet)impl).setDebug(value);
+      ((BayesNet)Impl).setDebug(value);
       return this;
     }
 

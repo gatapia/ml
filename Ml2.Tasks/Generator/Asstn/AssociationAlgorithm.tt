@@ -16,13 +16,7 @@ namespace Ml2.Asstn
     public <#= Model.TypeName #>(Runtime<T> rt) : base(rt, new <#= Model.ImplTypeName #>()) {}
 
 <# Array.ForEach(Model.Options, o => { #>
-    /// <summary>
-    /// <#= o.OptionDescription #>
-    /// </summary>    
-    public <#= Model.TypeName #><T> <#= o.OptionName #> (<#= o.OptionType #> value) {
-      <#= o.SetterCode #>
-      return this;
-    }
+    <#= o.SetterCode #>    
 
 <# }); #>          
 <# Array.ForEach(Model.Enumerations, e => { #>

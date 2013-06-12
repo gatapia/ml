@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -20,7 +21,7 @@ namespace Ml2.Fltr
     /// Choose attribute to be used for selection (default last).
     /// </summary>    
     public RemoveFrequentValues<T> AttributeIndex (string value) {
-      ((RemoveFrequentValues)impl).setAttributeIndex(value);
+      ((RemoveFrequentValues)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -28,7 +29,7 @@ namespace Ml2.Fltr
     /// The number of values to retain.
     /// </summary>    
     public RemoveFrequentValues<T> NumValues (int value) {
-      ((RemoveFrequentValues)impl).setNumValues(value);
+      ((RemoveFrequentValues)Impl).setNumValues(value);
       return this;
     }
 
@@ -36,7 +37,7 @@ namespace Ml2.Fltr
     /// Retains values with least instance instead of most.
     /// </summary>    
     public RemoveFrequentValues<T> UseLeastValues (bool value) {
-      ((RemoveFrequentValues)impl).setUseLeastValues(value);
+      ((RemoveFrequentValues)Impl).setUseLeastValues(value);
       return this;
     }
 
@@ -45,7 +46,7 @@ namespace Ml2.Fltr
     /// excluded values.
     /// </summary>    
     public RemoveFrequentValues<T> ModifyHeader (bool value) {
-      ((RemoveFrequentValues)impl).setModifyHeader(value);
+      ((RemoveFrequentValues)Impl).setModifyHeader(value);
       return this;
     }
 
@@ -53,7 +54,15 @@ namespace Ml2.Fltr
     /// Invert matching sense.
     /// </summary>    
     public RemoveFrequentValues<T> InvertSelection (bool value) {
-      ((RemoveFrequentValues)impl).setInvertSelection(value);
+      ((RemoveFrequentValues)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveFrequentValues<T> InputFormat (Runtime<T> value) {
+      ((RemoveFrequentValues)Impl).setInputFormat(value.Instances);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -20,7 +21,7 @@ namespace Ml2.Fltr
     /// will be 'nominalized'.
     /// </summary>    
     public NumericToNominal<T> InvertSelection (bool value) {
-      ((NumericToNominal)impl).setInvertSelection(value);
+      ((NumericToNominal)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -30,7 +31,15 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NumericToNominal<T> AttributeIndices (string value) {
-      ((NumericToNominal)impl).setAttributeIndices(value);
+      ((NumericToNominal)Impl).setAttributeIndices(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NumericToNominal<T> AttributeIndicesArray (int[] value) {
+      ((NumericToNominal)Impl).setAttributeIndicesArray(value);
       return this;
     }
 
@@ -38,7 +47,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public NumericToNominal<T> Debug (bool value) {
-      ((NumericToNominal)impl).setDebug(value);
+      ((NumericToNominal)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public NumericToNominal<T> InputFormat (Runtime<T> value) {
+      ((NumericToNominal)Impl).setInputFormat(value.Instances);
       return this;
     }
 

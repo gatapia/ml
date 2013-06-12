@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-"; eg: "first-3,5,6-10,last".
     /// </summary>    
     public SortLabels<T> AttributeIndices (string value) {
-      ((SortLabels)impl).setAttributeIndices(value);
+      ((SortLabels)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -26,7 +27,7 @@ namespace Ml2.Fltr
     /// processed.
     /// </summary>    
     public SortLabels<T> InvertSelection (bool value) {
-      ((SortLabels)impl).setInvertSelection(value);
+      ((SortLabels)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -34,7 +35,7 @@ namespace Ml2.Fltr
     /// The type of sorting to use.
     /// </summary>    
     public SortLabels<T> SortType (ESortType value) {
-      ((SortLabels)impl).setSortType(new SelectedTag((int) value, SortLabels.TAGS_SORTTYPE));
+      ((SortLabels)Impl).setSortType(new SelectedTag((int) value, SortLabels.TAGS_SORTTYPE));
       return this;
     }
 
@@ -42,7 +43,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public SortLabels<T> Debug (bool value) {
-      ((SortLabels)impl).setDebug(value);
+      ((SortLabels)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public SortLabels<T> InputFormat (Runtime<T> value) {
+      ((SortLabels)Impl).setInputFormat(value.Instances);
       return this;
     }
 

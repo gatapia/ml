@@ -18,7 +18,7 @@ namespace Ml2.Clss
     /// several 2-class ones.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Method (EMethod value) {
-      ((MultiClassClassifierUpdateable)impl).setMethod(new SelectedTag((int) value, MultiClassClassifierUpdateable.TAGS_METHOD));
+      ((MultiClassClassifierUpdateable)Impl).setMethod(new SelectedTag((int) value, MultiClassClassifierUpdateable.TAGS_METHOD));
       return this;
     }
 
@@ -27,7 +27,7 @@ namespace Ml2.Clss
     /// generated will be thus number multiplied by the number of classes.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> RandomWidthFactor (double value) {
-      ((MultiClassClassifierUpdateable)impl).setRandomWidthFactor(value);
+      ((MultiClassClassifierUpdateable)Impl).setRandomWidthFactor(value);
       return this;
     }
 
@@ -35,7 +35,7 @@ namespace Ml2.Clss
     /// Use pairwise coupling (only has an effect for 1-against-1).
     /// </summary>    
     public MultiClassClassifierUpdateable<T> UsePairwiseCoupling (bool value) {
-      ((MultiClassClassifierUpdateable)impl).setUsePairwiseCoupling(value);
+      ((MultiClassClassifierUpdateable)Impl).setUsePairwiseCoupling(value);
       return this;
     }
 
@@ -43,7 +43,15 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Seed (int value) {
-      ((MultiClassClassifierUpdateable)impl).setSeed(value);
+      ((MultiClassClassifierUpdateable)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public MultiClassClassifierUpdateable<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((MultiClassClassifierUpdateable)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -51,7 +59,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Debug (bool value) {
-      ((MultiClassClassifierUpdateable)impl).setDebug(value);
+      ((MultiClassClassifierUpdateable)Impl).setDebug(value);
       return this;
     }
 

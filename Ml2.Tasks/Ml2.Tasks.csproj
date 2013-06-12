@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Generator\Fltr\FiltersModel.cs" />
     <Compile Include="Generator\ICodeGen.cs" />
+    <Compile Include="Generator\TemplatedSetters.cs" />
     <Compile Include="Generator\Utils.cs" />
     <Compile Include="Generator\AttrSel\AttributeSelectionAlgorithm.cs">
       <DependentUpon>AttributeSelectionAlgorithm.tt</DependentUpon>

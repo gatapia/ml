@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,7 +19,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public Remove<T> AttributeIndices (string value) {
-      ((Remove)impl).setAttributeIndices(value);
+      ((Remove)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -28,7 +29,23 @@ namespace Ml2.Fltr
     /// will be deleted.
     /// </summary>    
     public Remove<T> InvertSelection (bool value) {
-      ((Remove)impl).setInvertSelection(value);
+      ((Remove)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Remove<T> InputFormat (Runtime<T> value) {
+      ((Remove)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Remove<T> AttributeIndicesArray (int[] value) {
+      ((Remove)Impl).setAttributeIndicesArray(value);
       return this;
     }
 

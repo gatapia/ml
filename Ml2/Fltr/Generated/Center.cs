@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -12,10 +13,18 @@ namespace Ml2.Fltr
     public Center(Runtime<T> rt) : base(rt, new Center()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public Center<T> InputFormat (Runtime<T> value) {
+      ((Center)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public Center<T> IgnoreClass (bool value) {
-      ((Center)impl).setIgnoreClass(value);
+      ((Center)Impl).setIgnoreClass(value);
       return this;
     }
 

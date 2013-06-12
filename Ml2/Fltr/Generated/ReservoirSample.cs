@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// The seed used for random sampling.
     /// </summary>    
     public ReservoirSample<T> RandomSeed (int value) {
-      ((ReservoirSample)impl).setRandomSeed(value);
+      ((ReservoirSample)Impl).setRandomSeed(value);
       return this;
     }
 
@@ -24,7 +25,15 @@ namespace Ml2.Fltr
     /// Size of the subsample (reservoir). i.e. the number of instances.
     /// </summary>    
     public ReservoirSample<T> SampleSize (int value) {
-      ((ReservoirSample)impl).setSampleSize(value);
+      ((ReservoirSample)Impl).setSampleSize(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public ReservoirSample<T> InputFormat (Runtime<T> value) {
+      ((ReservoirSample)Impl).setInputFormat(value.Instances);
       return this;
     }
 

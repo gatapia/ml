@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,12 +16,20 @@ namespace Ml2.Fltr
     public NominalToBinary(Runtime<T> rt) : base(rt, new NominalToBinary()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public NominalToBinary<T> InputFormat (Runtime<T> value) {
+      ((NominalToBinary)Impl).setInputFormat(value.Instances);
+      return this;
+    }
+
+    /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public NominalToBinary<T> AttributeIndices (string value) {
-      ((NominalToBinary)impl).setAttributeIndices(value);
+      ((NominalToBinary)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -28,7 +37,7 @@ namespace Ml2.Fltr
     /// Whether resulting binary attributes will be nominal.
     /// </summary>    
     public NominalToBinary<T> BinaryAttributesNominal (bool value) {
-      ((NominalToBinary)impl).setBinaryAttributesNominal(value);
+      ((NominalToBinary)Impl).setBinaryAttributesNominal(value);
       return this;
     }
 
@@ -37,7 +46,7 @@ namespace Ml2.Fltr
     /// there are more than 2.
     /// </summary>    
     public NominalToBinary<T> TransformAllValues (bool value) {
-      ((NominalToBinary)impl).setTransformAllValues(value);
+      ((NominalToBinary)Impl).setTransformAllValues(value);
       return this;
     }
 
@@ -47,7 +56,7 @@ namespace Ml2.Fltr
     /// will be discretized.
     /// </summary>    
     public NominalToBinary<T> InvertSelection (bool value) {
-      ((NominalToBinary)impl).setInvertSelection(value);
+      ((NominalToBinary)Impl).setInvertSelection(value);
       return this;
     }
 

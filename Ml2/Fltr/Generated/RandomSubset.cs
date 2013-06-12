@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// The number of attributes to choose: < 1 percentage, >= 1 absolute number.
     /// </summary>    
     public RandomSubset<T> NumAttributes (double value) {
-      ((RandomSubset)impl).setNumAttributes(value);
+      ((RandomSubset)Impl).setNumAttributes(value);
       return this;
     }
 
@@ -24,7 +25,7 @@ namespace Ml2.Fltr
     /// The seed value for the random number generator.
     /// </summary>    
     public RandomSubset<T> Seed (int value) {
-      ((RandomSubset)impl).setSeed(value);
+      ((RandomSubset)Impl).setSeed(value);
       return this;
     }
 
@@ -32,7 +33,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public RandomSubset<T> Debug (bool value) {
-      ((RandomSubset)impl).setDebug(value);
+      ((RandomSubset)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RandomSubset<T> InputFormat (Runtime<T> value) {
+      ((RandomSubset)Impl).setInputFormat(value.Instances);
       return this;
     }
 

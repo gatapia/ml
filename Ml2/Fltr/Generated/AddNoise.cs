@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -16,7 +17,7 @@ namespace Ml2.Fltr
     /// Index of the attribute that is to changed.
     /// </summary>    
     public AddNoise<T> AttributeIndex (string value) {
-      ((AddNoise)impl).setAttributeIndex(value);
+      ((AddNoise)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -24,7 +25,7 @@ namespace Ml2.Fltr
     /// Flag to set if missing values are used.
     /// </summary>    
     public AddNoise<T> UseMissing (bool value) {
-      ((AddNoise)impl).setUseMissing(value);
+      ((AddNoise)Impl).setUseMissing(value);
       return this;
     }
 
@@ -32,7 +33,7 @@ namespace Ml2.Fltr
     /// Percentage of introduced noise to data.
     /// </summary>    
     public AddNoise<T> Percent (int value) {
-      ((AddNoise)impl).setPercent(value);
+      ((AddNoise)Impl).setPercent(value);
       return this;
     }
 
@@ -40,7 +41,15 @@ namespace Ml2.Fltr
     /// Random number seed.
     /// </summary>    
     public AddNoise<T> RandomSeed (int value) {
-      ((AddNoise)impl).setRandomSeed(value);
+      ((AddNoise)Impl).setRandomSeed(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public AddNoise<T> InputFormat (Runtime<T> value) {
+      ((AddNoise)Impl).setInputFormat(value.Instances);
       return this;
     }
 

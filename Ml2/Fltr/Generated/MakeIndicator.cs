@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,7 +19,7 @@ namespace Ml2.Fltr
     /// must be nominal.
     /// </summary>    
     public MakeIndicator<T> AttributeIndex (string value) {
-      ((MakeIndicator)impl).setAttributeIndex(value);
+      ((MakeIndicator)Impl).setAttributeIndex(value);
       return this;
     }
 
@@ -26,7 +27,7 @@ namespace Ml2.Fltr
     /// 
     /// </summary>    
     public MakeIndicator<T> ValueIndex (int value) {
-      ((MakeIndicator)impl).setValueIndex(value);
+      ((MakeIndicator)Impl).setValueIndex(value);
       return this;
     }
 
@@ -35,7 +36,15 @@ namespace Ml2.Fltr
     /// set to false, the output attribute will be nominal.
     /// </summary>    
     public MakeIndicator<T> Numeric (bool value) {
-      ((MakeIndicator)impl).setNumeric(value);
+      ((MakeIndicator)Impl).setNumeric(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public MakeIndicator<T> InputFormat (Runtime<T> value) {
+      ((MakeIndicator)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -45,7 +54,15 @@ namespace Ml2.Fltr
     /// values. Specify an inclusive range with "-". E.g: "first-3,5,6-10,last".
     /// </summary>    
     public MakeIndicator<T> ValueIndices (string value) {
-      ((MakeIndicator)impl).setValueIndices(value);
+      ((MakeIndicator)Impl).setValueIndices(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public MakeIndicator<T> ValueIndicesArray (int[] value) {
+      ((MakeIndicator)Impl).setValueIndicesArray(value);
       return this;
     }
 

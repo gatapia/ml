@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -17,7 +18,7 @@ namespace Ml2.Fltr
     /// The regular expression that the attribute names must match.
     /// </summary>    
     public RenameAttribute<T> Find (string value) {
-      ((RenameAttribute)impl).setFind(value);
+      ((RenameAttribute)Impl).setFind(value);
       return this;
     }
 
@@ -26,7 +27,7 @@ namespace Ml2.Fltr
     /// with.
     /// </summary>    
     public RenameAttribute<T> Replace (string value) {
-      ((RenameAttribute)impl).setReplace(value);
+      ((RenameAttribute)Impl).setReplace(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Fltr
     /// otherwise only the first.
     /// </summary>    
     public RenameAttribute<T> ReplaceAll (bool value) {
-      ((RenameAttribute)impl).setReplaceAll(value);
+      ((RenameAttribute)Impl).setReplaceAll(value);
       return this;
     }
 
@@ -45,7 +46,7 @@ namespace Ml2.Fltr
     /// inclusive range with "-"; eg: "first-3,5,6-10,last".
     /// </summary>    
     public RenameAttribute<T> AttributeIndices (string value) {
-      ((RenameAttribute)impl).setAttributeIndices(value);
+      ((RenameAttribute)Impl).setAttributeIndices(value);
       return this;
     }
 
@@ -54,7 +55,7 @@ namespace Ml2.Fltr
     /// '2-4' then mean everything apart from '2-4'.
     /// </summary>    
     public RenameAttribute<T> InvertSelection (bool value) {
-      ((RenameAttribute)impl).setInvertSelection(value);
+      ((RenameAttribute)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -62,7 +63,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public RenameAttribute<T> Debug (bool value) {
-      ((RenameAttribute)impl).setDebug(value);
+      ((RenameAttribute)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RenameAttribute<T> InputFormat (Runtime<T> value) {
+      ((RenameAttribute)Impl).setInputFormat(value.Instances);
       return this;
     }
 

@@ -20,25 +20,25 @@ namespace Ml2.AttrSel.Algs
     /// Set the start point for the search. This is specified as a comma
     /// seperated list off attribute indexes starting at 1. It can include ranges. Eg.
     /// 1,2,5-9,17.
-    /// </summary>
+    /// </summary>    
     public BestFirst<T> StartSet (string value) {
-      ((BestFirst)impl).setStartSet(value);
+      ((BestFirst)Impl).setStartSet(value);
       return this;
     }
 
     /// <summary>
     /// Set the direction of the search.
-    /// </summary>
+    /// </summary>    
     public BestFirst<T> Direction (EDirection value) {
-      ((BestFirst)impl).setDirection(new SelectedTag((int) value, BestFirst.TAGS_SELECTION));
+      ((BestFirst)Impl).setDirection(new SelectedTag((int) value, BestFirst.TAGS_SELECTION));
       return this;
     }
 
     /// <summary>
     /// Set the amount of backtracking. Specify the number of
-    /// </summary>
+    /// </summary>    
     public BestFirst<T> SearchTermination (int value) {
-      ((BestFirst)impl).setSearchTermination(value);
+      ((BestFirst)Impl).setSearchTermination(value);
       return this;
     }
 
@@ -46,9 +46,9 @@ namespace Ml2.AttrSel.Algs
     /// Set the maximum size of the lookup cache of evaluated subsets. This is
     /// expressed as a multiplier of the number of attributes in the data set.
     /// (default = 1).
-    /// </summary>
+    /// </summary>    
     public BestFirst<T> LookupCacheSize (int value) {
-      ((BestFirst)impl).setLookupCacheSize(value);
+      ((BestFirst)Impl).setLookupCacheSize(value);
       return this;
     }
 

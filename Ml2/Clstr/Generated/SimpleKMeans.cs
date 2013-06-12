@@ -19,7 +19,7 @@ namespace Ml2.Clstr
     /// set number of clusters
     /// </summary>    
     public SimpleKMeans<T> NumClusters (int value) {
-      ((SimpleKMeans)impl).setNumClusters(value);
+      ((SimpleKMeans)Impl).setNumClusters(value);
       return this;
     }
 
@@ -28,7 +28,7 @@ namespace Ml2.Clstr
     /// of available cpu/cores
     /// </summary>    
     public SimpleKMeans<T> NumExecutionSlots (int value) {
-      ((SimpleKMeans)impl).setNumExecutionSlots(value);
+      ((SimpleKMeans)Impl).setNumExecutionSlots(value);
       return this;
     }
 
@@ -37,7 +37,7 @@ namespace Ml2.Clstr
     /// attributes.
     /// </summary>    
     public SimpleKMeans<T> DisplayStdDevs (bool value) {
-      ((SimpleKMeans)impl).setDisplayStdDevs(value);
+      ((SimpleKMeans)Impl).setDisplayStdDevs(value);
       return this;
     }
 
@@ -45,7 +45,7 @@ namespace Ml2.Clstr
     /// set maximum number of iterations
     /// </summary>    
     public SimpleKMeans<T> MaxIterations (int value) {
-      ((SimpleKMeans)impl).setMaxIterations(value);
+      ((SimpleKMeans)Impl).setMaxIterations(value);
       return this;
     }
 
@@ -54,7 +54,7 @@ namespace Ml2.Clstr
     /// of the k-means++ algorithm
     /// </summary>    
     public SimpleKMeans<T> InitializeUsingKMeansPlusPlusMethod (bool value) {
-      ((SimpleKMeans)impl).setInitializeUsingKMeansPlusPlusMethod(value);
+      ((SimpleKMeans)Impl).setInitializeUsingKMeansPlusPlusMethod(value);
       return this;
     }
 
@@ -62,7 +62,7 @@ namespace Ml2.Clstr
     /// Replace missing values globally with mean/mode.
     /// </summary>    
     public SimpleKMeans<T> DontReplaceMissingValues (bool value) {
-      ((SimpleKMeans)impl).setDontReplaceMissingValues(value);
+      ((SimpleKMeans)Impl).setDontReplaceMissingValues(value);
       return this;
     }
 
@@ -70,7 +70,7 @@ namespace Ml2.Clstr
     /// Preserve order of instances.
     /// </summary>    
     public SimpleKMeans<T> PreserveInstancesOrder (bool value) {
-      ((SimpleKMeans)impl).setPreserveInstancesOrder(value);
+      ((SimpleKMeans)Impl).setPreserveInstancesOrder(value);
       return this;
     }
 
@@ -80,7 +80,7 @@ namespace Ml2.Clstr
     /// errors/sum of distances.
     /// </summary>    
     public SimpleKMeans<T> FastDistanceCalc (bool value) {
-      ((SimpleKMeans)impl).setFastDistanceCalc(value);
+      ((SimpleKMeans)Impl).setFastDistanceCalc(value);
       return this;
     }
 
@@ -88,7 +88,7 @@ namespace Ml2.Clstr
     /// The random number seed to be used.
     /// </summary>    
     public SimpleKMeans<T> Seed (int value) {
-      ((SimpleKMeans)impl).setSeed(value);
+      ((SimpleKMeans)Impl).setSeed(value);
       return this;
     }
 

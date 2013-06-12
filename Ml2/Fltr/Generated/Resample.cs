@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.instance;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -17,7 +18,7 @@ namespace Ml2.Fltr
     /// The seed used for random sampling.
     /// </summary>    
     public Resample<T> RandomSeed (int value) {
-      ((Resample)impl).setRandomSeed(value);
+      ((Resample)Impl).setRandomSeed(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Fltr
     /// Size of the subsample as a percentage of the original dataset.
     /// </summary>    
     public Resample<T> SampleSizePercent (double value) {
-      ((Resample)impl).setSampleSizePercent(value);
+      ((Resample)Impl).setSampleSizePercent(value);
       return this;
     }
 
@@ -33,7 +34,7 @@ namespace Ml2.Fltr
     /// Disables the replacement of instances.
     /// </summary>    
     public Resample<T> NoReplacement (bool value) {
-      ((Resample)impl).setNoReplacement(value);
+      ((Resample)Impl).setNoReplacement(value);
       return this;
     }
 
@@ -41,7 +42,15 @@ namespace Ml2.Fltr
     /// Inverts the selection (only if instances are drawn WITHOUT replacement).
     /// </summary>    
     public Resample<T> InvertSelection (bool value) {
-      ((Resample)impl).setInvertSelection(value);
+      ((Resample)Impl).setInvertSelection(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Resample<T> InputFormat (Runtime<T> value) {
+      ((Resample)Impl).setInputFormat(value.Instances);
       return this;
     }
 

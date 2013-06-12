@@ -24,7 +24,7 @@ namespace Ml2.Clss
     /// value of useCrossValidation).
     /// </summary>    
     public SimpleLogistic<T> NumBoostingIterations (int value) {
-      ((SimpleLogistic)impl).setNumBoostingIterations(value);
+      ((SimpleLogistic)Impl).setNumBoostingIterations(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clss
     /// (misclassification error or error on probabilities depending on errorOnProbabilities).
     /// </summary>    
     public SimpleLogistic<T> UseCrossValidation (bool value) {
-      ((SimpleLogistic)impl).setUseCrossValidation(value);
+      ((SimpleLogistic)Impl).setUseCrossValidation(value);
       return this;
     }
 
@@ -47,7 +47,7 @@ namespace Ml2.Clss
     /// training set or in the cross-validation, depending on useCrossValidation).
     /// </summary>    
     public SimpleLogistic<T> ErrorOnProbabilities (bool value) {
-      ((SimpleLogistic)impl).setErrorOnProbabilities(value);
+      ((SimpleLogistic)Impl).setErrorOnProbabilities(value);
       return this;
     }
 
@@ -56,7 +56,7 @@ namespace Ml2.Clss
     /// 500, for very small/large datasets a lower/higher value might be preferable.
     /// </summary>    
     public SimpleLogistic<T> MaxBoostingIterations (int value) {
-      ((SimpleLogistic)impl).setMaxBoostingIterations(value);
+      ((SimpleLogistic)Impl).setMaxBoostingIterations(value);
       return this;
     }
 
@@ -68,7 +68,7 @@ namespace Ml2.Clss
     /// speed-up especially on small datasets. The default value is 50.
     /// </summary>    
     public SimpleLogistic<T> HeuristicStop (int value) {
-      ((SimpleLogistic)impl).setHeuristicStop(value);
+      ((SimpleLogistic)Impl).setHeuristicStop(value);
       return this;
     }
 
@@ -78,7 +78,7 @@ namespace Ml2.Clss
     /// next iteration. Set to 0 for no weight trimming. The default value is 0.
     /// </summary>    
     public SimpleLogistic<T> WeightTrimBeta (double value) {
-      ((SimpleLogistic)impl).setWeightTrimBeta(value);
+      ((SimpleLogistic)Impl).setWeightTrimBeta(value);
       return this;
     }
 
@@ -87,7 +87,7 @@ namespace Ml2.Clss
     /// of cross-validation or training error).
     /// </summary>    
     public SimpleLogistic<T> UseAIC (bool value) {
-      ((SimpleLogistic)impl).setUseAIC(value);
+      ((SimpleLogistic)Impl).setUseAIC(value);
       return this;
     }
 
@@ -95,7 +95,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SimpleLogistic<T> Debug (bool value) {
-      ((SimpleLogistic)impl).setDebug(value);
+      ((SimpleLogistic)Impl).setDebug(value);
       return this;
     }
 

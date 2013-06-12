@@ -21,7 +21,7 @@ namespace Ml2.Clss
     /// smoothing effect (but increase learning time). Default = 1.0, ie. no shrinkage.
     /// </summary>    
     public AdditiveRegression<T> Shrinkage (double value) {
-      ((AdditiveRegression)impl).setShrinkage(value);
+      ((AdditiveRegression)Impl).setShrinkage(value);
       return this;
     }
 
@@ -29,7 +29,15 @@ namespace Ml2.Clss
     /// The number of iterations to be performed.
     /// </summary>    
     public AdditiveRegression<T> NumIterations (int value) {
-      ((AdditiveRegression)impl).setNumIterations(value);
+      ((AdditiveRegression)Impl).setNumIterations(value);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifier to be used.
+    /// </summary>    
+    public AdditiveRegression<T> Classifier (Clss.BaseClassifier<T> value) {
+      ((AdditiveRegression)Impl).setClassifier(value.Impl);
       return this;
     }
 
@@ -37,7 +45,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public AdditiveRegression<T> Debug (bool value) {
-      ((AdditiveRegression)impl).setDebug(value);
+      ((AdditiveRegression)Impl).setDebug(value);
       return this;
     }
 

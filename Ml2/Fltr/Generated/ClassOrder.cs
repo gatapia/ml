@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.supervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -18,10 +19,26 @@ namespace Ml2.Fltr
     public ClassOrder(Runtime<T> rt) : base(rt, new ClassOrder()) {}
 
     /// <summary>
+    /// Specify the seed of randomization of the class order
+    /// </summary>    
+    public ClassOrder<T> Seed (long value) {
+      ((ClassOrder)Impl).setSeed(value);
+      return this;
+    }
+
+    /// <summary>
     /// 
     /// </summary>    
     public ClassOrder<T> SetClassOrder (int value) {
-      ((ClassOrder)impl).setClassOrder(value);
+      ((ClassOrder)Impl).setClassOrder(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public ClassOrder<T> InputFormat (Runtime<T> value) {
+      ((ClassOrder)Impl).setInputFormat(value.Instances);
       return this;
     }
 

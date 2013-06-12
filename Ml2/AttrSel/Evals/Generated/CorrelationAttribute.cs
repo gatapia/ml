@@ -18,7 +18,7 @@ namespace Ml2.AttrSel.Evals
     /// Output per value correlation for nominal attributes
     /// </summary>    
     public CorrelationAttribute<T> OutputDetailedInfo (bool value) {
-      ((CorrelationAttributeEval)impl).setOutputDetailedInfo(value);
+      ((CorrelationAttributeEval)Impl).setOutputDetailedInfo(value);
       return this;
     }
 

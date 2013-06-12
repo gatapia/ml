@@ -18,7 +18,7 @@ namespace Ml2.AttrSel.Evals
     /// a separate value.
     /// </summary>    
     public InfoGainAttribute<T> MissingMerge (bool value) {
-      ((InfoGainAttributeEval)impl).setMissingMerge(value);
+      ((InfoGainAttributeEval)Impl).setMissingMerge(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.AttrSel.Evals
     /// Just binarize numeric attributes instead of properly discretizing them.
     /// </summary>    
     public InfoGainAttribute<T> BinarizeNumericAttributes (bool value) {
-      ((InfoGainAttributeEval)impl).setBinarizeNumericAttributes(value);
+      ((InfoGainAttributeEval)Impl).setBinarizeNumericAttributes(value);
       return this;
     }
 

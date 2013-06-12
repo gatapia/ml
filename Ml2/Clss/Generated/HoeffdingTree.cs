@@ -29,7 +29,7 @@ namespace Ml2.Clss
     /// longer to decide.
     /// </summary>    
     public HoeffdingTree<T> SplitConfidence (double value) {
-      ((HoeffdingTree)impl).setSplitConfidence(value);
+      ((HoeffdingTree)Impl).setSplitConfidence(value);
       return this;
     }
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// Theshold below which a split will be forced to break ties.
     /// </summary>    
     public HoeffdingTree<T> HoeffdingTieThreshold (double value) {
-      ((HoeffdingTree)impl).setHoeffdingTieThreshold(value);
+      ((HoeffdingTree)Impl).setHoeffdingTieThreshold(value);
       return this;
     }
 
@@ -46,7 +46,7 @@ namespace Ml2.Clss
     /// gain splitting.
     /// </summary>    
     public HoeffdingTree<T> MinimumFractionOfWeightInfoGain (double value) {
-      ((HoeffdingTree)impl).setMinimumFractionOfWeightInfoGain(value);
+      ((HoeffdingTree)Impl).setMinimumFractionOfWeightInfoGain(value);
       return this;
     }
 
@@ -55,7 +55,7 @@ namespace Ml2.Clss
     /// between split attempts.
     /// </summary>    
     public HoeffdingTree<T> GracePeriod (double value) {
-      ((HoeffdingTree)impl).setGracePeriod(value);
+      ((HoeffdingTree)Impl).setGracePeriod(value);
       return this;
     }
 
@@ -64,7 +64,7 @@ namespace Ml2.Clss
     /// naive Bayes (adaptive) to make predictions
     /// </summary>    
     public HoeffdingTree<T> NaiveBayesPredictionThreshold (double value) {
-      ((HoeffdingTree)impl).setNaiveBayesPredictionThreshold(value);
+      ((HoeffdingTree)Impl).setNaiveBayesPredictionThreshold(value);
       return this;
     }
 
@@ -72,7 +72,7 @@ namespace Ml2.Clss
     /// Print leaf models (naive bayes leaves only)
     /// </summary>    
     public HoeffdingTree<T> PrintLeafModels (bool value) {
-      ((HoeffdingTree)impl).setPrintLeafModels(value);
+      ((HoeffdingTree)Impl).setPrintLeafModels(value);
       return this;
     }
 
@@ -80,7 +80,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public HoeffdingTree<T> Debug (bool value) {
-      ((HoeffdingTree)impl).setDebug(value);
+      ((HoeffdingTree)Impl).setDebug(value);
       return this;
     }
 

@@ -16,7 +16,7 @@ namespace Ml2.Clstr
     /// to 1.
     /// </summary>    
     public Hierarchical<T> NumClusters (int value) {
-      ((HierarchicalClusterer)impl).setNumClusters(value);
+      ((HierarchicalClusterer)Impl).setNumClusters(value);
       return this;
     }
 
@@ -24,7 +24,7 @@ namespace Ml2.Clstr
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public Hierarchical<T> Debug (bool value) {
-      ((HierarchicalClusterer)impl).setDebug(value);
+      ((HierarchicalClusterer)Impl).setDebug(value);
       return this;
     }
 
@@ -36,7 +36,7 @@ namespace Ml2.Clstr
     /// interpretation.
     /// </summary>    
     public Hierarchical<T> DistanceIsBranchLength (bool value) {
-      ((HierarchicalClusterer)impl).setDistanceIsBranchLength(value);
+      ((HierarchicalClusterer)Impl).setDistanceIsBranchLength(value);
       return this;
     }
 
@@ -56,7 +56,7 @@ namespace Ml2.Clstr
     /// joining algorithm.
     /// </summary>    
     public Hierarchical<T> LinkType (ELinkType value) {
-      ((HierarchicalClusterer)impl).setLinkType(new SelectedTag((int) value, HierarchicalClusterer.TAGS_LINK_TYPE));
+      ((HierarchicalClusterer)Impl).setLinkType(new SelectedTag((int) value, HierarchicalClusterer.TAGS_LINK_TYPE));
       return this;
     }
 
@@ -67,7 +67,7 @@ namespace Ml2.Clstr
     /// format is not required
     /// </summary>    
     public Hierarchical<T> PrintNewick (bool value) {
-      ((HierarchicalClusterer)impl).setPrintNewick(value);
+      ((HierarchicalClusterer)Impl).setPrintNewick(value);
       return this;
     }
 

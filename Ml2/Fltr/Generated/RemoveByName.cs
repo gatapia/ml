@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -15,7 +16,7 @@ namespace Ml2.Fltr
     /// The regular expression to match the attribute names against.
     /// </summary>    
     public RemoveByName<T> Expression (string value) {
-      ((RemoveByName)impl).setExpression(value);
+      ((RemoveByName)Impl).setExpression(value);
       return this;
     }
 
@@ -25,7 +26,7 @@ namespace Ml2.Fltr
     /// will be deleted.
     /// </summary>    
     public RemoveByName<T> InvertSelection (bool value) {
-      ((RemoveByName)impl).setInvertSelection(value);
+      ((RemoveByName)Impl).setInvertSelection(value);
       return this;
     }
 
@@ -33,7 +34,15 @@ namespace Ml2.Fltr
     /// Turns on output of debugging information.
     /// </summary>    
     public RemoveByName<T> Debug (bool value) {
-      ((RemoveByName)impl).setDebug(value);
+      ((RemoveByName)Impl).setDebug(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public RemoveByName<T> InputFormat (Runtime<T> value) {
+      ((RemoveByName)Impl).setInputFormat(value.Instances);
       return this;
     }
 

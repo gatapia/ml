@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -11,6 +12,14 @@ namespace Ml2.Fltr
   public class Obfuscate<T> : BaseFilter<T>
   {
     public Obfuscate(Runtime<T> rt) : base(rt, new Obfuscate()) {}
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public Obfuscate<T> InputFormat (Runtime<T> value) {
+      ((Obfuscate)Impl).setInputFormat(value.Instances);
+      return this;
+    }
 
         
         

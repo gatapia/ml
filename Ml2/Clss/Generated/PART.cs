@@ -18,7 +18,7 @@ namespace Ml2.Clss
     /// The minimum number of instances per rule.
     /// </summary>    
     public PART<T> MinNumObj (int value) {
-      ((PART)impl).setMinNumObj(value);
+      ((PART)Impl).setMinNumObj(value);
       return this;
     }
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// Whether reduced-error pruning is used instead of C.4.5 pruning.
     /// </summary>    
     public PART<T> ReducedErrorPruning (bool value) {
-      ((PART)impl).setReducedErrorPruning(value);
+      ((PART)Impl).setReducedErrorPruning(value);
       return this;
     }
 
@@ -34,7 +34,7 @@ namespace Ml2.Clss
     /// Whether pruning is performed.
     /// </summary>    
     public PART<T> Unpruned (bool value) {
-      ((PART)impl).setUnpruned(value);
+      ((PART)Impl).setUnpruned(value);
       return this;
     }
 
@@ -42,7 +42,7 @@ namespace Ml2.Clss
     /// Whether MDL correction is used when finding splits on numeric attributes.
     /// </summary>    
     public PART<T> UseMDLcorrection (bool value) {
-      ((PART)impl).setUseMDLcorrection(value);
+      ((PART)Impl).setUseMDLcorrection(value);
       return this;
     }
 
@@ -51,7 +51,7 @@ namespace Ml2.Clss
     /// used for pruning, the rest for growing the rules.
     /// </summary>    
     public PART<T> NumFolds (int value) {
-      ((PART)impl).setNumFolds(value);
+      ((PART)Impl).setNumFolds(value);
       return this;
     }
 
@@ -60,7 +60,7 @@ namespace Ml2.Clss
     /// used.
     /// </summary>    
     public PART<T> Seed (int value) {
-      ((PART)impl).setSeed(value);
+      ((PART)Impl).setSeed(value);
       return this;
     }
 
@@ -69,7 +69,7 @@ namespace Ml2.Clss
     /// partial trees.
     /// </summary>    
     public PART<T> BinarySplits (bool value) {
-      ((PART)impl).setBinarySplits(value);
+      ((PART)Impl).setBinarySplits(value);
       return this;
     }
 
@@ -77,7 +77,7 @@ namespace Ml2.Clss
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public PART<T> Debug (bool value) {
-      ((PART)impl).setDebug(value);
+      ((PART)Impl).setDebug(value);
       return this;
     }
 

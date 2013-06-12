@@ -14,10 +14,18 @@ namespace Ml2.Clss
     public SerializedClassifier(Runtime<T> rt) : base(rt, new SerializedClassifier()) {}
 
     /// <summary>
+    /// 
+    /// </summary>    
+    public SerializedClassifier<T> Model (Clss.BaseClassifier<T> value) {
+      ((SerializedClassifier)Impl).setModel(value.Impl);
+      return this;
+    }
+
+    /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SerializedClassifier<T> Debug (bool value) {
-      ((SerializedClassifier)impl).setDebug(value);
+      ((SerializedClassifier)Impl).setDebug(value);
       return this;
     }
 

@@ -1,5 +1,6 @@
 using weka.core;
 using weka.filters.unsupervised.attribute;
+using System.Linq;
 
 namespace Ml2.Fltr
 {
@@ -19,7 +20,7 @@ namespace Ml2.Fltr
     /// and attribute names in the same list
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> Attributes (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setAttributes(value);
+      ((ReplaceMissingWithUserConstant)Impl).setAttributes(value);
       return this;
     }
 
@@ -27,7 +28,7 @@ namespace Ml2.Fltr
     /// The constant to replace missing values in nominal/string attributes with
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> NominalStringReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setNominalStringReplacementValue(value);
+      ((ReplaceMissingWithUserConstant)Impl).setNominalStringReplacementValue(value);
       return this;
     }
 
@@ -35,7 +36,7 @@ namespace Ml2.Fltr
     /// The constant to replace missing values in numeric attributes with
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> NumericReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setNumericReplacementValue(value);
+      ((ReplaceMissingWithUserConstant)Impl).setNumericReplacementValue(value);
       return this;
     }
 
@@ -43,7 +44,7 @@ namespace Ml2.Fltr
     /// The constant to replace missing values in date attributes with
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> DateReplacementValue (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setDateReplacementValue(value);
+      ((ReplaceMissingWithUserConstant)Impl).setDateReplacementValue(value);
       return this;
     }
 
@@ -51,7 +52,15 @@ namespace Ml2.Fltr
     /// The formatting string to use for parsing the date replacement value
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> DateFormat (string value) {
-      ((ReplaceMissingWithUserConstant)impl).setDateFormat(value);
+      ((ReplaceMissingWithUserConstant)Impl).setDateFormat(value);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public ReplaceMissingWithUserConstant<T> InputFormat (Runtime<T> value) {
+      ((ReplaceMissingWithUserConstant)Impl).setInputFormat(value.Instances);
       return this;
     }
 
@@ -59,7 +68,7 @@ namespace Ml2.Fltr
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> IgnoreClass (bool value) {
-      ((ReplaceMissingWithUserConstant)impl).setIgnoreClass(value);
+      ((ReplaceMissingWithUserConstant)Impl).setIgnoreClass(value);
       return this;
     }
 

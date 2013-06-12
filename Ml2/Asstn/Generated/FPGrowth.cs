@@ -24,87 +24,87 @@ namespace Ml2.Asstn
     /// item.
     /// </summary>    
     public FPGrowth<T> PositiveIndex (int value) {
-      ((FPGrowth)impl).setPositiveIndex(value);
+      ((FPGrowth)Impl).setPositiveIndex(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// The maximum number of items to include in frequent item sets. -1 means no
     /// limit.
     /// </summary>    
     public FPGrowth<T> MaxNumberOfItems (int value) {
-      ((FPGrowth)impl).setMaxNumberOfItems(value);
+      ((FPGrowth)Impl).setMaxNumberOfItems(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// The number of rules to output
     /// </summary>    
     public FPGrowth<T> NumRulesToFind (int value) {
-      ((FPGrowth)impl).setNumRulesToFind(value);
+      ((FPGrowth)Impl).setNumRulesToFind(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Minimum metric score. Consider only rules with scores higher than this
     /// value.
     /// </summary>    
     public FPGrowth<T> MinMetric (double value) {
-      ((FPGrowth)impl).setMinMetric(value);
+      ((FPGrowth)Impl).setMinMetric(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Iteratively decrease support by this factor. Reduces support until min
     /// support is reached or required number of rules has been generated.
     /// </summary>    
     public FPGrowth<T> Delta (double value) {
-      ((FPGrowth)impl).setDelta(value);
+      ((FPGrowth)Impl).setDelta(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Lower bound for minimum support as a fraction or number of instances.
     /// </summary>    
     public FPGrowth<T> LowerBoundMinSupport (double value) {
-      ((FPGrowth)impl).setLowerBoundMinSupport(value);
+      ((FPGrowth)Impl).setLowerBoundMinSupport(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Upper bound for minimum support as a fraction or number of instances.
     /// Start iteratively decreasing minimum support from this value.
     /// </summary>    
     public FPGrowth<T> UpperBoundMinSupport (double value) {
-      ((FPGrowth)impl).setUpperBoundMinSupport(value);
+      ((FPGrowth)Impl).setUpperBoundMinSupport(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Limit input to FPGrowth to those transactions (instances) that contain
     /// these items. Provide a comma separated list of attribute names.
     /// </summary>    
     public FPGrowth<T> TransactionsMustContain (string value) {
-      ((FPGrowth)impl).setTransactionsMustContain(value);
+      ((FPGrowth)Impl).setTransactionsMustContain(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Only print rules that contain these items. Provide a comma separated list
     /// of attribute names.
     /// </summary>    
     public FPGrowth<T> RulesMustContain (string value) {
-      ((FPGrowth)impl).setRulesMustContain(value);
+      ((FPGrowth)Impl).setRulesMustContain(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Use OR instead of AND for transactions/rules must contain lists.
     /// </summary>    
     public FPGrowth<T> UseORForMustContainList (bool value) {
-      ((FPGrowth)impl).setUseORForMustContainList(value);
+      ((FPGrowth)Impl).setUseORForMustContainList(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// Find all rules that meet the lower bound on minimum support and the
@@ -112,17 +112,17 @@ namespace Ml2.Asstn
     /// support reduction procedure to find the specified number of rules.
     /// </summary>    
     public FPGrowth<T> FindAllRulesForSupportLevel (bool value) {
-      ((FPGrowth)impl).setFindAllRulesForSupportLevel(value);
+      ((FPGrowth)Impl).setFindAllRulesForSupportLevel(value);
       return this;
-    }
+    }    
 
     /// <summary>
     /// 
     /// </summary>    
     public FPGrowth<T> OffDiskReportingFrequency (int value) {
-      ((FPGrowth)impl).setOffDiskReportingFrequency(value);
+      ((FPGrowth)Impl).setOffDiskReportingFrequency(value);
       return this;
-    }
+    }    
 
           
         

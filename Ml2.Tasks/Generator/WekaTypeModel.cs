@@ -21,7 +21,6 @@ namespace Ml2.Tasks.Generator
     public string TypeName { get { return Utils.GetMl2TypeName(impl, ignoresuffix); } }
     public string GetClassDescription(string separator) { return Utils.GetClassDescription(impl, separator); }
     public string ImplTypeName { get { return impl.Name; } }
-    public string ImplTypeFullName { get { return impl.FullName; } }
     public string ImplTypeNamespace { get { return impl.Namespace; } }
 
     public OptionModel[] Options

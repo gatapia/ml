@@ -90,7 +90,9 @@ namespace Ml2.Tasks.Generator
     {
       return typeof (CfsSubsetEval).Assembly.
         GetTypes().
-        Where(t => !t.IsAbstract && ancestor.IsAssignableFrom(t) && Utils.IsSupportedType(t)).
+        Where(t => !t.IsAbstract && 
+            t.DeclaringType == null &&  // No nested classes
+            ancestor.IsAssignableFrom(t) && Utils.IsSupportedType(t)).
         ToArray();
     }
 

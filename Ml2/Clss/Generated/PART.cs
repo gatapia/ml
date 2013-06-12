@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.rules;
 
 // ReSharper disable once CheckNamespace
@@ -13,6 +14,15 @@ namespace Ml2.Clss
   public class PART<T> : BaseClassifier<T>
   {
     public PART(Runtime<T> rt) : base(rt, new PART()) {}
+
+    /// <summary>
+    /// The confidence factor used for pruning (smaller values incur more
+    /// pruning).
+    /// </summary>    
+    public PART<T> ConfidenceFactor (float v) {
+      ((PART)Impl).setConfidenceFactor(v);
+      return this;
+    }
 
     /// <summary>
     /// The minimum number of instances per rule.

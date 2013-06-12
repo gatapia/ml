@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.meta;
 
 // ReSharper disable once CheckNamespace
@@ -28,6 +29,14 @@ namespace Ml2.Clss
     /// </summary>    
     public Vote<T> Seed (int seed) {
       ((Vote)Impl).setSeed(seed);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifiers to be used.
+    /// </summary>    
+    public Vote<T> Classifiers (Clss.BaseClassifier<T>[] classifiers) {
+      ((Vote)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
       return this;
     }
 

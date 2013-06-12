@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.trees;
 
 // ReSharper disable once CheckNamespace
@@ -50,6 +51,15 @@ namespace Ml2.Clss
     /// </summary>    
     public J48<T> CollapseTree (bool v) {
       ((J48)Impl).setCollapseTree(v);
+      return this;
+    }
+
+    /// <summary>
+    /// The confidence factor used for pruning (smaller values incur more
+    /// pruning).
+    /// </summary>    
+    public J48<T> ConfidenceFactor (float v) {
+      ((J48)Impl).setConfidenceFactor(v);
       return this;
     }
 

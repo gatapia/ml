@@ -95,6 +95,12 @@ namespace Ml2.Tasks.Generator
           case "Int64[]": return "long[]";
           case "Double": return "double";
           case "Double[]": return "double[]";
+          case "Double[][]": return "double[][]";
+          case "Single": return "float";
+          case "Single[]": return "float[]";
+          // TODO: This is not nice but since FastVector is obsolete this 
+          // will eventually be replaced I hope.
+          case "FastVector": return "weka.core.FastVector"; 
           case "SelectedTag": 
             try { Utils.GetEnumImplType(Method); }
             catch (InvalidOperationException) {

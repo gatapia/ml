@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.lazy;
 
 // ReSharper disable once CheckNamespace

@@ -29,6 +29,9 @@ namespace Ml2.Tasks.Generator
       if (pt == typeof(Classifier)) {
         return GetSetterTemplateImpl(o, name + ".Impl", "Clss.BaseClassifier<T> " + mi.Name);
       }
+      if (pt == typeof(Classifier[])) {
+        return GetSetterTemplateImpl(o, name + ".Select(v => v.Impl).ToArray()", "Clss.BaseClassifier<T>[] " + mi.Name);
+      }
       if (pt == typeof(ASEvaluation)) {
         return GetSetterTemplateImpl(o, name + ".Impl", "AttrSel.Evals.BaseAttributeSelectionEvaluator<T> " + mi.Name);
       }

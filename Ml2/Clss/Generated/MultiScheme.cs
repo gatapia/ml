@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.meta;
 
 // ReSharper disable once CheckNamespace
@@ -19,6 +20,14 @@ namespace Ml2.Clss
     /// </summary>    
     public MultiScheme<T> NumFolds (int numFolds) {
       ((MultiScheme)Impl).setNumFolds(numFolds);
+      return this;
+    }
+
+    /// <summary>
+    /// The classifiers to be chosen from.
+    /// </summary>    
+    public MultiScheme<T> Classifiers (Clss.BaseClassifier<T>[] classifiers) {
+      ((MultiScheme)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
       return this;
     }
 

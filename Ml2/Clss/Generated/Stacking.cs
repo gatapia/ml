@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.meta;
 
 // ReSharper disable once CheckNamespace
@@ -42,6 +43,14 @@ namespace Ml2.Clss
     /// </summary>    
     public Stacking<T> NumExecutionSlots (int numSlots) {
       ((Stacking)Impl).setNumExecutionSlots(numSlots);
+      return this;
+    }
+
+    /// <summary>
+    /// The base classifiers to be used.
+    /// </summary>    
+    public Stacking<T> Classifiers (Clss.BaseClassifier<T>[] classifiers) {
+      ((Stacking)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
       return this;
     }
 

@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.bayes.net;
 
 // ReSharper disable once CheckNamespace
@@ -13,6 +14,14 @@ namespace Ml2.Clss
   public class BayesNetGenerator<T> : BaseClassifier<T>
   {
     public BayesNetGenerator(Runtime<T> rt) : base(rt, new BayesNetGenerator()) {}
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public BayesNetGenerator<T> Distribution (int nTargetNode, double[][] P) {
+      ((BayesNetGenerator)Impl).setDistribution(nTargetNode, P);
+      return this;
+    }
 
     /// <summary>
     /// 
@@ -33,6 +42,14 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
+    public BayesNetGenerator<T> Distribution (string sName, double[][] P) {
+      ((BayesNetGenerator)Impl).setDistribution(sName, P);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
     public BayesNetGenerator<T> NodeName (int nTargetNode, string sName) {
       ((BayesNetGenerator)Impl).setNodeName(nTargetNode, sName);
       return this;
@@ -43,6 +60,14 @@ namespace Ml2.Clss
     /// </summary>    
     public BayesNetGenerator<T> Position (int iNode, int nX, int nY) {
       ((BayesNetGenerator)Impl).setPosition(iNode, nX, nY);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public BayesNetGenerator<T> Position (int nNode, int nX, int nY, weka.core.FastVector nodes) {
+      ((BayesNetGenerator)Impl).setPosition(nNode, nX, nY, nodes);
       return this;
     }
 

@@ -1,3 +1,4 @@
+using System.Linq;
 using weka.classifiers.bayes.net;
 
 // ReSharper disable once CheckNamespace
@@ -13,6 +14,14 @@ namespace Ml2.Clss
   public class EditableBayesNet<T> : BaseClassifier<T>
   {
     public EditableBayesNet(Runtime<T> rt) : base(rt, new EditableBayesNet()) {}
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EditableBayesNet<T> Distribution (int nTargetNode, double[][] P) {
+      ((EditableBayesNet)Impl).setDistribution(nTargetNode, P);
+      return this;
+    }
 
     /// <summary>
     /// 
@@ -33,6 +42,14 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
+    public EditableBayesNet<T> Distribution (string sName, double[][] P) {
+      ((EditableBayesNet)Impl).setDistribution(sName, P);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
     public EditableBayesNet<T> NodeName (int nTargetNode, string sName) {
       ((EditableBayesNet)Impl).setNodeName(nTargetNode, sName);
       return this;
@@ -43,6 +60,14 @@ namespace Ml2.Clss
     /// </summary>    
     public EditableBayesNet<T> Position (int iNode, int nX, int nY) {
       ((EditableBayesNet)Impl).setPosition(iNode, nX, nY);
+      return this;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>    
+    public EditableBayesNet<T> Position (int nNode, int nX, int nY, weka.core.FastVector nodes) {
+      ((EditableBayesNet)Impl).setPosition(nNode, nX, nY, nodes);
       return this;
     }
 

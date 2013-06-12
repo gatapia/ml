@@ -28,9 +28,9 @@ namespace Ml2.Tasks.Generator.Clss
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using ");
+            this.Write("using System.Linq;\r\nusing ");
             
-            #line 6 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 7 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeNamespace));
             
             #line default
@@ -38,77 +38,77 @@ namespace Ml2.Tasks.Generator.Clss
             this.Write(";\r\n\r\n// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clss\r\n{\r\n  /// <summ" +
                     "ary>\r\n  /// ");
             
-            #line 12 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 13 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.GetClassDescription("  /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n  /// </summary>\r\n  public class ");
             
-            #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> : BaseClassifier<T>\r\n  {\r\n    public ");
             
-            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));
             
             #line default
             #line hidden
             this.Write("(Runtime<T> rt) : base(rt, new ");
             
-            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
             
             #line default
             #line hidden
             this.Write("()) {}\r\n\r\n");
             
-            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
  Array.ForEach(Model.Options, o => { 
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 20 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(o.SetterCode));
             
             #line default
             #line hidden
             this.Write("\r\n\r\n");
             
-            #line 21 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
  }); 
             
             #line default
             #line hidden
             this.Write("        \r\n");
             
-            #line 22 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
  Array.ForEach(Model.Enumerations, e => { 
             
             #line default
             #line hidden
             this.Write("    public enum ");
             
-            #line 23 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 24 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(e.Name));
             
             #line default
             #line hidden
             this.Write(" {\r\n      ");
             
-            #line 24 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 25 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(String.Join(",\n      ", e.Values.Select(v => v.Key + " = " + v.Value))));
             
             #line default
             #line hidden
             this.Write("\r\n    }\r\n\r\n");
             
-            #line 27 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
+            #line 28 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\ClassifierAlgorithm.tt"
  }); 
             
             #line default

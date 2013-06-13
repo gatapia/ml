@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// attributes to become nominal, e.g., the class attribute, containing values
   /// from 1 to 5.
   /// </summary>
-  public class NumericToNominal<T> : BaseFilter<T, NumericToNominal>
+  public class NumericToNominal<T> : BaseFilter<T, NumericToNominal> where T : new()
   {
     public NumericToNominal(Runtime<T> rt) : base(rt, new NumericToNominal()) {}
 

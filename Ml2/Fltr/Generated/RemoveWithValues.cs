@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Filters instances according to the value of an attribute.
   /// </summary>
-  public class RemoveWithValues<T> : BaseFilter<T, RemoveWithValues>
+  public class RemoveWithValues<T> : BaseFilter<T, RemoveWithValues> where T : new()
   {
     public RemoveWithValues(Runtime<T> rt) : base(rt, new RemoveWithValues()) {}
 

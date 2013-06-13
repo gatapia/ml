@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Removes attributes of a given type.
   /// </summary>
-  public class RemoveType<T> : BaseFilter<T, RemoveType>
+  public class RemoveType<T> : BaseFilter<T, RemoveType> where T : new()
   {
     public RemoveType(Runtime<T> rt) : base(rt, new RemoveType()) {}
 

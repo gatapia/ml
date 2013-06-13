@@ -14,24 +14,29 @@ namespace Ml2.Arff
     private const string ISO_8601_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss"; 
 
     public Instances Build<T>(T[] data)
-    {      
-      var fields = typeof (T).GetFields(BindingFlags.Instance | BindingFlags.Public).ToArray();
-      var names = fields.Select(f => f.Name).ToArray();
-      var fieldtypes = fields.Select(f => GetRealType(f.FieldType)).ToArray();
+    {            
+      var type = data.Any() ? data.First().GetType() : typeof(T);
+      var fields = GetProperties(type);
+      var names = fields.Select(f => f.Name).ToArray();      
+      var fieldtypes = fields.Select(f => GetRealType(f.PropertyType)).ToArray();      
       var atttypes = fieldtypes.Select(EvaluateAttributeType).ToArray();
       var atts = BuildAttributes(atttypes, names, fieldtypes);
-      var instances = new Instances(typeof (T).Name, atts, data.Length);      
+      var instances = new Instances(type.Name, atts, data.Length);      
       Array.ForEach(data, r => instances.add(new DenseInstance(1.0, AddRow(r, atts))));
       return instances;
     }
 
+    private static PropertyInfo[] GetProperties(Type type) {      
+      return type.GetProperties(BindingFlags.Instance | BindingFlags.Public).ToArray();
+    }
+
     private double[] AddRow<T>(T row, ArrayList atts)
     {
-      var pis = typeof (T).GetFields(BindingFlags.Instance | BindingFlags.Public);
-      var rowvals = new double[pis.Length];
-      for (int i = 0; i < pis.Length; i++)
+      var fields = GetProperties(row.GetType());
+      var rowvals = new double[fields.Length];
+      for (int i = 0; i < fields.Length; i++)
       {
-        rowvals[i] = GetValue((Attribute) atts.get(i), pis[i].GetValue(row));        
+        rowvals[i] = GetValue((Attribute) atts.get(i), fields[i].GetValue(row));        
       }
       return rowvals;
     }
@@ -58,9 +63,10 @@ namespace Ml2.Arff
     {
       Trace.Assert(t != null);
 
-      if (t.IsEnum) { return EAttributeType.Nominal; }
+      if (t.IsEnum) { return EAttributeType.Nominal; }      
       if (t == typeof(string)) { return EAttributeType.String; }
       if (t == typeof(DateTime)) { return EAttributeType.Date; }
+      if (t == typeof(bool)) { return EAttributeType.Binary; }
       var tc = Type.GetTypeCode(t);
       if (tc >= TypeCode.SByte && tc <= TypeCode.Decimal) { return EAttributeType.Numeric; }
       throw new NotSupportedException(t.Name + " is not a supported attribute atttype.");
@@ -83,6 +89,7 @@ namespace Ml2.Arff
     {
       if (atttype == EAttributeType.Numeric) return new Attribute(fieldname);
       if (atttype == EAttributeType.Nominal) return new Attribute(fieldname, GetVectorFromArray(Enum.GetNames(fieldtype)));
+      if (atttype == EAttributeType.Binary) return new Attribute(fieldname, GetVectorFromArray(new [] { "True", "False" }));
       if (atttype == EAttributeType.String) return new Attribute(fieldname, (ArrayList) null);
       if (atttype == EAttributeType.Date) return new Attribute(fieldname, ISO_8601_DATE_FORMAT); // ISO-8601 Format
       throw new NotSupportedException(atttype + " is not a supported attribute atttype.");

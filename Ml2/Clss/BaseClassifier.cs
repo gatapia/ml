@@ -4,7 +4,7 @@ using weka.core;
 
 namespace Ml2.Clss
 {
-  public class BaseClassifier<T, I> where I : Classifier
+  public class BaseClassifier<T, I> where I : Classifier where T : new()
   {
     protected readonly Runtime<T> rt;
     public I Impl { get; private set; }    

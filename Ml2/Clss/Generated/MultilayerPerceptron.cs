@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// network are all sigmoid (except for when the class is numeric in which case the
   /// the output nodes become unthresholded linear units).
   /// </summary>
-  public class MultilayerPerceptron<T> : BaseClassifier<T, MultilayerPerceptron>
+  public class MultilayerPerceptron<T> : BaseClassifier<T, MultilayerPerceptron> where T : new()
   {
     public MultilayerPerceptron(Runtime<T> rt) : base(rt, new MultilayerPerceptron()) {}
 

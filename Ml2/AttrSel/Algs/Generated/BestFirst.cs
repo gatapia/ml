@@ -13,7 +13,7 @@ namespace Ml2.AttrSel.Algs
   /// point and search in both directions (by considering all possible single
   /// attribute additions and deletions at a given point).
   /// </summary>
-  public class BestFirst<T> : BaseAttributeSelectionAlgorithm<T, BestFirst>
+  public class BestFirst<T> : BaseAttributeSelectionAlgorithm<T, BestFirst> where T : new()
   {
     public BestFirst(Runtime<T> rt) : base(rt, new BestFirst()) {}
 

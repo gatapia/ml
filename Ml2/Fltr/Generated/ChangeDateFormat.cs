@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// date to day of year, etc. This changes the format string, and changes the
   /// date values to those that would be parsed by the new format.
   /// </summary>
-  public class ChangeDateFormat<T> : BaseFilter<T, ChangeDateFormat>
+  public class ChangeDateFormat<T> : BaseFilter<T, ChangeDateFormat> where T : new()
   {
     public ChangeDateFormat(Runtime<T> rt) : base(rt, new ChangeDateFormat()) {}
 

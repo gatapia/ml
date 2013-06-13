@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Standardizes all numeric attributes in the given dataset to have zero
   /// mean and unit variance (apart from the class attribute, if set).
   /// </summary>
-  public class Standardize<T> : BaseFilter<T, Standardize>
+  public class Standardize<T> : BaseFilter<T, Standardize> where T : new()
   {
     public Standardize(Runtime<T> rt) : base(rt, new Standardize()) {}
 

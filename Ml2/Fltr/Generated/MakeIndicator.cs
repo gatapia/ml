@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// instance that exhibits a particular range of attribute values, a 0 to an
   /// instance that doesn't. The boolean attribute is coded as numeric by default.
   /// </summary>
-  public class MakeIndicator<T> : BaseFilter<T, MakeIndicator>
+  public class MakeIndicator<T> : BaseFilter<T, MakeIndicator> where T : new()
   {
     public MakeIndicator(Runtime<T> rt) : base(rt, new MakeIndicator()) {}
 

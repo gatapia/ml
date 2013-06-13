@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// A filter that removes instances which are incorrectly classified. Useful
   /// for removing outliers.
   /// </summary>
-  public class RemoveMisclassified<T> : BaseFilter<T, RemoveMisclassified>
+  public class RemoveMisclassified<T> : BaseFilter<T, RemoveMisclassified> where T : new()
   {
     public RemoveMisclassified(Runtime<T> rt) : base(rt, new RemoveMisclassified()) {}
 

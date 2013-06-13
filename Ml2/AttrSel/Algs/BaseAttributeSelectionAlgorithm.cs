@@ -3,7 +3,7 @@ using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Algs
 {
-  public class BaseAttributeSelectionAlgorithm<T, I> where I : ASSearch {
+  public class BaseAttributeSelectionAlgorithm<T, I> where I : ASSearch where T : new() {
     protected readonly Runtime<T> rt;
     public I Impl { get; private set; }
     

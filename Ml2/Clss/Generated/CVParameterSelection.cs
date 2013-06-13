@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// Performance Enhancement and Oblivious Decision Graphs. Department of Computer
   /// Science, Stanford University.
   /// </summary>
-  public class CVParameterSelection<T> : BaseClassifier<T, CVParameterSelection>
+  public class CVParameterSelection<T> : BaseClassifier<T, CVParameterSelection> where T : new()
   {
     public CVParameterSelection(Runtime<T> rt) : base(rt, new CVParameterSelection()) {}
 

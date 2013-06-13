@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// common to Bayes Network learning algorithms like K2 and B. For more
   /// information see: http://www.cs.waikato.ac.nz/~remco/weka.pdf
   /// </summary>
-  public class EditableBayesNet<T> : BaseClassifier<T, EditableBayesNet>
+  public class EditableBayesNet<T> : BaseClassifier<T, EditableBayesNet> where T : new()
   {
     public EditableBayesNet(Runtime<T> rt) : base(rt, new EditableBayesNet()) {}
 

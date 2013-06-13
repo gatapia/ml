@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Removes attributes based on a regular expression matched against their
   /// names.
   /// </summary>
-  public class RemoveByName<T> : BaseFilter<T, RemoveByName>
+  public class RemoveByName<T> : BaseFilter<T, RemoveByName> where T : new()
   {
     public RemoveByName(Runtime<T> rt) : base(rt, new RemoveByName()) {}
 

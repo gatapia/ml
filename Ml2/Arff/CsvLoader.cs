@@ -1,41 +1,67 @@
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using FileHelpers;
-using FileHelpers.RunTime;
+using LumenWorks.Framework.IO.Csv;
 
 namespace Ml2.Arff
 {
   internal class CsvLoader : ILoader
   {
-    public T[] Load<T>(params string[] files)
-    {
+    public T[] Load<T>(params string[] files) where T : new() {
       Trace.Assert(files.Any());
       Trace.Assert(files.All(File.Exists));
 
-      var cb = new DelimitedClassBuilder(typeof(T).Name, ",");
-      cb.IgnoreFirstLines = 1;
-      cb.IgnoreEmptyLines = true;
+      return files.SelectMany(ReadFile<T>).ToArray();
+    }
 
-      foreach (var f in typeof(T).GetFields(BindingFlags.Instance | BindingFlags.Public))
-      {
-        cb.AddField(f.Name, f.FieldType);
-        cb.LastField.TrimMode = TrimMode.Both;
-        if (f.FieldType == typeof(string))
-        {
-          cb.LastField.FieldQuoted = true;
-          cb.LastField.QuoteChar = '"';
+    private static IEnumerable<T> ReadFile<T>(string file) where T : new() {
+      var targets = GetProperties<T>();
+      var records = new List<T>();
+      using (var sr = new StreamReader(file)) {
+        using (var csv = new CsvReader(sr, true)) {          
+          int fieldCount = csv.FieldCount;
+          while (csv.ReadNextRecord()) {
+            var record = new T();            
+            for (int i = 0; i < fieldCount; i++) {
+              var field = targets[i];
+              field.SetValue(record, CovertToType(csv[i], field.PropertyType));
+            }
+            records.Add(record);
+          }
         }
       }
+      return records;
+    }
 
-      var engine = new FileHelperEngine(cb.CreateRecordClass());
-      var dt = engine.ReadFile(files[0]);
-      return dt.Cast<T>().ToArray();
-      // var engine = new FileHelperEngine<T>();
-      // return files.SelectMany(f => engine.ReadFile(f)).ToArray();
+    private static object CovertToType(string val, Type type) {
+      if (String.IsNullOrEmpty(val)) return null;
+      if (type.IsEnum) return ConvertToEnum(val, type);
+      return Convert.ChangeType(val, type);
+    }
+
+    private static object ConvertToEnum(string val, Type type) {
+      int intv;
+      if (Int32.TryParse(val, out intv)) { return Enum.ToObject(type, intv); }
+
+      val = val.ToLower();
+      var names = Enum.GetNames(type).Select(n => n.ToLower()).ToArray();
+      var values = Enum.GetValues(type).Cast<object>().ToArray();
+      
+      foreach (var value in values) { if (value.ToString().ToLower() == val) return value; }
+      for (int i = 0; i < names.Length; i++) { if (val == names[i]) return values[i]; }
+      if (val.Length == 1)
+      {
+        char c = val[0];
+        for (int i = 0; i < names.Length; i++) { if (c == names[i][0]) return values[i]; }
+      }
+      throw new ArgumentException(val + " could not be converted to " + type.Name);
+    }
+
+    private static PropertyInfo[] GetProperties<T>() where T : new() {
+      return typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
     }
   }
 }

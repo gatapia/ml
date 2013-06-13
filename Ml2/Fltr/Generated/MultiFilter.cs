@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Applies several filters successively. In case all supplied filters are
   /// StreamableFilters, it will act as a streamable one, too.
   /// </summary>
-  public class MultiFilter<T> : BaseFilter<T, MultiFilter>
+  public class MultiFilter<T> : BaseFilter<T, MultiFilter> where T : new()
   {
     public MultiFilter(Runtime<T> rt) : base(rt, new MultiFilter()) {}
 

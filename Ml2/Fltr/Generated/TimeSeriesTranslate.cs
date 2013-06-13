@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// desired value is unknown either the instance may be dropped, or missing values
   /// used. Skips the class attribute if it is set.
   /// </summary>
-  public class TimeSeriesTranslate<T> : BaseFilter<T, TimeSeriesTranslate>
+  public class TimeSeriesTranslate<T> : BaseFilter<T, TimeSeriesTranslate> where T : new()
   {
     public TimeSeriesTranslate(Runtime<T> rt) : base(rt, new TimeSeriesTranslate()) {}
 

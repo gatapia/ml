@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// A filter that removes a given range of instances of a dataset.
   /// </summary>
-  public class RemoveRange<T> : BaseFilter<T, RemoveRange>
+  public class RemoveRange<T> : BaseFilter<T, RemoveRange> where T : new()
   {
     public RemoveRange(Runtime<T> rt) : base(rt, new RemoveRange()) {}
 

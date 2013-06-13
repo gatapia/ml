@@ -16,7 +16,7 @@ namespace Ml2.Fltr
   /// international conference on Knowledge discovery and data mining, New York,
   /// NY, USA, 517-522, 003.
   /// </summary>
-  public class RandomProjection<T> : BaseFilter<T, RandomProjection>
+  public class RandomProjection<T> : BaseFilter<T, RandomProjection> where T : new()
   {
     public RandomProjection(Runtime<T> rt) : base(rt, new RandomProjection()) {}
 

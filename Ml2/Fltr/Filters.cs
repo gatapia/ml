@@ -1,6 +1,6 @@
 namespace Ml2.Fltr
 {
-  public class Filters<T>
+  public class Filters<T> where T : new()
   {
     private readonly Runtime<T> rt;
     public Filters(Runtime<T> rt) { this.rt = rt; }

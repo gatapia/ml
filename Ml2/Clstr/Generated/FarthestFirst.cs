@@ -13,7 +13,7 @@ namespace Ml2.Clstr
   /// simple approximate clusterer - modelled after SimpleKMeans, might be a
   /// useful initializer for it
   /// </summary>
-  public class FarthestFirst<T> : BaseClusterer<T, FarthestFirst>
+  public class FarthestFirst<T> : BaseClusterer<T, FarthestFirst> where T : new()
   {    
     public FarthestFirst(Runtime<T> rt) : base(rt, new FarthestFirst()) {}
 

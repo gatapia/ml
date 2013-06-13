@@ -2,7 +2,7 @@ using weka.clusterers;
 
 namespace Ml2.Clstr
 {
-  public abstract class BaseClusterer<T, I> where I : Clusterer
+  public abstract class BaseClusterer<T, I> where I : Clusterer where T : new()
   {
     protected readonly Runtime<T> rt;
     public I Impl { get; private set; }

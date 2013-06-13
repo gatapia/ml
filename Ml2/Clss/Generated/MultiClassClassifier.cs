@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// classifiers. This classifier is also capable of applying error correcting output
   /// codes for increased accuracy.
   /// </summary>
-  public class MultiClassClassifier<T> : BaseClassifier<T, MultiClassClassifier>
+  public class MultiClassClassifier<T> : BaseClassifier<T, MultiClassClassifier> where T : new()
   {
     public MultiClassClassifier(Runtime<T> rt) : base(rt, new MultiClassClassifier()) {}
 

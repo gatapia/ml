@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// Otherwise, the value of the new attribute will be one. The new attributes will
   /// be nominal.
   /// </summary>
-  public class NumericToBinary<T> : BaseFilter<T, NumericToBinary>
+  public class NumericToBinary<T> : BaseFilter<T, NumericToBinary> where T : new()
   {
     public NumericToBinary(Runtime<T> rt) : base(rt, new NumericToBinary()) {}
 

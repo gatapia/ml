@@ -13,7 +13,7 @@ namespace Ml2.Fltr
   /// range spec of 7-11,3-5 will use the attribute ordering 3,4,5,7,8,9,10,11 for
   /// the differences, NOT 7,8,9,10,11,3,4,5.
   /// </summary>
-  public class FirstOrder<T> : BaseFilter<T, FirstOrder>
+  public class FirstOrder<T> : BaseFilter<T, FirstOrder> where T : new()
   {
     public FirstOrder(Runtime<T> rt) : base(rt, new FirstOrder()) {}
 

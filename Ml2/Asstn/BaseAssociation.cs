@@ -2,7 +2,7 @@ using weka.associations;
 
 namespace Ml2.Asstn
 {
-  public class BaseAssociation<T, I> where I : AbstractAssociator
+  public class BaseAssociation<T, I> where I : AbstractAssociator where T : new()
   {
     protected readonly Runtime<T> rt;
     protected internal I Impl { get; private set; }

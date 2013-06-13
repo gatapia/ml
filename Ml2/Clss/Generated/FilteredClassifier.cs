@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// is based exclusively on the training data and test instances will be
   /// processed by the filter without changing their structure.
   /// </summary>
-  public class FilteredClassifier<T> : BaseClassifier<T, FilteredClassifier>
+  public class FilteredClassifier<T> : BaseClassifier<T, FilteredClassifier> where T : new()
   {
     public FilteredClassifier(Runtime<T> rt) : base(rt, new FilteredClassifier()) {}
 

@@ -4,7 +4,7 @@ using weka.filters;
 
 namespace Ml2.Fltr
 {
-  public class BaseFilter<T, I> where I : Filter
+  public class BaseFilter<T, I> where I : Filter where T : new()
   {
     protected readonly Runtime<T> rt;
 

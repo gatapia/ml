@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Transforms numeric attributes using a given transformation method.
   /// </summary>
-  public class NumericTransform<T> : BaseFilter<T, NumericTransform>
+  public class NumericTransform<T> : BaseFilter<T, NumericTransform> where T : new()
   {
     public NumericTransform(Runtime<T> rt) : base(rt, new NumericTransform()) {}
 

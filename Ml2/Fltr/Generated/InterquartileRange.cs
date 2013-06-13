@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// Interquartile Range, difference between Q1 and Q3 OF = Outlier Factor EVF =
   /// Extreme Value Factor
   /// </summary>
-  public class InterquartileRange<T> : BaseFilter<T, InterquartileRange>
+  public class InterquartileRange<T> : BaseFilter<T, InterquartileRange> where T : new()
   {
     public InterquartileRange(Runtime<T> rt) : base(rt, new InterquartileRange()) {}
 

@@ -15,7 +15,7 @@ namespace Ml2.Asstn
   /// Classification and Association Rule Mining. In: Fourth International Conference on
   /// Knowledge Discovery and Data Mining, 80-86, 1998.
   /// </summary>
-  public class Apriori<T> : BaseAssociation<T, Apriori>
+  public class Apriori<T> : BaseAssociation<T, Apriori> where T : new()
   {
     public Apriori(Runtime<T> rt) : base(rt, new Apriori()) {}
 

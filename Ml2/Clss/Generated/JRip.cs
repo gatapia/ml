@@ -46,7 +46,7 @@ namespace Ml2.Clss
   /// to be quite comparable to the original ripper implementation. However, we
   /// didn't consider memory consumption optimization in this implementation.
   /// </summary>
-  public class JRip<T> : BaseClassifier<T, JRip>
+  public class JRip<T> : BaseClassifier<T, JRip> where T : new()
   {
     public JRip(Runtime<T> rt) : base(rt, new JRip()) {}
 

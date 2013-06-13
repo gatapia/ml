@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// java.util.regex.Pattern class for more information:
   /// http://java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html
   /// </summary>
-  public class RenameAttribute<T> : BaseFilter<T, RenameAttribute>
+  public class RenameAttribute<T> : BaseFilter<T, RenameAttribute> where T : new()
   {
     public RenameAttribute(Runtime<T> rt) : base(rt, new RenameAttribute()) {}
 

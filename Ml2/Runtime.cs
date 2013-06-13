@@ -11,14 +11,16 @@ using weka.core.converters;
 
 namespace Ml2
 {
-  public static class Runtime {
-    public static T[] Load<T>(params string[] files) {
+  public class Runtime : Runtime<object> {
+    public static T[] Load<T>(params string[] files) where T : new() {
       var lf = new LoaderFactory();
       return lf.Get<T>().Load<T>(files);
     }
+    
+    public Runtime(object[] data) : base(data) {}
   }
 
-  public class Runtime<T>
+  public class Runtime<T> where T : new()
   {
     private readonly IArffInstanceBuilder arff = new ArffInstanceBuilder();
     private readonly IClassifierIndexInferer classidx = new ClassifierIndexInferer();

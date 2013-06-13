@@ -17,7 +17,7 @@ namespace Ml2.Fltr
   /// 'last-first'. After appyling the filter, the index of the class attribute is
   /// the last attribute.
   /// </summary>
-  public class Reorder<T> : BaseFilter<T, Reorder>
+  public class Reorder<T> : BaseFilter<T, Reorder> where T : new()
   {
     public Reorder(Runtime<T> rt) : base(rt, new Reorder()) {}
 

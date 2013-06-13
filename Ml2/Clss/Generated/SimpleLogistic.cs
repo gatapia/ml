@@ -14,7 +14,7 @@ namespace Ml2.Clss
   /// Induction. In: 9th European Conference on Principles and Practice of Knowledge
   /// Discovery in Databases, 675-683, 2005.
   /// </summary>
-  public class SimpleLogistic<T> : BaseClassifier<T, SimpleLogistic>
+  public class SimpleLogistic<T> : BaseClassifier<T, SimpleLogistic> where T : new()
   {
     public SimpleLogistic(Runtime<T> rt) : base(rt, new SimpleLogistic()) {}
 

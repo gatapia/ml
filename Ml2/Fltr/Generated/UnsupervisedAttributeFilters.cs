@@ -1,7 +1,7 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
-  public class UnsupervisedAttributeFilters<T>
+  public class UnsupervisedAttributeFilters<T> where T : new()
   {
     private readonly Runtime<T> rt;    
     public UnsupervisedAttributeFilters(Runtime<T> rt) { this.rt = rt; }   

@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// <summary>
   /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= Model.TypeName #><T> : BaseClassifier<T, <#= Model.ImplTypeName #>>
+  public class <#= Model.TypeName #><T> : BaseClassifier<T, <#= Model.ImplTypeName #>> where T : new()
   {
     public <#= Model.TypeName #>(Runtime<T> rt) : base(rt, new <#= Model.ImplTypeName #>()) {}
 

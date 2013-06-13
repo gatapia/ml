@@ -6,7 +6,7 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
-  public class Classifiers<T>
+  public class Classifiers<T> where T : new()
   {
     private readonly Runtime<T> rt;    
     public Classifiers(Runtime<T> rt) { this.rt = rt; }   

@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// specified by prefixing with 'a', eg. a7 is attribute number 7 (starting from
   /// 1). Example expression : a1^2*a5/log(a7*4.0).
   /// </summary>
-  public class AddExpression<T> : BaseFilter<T, AddExpression>
+  public class AddExpression<T> : BaseFilter<T, AddExpression> where T : new()
   {
     public AddExpression(Runtime<T> rt) : base(rt, new AddExpression()) {}
 

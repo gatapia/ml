@@ -1,20 +1,19 @@
-﻿using FileHelpers;
-using Ml2.Arff;
+﻿using Ml2.Arff;
 
 namespace Ml2.Tests.Kaggle.Titanic
 {
-  [IgnoreFirst(1), IgnoreEmptyLines] public class TitanicDataRow : CsvRow
+  public class TitanicDataRow
   {
-    [Classifier] public ESurvival Survival;
-    public EPassengerClass PassengerClass;
-    public string Name;
-    public ESex Sex;
-    public double Age;
-    public int NumSiblingsOrSpouses;
-    public int NumParentsChildren;
-    public string TicketNumber;
-    public double PassengerFare;
-    public string CabinNum;
-    public EPort PortOfEmbarkation;
+    [Classifier] public ESurvival Survival { get; set; }
+    public EPassengerClass PassengerClass { get; set; }
+    public string Name { get; set; }
+    public ESex Sex { get; set; }
+    public double Age { get; set; }
+    public int NumSiblingsOrSpouses { get; set; }
+    public int NumParentsChildren { get; set; }
+    public string TicketNumber { get; set; }
+    public double PassengerFare { get; set; }
+    public string CabinNum { get; set; }
+    public EPort PortOfEmbarkation { get; set; }
   }
 }

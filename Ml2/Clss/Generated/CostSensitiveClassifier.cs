@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// likely class). Performance can often be improved by using a Bagged classifier to
   /// improve the probability estimates of the base classifier.
   /// </summary>
-  public class CostSensitiveClassifier<T> : BaseClassifier<T, CostSensitiveClassifier>
+  public class CostSensitiveClassifier<T> : BaseClassifier<T, CostSensitiveClassifier> where T : new()
   {
     public CostSensitiveClassifier(Runtime<T> rt) : base(rt, new CostSensitiveClassifier()) {}
 

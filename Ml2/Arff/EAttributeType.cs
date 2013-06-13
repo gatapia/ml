@@ -6,6 +6,7 @@ namespace Ml2.Arff
     Nominal,
     String,
     Date,
+    Binary,
     Relational
   }
 }

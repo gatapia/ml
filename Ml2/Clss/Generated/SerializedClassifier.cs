@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// serialized model doesn't get changed, cross-validation cannot bet used with this
   /// classifier.
   /// </summary>
-  public class SerializedClassifier<T> : BaseClassifier<T, SerializedClassifier>
+  public class SerializedClassifier<T> : BaseClassifier<T, SerializedClassifier> where T : new()
   {
     public SerializedClassifier(Runtime<T> rt) : base(rt, new SerializedClassifier()) {}
 

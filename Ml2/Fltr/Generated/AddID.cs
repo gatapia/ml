@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// attribute contains a unique ID for each instance. Note: The ID is not reset for
   /// the second batch of files (using -b and -r and -s).
   /// </summary>
-  public class AddID<T> : BaseFilter<T, AddID>
+  public class AddID<T> : BaseFilter<T, AddID> where T : new()
   {
     public AddID(Runtime<T> rt) : base(rt, new AddID()) {}
 

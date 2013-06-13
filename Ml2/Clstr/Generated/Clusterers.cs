@@ -1,7 +1,7 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Clstr
 {
-  public class Clusterers<T>
+  public class Clusterers<T> where T : new()
   {
     private readonly Runtime<T> rt;    
     public Clusterers(Runtime<T> rt) { this.rt = rt; }   

@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Merges many values of a nominal attribute into one value.
   /// </summary>
-  public class MergeManyValues<T> : BaseFilter<T, MergeManyValues>
+  public class MergeManyValues<T> : BaseFilter<T, MergeManyValues> where T : new()
   {
     public MergeManyValues(Runtime<T> rt) : base(rt, new MergeManyValues()) {}
 

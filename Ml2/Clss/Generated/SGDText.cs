@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// (and only) on String attributes. Other types of input attributes are accepted
   /// but ignored during training and classification.
   /// </summary>
-  public class SGDText<T> : BaseClassifier<T, SGDText>
+  public class SGDText<T> : BaseClassifier<T, SGDText> where T : new()
   {
     public SGDText(Runtime<T> rt) : base(rt, new SGDText()) {}
 

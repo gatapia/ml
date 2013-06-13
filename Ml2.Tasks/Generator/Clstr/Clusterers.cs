@@ -29,8 +29,8 @@ namespace Ml2.Tasks.Generator.Clstr
         public virtual string TransformText()
         {
             this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clstr\r\n{\r\n  public class " +
-                    "Clusterers<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public Clustere" +
-                    "rs(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
+                    "Clusterers<T> where T : new()\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n   " +
+                    " public Clusterers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
             
             #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\Clusterers.tt"
  foreach (var ctr in AllClusterers) { 

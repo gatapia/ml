@@ -15,7 +15,7 @@ namespace Ml2.Clss
   /// Induction of model trees for predicting continuous classes. In: Poster papers of
   /// the 9th European Conference on Machine Learning, 1997.
   /// </summary>
-  public class M5Rules<T> : BaseClassifier<T, M5Rules>
+  public class M5Rules<T> : BaseClassifier<T, M5Rules> where T : new()
   {
     public M5Rules(Runtime<T> rt) : base(rt, new M5Rules()) {}
 

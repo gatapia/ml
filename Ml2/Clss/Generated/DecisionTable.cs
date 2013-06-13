@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// For more information see: Ron Kohavi: The Power of Decision Tables. In:
   /// 8th European Conference on Machine Learning, 174-189, 1995.
   /// </summary>
-  public class DecisionTable<T> : BaseClassifier<T, DecisionTable>
+  public class DecisionTable<T> : BaseClassifier<T, DecisionTable> where T : new()
   {
     public DecisionTable(Runtime<T> rt) : base(rt, new DecisionTable()) {}
 

@@ -12,7 +12,7 @@ namespace Ml2.Asstn
   /// candidate generation. In: Proceedings of the 2000 ACM-SIGMID International
   /// Conference on Management of Data, 1-12, 2000.
   /// </summary>
-  public class FPGrowth<T> : BaseAssociation<T, FPGrowth>
+  public class FPGrowth<T> : BaseAssociation<T, FPGrowth> where T : new()
   {
     public FPGrowth(Runtime<T> rt) : base(rt, new FPGrowth()) {}
 

@@ -14,7 +14,7 @@ namespace Ml2.Clss
   /// Induction. In: 9th European Conference on Principles and Practice of
   /// Knowledge Discovery in Databases, 675-683, 2005.
   /// </summary>
-  public class LMT<T> : BaseClassifier<T, LMT>
+  public class LMT<T> : BaseClassifier<T, LMT> where T : new()
   {
     public LMT(Runtime<T> rt) : base(rt, new LMT()) {}
 

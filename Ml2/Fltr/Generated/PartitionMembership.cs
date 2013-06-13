@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// values; filtered instances are composed of these values plus the class
   /// attribute (if set in the input data) and rendered as sparse instances.
   /// </summary>
-  public class PartitionMembership<T> : BaseFilter<T, PartitionMembership>
+  public class PartitionMembership<T> : BaseFilter<T, PartitionMembership> where T : new()
   {
     public PartitionMembership(Runtime<T> rt) : base(rt, new PartitionMembership()) {}
 

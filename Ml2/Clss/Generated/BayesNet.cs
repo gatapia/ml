@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// common to Bayes Network learning algorithms like K2 and B. For more
   /// information see: http://www.cs.waikato.ac.nz/~remco/weka.pdf
   /// </summary>
-  public class BayesNet<T> : BaseClassifier<T, BayesNet>
+  public class BayesNet<T> : BaseClassifier<T, BayesNet> where T : new()
   {
     public BayesNet(Runtime<T> rt) : base(rt, new BayesNet()) {}
 

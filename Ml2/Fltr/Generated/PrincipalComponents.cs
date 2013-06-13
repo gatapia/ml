@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// default 0.95 (95%). Based on code of the attribute selection scheme
   /// 'PrincipalComponents' by Mark Hall and Gabi Schmidberger.
   /// </summary>
-  public class PrincipalComponents<T> : BaseFilter<T, PrincipalComponents>
+  public class PrincipalComponents<T> : BaseFilter<T, PrincipalComponents> where T : new()
   {
     public PrincipalComponents(Runtime<T> rt) : base(rt, new PrincipalComponents()) {}
 

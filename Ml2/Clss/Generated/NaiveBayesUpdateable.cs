@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// Classifiers. In: Eleventh Conference on Uncertainty in Artificial
   /// Intelligence, San Mateo, 338-345, 1995.
   /// </summary>
-  public class NaiveBayesUpdateable<T> : BaseClassifier<T, NaiveBayesUpdateable>
+  public class NaiveBayesUpdateable<T> : BaseClassifier<T, NaiveBayesUpdateable> where T : new()
   {
     public NaiveBayesUpdateable(Runtime<T> rt) : base(rt, new NaiveBayesUpdateable()) {}
 

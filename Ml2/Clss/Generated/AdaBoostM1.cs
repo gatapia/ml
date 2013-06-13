@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// Thirteenth International Conference on Machine Learning, San Francisco, 148-156,
   /// 1996.
   /// </summary>
-  public class AdaBoostM1<T> : BaseClassifier<T, AdaBoostM1>
+  public class AdaBoostM1<T> : BaseClassifier<T, AdaBoostM1> where T : new()
   {
     public AdaBoostM1(Runtime<T> rt) : base(rt, new AdaBoostM1()) {}
 

@@ -35,7 +35,7 @@ namespace Ml2.Tasks.Generator.Fltr
             
             #line default
             #line hidden
-            this.Write("<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public ");
+            this.Write("<T> where T : new()\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public ");
             
             #line 12 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\Filters.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));

@@ -11,7 +11,7 @@ namespace Ml2.AttrSel.Evals
   /// (1997). Wrappers for feature subset selection. Artificial Intelligence.
   /// 97(1-2):273-324.
   /// </summary>
-  public class WrapperSubset<T> : BaseAttributeSelectionEvaluator<T, WrapperSubsetEval>
+  public class WrapperSubset<T> : BaseAttributeSelectionEvaluator<T, WrapperSubsetEval> where T : new()
   {
     public WrapperSubset(Runtime<T> rt) : base(rt, new WrapperSubsetEval()) {}
     

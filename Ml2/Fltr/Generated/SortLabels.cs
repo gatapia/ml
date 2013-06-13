@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// A simple filter for sorting the labels of nominal attributes.
   /// </summary>
-  public class SortLabels<T> : BaseFilter<T, SortLabels>
+  public class SortLabels<T> : BaseFilter<T, SortLabels> where T : new()
   {
     public SortLabels(Runtime<T> rt) : base(rt, new SortLabels()) {}
 

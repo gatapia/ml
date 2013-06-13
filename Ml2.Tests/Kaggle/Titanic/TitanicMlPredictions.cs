@@ -52,6 +52,7 @@ namespace Ml2.Tests.Kaggle.Titanic
     }
 
     // 80.1347% 
+    // 80.5836 % with new csv parser???
     [Test] public void Test_without_port_or_fare() {
       var train = new Runtime<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
       train.Instances.deleteAttributeAt(10); // Port 
@@ -61,7 +62,8 @@ namespace Ml2.Tests.Kaggle.Titanic
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
     }
 
-    // 81.1448 % with original rows
+    // 81.1448 % with original rows    
+    // 80.5836 % with new parser ???
     [Test] public void Test_with_new_tot_family_attributes()
     {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
@@ -72,7 +74,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                   Age = t.Age,
                                   HasFamily = (t.NumParentsChildren + t.NumSiblingsOrSpouses) > 0
                                 }).ToArray();
-      var train = new Runtime<object>(newrows);
+      var train = new Runtime(newrows);
       train.SetClassifierIndex(0);
 
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
@@ -83,7 +85,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       
     }
 
-    private BaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features) {
+    private BaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features)  where T : new() {
       return runtime.
         Classifiers.RandomForest().
         NumTrees(trees).
@@ -93,7 +95,7 @@ namespace Ml2.Tests.Kaggle.Titanic
         Build();
     }
 
-    private void EvalImpl<T>(Runtime<T> runtime, Classifier classifier) {
+    private void EvalImpl<T>(Runtime<T> runtime, Classifier classifier) where T : new() {
       Evaluation evaluation = new Evaluation(runtime.Instances);
       evaluation.crossValidateModel(classifier, runtime.Instances, 10, new Random(1));
       var results = evaluation.toSummaryString();

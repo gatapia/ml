@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Centers all numeric attributes in the given dataset to have zero mean
   /// (apart from the class attribute, if set).
   /// </summary>
-  public class Center<T> : BaseFilter<T, Center>
+  public class Center<T> : BaseFilter<T, Center> where T : new()
   {
     public Center(Runtime<T> rt) : base(rt, new Center()) {}
 

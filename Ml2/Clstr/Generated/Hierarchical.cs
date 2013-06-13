@@ -8,7 +8,7 @@ namespace Ml2.Clstr
   /// Hierarchical clustering class. Implements a number of classic
   /// agglomorative (i.e. bottom up) hierarchical clustering methodsbased on .
   /// </summary>
-  public class Hierarchical<T> : BaseClusterer<T, HierarchicalClusterer>
+  public class Hierarchical<T> : BaseClusterer<T, HierarchicalClusterer> where T : new()
   {    
     public Hierarchical(Runtime<T> rt) : base(rt, new HierarchicalClusterer()) {}
 

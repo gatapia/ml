@@ -4,7 +4,7 @@ using weka.core;
 
 namespace Ml2.AttrSel
 {
-  public class AttributeSelection<T>
+  public class AttributeSelection<T> where T : new()
   {
     public AttributeSelection(Runtime<T> rt)
     {

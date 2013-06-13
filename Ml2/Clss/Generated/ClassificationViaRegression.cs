@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// (1998). Using model trees for classification. Machine Learning.
   /// 32(1):63-76.
   /// </summary>
-  public class ClassificationViaRegression<T> : BaseClassifier<T, ClassificationViaRegression>
+  public class ClassificationViaRegression<T> : BaseClassifier<T, ClassificationViaRegression> where T : new()
   {
     public ClassificationViaRegression(Runtime<T> rt) : base(rt, new ClassificationViaRegression()) {}
 

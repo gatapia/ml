@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// Matas (1998). On combining classifiers. IEEE Transactions on Pattern Analysis
   /// and Machine Intelligence. 20(3):226-239.
   /// </summary>
-  public class Vote<T> : BaseClassifier<T, Vote>
+  public class Vote<T> : BaseClassifier<T, Vote> where T : new()
   {
     public Vote(Runtime<T> rt) : base(rt, new Vote()) {}
 

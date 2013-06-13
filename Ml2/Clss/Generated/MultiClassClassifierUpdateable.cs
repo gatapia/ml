@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// codes for increased accuracy. The base classifier must be an updateable
   /// classifier
   /// </summary>
-  public class MultiClassClassifierUpdateable<T> : BaseClassifier<T, MultiClassClassifierUpdateable>
+  public class MultiClassClassifierUpdateable<T> : BaseClassifier<T, MultiClassClassifierUpdateable> where T : new()
   {
     public MultiClassClassifierUpdateable(Runtime<T> rt) : base(rt, new MultiClassClassifierUpdateable()) {}
 

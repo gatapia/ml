@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// dataset into nominal attributes. Discretization is by simple binning. Skips
   /// the class attribute if set.
   /// </summary>
-  public class Discretize<T> : BaseFilter<T, Discretize>
+  public class Discretize<T> : BaseFilter<T, Discretize> where T : new()
   {
     public Discretize(Runtime<T> rt) : base(rt, new Discretize()) {}
 

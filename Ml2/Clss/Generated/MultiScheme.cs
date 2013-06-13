@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// is measured based on percent correct (classification) or mean-squared
   /// error (regression).
   /// </summary>
-  public class MultiScheme<T> : BaseClassifier<T, MultiScheme>
+  public class MultiScheme<T> : BaseClassifier<T, MultiScheme> where T : new()
   {
     public MultiScheme(Runtime<T> rt) : base(rt, new MultiScheme()) {}
 

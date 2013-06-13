@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// classification or regression. For more information, see David H. Wolpert (1992).
   /// Stacked generalization. Neural Networks. 5:241-259.
   /// </summary>
-  public class Stacking<T> : BaseClassifier<T, Stacking>
+  public class Stacking<T> : BaseClassifier<T, Stacking> where T : new()
   {
     public Stacking(Runtime<T> rt) : base(rt, new Stacking()) {}
 

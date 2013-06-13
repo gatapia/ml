@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// validation. If you do not want the folds to be stratified use the unsupervised
   /// version.
   /// </summary>
-  public class StratifiedRemoveFolds<T> : BaseFilter<T, StratifiedRemoveFolds>
+  public class StratifiedRemoveFolds<T> : BaseFilter<T, StratifiedRemoveFolds> where T : new()
   {
     public StratifiedRemoveFolds(Runtime<T> rt) : base(rt, new StratifiedRemoveFolds()) {}
 

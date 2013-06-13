@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Modify numeric attributes according to a given expression
   /// </summary>
-  public class MathExpression<T> : BaseFilter<T, MathExpression>
+  public class MathExpression<T> : BaseFilter<T, MathExpression> where T : new()
   {
     public MathExpression(Runtime<T> rt) : base(rt, new MathExpression()) {}
 

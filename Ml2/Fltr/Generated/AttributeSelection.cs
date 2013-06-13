@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// is very flexible and allows various search and evaluation methods to be
   /// combined.
   /// </summary>
-  public class AttributeSelection<T> : BaseFilter<T, AttributeSelection>
+  public class AttributeSelection<T> : BaseFilter<T, AttributeSelection> where T : new()
   {
     public AttributeSelection(Runtime<T> rt) : base(rt, new AttributeSelection()) {}
 

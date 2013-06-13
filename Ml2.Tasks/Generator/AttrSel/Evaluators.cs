@@ -29,8 +29,9 @@ namespace Ml2.Tasks.Generator.AttrSel
         public virtual string TransformText()
         {
             this.Write("using weka.core;\r\n\r\n// ReSharper disable once CheckNamespace\r\nnamespace Ml2.AttrS" +
-                    "el.Evals\r\n{\r\n  public class Evaluators<T>\r\n  {\r\n    private readonly Runtime<T> " +
-                    "rt;\r\n    public Evaluators(Runtime<T> rt) {\r\n      this.rt = rt;\r\n    }\r\n\r\n");
+                    "el.Evals\r\n{\r\n  public class Evaluators<T> where T : new()\r\n  {\r\n    private read" +
+                    "only Runtime<T> rt;\r\n    public Evaluators(Runtime<T> rt) {\r\n      this.rt = rt;" +
+                    "\r\n    }\r\n\r\n");
             
             #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Evaluators.tt"
  foreach (var eval in AllEvaluators) { 

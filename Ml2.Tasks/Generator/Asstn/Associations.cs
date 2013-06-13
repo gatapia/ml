@@ -29,8 +29,8 @@ namespace Ml2.Tasks.Generator.Asstn
         public virtual string TransformText()
         {
             this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Asstn\r\n{\r\n  public class " +
-                    "Associations<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public Associ" +
-                    "ations(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
+                    "Associations<T> where T : new()\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n " +
+                    "   public Associations(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
             
             #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\Associations.tt"
  foreach (var ctr in AllAssociations) { 

@@ -10,7 +10,7 @@ namespace Ml2.Asstn
   /// is based exclusively on the training data and test instances will be
   /// processed by the filter without changing their structure.
   /// </summary>
-  public class FilteredAssociator<T> : BaseAssociation<T, FilteredAssociator>
+  public class FilteredAssociator<T> : BaseAssociation<T, FilteredAssociator> where T : new()
   {
     public FilteredAssociator(Runtime<T> rt) : base(rt, new FilteredAssociator()) {}
 

@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// clustering algorithm gets built with the first batch of data or one specifies
   /// are serialized clusterer model file to use instead.
   /// </summary>
-  public class AddCluster<T> : BaseFilter<T, AddCluster>
+  public class AddCluster<T> : BaseFilter<T, AddCluster> where T : new()
   {
     public AddCluster(Runtime<T> rt) : base(rt, new AddCluster()) {}
 

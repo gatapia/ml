@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// The labels can also be sorted in an ascending manner. If no labels are
   /// provided then only the (optional) sorting applies.
   /// </summary>
-  public class AddValues<T> : BaseFilter<T, AddValues>
+  public class AddValues<T> : BaseFilter<T, AddValues> where T : new()
   {
     public AddValues(Runtime<T> rt) : base(rt, new AddValues()) {}
 

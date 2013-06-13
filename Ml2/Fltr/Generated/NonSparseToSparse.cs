@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// An instance filter that converts all incoming instances into sparse
   /// format.
   /// </summary>
-  public class NonSparseToSparse<T> : BaseFilter<T, NonSparseToSparse>
+  public class NonSparseToSparse<T> : BaseFilter<T, NonSparseToSparse> where T : new()
   {
     public NonSparseToSparse(Runtime<T> rt) : base(rt, new NonSparseToSparse()) {}
 

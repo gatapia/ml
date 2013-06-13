@@ -50,7 +50,7 @@ namespace Ml2.Tasks.Generator.Asstn
             
             #line default
             #line hidden
-            this.Write(">\r\n  {\r\n    public ");
+            this.Write("> where T : new()\r\n  {\r\n    public ");
             
             #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Asstn\AssociationAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));

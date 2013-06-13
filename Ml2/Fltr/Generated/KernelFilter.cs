@@ -15,7 +15,7 @@ namespace Ml2.Fltr
   /// Perspective on Kernel Partial Least Squares Regression. In: Advances in Learning
   /// Theory: Methods, Models and Applications, 227-249, 2003.
   /// </summary>
-  public class KernelFilter<T> : BaseFilter<T, KernelFilter>
+  public class KernelFilter<T> : BaseFilter<T, KernelFilter> where T : new()
   {
     public KernelFilter(Runtime<T> rt) : base(rt, new KernelFilter()) {}
 

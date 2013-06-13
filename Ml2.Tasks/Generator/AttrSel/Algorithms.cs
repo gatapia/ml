@@ -28,10 +28,19 @@ namespace Ml2.Tasks.Generator.AttrSel
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using weka.core;\r\n\r\n// ReSharper disable once CheckNamespace\r\nnamespace Ml2.AttrS" +
-                    "el.Algs\r\n{\r\n  public class Algorithms<T>\r\n  {\r\n    private readonly Runtime<T> r" +
-                    "t;    \r\n    public Algorithms(Runtime<T> rt) { \r\n      this.rt = rt;\r\n    }   \r\n" +
-                    "\r\n");
+            this.Write(@"using weka.core;
+
+// ReSharper disable once CheckNamespace
+namespace Ml2.AttrSel.Algs
+{
+  public class Algorithms<T> where T : new()
+  {
+    private readonly Runtime<T> rt;    
+    public Algorithms(Runtime<T> rt) { 
+      this.rt = rt;
+    }   
+
+");
             
             #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\Algorithms.tt"
  foreach (var alg in AllAgorithms) { 

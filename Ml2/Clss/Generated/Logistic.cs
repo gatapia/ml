@@ -27,7 +27,7 @@ namespace Ml2.Clss
   /// attributes are transformed into numeric attributes using a
   /// NominalToBinaryFilter.
   /// </summary>
-  public class Logistic<T> : BaseClassifier<T, Logistic>
+  public class Logistic<T> : BaseClassifier<T, Logistic> where T : new()
   {
     public Logistic(Runtime<T> rt) : base(rt, new Logistic()) {}
 

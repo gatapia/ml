@@ -2,7 +2,7 @@ using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
 {
-  public class BaseAttributeSelectionEvaluator<T, I> where I : ASEvaluation {
+  public class BaseAttributeSelectionEvaluator<T, I> where I : ASEvaluation where T : new() {
     protected readonly Runtime<T> rt;
     public I Impl { get; private set; }
     

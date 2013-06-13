@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// output into a new dataset. Attributes that are not covered by any of the
   /// ranges can be either retained or removed from the output.
   /// </summary>
-  public class PartitionedMultiFilter<T> : BaseFilter<T, PartitionedMultiFilter>
+  public class PartitionedMultiFilter<T> : BaseFilter<T, PartitionedMultiFilter> where T : new()
   {
     public PartitionedMultiFilter(Runtime<T> rt) : base(rt, new PartitionedMultiFilter()) {}
 

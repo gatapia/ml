@@ -19,7 +19,7 @@ namespace Ml2.Clstr
   /// If this is the case the number of folds is set equal to the number of
   /// instances.
   /// </summary>
-  public class EM<T> : BaseClusterer<T, EM>
+  public class EM<T> : BaseClusterer<T, EM> where T : new()
   {    
     public EM(Runtime<T> rt) : base(rt, new EM()) {}
 

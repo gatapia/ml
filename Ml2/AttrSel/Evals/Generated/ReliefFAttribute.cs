@@ -16,7 +16,7 @@ namespace Ml2.AttrSel.Evals
   /// An adaptation of Relief for attribute estimation in regression. In:
   /// Fourteenth International Conference on Machine Learning, 296-304, 1997.
   /// </summary>
-  public class ReliefFAttribute<T> : BaseAttributeSelectionEvaluator<T, ReliefFAttributeEval>
+  public class ReliefFAttribute<T> : BaseAttributeSelectionEvaluator<T, ReliefFAttributeEval> where T : new()
   {
     public ReliefFAttribute(Runtime<T> rt) : base(rt, new ReliefFAttributeEval()) {}
     

@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// learning time. For more information see: J.H. Friedman (1999). Stochastic
   /// Gradient Boosting.
   /// </summary>
-  public class AdditiveRegression<T> : BaseClassifier<T, AdditiveRegression>
+  public class AdditiveRegression<T> : BaseClassifier<T, AdditiveRegression> where T : new()
   {
     public AdditiveRegression(Runtime<T> rt) : base(rt, new AdditiveRegression()) {}
 

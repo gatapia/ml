@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// margin classification using the perceptron algorithm. In: 11th Annual
   /// Conference on Computational Learning Theory, New York, NY, 209-217, 1998.
   /// </summary>
-  public class VotedPerceptron<T> : BaseClassifier<T, VotedPerceptron>
+  public class VotedPerceptron<T> : BaseClassifier<T, VotedPerceptron> where T : new()
   {
     public VotedPerceptron(Runtime<T> rt) : base(rt, new VotedPerceptron()) {}
 

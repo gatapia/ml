@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// converted to binary ones. Note that kernel caching is turned off if the kernel
   /// used implements CachedKernel.
   /// </summary>
-  public class GaussianProcesses<T> : BaseClassifier<T, GaussianProcesses>
+  public class GaussianProcesses<T> : BaseClassifier<T, GaussianProcesses> where T : new()
   {
     public GaussianProcesses(Runtime<T> rt) : base(rt, new GaussianProcesses()) {}
 

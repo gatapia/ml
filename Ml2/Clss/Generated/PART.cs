@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// Generating Accurate Rule Sets Without Global Optimization. In: Fifteenth
   /// International Conference on Machine Learning, 144-151, 1998.
   /// </summary>
-  public class PART<T> : BaseClassifier<T, PART>
+  public class PART<T> : BaseClassifier<T, PART> where T : new()
   {
     public PART(Runtime<T> rt) : base(rt, new PART()) {}
 

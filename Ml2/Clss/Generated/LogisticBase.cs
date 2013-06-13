@@ -7,7 +7,7 @@ namespace Ml2.Clss
   /// <summary>
   /// No class description found.
   /// </summary>
-  public class LogisticBase<T> : BaseClassifier<T, LogisticBase>
+  public class LogisticBase<T> : BaseClassifier<T, LogisticBase> where T : new()
   {
     public LogisticBase(Runtime<T> rt) : base(rt, new LogisticBase()) {}
 

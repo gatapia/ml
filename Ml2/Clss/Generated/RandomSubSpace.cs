@@ -15,7 +15,7 @@ namespace Ml2.Clss
   /// Machine Intelligence. 20(8):832-844. URL
   /// http://citeseer.ist.psu.edu/ho98random.html.
   /// </summary>
-  public class RandomSubSpace<T> : BaseClassifier<T, RandomSubSpace>
+  public class RandomSubSpace<T> : BaseClassifier<T, RandomSubSpace> where T : new()
   {
     public RandomSubSpace(Runtime<T> rt) : base(rt, new RandomSubSpace()) {}
 

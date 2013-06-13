@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// too big or very close to a certain value (e.g., 0) and sets these values
   /// to a pre-defined default.
   /// </summary>
-  public class NumericCleaner<T> : BaseFilter<T, NumericCleaner>
+  public class NumericCleaner<T> : BaseFilter<T, NumericCleaner> where T : new()
   {
     public NumericCleaner(Runtime<T> rt) : base(rt, new NumericCleaner()) {}
 

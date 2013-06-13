@@ -6,7 +6,7 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
-  public class <#= TypeName #><T>
+  public class <#= TypeName #><T> where T : new()
   {
     private readonly Runtime<T> rt;    
     public <#= TypeName #>(Runtime<T> rt) { this.rt = rt; }   

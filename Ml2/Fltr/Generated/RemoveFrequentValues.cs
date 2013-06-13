@@ -13,7 +13,7 @@ namespace Ml2.Fltr
   /// values "1,2" would be returned, since the value "2" comes before "3", even
   /// though they have the same frequency.
   /// </summary>
-  public class RemoveFrequentValues<T> : BaseFilter<T, RemoveFrequentValues>
+  public class RemoveFrequentValues<T> : BaseFilter<T, RemoveFrequentValues> where T : new()
   {
     public RemoveFrequentValues(Runtime<T> rt) : base(rt, new RemoveFrequentValues()) {}
 

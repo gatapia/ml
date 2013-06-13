@@ -1,7 +1,7 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Asstn
 {
-  public class Associations<T>
+  public class Associations<T> where T : new()
   {
     private readonly Runtime<T> rt;    
     public Associations(Runtime<T> rt) { this.rt = rt; }   

@@ -9,7 +9,7 @@ namespace Ml2.AttrSel.Evals
   /// the information gain with respect to the class. InfoGain(Class,Attribute) =
   /// H(Class) - H(Class | Attribute).
   /// </summary>
-  public class InfoGainAttribute<T> : BaseAttributeSelectionEvaluator<T, InfoGainAttributeEval>
+  public class InfoGainAttribute<T> : BaseAttributeSelectionEvaluator<T, InfoGainAttributeEval> where T : new()
   {
     public InfoGainAttribute(Runtime<T> rt) : base(rt, new InfoGainAttributeEval()) {}
     

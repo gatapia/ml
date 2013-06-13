@@ -9,7 +9,7 @@ namespace Ml2.AttrSel.Evals
   /// the gain ratio with respect to the class. GainR(Class, Attribute) =
   /// (H(Class) - H(Class | Attribute)) / H(Attribute).
   /// </summary>
-  public class GainRatioAttribute<T> : BaseAttributeSelectionEvaluator<T, GainRatioAttributeEval>
+  public class GainRatioAttribute<T> : BaseAttributeSelectionEvaluator<T, GainRatioAttributeEval> where T : new()
   {
     public GainRatioAttribute(Runtime<T> rt) : base(rt, new GainRatioAttributeEval()) {}
     

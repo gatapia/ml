@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// Boosting. Stanford University. Can do efficient internal cross-validation to
   /// determine appropriate number of iterations.
   /// </summary>
-  public class LogitBoost<T> : BaseClassifier<T, LogitBoost>
+  public class LogitBoost<T> : BaseClassifier<T, LogitBoost> where T : new()
   {
     public LogitBoost(Runtime<T> rt) : base(rt, new LogitBoost()) {}
 

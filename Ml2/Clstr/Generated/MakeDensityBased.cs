@@ -10,7 +10,7 @@ namespace Ml2.Clstr
   /// cluster produced by the wrapped clusterer. Supports the
   /// NumberOfClustersRequestable interface only if the wrapped Clusterer does.
   /// </summary>
-  public class MakeDensityBased<T> : BaseClusterer<T, MakeDensityBasedClusterer>
+  public class MakeDensityBased<T> : BaseClusterer<T, MakeDensityBasedClusterer> where T : new()
   {    
     public MakeDensityBased(Runtime<T> rt) : base(rt, new MakeDensityBasedClusterer()) {}
 

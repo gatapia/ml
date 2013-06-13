@@ -29,8 +29,8 @@ namespace Ml2.Tasks.Generator.Clss
         public virtual string TransformText()
         {
             this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clss\r\n{\r\n  public class C" +
-                    "lassifiers<T>\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public Classifi" +
-                    "ers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
+                    "lassifiers<T> where T : new()\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n   " +
+                    " public Classifiers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
             
             #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
  foreach (var ctr in AllClassifiers) { 

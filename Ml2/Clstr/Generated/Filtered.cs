@@ -10,7 +10,7 @@ namespace Ml2.Clstr
   /// is based exclusively on the training data and test instances will be
   /// processed by the filter without changing their structure.
   /// </summary>
-  public class Filtered<T> : BaseClusterer<T, FilteredClusterer>
+  public class Filtered<T> : BaseClusterer<T, FilteredClusterer> where T : new()
   {    
     public Filtered(Runtime<T> rt) : base(rt, new FilteredClusterer()) {}
 

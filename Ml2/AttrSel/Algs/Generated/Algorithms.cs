@@ -3,7 +3,7 @@ using weka.core;
 // ReSharper disable once CheckNamespace
 namespace Ml2.AttrSel.Algs
 {
-  public class Algorithms<T>
+  public class Algorithms<T> where T : new()
   {
     private readonly Runtime<T> rt;    
     public Algorithms(Runtime<T> rt) { 

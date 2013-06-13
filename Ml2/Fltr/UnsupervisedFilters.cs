@@ -1,6 +1,6 @@
 namespace Ml2.Fltr
 {
-  public class UnsupervisedFilters<T>
+  public class UnsupervisedFilters<T> where T : new()
   {
     private readonly Runtime<T> rt;
     public UnsupervisedFilters(Runtime<T> rt) { this.rt = rt; }

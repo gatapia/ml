@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// incoming nominal attribute values that the classifier has not seen before. A new
   /// classifier can be trained or an existing one loaded from a file.
   /// </summary>
-  public class InputMappedClassifier<T> : BaseClassifier<T, InputMappedClassifier>
+  public class InputMappedClassifier<T> : BaseClassifier<T, InputMappedClassifier> where T : new()
   {
     public InputMappedClassifier(Runtime<T> rt) : base(rt, new InputMappedClassifier()) {}
 

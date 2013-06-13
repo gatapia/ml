@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// error flag to a dataset with a classifier. The classifier is either trained on
   /// the data itself or provided as serialized model.
   /// </summary>
-  public class AddClassification<T> : BaseFilter<T, AddClassification>
+  public class AddClassification<T> : BaseFilter<T, AddClassification> where T : new()
   {
     public AddClassification(Runtime<T> rt) : base(rt, new AddClassification()) {}
 

@@ -8,7 +8,7 @@ namespace Ml2.Clss
   /// Dimensionality of training and test data is reduced by attribute
   /// selection before being passed on to a classifier.
   /// </summary>
-  public class AttributeSelectedClassifier<T> : BaseClassifier<T, AttributeSelectedClassifier>
+  public class AttributeSelectedClassifier<T> : BaseClassifier<T, AttributeSelectedClassifier> where T : new()
   {
     public AttributeSelectedClassifier(Runtime<T> rt) : base(rt, new AttributeSelectedClassifier()) {}
 

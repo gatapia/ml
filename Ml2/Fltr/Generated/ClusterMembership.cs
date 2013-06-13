@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// set) and any user-specified attributes are ignored during the clustering
   /// operation
   /// </summary>
-  public class ClusterMembership<T> : BaseFilter<T, ClusterMembership>
+  public class ClusterMembership<T> : BaseFilter<T, ClusterMembership> where T : new()
   {
     public ClusterMembership(Runtime<T> rt) : base(rt, new ClusterMembership()) {}
 

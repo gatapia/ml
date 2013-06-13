@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// during the course of their operation -- this filter allows the original
   /// attributes to be kept as well as the new attributes.
   /// </summary>
-  public class Copy<T> : BaseFilter<T, Copy>
+  public class Copy<T> : BaseFilter<T, Copy> where T : new()
   {
     public Copy(Runtime<T> rt) : base(rt, new Copy()) {}
 

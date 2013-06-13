@@ -70,7 +70,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                   PassengerClass = t.PassengerClass,
                                   Sex = t.Sex,
                                   Age = t.Age,
-                                  HasFamily = (t.NumParentsChildren.GetValueOrDefault() + t.NumSiblingsOrSpouses.GetValueOrDefault()) > 0
+                                  HasFamily = (t.NumParentsChildren + t.NumSiblingsOrSpouses) > 0
                                 }).ToArray();
       var train = new Runtime<object>(newrows);
       train.SetClassifierIndex(0);

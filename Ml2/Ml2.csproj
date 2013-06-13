@@ -60,7 +60,6 @@
     <Compile Include="Arff\CsvRow.cs" />
     <Compile Include="Arff\CsvLoader.cs" />
     <Compile Include="Arff\EAttributeType.cs" />
-    <Compile Include="Arff\EnumCsvConverter.cs" />
     <Compile Include="Arff\IArffInstanceBuilder.cs" />
     <Compile Include="Arff\ILoader.cs" />
     <Compile Include="Arff\ILoaderFactory.cs" />

@@ -9,14 +9,14 @@ namespace Ml2.Fltr
   /// is very flexible and allows various search and evaluation methods to be
   /// combined.
   /// </summary>
-  public class AttributeSelection<T> : BaseFilter<T>
+  public class AttributeSelection<T> : BaseFilter<T, AttributeSelection>
   {
     public AttributeSelection(Runtime<T> rt) : base(rt, new AttributeSelection()) {}
 
     /// <summary>
     /// Determines how attributes/attribute subsets are evaluated.
     /// </summary>    
-    public AttributeSelection<T> Evaluator (AttrSel.Evals.BaseAttributeSelectionEvaluator<T> evaluator) {
+    public AttributeSelection<T> Evaluator (AttrSel.Evals.BaseAttributeSelectionEvaluator<T, weka.attributeSelection.ASEvaluation> evaluator) {
       ((AttributeSelection)Impl).setEvaluator(evaluator.Impl);
       return this;
     }
@@ -24,7 +24,7 @@ namespace Ml2.Fltr
     /// <summary>
     /// Determines the search method.
     /// </summary>    
-    public AttributeSelection<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> search) {
+    public AttributeSelection<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T, weka.attributeSelection.ASSearch> search) {
       ((AttributeSelection)Impl).setSearch(search.Impl);
       return this;
     }

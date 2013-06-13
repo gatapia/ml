@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// String attributes. Other types of input attributes are accepted but ignored
   /// during training and classification
   /// </summary>
-  public class NaiveBayesMultinomialText<T> : BaseClassifier<T>
+  public class NaiveBayesMultinomialText<T> : BaseClassifier<T, NaiveBayesMultinomialText>
   {
     public NaiveBayesMultinomialText(Runtime<T> rt) : base(rt, new NaiveBayesMultinomialText()) {}
 

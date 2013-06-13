@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// for predicting continuous classes. In: Poster papers of the 9th European
   /// Conference on Machine Learning, 1997.
   /// </summary>
-  public class M5P<T> : BaseClassifier<T>
+  public class M5P<T> : BaseClassifier<T, M5P>
   {
     public M5P(Runtime<T> rt) : base(rt, new M5P()) {}
 

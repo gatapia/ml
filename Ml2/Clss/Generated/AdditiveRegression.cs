@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// learning time. For more information see: J.H. Friedman (1999). Stochastic
   /// Gradient Boosting.
   /// </summary>
-  public class AdditiveRegression<T> : BaseClassifier<T>
+  public class AdditiveRegression<T> : BaseClassifier<T, AdditiveRegression>
   {
     public AdditiveRegression(Runtime<T> rt) : base(rt, new AdditiveRegression()) {}
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdditiveRegression<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public AdditiveRegression<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((AdditiveRegression)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

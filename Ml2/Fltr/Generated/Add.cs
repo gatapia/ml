@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// An instance filter that adds a new attribute to the dataset. The new
   /// attribute will contain all missing values.
   /// </summary>
-  public class Add<T> : BaseFilter<T>
+  public class Add<T> : BaseFilter<T, Add>
   {
     public Add(Runtime<T> rt) : base(rt, new Add()) {}
 

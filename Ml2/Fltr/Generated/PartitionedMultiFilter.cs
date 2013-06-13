@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// output into a new dataset. Attributes that are not covered by any of the
   /// ranges can be either retained or removed from the output.
   /// </summary>
-  public class PartitionedMultiFilter<T> : BaseFilter<T>
+  public class PartitionedMultiFilter<T> : BaseFilter<T, PartitionedMultiFilter>
   {
     public PartitionedMultiFilter(Runtime<T> rt) : base(rt, new PartitionedMultiFilter()) {}
 
@@ -25,7 +25,7 @@ namespace Ml2.Fltr
     /// <summary>
     /// The base filters to be used.
     /// </summary>    
-    public PartitionedMultiFilter<T> Filters (Fltr.BaseFilter<T>[] filters) {
+    public PartitionedMultiFilter<T> Filters (Fltr.BaseFilter<T, weka.filters.Filter>[] filters) {
       ((PartitionedMultiFilter)Impl).setFilters(filters.Select(v => v.Impl).ToArray());
       return this;
     }

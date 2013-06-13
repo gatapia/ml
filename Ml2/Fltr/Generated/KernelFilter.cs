@@ -15,7 +15,7 @@ namespace Ml2.Fltr
   /// Perspective on Kernel Partial Least Squares Regression. In: Advances in Learning
   /// Theory: Methods, Models and Applications, 227-249, 2003.
   /// </summary>
-  public class KernelFilter<T> : BaseFilter<T>
+  public class KernelFilter<T> : BaseFilter<T, KernelFilter>
   {
     public KernelFilter(Runtime<T> rt) : base(rt, new KernelFilter()) {}
 
@@ -49,7 +49,7 @@ namespace Ml2.Fltr
     /// Sets the filter to use for preprocessing (use the AllFilter for no
     /// preprocessing).
     /// </summary>    
-    public KernelFilter<T> Preprocessing (Fltr.BaseFilter<T> value) {
+    public KernelFilter<T> Preprocessing (Fltr.BaseFilter<T, weka.filters.Filter> value) {
       ((KernelFilter)Impl).setPreprocessing(value.Impl);
       return this;
     }

@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// Learner Using an Entropic Distance Measure. In: 12th International Conference
   /// on Machine Learning, 108-114, 1995.
   /// </summary>
-  public class KStar<T> : BaseClassifier<T>
+  public class KStar<T> : BaseClassifier<T, KStar>
   {
     public KStar(Runtime<T> rt) : base(rt, new KStar()) {}
 

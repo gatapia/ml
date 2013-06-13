@@ -8,14 +8,14 @@ namespace Ml2.Fltr
   /// A filter that removes instances which are incorrectly classified. Useful
   /// for removing outliers.
   /// </summary>
-  public class RemoveMisclassified<T> : BaseFilter<T>
+  public class RemoveMisclassified<T> : BaseFilter<T, RemoveMisclassified>
   {
     public RemoveMisclassified(Runtime<T> rt) : base(rt, new RemoveMisclassified()) {}
 
     /// <summary>
     /// The classifier upon which to base the misclassifications.
     /// </summary>    
-    public RemoveMisclassified<T> Classifier (Clss.BaseClassifier<T> classifier) {
+    public RemoveMisclassified<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> classifier) {
       ((RemoveMisclassified)Impl).setClassifier(classifier.Impl);
       return this;
     }

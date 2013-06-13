@@ -27,7 +27,7 @@ namespace Ml2.Fltr
   /// non-missing 'wage-increase-second-year' from the 'labor' UCI dataset: not
   /// ismissing(ATT3)
   /// </summary>
-  public class SubsetByExpression<T> : BaseFilter<T>
+  public class SubsetByExpression<T> : BaseFilter<T, SubsetByExpression>
   {
     public SubsetByExpression(Runtime<T> rt) : base(rt, new SubsetByExpression()) {}
 

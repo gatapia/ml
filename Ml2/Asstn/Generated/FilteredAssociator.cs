@@ -10,14 +10,14 @@ namespace Ml2.Asstn
   /// is based exclusively on the training data and test instances will be
   /// processed by the filter without changing their structure.
   /// </summary>
-  public class FilteredAssociator<T> : BaseAssociation<T>
+  public class FilteredAssociator<T> : BaseAssociation<T, FilteredAssociator>
   {
     public FilteredAssociator(Runtime<T> rt) : base(rt, new FilteredAssociator()) {}
 
     /// <summary>
     /// The filter to be used.
     /// </summary>    
-    public FilteredAssociator<T> Filter (Fltr.BaseFilter<T> value) {
+    public FilteredAssociator<T> Filter (Fltr.BaseFilter<T, weka.filters.Filter> value) {
       ((FilteredAssociator)Impl).setFilter(value.Impl);
       return this;
     }    
@@ -34,7 +34,7 @@ namespace Ml2.Asstn
     /// <summary>
     /// The base associator to be used.
     /// </summary>    
-    public FilteredAssociator<T> Associator (Asstn.BaseAssociation<T> value) {
+    public FilteredAssociator<T> Associator (Asstn.BaseAssociation<T, weka.associations.AbstractAssociator> value) {
       ((FilteredAssociator)Impl).setAssociator(value.Impl);
       return this;
     }    

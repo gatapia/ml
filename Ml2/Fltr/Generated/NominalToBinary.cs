@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// left binary, if option '-A' is not given.If the class is numeric, you might
   /// want to use the supervised version of this filter.
   /// </summary>
-  public class NominalToBinary<T> : BaseFilter<T>
+  public class NominalToBinary<T> : BaseFilter<T, NominalToBinary>
   {
     public NominalToBinary(Runtime<T> rt) : base(rt, new NominalToBinary()) {}
 

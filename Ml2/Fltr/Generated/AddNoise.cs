@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// values. The attribute must be nominal. Missing value can be treated as value
   /// itself.
   /// </summary>
-  public class AddNoise<T> : BaseFilter<T>
+  public class AddNoise<T> : BaseFilter<T, AddNoise>
   {
     public AddNoise(Runtime<T> rt) : base(rt, new AddNoise()) {}
 

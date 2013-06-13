@@ -8,7 +8,7 @@ namespace Ml2.Clss
   /// Dimensionality of training and test data is reduced by attribute
   /// selection before being passed on to a classifier.
   /// </summary>
-  public class AttributeSelectedClassifier<T> : BaseClassifier<T>
+  public class AttributeSelectedClassifier<T> : BaseClassifier<T, AttributeSelectedClassifier>
   {
     public AttributeSelectedClassifier(Runtime<T> rt) : base(rt, new AttributeSelectedClassifier()) {}
 
@@ -16,7 +16,7 @@ namespace Ml2.Clss
     /// Set the attribute evaluator to use. This evaluator is used during the
     /// attribute selection phase before the classifier is invoked.
     /// </summary>    
-    public AttributeSelectedClassifier<T> Evaluator (AttrSel.Evals.BaseAttributeSelectionEvaluator<T> evaluator) {
+    public AttributeSelectedClassifier<T> Evaluator (AttrSel.Evals.BaseAttributeSelectionEvaluator<T, weka.attributeSelection.ASEvaluation> evaluator) {
       ((AttributeSelectedClassifier)Impl).setEvaluator(evaluator.Impl);
       return this;
     }
@@ -25,7 +25,7 @@ namespace Ml2.Clss
     /// Set the search method. This search method is used during the attribute
     /// selection phase before the classifier is invoked.
     /// </summary>    
-    public AttributeSelectedClassifier<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> search) {
+    public AttributeSelectedClassifier<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T, weka.attributeSelection.ASSearch> search) {
       ((AttributeSelectedClassifier)Impl).setSearch(search.Impl);
       return this;
     }
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AttributeSelectedClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public AttributeSelectedClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((AttributeSelectedClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

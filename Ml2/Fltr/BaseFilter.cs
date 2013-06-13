@@ -4,17 +4,17 @@ using weka.filters;
 
 namespace Ml2.Fltr
 {
-  public class BaseFilter<T>
+  public class BaseFilter<T, I> where I : Filter
   {
     protected readonly Runtime<T> rt;
 
-    public BaseFilter(Runtime<T> rt, Filter impl)
+    public BaseFilter(Runtime<T> rt, I impl)
     {
       this.rt = rt;
       Impl = impl;
     }
 
-    public Filter Impl { get; private set;}
+    public I Impl { get; private set;}
 
     public Runtime<T> RunFilter()
     {

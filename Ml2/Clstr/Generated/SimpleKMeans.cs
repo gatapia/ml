@@ -12,7 +12,7 @@ namespace Ml2.Clstr
   /// advantages of carefull seeding. In: Proceedings of the eighteenth annual
   /// ACM-SIAM symposium on Discrete algorithms, 1027-1035, 2007.
   /// </summary>
-  public class SimpleKMeans<T> : BaseClusterer<T>
+  public class SimpleKMeans<T> : BaseClusterer<T, SimpleKMeans>
   {    
     public SimpleKMeans(Runtime<T> rt) : base(rt, new SimpleKMeans()) {}
 

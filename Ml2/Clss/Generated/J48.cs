@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// information, see Ross Quinlan (1993). C4.5: Programs for Machine Learning.
   /// Morgan Kaufmann Publishers, San Mateo, CA.
   /// </summary>
-  public class J48<T> : BaseClassifier<T>
+  public class J48<T> : BaseClassifier<T, J48>
   {
     public J48(Runtime<T> rt) : base(rt, new J48()) {}
 

@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// P[Ci|D] = (P[D|Ci] x P[Ci]) / P[D] (Bayes rule) where Ci is class i and D is a
   /// document.
   /// </summary>
-  public class NaiveBayesMultinomial<T> : BaseClassifier<T>
+  public class NaiveBayesMultinomial<T> : BaseClassifier<T, NaiveBayesMultinomial>
   {
     public NaiveBayesMultinomial(Runtime<T> rt) : base(rt, new NaiveBayesMultinomial()) {}
 

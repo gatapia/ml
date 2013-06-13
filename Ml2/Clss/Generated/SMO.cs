@@ -26,7 +26,7 @@ namespace Ml2.Clss
   /// 13(3):637-649. Trevor Hastie, Robert Tibshirani: Classification by Pairwise
   /// Coupling. In: Advances in Neural Information Processing Systems, 1998.
   /// </summary>
-  public class SMO<T> : BaseClassifier<T>
+  public class SMO<T> : BaseClassifier<T, SMO>
   {
     public SMO(Runtime<T> rt) : base(rt, new SMO()) {}
 

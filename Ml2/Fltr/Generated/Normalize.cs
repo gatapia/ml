@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// translation parameters one can change that, e.g., with scale = 2.0 and
   /// translation = -1.0 you get values in the range [-1,+1].
   /// </summary>
-  public class Normalize<T> : BaseFilter<T>
+  public class Normalize<T> : BaseFilter<T, Normalize>
   {
     public Normalize(Runtime<T> rt) : base(rt, new Normalize()) {}
 

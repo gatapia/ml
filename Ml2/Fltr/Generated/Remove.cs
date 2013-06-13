@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// re-order the remaining attributes if invert matching sense is turned on and the
   /// attribute column indices are not specified in ascending order.
   /// </summary>
-  public class Remove<T> : BaseFilter<T>
+  public class Remove<T> : BaseFilter<T, Remove>
   {
     public Remove(Runtime<T> rt) : base(rt, new Remove()) {}
 

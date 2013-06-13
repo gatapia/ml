@@ -12,7 +12,7 @@ namespace Ml2.Asstn
   /// <summary>
   /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= Model.TypeName #><T> : BaseAssociation<T>
+  public class <#= Model.TypeName #><T> : BaseAssociation<T, <#= Model.ImplTypeName #>>
   {
     public <#= Model.TypeName #>(Runtime<T> rt) : base(rt, new <#= Model.ImplTypeName #>()) {}
 

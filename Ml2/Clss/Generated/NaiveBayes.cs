@@ -17,7 +17,7 @@ namespace Ml2.Clss
   /// In: Eleventh Conference on Uncertainty in Artificial Intelligence, San
   /// Mateo, 338-345, 1995.
   /// </summary>
-  public class NaiveBayes<T> : BaseClassifier<T>
+  public class NaiveBayes<T> : BaseClassifier<T, NaiveBayes>
   {
     public NaiveBayes(Runtime<T> rt) : base(rt, new NaiveBayes()) {}
 

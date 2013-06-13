@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// An instance filter that passes all instances through unmodified.
   /// Primarily for testing purposes.
   /// </summary>
-  public class AllFilter<T> : BaseFilter<T>
+  public class AllFilter<T> : BaseFilter<T, AllFilter>
   {
     public AllFilter(Runtime<T> rt) : base(rt, new AllFilter()) {}
 

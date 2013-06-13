@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// is measured based on percent correct (classification) or mean-squared
   /// error (regression).
   /// </summary>
-  public class MultiScheme<T> : BaseClassifier<T>
+  public class MultiScheme<T> : BaseClassifier<T, MultiScheme>
   {
     public MultiScheme(Runtime<T> rt) : base(rt, new MultiScheme()) {}
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The classifiers to be chosen from.
     /// </summary>    
-    public MultiScheme<T> Classifiers (Clss.BaseClassifier<T>[] classifiers) {
+    public MultiScheme<T> Classifiers (Clss.BaseClassifier<T, weka.classifiers.Classifier>[] classifiers) {
       ((MultiScheme)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
       return this;
     }

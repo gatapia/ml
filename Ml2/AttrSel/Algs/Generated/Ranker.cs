@@ -8,7 +8,7 @@ namespace Ml2.AttrSel.Algs
   /// Ranker : Ranks attributes by their individual evaluations. Use in
   /// conjunction with attribute evaluators (ReliefF, GainRatio, Entropy etc).
   /// </summary>
-  public class Ranker<T> : BaseAttributeSelectionAlgorithm<T>
+  public class Ranker<T> : BaseAttributeSelectionAlgorithm<T, Ranker>
   {
     public Ranker(Runtime<T> rt) : base(rt, new Ranker()) {}
 

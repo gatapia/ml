@@ -8,7 +8,7 @@ namespace Ml2.Clss
   /// Class for constructing a forest of random trees. For more information
   /// see: Leo Breiman (2001). Random Forests. Machine Learning. 45(1):5-32.
   /// </summary>
-  public class RandomForest<T> : BaseClassifier<T>
+  public class RandomForest<T> : BaseClassifier<T, RandomForest>
   {
     public RandomForest(Runtime<T> rt) : base(rt, new RandomForest()) {}
 

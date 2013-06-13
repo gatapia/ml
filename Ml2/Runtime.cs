@@ -2,7 +2,6 @@
 using System.IO;
 using Ml2.Arff;
 using Ml2.Asstn;
-using Ml2.AttrSel;
 using Ml2.Clss;
 using Ml2.Clstr;
 using Ml2.Fltr;
@@ -12,6 +11,13 @@ using weka.core.converters;
 
 namespace Ml2
 {
+  public static class Runtime {
+    public static T[] Load<T>(params string[] files) {
+      var lf = new LoaderFactory();
+      return lf.Get<T>().Load<T>(files);
+    }
+  }
+
   public class Runtime<T>
   {
     private readonly IArffInstanceBuilder arff = new ArffInstanceBuilder();
@@ -20,8 +26,15 @@ namespace Ml2
 
     public Runtime(params string[] files) {
       Rows = loaderFactory.Get<T>().Load<T>(files);
-      Instances = arff.Build(Rows);
       
+      Instances = arff.Build(Rows);      
+      SetClassifierIndex(classidx.InferClassIndex<T>());
+    }
+
+    public Runtime(T[] data) {
+      Rows = data;
+      Instances = arff.Build(Rows);      
+
       SetClassifierIndex(classidx.InferClassIndex<T>());
     }
 
@@ -35,7 +48,7 @@ namespace Ml2
       Rows = rows;
 
       SetClassifierIndex(classidx.InferClassIndex<T>());
-    }
+    }    
 
     public Instances Instances { get; private set; }
     public T[] Rows { get; private set; }

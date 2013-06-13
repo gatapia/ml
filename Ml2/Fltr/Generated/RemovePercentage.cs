@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// A filter that removes a given percentage of a dataset.
   /// </summary>
-  public class RemovePercentage<T> : BaseFilter<T>
+  public class RemovePercentage<T> : BaseFilter<T, RemovePercentage>
   {
     public RemovePercentage(Runtime<T> rt) : base(rt, new RemovePercentage()) {}
 

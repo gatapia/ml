@@ -2,15 +2,13 @@ using weka.attributeSelection;
 
 namespace Ml2.AttrSel.Evals
 {
-  public class BaseAttributeSelectionEvaluator<T> {
+  public class BaseAttributeSelectionEvaluator<T, I> where I : ASEvaluation {
     protected readonly Runtime<T> rt;
-    public ASEvaluation Impl { get; private set; }
+    public I Impl { get; private set; }
     
-    public BaseAttributeSelectionEvaluator(Runtime<T> rt, ASEvaluation impl) { 
+    public BaseAttributeSelectionEvaluator(Runtime<T> rt, I impl) { 
       this.rt = rt;
-      this.Impl = impl; 
-    }
-
-    public ASEvaluation GetImpl() { return Impl; }
+      Impl = impl; 
+    }    
   }
 }

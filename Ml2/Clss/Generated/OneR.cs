@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// more information, see: R.C. Holte (1993). Very simple classification rules
   /// perform well on most commonly used datasets. Machine Learning. 11:63-91.
   /// </summary>
-  public class OneR<T> : BaseClassifier<T>
+  public class OneR<T> : BaseClassifier<T, OneR>
   {
     public OneR(Runtime<T> rt) : base(rt, new OneR()) {}
 

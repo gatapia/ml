@@ -8,7 +8,7 @@ namespace Ml2.Clss
   /// Class for using linear regression for prediction. Uses the Akaike
   /// criterion for model selection, and is able to deal with weighted instances.
   /// </summary>
-  public class LinearRegression<T> : BaseClassifier<T>
+  public class LinearRegression<T> : BaseClassifier<T, LinearRegression>
   {
     public LinearRegression(Runtime<T> rt) : base(rt, new LinearRegression()) {}
 

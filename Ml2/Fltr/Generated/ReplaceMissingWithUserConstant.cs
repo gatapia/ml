@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Replaces all missing values for nominal, string, numeric and date
   /// attributes in the dataset with user-supplied constant values.
   /// </summary>
-  public class ReplaceMissingWithUserConstant<T> : BaseFilter<T>
+  public class ReplaceMissingWithUserConstant<T> : BaseFilter<T, ReplaceMissingWithUserConstant>
   {
     public ReplaceMissingWithUserConstant(Runtime<T> rt) : base(rt, new ReplaceMissingWithUserConstant()) {}
 

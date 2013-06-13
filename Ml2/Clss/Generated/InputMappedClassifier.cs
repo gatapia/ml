@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// incoming nominal attribute values that the classifier has not seen before. A new
   /// classifier can be trained or an existing one loaded from a file.
   /// </summary>
-  public class InputMappedClassifier<T> : BaseClassifier<T>
+  public class InputMappedClassifier<T> : BaseClassifier<T, InputMappedClassifier>
   {
     public InputMappedClassifier(Runtime<T> rt) : base(rt, new InputMappedClassifier()) {}
 
@@ -70,7 +70,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public InputMappedClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public InputMappedClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((InputMappedClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

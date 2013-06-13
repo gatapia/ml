@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Converts a nominal attribute (that is, a set number of values) to string
   /// (that is, an unspecified number of values).
   /// </summary>
-  public class NominalToString<T> : BaseFilter<T>
+  public class NominalToString<T> : BaseFilter<T, NominalToString>
   {
     public NominalToString(Runtime<T> rt) : base(rt, new NominalToString()) {}
 

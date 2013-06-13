@@ -10,14 +10,14 @@ namespace Ml2.Fltr
   /// clustering algorithm gets built with the first batch of data or one specifies
   /// are serialized clusterer model file to use instead.
   /// </summary>
-  public class AddCluster<T> : BaseFilter<T>
+  public class AddCluster<T> : BaseFilter<T, AddCluster>
   {
     public AddCluster(Runtime<T> rt) : base(rt, new AddCluster()) {}
 
     /// <summary>
     /// The clusterer to assign clusters with.
     /// </summary>    
-    public AddCluster<T> Clusterer (Clstr.BaseClusterer<T> clusterer) {
+    public AddCluster<T> Clusterer (Clstr.BaseClusterer<T, weka.clusterers.Clusterer> clusterer) {
       ((AddCluster)Impl).setClusterer(clusterer.Impl);
       return this;
     }

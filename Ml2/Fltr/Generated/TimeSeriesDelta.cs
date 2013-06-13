@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// unknown either the instance may be dropped, or missing values used. Skips the
   /// class attribute if it is set.
   /// </summary>
-  public class TimeSeriesDelta<T> : BaseFilter<T>
+  public class TimeSeriesDelta<T> : BaseFilter<T, TimeSeriesDelta>
   {
     public TimeSeriesDelta(Runtime<T> rt) : base(rt, new TimeSeriesDelta()) {}
 

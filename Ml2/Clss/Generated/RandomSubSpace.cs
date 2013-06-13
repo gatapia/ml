@@ -15,7 +15,7 @@ namespace Ml2.Clss
   /// Machine Intelligence. 20(8):832-844. URL
   /// http://citeseer.ist.psu.edu/ho98random.html.
   /// </summary>
-  public class RandomSubSpace<T> : BaseClassifier<T>
+  public class RandomSubSpace<T> : BaseClassifier<T, RandomSubSpace>
   {
     public RandomSubSpace(Runtime<T> rt) : base(rt, new RandomSubSpace()) {}
 
@@ -56,7 +56,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RandomSubSpace<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public RandomSubSpace<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((RandomSubSpace)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

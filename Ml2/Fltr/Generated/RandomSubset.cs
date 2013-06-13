@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// percentage. The class is always included in the output (as the last
   /// attribute).
   /// </summary>
-  public class RandomSubset<T> : BaseFilter<T>
+  public class RandomSubset<T> : BaseFilter<T, RandomSubset>
   {
     public RandomSubset(Runtime<T> rt) : base(rt, new RandomSubset()) {}
 

@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Filter that can set and unset the class index.
   /// </summary>
-  public class ClassAssigner<T> : BaseFilter<T>
+  public class ClassAssigner<T> : BaseFilter<T, ClassAssigner>
   {
     public ClassAssigner(Runtime<T> rt) : base(rt, new ClassAssigner()) {}
 

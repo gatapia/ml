@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// k-Interval Discretization for Naive-Bayes Classifiers. In: 12th European
   /// Conference on Machine Learning, 564-575, 2001.
   /// </summary>
-  public class PKIDiscretize<T> : BaseFilter<T>
+  public class PKIDiscretize<T> : BaseFilter<T, PKIDiscretize>
   {
     public PKIDiscretize(Runtime<T> rt) : base(rt, new PKIDiscretize()) {}
 

@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// and all nominal (and string) attribute values. For exchanging sensitive
   /// datasets. Currently doesn't like string or relational attributes.
   /// </summary>
-  public class Obfuscate<T> : BaseFilter<T>
+  public class Obfuscate<T> : BaseFilter<T, Obfuscate>
   {
     public Obfuscate(Runtime<T> rt) : base(rt, new Obfuscate()) {}
 

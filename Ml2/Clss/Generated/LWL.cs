@@ -13,7 +13,7 @@ namespace Ml2.Clss
   /// Artificial Intelligence, 249-256, 2003. C. Atkeson, A. Moore, S. Schaal
   /// (1996). Locally weighted learning. AI Review..
   /// </summary>
-  public class LWL<T> : BaseClassifier<T>
+  public class LWL<T> : BaseClassifier<T, LWL>
   {
     public LWL(Runtime<T> rt) : base(rt, new LWL()) {}
 
@@ -37,7 +37,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public LWL<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public LWL<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((LWL)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

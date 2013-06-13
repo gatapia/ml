@@ -11,7 +11,7 @@ namespace Ml2.Fltr
   /// there be at most a 2:1 difference in class frequencies. When used in batch
   /// mode, subsequent batches are NOT resampled.
   /// </summary>
-  public class SpreadSubsample<T> : BaseFilter<T>
+  public class SpreadSubsample<T> : BaseFilter<T, SpreadSubsample>
   {
     public SpreadSubsample(Runtime<T> rt) : base(rt, new SpreadSubsample()) {}
 

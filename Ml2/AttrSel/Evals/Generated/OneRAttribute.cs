@@ -8,7 +8,7 @@ namespace Ml2.AttrSel.Evals
   /// OneRAttributeEval : Evaluates the worth of an attribute by using the OneR
   /// classifier.
   /// </summary>
-  public class OneRAttribute<T> : BaseAttributeSelectionEvaluator<T>
+  public class OneRAttribute<T> : BaseAttributeSelectionEvaluator<T, OneRAttributeEval>
   {
     public OneRAttribute(Runtime<T> rt) : base(rt, new OneRAttributeEval()) {}
     

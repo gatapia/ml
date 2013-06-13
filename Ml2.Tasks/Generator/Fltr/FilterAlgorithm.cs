@@ -50,7 +50,14 @@ namespace Ml2.Tasks.Generator.Fltr
             
             #line default
             #line hidden
-            this.Write("<T> : BaseFilter<T>\r\n  {\r\n    public ");
+            this.Write("<T> : BaseFilter<T, ");
+            
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\FilterAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n  {\r\n    public ");
             
             #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Fltr\FilterAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));

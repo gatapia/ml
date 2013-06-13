@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// likely class). Performance can often be improved by using a Bagged classifier to
   /// improve the probability estimates of the base classifier.
   /// </summary>
-  public class CostSensitiveClassifier<T> : BaseClassifier<T>
+  public class CostSensitiveClassifier<T> : BaseClassifier<T, CostSensitiveClassifier>
   {
     public CostSensitiveClassifier(Runtime<T> rt) : base(rt, new CostSensitiveClassifier()) {}
 
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public CostSensitiveClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public CostSensitiveClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((CostSensitiveClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

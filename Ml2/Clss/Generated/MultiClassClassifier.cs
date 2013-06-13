@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// classifiers. This classifier is also capable of applying error correcting output
   /// codes for increased accuracy.
   /// </summary>
-  public class MultiClassClassifier<T> : BaseClassifier<T>
+  public class MultiClassClassifier<T> : BaseClassifier<T, MultiClassClassifier>
   {
     public MultiClassClassifier(Runtime<T> rt) : base(rt, new MultiClassClassifier()) {}
 
@@ -50,7 +50,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public MultiClassClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public MultiClassClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((MultiClassClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

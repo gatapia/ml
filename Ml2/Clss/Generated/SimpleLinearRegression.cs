@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// in the lowest squared error. Missing values are not allowed. Can only deal
   /// with numeric attributes.
   /// </summary>
-  public class SimpleLinearRegression<T> : BaseClassifier<T>
+  public class SimpleLinearRegression<T> : BaseClassifier<T, SimpleLinearRegression>
   {
     public SimpleLinearRegression(Runtime<T> rt) : base(rt, new SimpleLinearRegression()) {}
 

@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// number generator is reset with the seed value whenever a new set of instances
   /// is passed in.
   /// </summary>
-  public class Randomize<T> : BaseFilter<T>
+  public class Randomize<T> : BaseFilter<T, Randomize>
   {
     public Randomize(Runtime<T> rt) : base(rt, new Randomize()) {}
 

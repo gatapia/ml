@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// Algorithm "R" by Vitter. The original data set does not have to fit into main
   /// memory, but the reservoir does.
   /// </summary>
-  public class ReservoirSample<T> : BaseFilter<T>
+  public class ReservoirSample<T> : BaseFilter<T, ReservoirSample>
   {
     public ReservoirSample(Runtime<T> rt) : base(rt, new ReservoirSample()) {}
 

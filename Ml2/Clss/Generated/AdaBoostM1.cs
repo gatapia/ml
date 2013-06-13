@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// Thirteenth International Conference on Machine Learning, San Francisco, 148-156,
   /// 1996.
   /// </summary>
-  public class AdaBoostM1<T> : BaseClassifier<T>
+  public class AdaBoostM1<T> : BaseClassifier<T, AdaBoostM1>
   {
     public AdaBoostM1(Runtime<T> rt) : base(rt, new AdaBoostM1()) {}
 
@@ -51,7 +51,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdaBoostM1<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public AdaBoostM1<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((AdaBoostM1)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

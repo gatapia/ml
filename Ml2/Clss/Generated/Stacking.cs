@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// classification or regression. For more information, see David H. Wolpert (1992).
   /// Stacked generalization. Neural Networks. 5:241-259.
   /// </summary>
-  public class Stacking<T> : BaseClassifier<T>
+  public class Stacking<T> : BaseClassifier<T, Stacking>
   {
     public Stacking(Runtime<T> rt) : base(rt, new Stacking()) {}
 
@@ -24,7 +24,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The meta classifiers to be used.
     /// </summary>    
-    public Stacking<T> MetaClassifier (Clss.BaseClassifier<T> classifier) {
+    public Stacking<T> MetaClassifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> classifier) {
       ((Stacking)Impl).setMetaClassifier(classifier.Impl);
       return this;
     }
@@ -49,7 +49,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifiers to be used.
     /// </summary>    
-    public Stacking<T> Classifiers (Clss.BaseClassifier<T>[] classifiers) {
+    public Stacking<T> Classifiers (Clss.BaseClassifier<T, weka.classifiers.Classifier>[] classifiers) {
       ((Stacking)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
       return this;
     }

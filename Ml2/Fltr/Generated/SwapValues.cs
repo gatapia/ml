@@ -7,7 +7,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// Swaps two values of a nominal attribute.
   /// </summary>
-  public class SwapValues<T> : BaseFilter<T>
+  public class SwapValues<T> : BaseFilter<T, SwapValues>
   {
     public SwapValues(Runtime<T> rt) : base(rt, new SwapValues()) {}
 

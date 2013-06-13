@@ -14,7 +14,7 @@ namespace Ml2.Fltr
   /// value can also be converted back using 'originalValue(double value)'
   /// procedure.
   /// </summary>
-  public class ClassOrder<T> : BaseFilter<T>
+  public class ClassOrder<T> : BaseFilter<T, ClassOrder>
   {
     public ClassOrder(Runtime<T> rt) : base(rt, new ClassOrder()) {}
 

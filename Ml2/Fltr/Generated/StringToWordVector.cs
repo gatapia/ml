@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// the strings. The set of words (attributes) is determined by the first
   /// batch filtered (typically training data).
   /// </summary>
-  public class StringToWordVector<T> : BaseFilter<T>
+  public class StringToWordVector<T> : BaseFilter<T, StringToWordVector>
   {
     public StringToWordVector(Runtime<T> rt) : base(rt, new StringToWordVector()) {}
 

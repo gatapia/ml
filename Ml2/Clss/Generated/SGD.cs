@@ -14,7 +14,7 @@ namespace Ml2.Clss
   /// epsilon-insensitve loss function must be used. Epsilon-insensitive and Huber
   /// loss may require a much higher learning rate.
   /// </summary>
-  public class SGD<T> : BaseClassifier<T>
+  public class SGD<T> : BaseClassifier<T, SGD>
   {
     public SGD(Runtime<T> rt) : base(rt, new SGD()) {}
 

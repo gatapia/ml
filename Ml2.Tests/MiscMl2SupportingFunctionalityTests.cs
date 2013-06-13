@@ -21,23 +21,7 @@ namespace Ml2.Tests
     [Test] public void Test_classifier_attribute_sets_appropriate_index()
     {
       Assert.AreEqual(0, rt.Instances.classIndex());
-    }
-
-    [Test] public void Test_csfsubset_evaluator_and_best_first()
-    {
-      var eval = rt.AttributeSelection.Evaluators.
-          CfsSubset().
-              LocallyPredictive(true).
-              MissingSeparate(true);
-
-      var indexes = rt.AttributeSelection.Algorithms.
-          BestFirst().
-              LookupCacheSize(1).
-              SearchTermination(1).
-              StartSet("2-11").
-          Search(eval);
-      CollectionAssert.AreEqual(Enumerable.Range(1, 10), indexes);
-    }
+    }    
 
     [Test] public void Test_corr_evaluator_and_ranker()
     {
@@ -62,6 +46,22 @@ namespace Ml2.Tests
 
       var classes = rt.Rows.Take(10).Select(kmeans.Classify);
       Console.WriteLine("First 10 Row Classifications: " + String.Join(", ", classes));
+    }
+
+    [Test] public void Test_csfsubset_evaluator_and_best_first()
+    {
+      var eval = rt.AttributeSelection.Evaluators.
+          CfsSubset().
+              LocallyPredictive(true).
+              MissingSeparate(true);
+
+      var indexes = rt.AttributeSelection.Algorithms.
+          BestFirst().
+              LookupCacheSize(1).
+              SearchTermination(1).
+              StartSet("2-11").
+          Search(eval);
+      CollectionAssert.AreEqual(Enumerable.Range(1, 10), indexes);
     }
   }
 }

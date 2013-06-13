@@ -10,14 +10,14 @@ namespace Ml2.Clstr
   /// cluster produced by the wrapped clusterer. Supports the
   /// NumberOfClustersRequestable interface only if the wrapped Clusterer does.
   /// </summary>
-  public class MakeDensityBased<T> : BaseClusterer<T>
+  public class MakeDensityBased<T> : BaseClusterer<T, MakeDensityBasedClusterer>
   {    
     public MakeDensityBased(Runtime<T> rt) : base(rt, new MakeDensityBasedClusterer()) {}
 
     /// <summary>
     /// the clusterer to wrap
     /// </summary>    
-    public MakeDensityBased<T> Clusterer (Clstr.BaseClusterer<T> toWrap) {
+    public MakeDensityBased<T> Clusterer (Clstr.BaseClusterer<T, weka.clusterers.Clusterer> toWrap) {
       ((MakeDensityBasedClusterer)Impl).setClusterer(toWrap.Impl);
       return this;
     }

@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// at each node. Performs no pruning. Also has an option to allow estimation
   /// of class probabilities based on a hold-out set (backfitting).
   /// </summary>
-  public class RandomTree<T> : BaseClassifier<T>
+  public class RandomTree<T> : BaseClassifier<T, RandomTree>
   {
     public RandomTree(Runtime<T> rt) : base(rt, new RandomTree()) {}
 

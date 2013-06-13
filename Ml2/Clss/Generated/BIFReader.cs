@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// Garcia (1998). XML BIF version 0.3. URL
   /// http://www-2.cs.cmu.edu/~fgcozman/Research/InterchangeFormat/.
   /// </summary>
-  public class BIFReader<T> : BaseClassifier<T>
+  public class BIFReader<T> : BaseClassifier<T, BIFReader>
   {
     public BIFReader(Runtime<T> rt) : base(rt, new BIFReader()) {}
 

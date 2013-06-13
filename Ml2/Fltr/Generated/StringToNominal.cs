@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// nominal (set number of values). You should ensure that all string values
   /// that will appear are represented in the first batch of the data.
   /// </summary>
-  public class StringToNominal<T> : BaseFilter<T>
+  public class StringToNominal<T> : BaseFilter<T, StringToNominal>
   {
     public StringToNominal(Runtime<T> rt) : base(rt, new StringToNominal()) {}
 

@@ -63,6 +63,7 @@
     <Compile Include="Kaggle\Titanic\EPort.cs" />
     <Compile Include="Kaggle\Titanic\ESex.cs" />
     <Compile Include="Kaggle\Titanic\ESurvival.cs" />
+    <Compile Include="Kaggle\Titanic\TitanicMlPredictions.cs" />
     <Compile Include="MiscMl2SupportingFunctionalityTests.cs" />
     <Compile Include="Kaggle\Titanic\TitanicDataRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

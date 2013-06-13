@@ -10,14 +10,14 @@ namespace Ml2.Clss
   /// serialized model doesn't get changed, cross-validation cannot bet used with this
   /// classifier.
   /// </summary>
-  public class SerializedClassifier<T> : BaseClassifier<T>
+  public class SerializedClassifier<T> : BaseClassifier<T, SerializedClassifier>
   {
     public SerializedClassifier(Runtime<T> rt) : base(rt, new SerializedClassifier()) {}
 
     /// <summary>
     /// 
     /// </summary>    
-    public SerializedClassifier<T> Model (Clss.BaseClassifier<T> value) {
+    public SerializedClassifier<T> Model (Clss.BaseClassifier<T, weka.classifiers.Classifier> value) {
       ((SerializedClassifier)Impl).setModel(value.Impl);
       return this;
     }

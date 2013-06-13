@@ -50,7 +50,14 @@ namespace Ml2.Tasks.Generator.AttrSel
             
             #line default
             #line hidden
-            this.Write("<T> : BaseAttributeSelectionAlgorithm<T>\r\n  {\r\n    public ");
+            this.Write("<T> : BaseAttributeSelectionAlgorithm<T, ");
+            
+            #line 15 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.ImplTypeName));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n  {\r\n    public ");
             
             #line 17 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\AttrSel\AttributeSelectionAlgorithm.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.TypeName));

@@ -11,14 +11,14 @@ namespace Ml2.Clss
   /// (1998). Using model trees for classification. Machine Learning.
   /// 32(1):63-76.
   /// </summary>
-  public class ClassificationViaRegression<T> : BaseClassifier<T>
+  public class ClassificationViaRegression<T> : BaseClassifier<T, ClassificationViaRegression>
   {
     public ClassificationViaRegression(Runtime<T> rt) : base(rt, new ClassificationViaRegression()) {}
 
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public ClassificationViaRegression<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public ClassificationViaRegression<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((ClassificationViaRegression)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

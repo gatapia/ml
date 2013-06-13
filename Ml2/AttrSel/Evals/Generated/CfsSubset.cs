@@ -12,7 +12,7 @@ namespace Ml2.AttrSel.Evals
   /// information see: M. A. Hall (1998). Correlation-based Feature Subset
   /// Selection for Machine Learning. Hamilton, New Zealand.
   /// </summary>
-  public class CfsSubset<T> : BaseAttributeSelectionEvaluator<T>
+  public class CfsSubset<T> : BaseAttributeSelectionEvaluator<T, CfsSubsetEval>
   {
     public CfsSubset(Runtime<T> rt) : base(rt, new CfsSubsetEval()) {}
     

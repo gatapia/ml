@@ -240,7 +240,6 @@
     <Compile Include="Clstr\Generated\FarthestFirst.cs" />
     <Compile Include="Clstr\Generated\Filtered.cs" />
     <Compile Include="Clstr\Generated\Hierarchical.cs" />
-    <Compile Include="Clstr\IClusterer.cs" />
     <Compile Include="Clstr\Generated\MakeDensityBased.cs" />
     <Compile Include="Clstr\Generated\SimpleKMeans.cs" />
     <Compile Include="Fltr\Generated\Add.cs" />

@@ -11,7 +11,7 @@ namespace Ml2.AttrSel.Evals
   /// indicator. An overall correlation for a nominal attribute is arrived at via a
   /// weighted average.
   /// </summary>
-  public class CorrelationAttribute<T> : BaseAttributeSelectionEvaluator<T>
+  public class CorrelationAttribute<T> : BaseAttributeSelectionEvaluator<T, CorrelationAttributeEval>
   {
     public CorrelationAttribute(Runtime<T> rt) : base(rt, new CorrelationAttributeEval()) {}
     

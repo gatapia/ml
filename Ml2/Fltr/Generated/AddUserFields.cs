@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// value. Alternatively, a current time stamp can be specified by supplying the
   /// special string "now" as the value for a date attribute.
   /// </summary>
-  public class AddUserFields<T> : BaseFilter<T>
+  public class AddUserFields<T> : BaseFilter<T, AddUserFields>
   {
     public AddUserFields(Runtime<T> rt) : base(rt, new AddUserFields()) {}
 

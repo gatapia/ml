@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// Replaces all missing values for nominal and numeric attributes in a
   /// dataset with the modes and means from the training data.
   /// </summary>
-  public class ReplaceMissingValues<T> : BaseFilter<T>
+  public class ReplaceMissingValues<T> : BaseFilter<T, ReplaceMissingValues>
   {
     public ReplaceMissingValues(Runtime<T> rt) : base(rt, new ReplaceMissingValues()) {}
 

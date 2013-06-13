@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// exceed the maximum percentage of variance parameter. The maximum variance
   /// test is only applied to nominal attributes.
   /// </summary>
-  public class RemoveUseless<T> : BaseFilter<T>
+  public class RemoveUseless<T> : BaseFilter<T, RemoveUseless>
   {
     public RemoveUseless(Runtime<T> rt) : base(rt, new RemoveUseless()) {}
 

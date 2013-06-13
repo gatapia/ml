@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// see D. Aha, D. Kibler (1991). Instance-based learning algorithms. Machine
   /// Learning. 6:37-66.
   /// </summary>
-  public class IBk<T> : BaseClassifier<T>
+  public class IBk<T> : BaseClassifier<T, IBk>
   {
     public IBk(Runtime<T> rt) : base(rt, new IBk()) {}
 

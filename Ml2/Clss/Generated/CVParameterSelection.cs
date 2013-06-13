@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// Performance Enhancement and Oblivious Decision Graphs. Department of Computer
   /// Science, Stanford University.
   /// </summary>
-  public class CVParameterSelection<T> : BaseClassifier<T>
+  public class CVParameterSelection<T> : BaseClassifier<T, CVParameterSelection>
   {
     public CVParameterSelection(Runtime<T> rt) : base(rt, new CVParameterSelection()) {}
 
@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public CVParameterSelection<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public CVParameterSelection<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((CVParameterSelection)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

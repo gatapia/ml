@@ -12,7 +12,7 @@ namespace Ml2.AttrSel.Algs
   /// ranked list of attributes by traversing the space from one side to the other and
   /// recording the order that attributes are selected.
   /// </summary>
-  public class GreedyStepwise<T> : BaseAttributeSelectionAlgorithm<T>
+  public class GreedyStepwise<T> : BaseAttributeSelectionAlgorithm<T, GreedyStepwise>
   {
     public GreedyStepwise(Runtime<T> rt) : base(rt, new GreedyStepwise()) {}
 

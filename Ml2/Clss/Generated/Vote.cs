@@ -12,7 +12,7 @@ namespace Ml2.Clss
   /// Matas (1998). On combining classifiers. IEEE Transactions on Pattern Analysis
   /// and Machine Intelligence. 20(3):226-239.
   /// </summary>
-  public class Vote<T> : BaseClassifier<T>
+  public class Vote<T> : BaseClassifier<T, Vote>
   {
     public Vote(Runtime<T> rt) : base(rt, new Vote()) {}
 
@@ -35,7 +35,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifiers to be used.
     /// </summary>    
-    public Vote<T> Classifiers (Clss.BaseClassifier<T>[] classifiers) {
+    public Vote<T> Classifiers (Clss.BaseClassifier<T, weka.classifiers.Classifier>[] classifiers) {
       ((Vote)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
       return this;
     }

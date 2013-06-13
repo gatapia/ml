@@ -18,28 +18,28 @@ namespace Ml2.Tasks.Generator
       var pt = mi.ParameterType;
       var name = args[0].Name;
       if (pt == typeof(Filter)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "Fltr.BaseFilter<T> " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Impl", "Fltr.BaseFilter<T, weka.filters.Filter> " + mi.Name);
       }
       if (pt == typeof(Filter[])) {
-        return GetSetterTemplateImpl(o, name + ".Select(v => v.Impl).ToArray()", "Fltr.BaseFilter<T>[] " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Select(v => v.Impl).ToArray()", "Fltr.BaseFilter<T, weka.filters.Filter>[] " + mi.Name);
       }
       if (pt == typeof(Associator)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "Asstn.BaseAssociation<T> " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Impl", "Asstn.BaseAssociation<T, weka.associations.AbstractAssociator> " + mi.Name);
       }
       if (pt == typeof(Classifier)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "Clss.BaseClassifier<T> " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Impl", "Clss.BaseClassifier<T, weka.classifiers.Classifier> " + mi.Name);
       }
       if (pt == typeof(Classifier[])) {
-        return GetSetterTemplateImpl(o, name + ".Select(v => v.Impl).ToArray()", "Clss.BaseClassifier<T>[] " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Select(v => v.Impl).ToArray()", "Clss.BaseClassifier<T, weka.classifiers.Classifier>[] " + mi.Name);
       }
       if (pt == typeof(ASEvaluation)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "AttrSel.Evals.BaseAttributeSelectionEvaluator<T> " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Impl", "AttrSel.Evals.BaseAttributeSelectionEvaluator<T, weka.attributeSelection.ASEvaluation> " + mi.Name);
       }
       if (pt == typeof(ASSearch)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Impl", "AttrSel.Algs.BaseAttributeSelectionAlgorithm<T, weka.attributeSelection.ASSearch> " + mi.Name);
       }
       if (pt == typeof(Clusterer)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "Clstr.BaseClusterer<T> " + mi.Name);
+        return GetSetterTemplateImpl(o, name + ".Impl", "Clstr.BaseClusterer<T, weka.clusterers.Clusterer> " + mi.Name);
       }
       if (pt == typeof(Instances)) {
         return GetSetterTemplateImpl(o, name + ".Instances", "Runtime<T> " + mi.Name);

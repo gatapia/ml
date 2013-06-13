@@ -9,7 +9,7 @@ namespace Ml2.Fltr
   /// error flag to a dataset with a classifier. The classifier is either trained on
   /// the data itself or provided as serialized model.
   /// </summary>
-  public class AddClassification<T> : BaseFilter<T>
+  public class AddClassification<T> : BaseFilter<T, AddClassification>
   {
     public AddClassification(Runtime<T> rt) : base(rt, new AddClassification()) {}
 
@@ -51,7 +51,7 @@ namespace Ml2.Fltr
     /// <summary>
     /// The classifier to use for classification.
     /// </summary>    
-    public AddClassification<T> Classifier (Clss.BaseClassifier<T> value) {
+    public AddClassification<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> value) {
       ((AddClassification)Impl).setClassifier(value.Impl);
       return this;
     }

@@ -14,7 +14,7 @@ namespace Ml2.Clss
   /// Transactions on Neural Networks, 1999. A.J. Smola, B. Schoelkopf (1998). A tutorial on
   /// support vector regression.
   /// </summary>
-  public class SMOreg<T> : BaseClassifier<T>
+  public class SMOreg<T> : BaseClassifier<T, SMOreg>
   {
     public SMOreg(Runtime<T> rt) : base(rt, new SMOreg()) {}
 

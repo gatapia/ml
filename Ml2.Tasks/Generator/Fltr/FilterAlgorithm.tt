@@ -12,7 +12,7 @@ namespace Ml2.Fltr
   /// <summary>
   /// <#= Model.GetClassDescription("  /// ") #>
   /// </summary>
-  public class <#= Model.TypeName #><T> : BaseFilter<T>
+  public class <#= Model.TypeName #><T> : BaseFilter<T, <#= Model.ImplTypeName #>>
   {
     public <#= Model.TypeName #>(Runtime<T> rt) : base(rt, new <#= Model.ImplTypeName #>()) {}
 

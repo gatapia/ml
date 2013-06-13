@@ -8,7 +8,7 @@ namespace Ml2.Fltr
   /// This filter takes a dataset and outputs a specified fold for cross
   /// validation. If you want the folds to be stratified use the supervised version.
   /// </summary>
-  public class RemoveFolds<T> : BaseFilter<T>
+  public class RemoveFolds<T> : BaseFilter<T, RemoveFolds>
   {
     public RemoveFolds(Runtime<T> rt) : base(rt, new RemoveFolds()) {}
 

@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// or classification (based on entropy). Missing is treated as a separate
   /// value.
   /// </summary>
-  public class DecisionStump<T> : BaseClassifier<T>
+  public class DecisionStump<T> : BaseClassifier<T, DecisionStump>
   {
     public DecisionStump(Runtime<T> rt) : base(rt, new DecisionStump()) {}
 

@@ -15,7 +15,7 @@ namespace Ml2.Clss
   /// Bouckaert: Conditional Density Estimation with Class Probability Estimators. In:
   /// First Asian Conference on Machine Learning, Berlin, 65-81, 2009.
   /// </summary>
-  public class RegressionByDiscretization<T> : BaseClassifier<T>
+  public class RegressionByDiscretization<T> : BaseClassifier<T, RegressionByDiscretization>
   {
     public RegressionByDiscretization(Runtime<T> rt) : base(rt, new RegressionByDiscretization()) {}
 
@@ -63,7 +63,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RegressionByDiscretization<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public RegressionByDiscretization<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((RegressionByDiscretization)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

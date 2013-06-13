@@ -10,7 +10,7 @@ namespace Ml2.Fltr
   /// memory. The number of instances in the generated dataset may be specified.
   /// When used in batch mode, subsequent batches are NOT resampled.
   /// </summary>
-  public class Resample<T> : BaseFilter<T>
+  public class Resample<T> : BaseFilter<T, Resample>
   {
     public Resample(Runtime<T> rt) : base(rt, new Resample()) {}
 

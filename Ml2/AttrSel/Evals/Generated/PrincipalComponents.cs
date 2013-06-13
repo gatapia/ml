@@ -12,7 +12,7 @@ namespace Ml2.AttrSel.Evals
   /// be filtered by transforming to the PC space, eliminating some of the worst
   /// eigenvectors, and then transforming back to the original space.
   /// </summary>
-  public class PrincipalComponents<T> : BaseAttributeSelectionEvaluator<T>
+  public class PrincipalComponents<T> : BaseAttributeSelectionEvaluator<T, PrincipalComponents>
   {
     public PrincipalComponents(Runtime<T> rt) : base(rt, new PrincipalComponents()) {}
     

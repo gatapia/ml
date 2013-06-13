@@ -21,7 +21,7 @@ namespace Ml2.Clss
   /// time-changing data streams. In: ACM SIGKDD Intl. Conf. on Knowledge Discovery and
   /// Data Mining, 97-106, 2001.
   /// </summary>
-  public class HoeffdingTree<T> : BaseClassifier<T>
+  public class HoeffdingTree<T> : BaseClassifier<T, HoeffdingTree>
   {
     public HoeffdingTree(Runtime<T> rt) : base(rt, new HoeffdingTree()) {}
 

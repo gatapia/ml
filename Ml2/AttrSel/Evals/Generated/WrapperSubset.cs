@@ -11,14 +11,14 @@ namespace Ml2.AttrSel.Evals
   /// (1997). Wrappers for feature subset selection. Artificial Intelligence.
   /// 97(1-2):273-324.
   /// </summary>
-  public class WrapperSubset<T> : BaseAttributeSelectionEvaluator<T>
+  public class WrapperSubset<T> : BaseAttributeSelectionEvaluator<T, WrapperSubsetEval>
   {
     public WrapperSubset(Runtime<T> rt) : base(rt, new WrapperSubsetEval()) {}
     
     /// <summary>
     /// Classifier to use for estimating the accuracy of subsets
     /// </summary>    
-    public WrapperSubset<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public WrapperSubset<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((WrapperSubsetEval)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

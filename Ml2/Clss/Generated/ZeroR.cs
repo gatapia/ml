@@ -8,7 +8,7 @@ namespace Ml2.Clss
   /// Class for building and using a 0-R classifier. Predicts the mean (for a
   /// numeric class) or the mode (for a nominal class).
   /// </summary>
-  public class ZeroR<T> : BaseClassifier<T>
+  public class ZeroR<T> : BaseClassifier<T, ZeroR>
   {
     public ZeroR(Runtime<T> rt) : base(rt, new ZeroR()) {}
 

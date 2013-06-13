@@ -10,7 +10,7 @@ namespace Ml2.Clss
   /// codes for increased accuracy. The base classifier must be an updateable
   /// classifier
   /// </summary>
-  public class MultiClassClassifierUpdateable<T> : BaseClassifier<T>
+  public class MultiClassClassifierUpdateable<T> : BaseClassifier<T, MultiClassClassifierUpdateable>
   {
     public MultiClassClassifierUpdateable(Runtime<T> rt) : base(rt, new MultiClassClassifierUpdateable()) {}
 
@@ -51,7 +51,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public MultiClassClassifierUpdateable<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((MultiClassClassifierUpdateable)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

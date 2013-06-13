@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// For more information see: Ron Kohavi: The Power of Decision Tables. In:
   /// 8th European Conference on Machine Learning, 174-189, 1995.
   /// </summary>
-  public class DecisionTable<T> : BaseClassifier<T>
+  public class DecisionTable<T> : BaseClassifier<T, DecisionTable>
   {
     public DecisionTable(Runtime<T> rt) : base(rt, new DecisionTable()) {}
 
@@ -26,7 +26,7 @@ namespace Ml2.Clss
     /// The search method used to find good attribute combinations for the
     /// decision table.
     /// </summary>    
-    public DecisionTable<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T> search) {
+    public DecisionTable<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T, weka.attributeSelection.ASSearch> search) {
       ((DecisionTable)Impl).setSearch(search.Impl);
       return this;
     }

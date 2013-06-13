@@ -11,7 +11,7 @@ namespace Ml2.Clss
   /// dealt with by splitting the corresponding instances into pieces (i.e. as in
   /// C4.5).
   /// </summary>
-  public class REPTree<T> : BaseClassifier<T>
+  public class REPTree<T> : BaseClassifier<T, REPTree>
   {
     public REPTree(Runtime<T> rt) : base(rt, new REPTree()) {}
 

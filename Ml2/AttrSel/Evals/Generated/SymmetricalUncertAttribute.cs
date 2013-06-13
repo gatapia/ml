@@ -10,7 +10,7 @@ namespace Ml2.AttrSel.Evals
   /// SymmU(Class, Attribute) = 2 * (H(Class) - H(Class | Attribute)) / H(Class) +
   /// H(Attribute).
   /// </summary>
-  public class SymmetricalUncertAttribute<T> : BaseAttributeSelectionEvaluator<T>
+  public class SymmetricalUncertAttribute<T> : BaseAttributeSelectionEvaluator<T, SymmetricalUncertAttributeEval>
   {
     public SymmetricalUncertAttribute(Runtime<T> rt) : base(rt, new SymmetricalUncertAttributeEval()) {}
     

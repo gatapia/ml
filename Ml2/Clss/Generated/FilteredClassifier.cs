@@ -10,14 +10,14 @@ namespace Ml2.Clss
   /// is based exclusively on the training data and test instances will be
   /// processed by the filter without changing their structure.
   /// </summary>
-  public class FilteredClassifier<T> : BaseClassifier<T>
+  public class FilteredClassifier<T> : BaseClassifier<T, FilteredClassifier>
   {
     public FilteredClassifier(Runtime<T> rt) : base(rt, new FilteredClassifier()) {}
 
     /// <summary>
     /// The filter to be used.
     /// </summary>    
-    public FilteredClassifier<T> Filter (Fltr.BaseFilter<T> filter) {
+    public FilteredClassifier<T> Filter (Fltr.BaseFilter<T, weka.filters.Filter> filter) {
       ((FilteredClassifier)Impl).setFilter(filter.Impl);
       return this;
     }
@@ -25,7 +25,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public FilteredClassifier<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public FilteredClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((FilteredClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

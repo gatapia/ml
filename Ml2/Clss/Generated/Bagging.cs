@@ -9,7 +9,7 @@ namespace Ml2.Clss
   /// and regression depending on the base learner. For more information, see Leo
   /// Breiman (1996). Bagging predictors. Machine Learning. 24(2):123-140.
   /// </summary>
-  public class Bagging<T> : BaseClassifier<T>
+  public class Bagging<T> : BaseClassifier<T, Bagging>
   {
     public Bagging(Runtime<T> rt) : base(rt, new Bagging()) {}
 
@@ -57,7 +57,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public Bagging<T> Classifier (Clss.BaseClassifier<T> newClassifier) {
+    public Bagging<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((Bagging)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

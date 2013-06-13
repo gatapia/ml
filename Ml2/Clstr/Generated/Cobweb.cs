@@ -16,7 +16,7 @@ namespace Ml2.Clstr
   /// (1990). Models of incremental concept formation. Artificial Intelligence.
   /// 40:11-61.
   /// </summary>
-  public class Cobweb<T> : BaseClusterer<T>
+  public class Cobweb<T> : BaseClusterer<T, Cobweb>
   {    
     public Cobweb(Runtime<T> rt) : base(rt, new Cobweb()) {}
 

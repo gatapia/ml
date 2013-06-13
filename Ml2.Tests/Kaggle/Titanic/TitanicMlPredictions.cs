@@ -56,9 +56,31 @@ namespace Ml2.Tests.Kaggle.Titanic
       var train = new Runtime<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
       train.Instances.deleteAttributeAt(10); // Port 
       train.Instances.deleteAttributeAt(8); // Fare
-      train.Instances.deleteStringAttributes();           
+      train.Instances.deleteStringAttributes();                 
 
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+    }
+
+    // 81.1448 % with original rows
+    [Test] public void Test_with_new_tot_family_attributes()
+    {
+      var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
+      object[] newrows = rows.Select(t => new {
+                                  Survival = t.Survival,
+                                  PassengerClass = t.PassengerClass,
+                                  Sex = t.Sex,
+                                  Age = t.Age,
+                                  HasFamily = (t.NumParentsChildren.GetValueOrDefault() + t.NumSiblingsOrSpouses.GetValueOrDefault()) > 0
+                                }).ToArray();
+      var train = new Runtime<object>(newrows);
+      train.SetClassifierIndex(0);
+
+      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+    }
+
+    [Test] public void Test_with_has_family()
+    {
+      
     }
 
     private BaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features) {

@@ -1,10 +1,10 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
-  public class SuppervisedInstanceFilters<T>
+  public class SupervisedInstanceFilters<T>
   {
     private readonly Runtime<T> rt;    
-    public SuppervisedInstanceFilters(Runtime<T> rt) { this.rt = rt; }   
+    public SupervisedInstanceFilters(Runtime<T> rt) { this.rt = rt; }   
 
     /// <summary>
     /// Produces a random subsample of a dataset using either sampling with

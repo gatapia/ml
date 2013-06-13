@@ -1,10 +1,10 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
-  public class SuppervisedAttributeFilters<T>
+  public class SupervisedAttributeFilters<T>
   {
     private readonly Runtime<T> rt;    
-    public SuppervisedAttributeFilters(Runtime<T> rt) { this.rt = rt; }   
+    public SupervisedAttributeFilters(Runtime<T> rt) { this.rt = rt; }   
 
     /// <summary>
     /// A filter for adding the classification, the class distribution and an

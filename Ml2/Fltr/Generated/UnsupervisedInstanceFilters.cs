@@ -1,10 +1,10 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
-  public class UnsuppervisedInstanceFilters<T>
+  public class UnsupervisedInstanceFilters<T>
   {
     private readonly Runtime<T> rt;    
-    public UnsuppervisedInstanceFilters(Runtime<T> rt) { this.rt = rt; }   
+    public UnsupervisedInstanceFilters(Runtime<T> rt) { this.rt = rt; }   
 
     /// <summary>
     /// An instance filter that converts all incoming instances into sparse

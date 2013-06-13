@@ -1,10 +1,10 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Fltr
 {
-  public class UnsuppervisedAttributeFilters<T>
+  public class UnsupervisedAttributeFilters<T>
   {
     private readonly Runtime<T> rt;    
-    public UnsuppervisedAttributeFilters(Runtime<T> rt) { this.rt = rt; }   
+    public UnsupervisedAttributeFilters(Runtime<T> rt) { this.rt = rt; }   
 
     /// <summary>
     /// An instance filter that adds a new attribute to the dataset. The new

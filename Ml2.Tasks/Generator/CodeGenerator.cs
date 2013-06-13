@@ -62,10 +62,10 @@ namespace Ml2.Tasks.Generator
 
 
       Array.ForEach(types, t => RunT4Template(typeof(FilterAlgorithm), t, @"Fltr\Generated"));
-      RunT4TemplateImpl(new Filters(supatt) { TypeName = "SuppervisedAttributeFilters" }, @"Fltr\Generated\SuppervisedAttributeFilters");
-      RunT4TemplateImpl(new Filters(supinst) { TypeName = "SuppervisedInstanceFilters" }, @"Fltr\Generated\SuppervisedInstanceFilters");
-      RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsuppervisedAttributeFilters" }, @"Fltr\Generated\UnsuppervisedAttributeFilters");
-      RunT4TemplateImpl(new Filters(unsupinst) { TypeName = "UnsuppervisedInstanceFilters" }, @"Fltr\Generated\UnsuppervisedInstanceFilters");
+      RunT4TemplateImpl(new Filters(supatt) { TypeName = "SupervisedAttributeFilters" }, @"Fltr\Generated\SupervisedAttributeFilters");
+      RunT4TemplateImpl(new Filters(supinst) { TypeName = "SupervisedInstanceFilters" }, @"Fltr\Generated\SupervisedInstanceFilters");
+      RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsupervisedAttributeFilters" }, @"Fltr\Generated\UnsupervisedAttributeFilters");
+      RunT4TemplateImpl(new Filters(unsupinst) { TypeName = "UnsupervisedInstanceFilters" }, @"Fltr\Generated\UnsupervisedInstanceFilters");
     }
 
     [Test] public void GenerateAllAssociations()

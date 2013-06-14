@@ -33,14 +33,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public AddExpression<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AddExpression)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Set debug mode. If true then the new attribute will be named with the
     /// postfix parse of the supplied expression.
     /// </summary>    

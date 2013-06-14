@@ -31,14 +31,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public Add<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Add)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Defines the type of the attribute to generate.
     /// </summary>    
     public Add<T> AttributeType (EAttributeType value) {

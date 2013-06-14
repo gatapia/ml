@@ -14,14 +14,6 @@ namespace Ml2.Fltr
     public AddID(Runtime<T> rt) : base(rt, new AddID()) {}
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public AddID<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AddID)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Set the new attribute's name.
     /// </summary>    
     public AddID<T> AttributeName (string value) {

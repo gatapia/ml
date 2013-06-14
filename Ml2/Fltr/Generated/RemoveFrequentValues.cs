@@ -58,14 +58,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RemoveFrequentValues<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemoveFrequentValues)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

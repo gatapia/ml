@@ -45,14 +45,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RemoveFolds<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemoveFolds)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

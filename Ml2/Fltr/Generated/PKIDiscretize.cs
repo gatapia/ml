@@ -16,14 +16,6 @@ namespace Ml2.Fltr
     public PKIDiscretize(Runtime<T> rt) : base(rt, new PKIDiscretize()) {}
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public PKIDiscretize<T> InputFormat (Runtime<T> instanceInfo) {
-      ((PKIDiscretize)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Ignored.
     /// </summary>    
     public PKIDiscretize<T> FindNumBins (bool newFindNumBins) {

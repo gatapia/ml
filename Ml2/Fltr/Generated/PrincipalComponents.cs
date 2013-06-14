@@ -49,14 +49,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public PrincipalComponents<T> InputFormat (Runtime<T> instanceInfo) {
-      ((PrincipalComponents)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

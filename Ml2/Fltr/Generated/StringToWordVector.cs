@@ -141,14 +141,6 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public StringToWordVector<T> InputFormat (Runtime<T> instanceInfo) {
-      ((StringToWordVector)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>    
     public StringToWordVector<T> AttributeIndicesArray (int[] attributes) {
       ((StringToWordVector)Impl).setAttributeIndicesArray(attributes);
       return this;

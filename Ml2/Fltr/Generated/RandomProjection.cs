@@ -66,14 +66,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RandomProjection<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RandomProjection)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
     public enum EDistribution {
       Sparseone = 1,

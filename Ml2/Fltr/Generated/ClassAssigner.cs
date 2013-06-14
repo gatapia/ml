@@ -28,14 +28,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public ClassAssigner<T> InputFormat (Runtime<T> instanceInfo) {
-      ((ClassAssigner)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

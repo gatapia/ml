@@ -17,14 +17,6 @@ namespace Ml2.Fltr
     public NumericToBinary(Runtime<T> rt) : base(rt, new NumericToBinary()) {}
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public NumericToBinary<T> InputFormat (Runtime<T> instanceInfo) {
-      ((NumericToBinary)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public NumericToBinary<T> IgnoreClass (bool newIgnoreClass) {

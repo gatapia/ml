@@ -41,14 +41,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public Discretize<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Discretize)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Set attribute selection mode. If false, only selected (numeric)
     /// attributes in the range will be discretized; if true, only non-selected attributes
     /// will be discretized.

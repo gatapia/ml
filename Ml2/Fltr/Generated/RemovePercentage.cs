@@ -27,14 +27,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RemovePercentage<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemovePercentage)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

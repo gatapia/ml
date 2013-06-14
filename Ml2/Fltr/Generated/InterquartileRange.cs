@@ -84,14 +84,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public InterquartileRange<T> InputFormat (Runtime<T> instanceInfo) {
-      ((InterquartileRange)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

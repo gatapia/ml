@@ -11,7 +11,10 @@ namespace Ml2.Tasks.Generator
 {
   public static class TemplatedSetters
   {
-    public static string GetSetterTemplate(OptionModel o) {
+    public static string GetSetterTemplate(SetterModel o) {
+
+      if (o.Method.Name == "setInputFormat") { throw new NotSupportedException("InputFormat not supported as its handled by BaseFilter"); }
+
       var args = o.Method.GetParameters();
       if (args.Length > 1) return String.Empty;
       var mi = args.Single();
@@ -44,13 +47,17 @@ namespace Ml2.Tasks.Generator
       if (pt == typeof(Instances)) {
         return GetSetterTemplateImpl(o, name + ".Instances", "Runtime<T> " + mi.Name);
       }
+      if (o.Method.Name == "setAttributeRange") {
+        var arg = "System.String.Join(\",\", attributes.Select(a => a + 1))";
+        return GetSetterTemplateImpl(o, arg, "params int[] attributes");
+      }
       return String.Empty;
     }
 
-    private static string GetSetterTemplateImpl(OptionModel o, string arg, string opttype) {
+    private static string GetSetterTemplateImpl(SetterModel o, string arg, string opttype) {
       var impl = "((" + o.Model.ImplTypeName + ")Impl)." + o.Method.Name + "(" + arg + ");";
       var args = new [] {opttype};
-      return Utils.GetSetterCode(o.OptionDescription, o.Model.TypeName, o.OptionName, args, impl);
+      return Utils.GetSetterCode(o.SetterDescription, o.Model.TypeName, o.SetterName, args, impl);
     }
   }
 }

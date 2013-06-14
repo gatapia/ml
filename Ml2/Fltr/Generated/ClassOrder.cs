@@ -34,14 +34,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public ClassOrder<T> InputFormat (Runtime<T> instanceInfo) {
-      ((ClassOrder)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

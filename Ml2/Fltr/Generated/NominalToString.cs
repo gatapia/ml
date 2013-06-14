@@ -21,14 +21,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public NominalToString<T> InputFormat (Runtime<T> instanceInfo) {
-      ((NominalToString)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

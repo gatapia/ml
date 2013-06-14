@@ -36,14 +36,6 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public Remove<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Remove)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>    
     public Remove<T> AttributeIndicesArray (int[] attributes) {
       ((Remove)Impl).setAttributeIndicesArray(attributes);
       return this;

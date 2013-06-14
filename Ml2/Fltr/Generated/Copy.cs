@@ -37,14 +37,6 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public Copy<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Copy)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>    
     public Copy<T> AttributeIndicesArray (int[] attributes) {
       ((Copy)Impl).setAttributeIndicesArray(attributes);
       return this;

@@ -6,18 +6,18 @@ using weka.core;
 
 namespace Ml2.Tasks.Generator
 {
-  public class OptionModel
+  public class SetterModel
   {
     internal WekaTypeModel Model {get;private set; }
     internal MethodInfo Method {get;private set; }
 
-    public OptionModel(WekaTypeModel model, MethodInfo method)
+    public SetterModel(WekaTypeModel model, MethodInfo method)
     {
       Model = model;
       Method = method;
     }
 
-    public string OptionName
+    public string SetterName
     {
       get
       {
@@ -27,11 +27,11 @@ namespace Ml2.Tasks.Generator
       }
     }
 
-    public string OptionDescription
+    public string SetterDescription
     {
       get
       {
-        var tiptextmname = OptionName + "TipText";
+        var tiptextmname = SetterName + "TipText";
         tiptextmname = Char.ToLower(tiptextmname[0]) + tiptextmname.Substring(1);
         var mi = Model.ImplementationType.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
         if (mi == null) return String.Empty;
@@ -44,35 +44,50 @@ namespace Ml2.Tasks.Generator
     {
       get
       {
-        try
+        try { 
+          return !String.IsNullOrEmpty(TemplatedSetters.GetSetterTemplate(this)) || SetterArgsTypes != null; 
+        } catch (NotSupportedException)
         {
-          return !String.IsNullOrEmpty(TemplatedSetters.GetSetterTemplate(this)) || 
-              OptionArgsTypes != null;
-        }
-        catch (NotSupportedException)
-        {
-          Console.WriteLine("\tOption: " + Method.Name + " of internal types [" + 
+          Console.WriteLine("\tSetter: " + Method.Name + " of internal types [" + 
               String.Join(", ", Method.GetParameters().Select(p => p.ParameterType.Name)) + 
-                  "] is not supported.");
+              "] is not supported.");
         } 
         return false;
       }
-    }
+    }    
 
-    private string[] OptionArgsTypes
-    {
-      get
-      {
-        return Method.GetParameters().Select(GetCsSafeType).ToArray();        
+    public string SetterCode {
+      get {  
+        var templated = TemplatedSetters.GetSetterTemplate(this);
+        if (!String.IsNullOrEmpty(templated)) return templated;
+
+        var args = GetPassedArgumentNames();
+        var impl = String.Format("(({0})Impl).{1}({2});", Model.ImplTypeName, Method.Name, args);
+        var signature = SetterArgsTypes.Zip(SetterArgsNames, (a, b) => a + " " + b).ToArray();
+        return Utils.GetSetterCode(SetterDescription, Model.TypeName, SetterName, signature, impl);
       }
     }
 
-    private string[] OptionArgsNames
-    {
-      get
-      {
-        return Method.GetParameters().Select(GetCsSafeName).ToArray();        
+    private string GetPassedArgumentNames() {
+      var args = new List<string>();
+      foreach (var pi in Method.GetParameters()) {
+        var name = GetCsSafeName(pi);
+        var type = pi.ParameterType;
+        
+        if (type == typeof (SelectedTag)) { name = String.Format("new weka.core.SelectedTag((int) {1}, {0}.{2})", Model.ImplTypeName, name, Utils.GetEnumImplType(Method).Name); }
+        args.Add(name);
       }
+      return String.Join(", ", args);
+    }    
+
+    private string[] SetterArgsTypes
+    {
+      get { return Method.GetParameters().Select(GetCsSafeType).ToArray(); }
+    }
+
+    private string[] SetterArgsNames
+    {
+      get { return Method.GetParameters().Select(GetCsSafeName).ToArray(); }
     }
 
     private string GetCsSafeName(ParameterInfo pi) {
@@ -111,29 +126,5 @@ namespace Ml2.Tasks.Generator
             throw new NotSupportedException("Type: " + pi.ParameterType.Name + " not supported.");
         }
     }
-
-    public string SetterCode {
-      get {  
-        var templated = TemplatedSetters.GetSetterTemplate(this);
-        if (!String.IsNullOrEmpty(templated)) return templated;
-
-        var args = GetPassedArgumentNames();
-        var impl = String.Format("(({0})Impl).{1}({2});", Model.ImplTypeName, Method.Name, args);
-        var signature = OptionArgsTypes.Zip(OptionArgsNames, (a, b) => a + " " + b).ToArray();
-        return Utils.GetSetterCode(OptionDescription, Model.TypeName, OptionName, signature, impl);
-      }
-    }
-
-    private string GetPassedArgumentNames() {
-      var args = new List<string>();
-      foreach (var pi in Method.GetParameters()) {
-        var name = GetCsSafeName(pi);
-        var type = pi.ParameterType;
-        
-        if (type == typeof (SelectedTag)) { name = String.Format("new weka.core.SelectedTag((int) {1}, {0}.{2})", Model.ImplTypeName, name, Utils.GetEnumImplType(Method).Name); }
-        args.Add(name);
-      }
-      return String.Join(", ", args);
-    }    
   }
 }

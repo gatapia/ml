@@ -45,14 +45,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public AddNoise<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AddNoise)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

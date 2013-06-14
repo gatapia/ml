@@ -28,14 +28,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public MultiFilter<T> InputFormat (Runtime<T> instanceInfo) {
-      ((MultiFilter)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

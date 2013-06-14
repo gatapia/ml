@@ -1,4 +1,2 @@
 TODO
 ====
-- Handle SelectedTag enumerable attributes.
-- Handle classifiers with multiple option parameters.

@@ -46,14 +46,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public StratifiedRemoveFolds<T> InputFormat (Runtime<T> instanceInfo) {
-      ((StratifiedRemoveFolds)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

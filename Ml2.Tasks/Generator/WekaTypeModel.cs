@@ -23,13 +23,13 @@ namespace Ml2.Tasks.Generator
     public string ImplTypeName { get { return impl.Name; } }
     public string ImplTypeNamespace { get { return impl.Namespace; } }
 
-    public OptionModel[] Options
+    public SetterModel[] Setters
     {
       get
       {
         return impl.GetMethods(BindingFlags.Instance | BindingFlags.Public).
           Where(m => m.Name.StartsWith("set") && m.Name != "setOptions").
-          Select(m => new OptionModel(this, m)).
+          Select(m => new SetterModel(this, m)).
           Where(o => o.IsSupported).
           ToArray();
       }

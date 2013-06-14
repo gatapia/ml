@@ -32,14 +32,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public ChangeDateFormat<T> InputFormat (Runtime<T> instanceInfo) {
-      ((ChangeDateFormat)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

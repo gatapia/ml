@@ -47,14 +47,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public SortLabels<T> InputFormat (Runtime<T> instanceInfo) {
-      ((SortLabels)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
     public enum ESortType {
       Case_sensitive = 0,

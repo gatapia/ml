@@ -16,14 +16,6 @@ namespace Ml2.Fltr
     public Normalize(Runtime<T> rt) : base(rt, new Normalize()) {}
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public Normalize<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Normalize)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// The factor for scaling the output range (default: 1).
     /// </summary>    
     public Normalize<T> Scale (double value) {

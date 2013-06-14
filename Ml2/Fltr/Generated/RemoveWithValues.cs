@@ -45,14 +45,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public RemoveWithValues<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemoveWithValues)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Numeric value to be used for selection on numeric attribute. Instances
     /// with values smaller than given value will be selected.
     /// </summary>    

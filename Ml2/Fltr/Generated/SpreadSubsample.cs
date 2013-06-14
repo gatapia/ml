@@ -49,14 +49,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public SpreadSubsample<T> InputFormat (Runtime<T> instanceInfo) {
-      ((SpreadSubsample)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

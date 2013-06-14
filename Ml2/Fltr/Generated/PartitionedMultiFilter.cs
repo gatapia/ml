@@ -38,14 +38,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public PartitionedMultiFilter<T> InputFormat (Runtime<T> instanceInfo) {
-      ((PartitionedMultiFilter)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

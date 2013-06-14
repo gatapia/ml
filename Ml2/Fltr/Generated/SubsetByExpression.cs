@@ -58,14 +58,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public SubsetByExpression<T> InputFormat (Runtime<T> instanceInfo) {
-      ((SubsetByExpression)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

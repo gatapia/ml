@@ -48,14 +48,6 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public NumericTransform<T> InputFormat (Runtime<T> instanceInfo) {
-      ((NumericTransform)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>    
     public NumericTransform<T> AttributeIndicesArray (int[] attributes) {
       ((NumericTransform)Impl).setAttributeIndicesArray(attributes);
       return this;

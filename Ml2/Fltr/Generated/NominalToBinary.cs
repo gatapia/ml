@@ -16,14 +16,6 @@ namespace Ml2.Fltr
     public NominalToBinary(Runtime<T> rt) : base(rt, new NominalToBinary()) {}
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public NominalToBinary<T> InputFormat (Runtime<T> instanceInfo) {
-      ((NominalToBinary)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".

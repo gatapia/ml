@@ -29,14 +29,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public ReservoirSample<T> InputFormat (Runtime<T> instanceInfo) {
-      ((ReservoirSample)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

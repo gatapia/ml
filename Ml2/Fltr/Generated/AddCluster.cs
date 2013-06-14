@@ -31,14 +31,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public AddCluster<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AddCluster)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

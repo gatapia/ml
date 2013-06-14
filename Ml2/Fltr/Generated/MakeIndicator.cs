@@ -41,14 +41,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public MakeIndicator<T> InputFormat (Runtime<T> instanceInfo) {
-      ((MakeIndicator)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Specify range of nominal values to act on. This is a comma separated list
     /// of attribute indices (numbered from 1), with "first" and "last" valid
     /// values. Specify an inclusive range with "-". E.g: "first-3,5,6-10,last".

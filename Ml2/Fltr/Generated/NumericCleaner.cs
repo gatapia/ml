@@ -112,14 +112,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public NumericCleaner<T> InputFormat (Runtime<T> instanceInfo) {
-      ((NumericCleaner)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

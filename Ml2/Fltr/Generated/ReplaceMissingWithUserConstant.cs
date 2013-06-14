@@ -57,14 +57,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public ReplaceMissingWithUserConstant<T> InputFormat (Runtime<T> instanceInfo) {
-      ((ReplaceMissingWithUserConstant)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public ReplaceMissingWithUserConstant<T> IgnoreClass (bool newIgnoreClass) {

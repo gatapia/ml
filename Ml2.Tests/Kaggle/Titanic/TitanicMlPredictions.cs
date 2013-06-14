@@ -32,9 +32,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
       train.Instances.deleteStringAttributes();
 
-      // Success Rate: 81.8182%
-      var trees = 300;
-      var features = 7;
+      // Success Rate: 81.8182% (300 and 7 seem to be the best values)
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
 
       /*
@@ -97,8 +95,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
       train.Instances.numAttributes();
-      var filter = train.Filters.Unsupervised.Attribute.StringToNominal();
-      filter.AttributeRange("6").InputFormat(train);
+      var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
       var newtrain = filter.RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }
@@ -118,8 +115,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
       train.Instances.numAttributes();
-      var filter = train.Filters.Unsupervised.Attribute.StringToNominal();
-      filter.AttributeRange("6").InputFormat(train);
+      var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
       var newtrain = filter.RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }    
@@ -139,8 +135,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
       train.Instances.numAttributes();
-      var filter = train.Filters.Unsupervised.Attribute.StringToNominal();
-      filter.AttributeRange("6").InputFormat(train);
+      var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
       var newtrain = filter.RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }

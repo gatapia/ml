@@ -25,14 +25,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public ClusterMembership<T> InputFormat (Runtime<T> instanceInfo) {
-      ((ClusterMembership)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

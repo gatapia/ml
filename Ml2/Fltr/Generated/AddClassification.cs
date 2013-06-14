@@ -64,14 +64,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public AddClassification<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AddClassification)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

@@ -67,7 +67,7 @@ namespace Ml2.Tasks.Generator.Clstr
             this.Write("()) {}\r\n\r\n");
             
             #line 19 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clstr\ClustererAlgorithm.tt"
- Array.ForEach(Model.Options, o => { 
+ Array.ForEach(Model.Setters, o => { 
             
             #line default
             #line hidden

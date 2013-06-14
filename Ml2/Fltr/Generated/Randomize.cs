@@ -21,14 +21,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public Randomize<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Randomize)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

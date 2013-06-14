@@ -38,14 +38,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RemoveByName<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemoveByName)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

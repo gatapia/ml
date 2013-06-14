@@ -65,14 +65,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RemoveMisclassified<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemoveMisclassified)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

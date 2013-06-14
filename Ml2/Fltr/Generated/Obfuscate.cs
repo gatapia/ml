@@ -13,14 +13,6 @@ namespace Ml2.Fltr
   {
     public Obfuscate(Runtime<T> rt) : base(rt, new Obfuscate()) {}
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public Obfuscate<T> InputFormat (Runtime<T> instanceInfo) {
-      ((Obfuscate)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

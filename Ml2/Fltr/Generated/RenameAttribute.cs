@@ -67,14 +67,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RenameAttribute<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RenameAttribute)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

@@ -36,14 +36,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public SwapValues<T> InputFormat (Runtime<T> instanceInfo) {
-      ((SwapValues)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

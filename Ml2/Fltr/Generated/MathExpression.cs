@@ -47,14 +47,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public MathExpression<T> InputFormat (Runtime<T> instanceInfo) {
-      ((MathExpression)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// The class index will be unset temporarily before the filter is applied.
     /// </summary>    
     public MathExpression<T> IgnoreClass (bool newIgnoreClass) {

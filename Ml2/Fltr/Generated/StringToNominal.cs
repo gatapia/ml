@@ -17,16 +17,8 @@ namespace Ml2.Fltr
     /// Sets which attributes to process. This attributes must be string
     /// attributes ("first" and "last" are valid values as well as ranges and lists)
     /// </summary>    
-    public StringToNominal<T> AttributeRange (string rangeList) {
-      ((StringToNominal)Impl).setAttributeRange(rangeList);
-      return this;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>    
-    public StringToNominal<T> InputFormat (Runtime<T> instanceInfo) {
-      ((StringToNominal)Impl).setInputFormat(instanceInfo.Instances);
+    public StringToNominal<T> AttributeRange (params int[] attributes) {
+      ((StringToNominal)Impl).setAttributeRange(System.String.Join(",", attributes.Select(a => a + 1)));
       return this;
     }
 

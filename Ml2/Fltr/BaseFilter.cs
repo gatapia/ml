@@ -18,6 +18,8 @@ namespace Ml2.Fltr
 
     public Runtime<T> RunFilter()
     {
+      Impl.setInputFormat(rt.Instances);
+
       var newrows = new List<T>();
       for (int i = 0; i < rt.Instances.numInstances(); i++) { 
         if (Impl.input(rt.Instances.instance(i))) { newrows.Add(rt.Rows[i]); }

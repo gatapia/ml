@@ -16,14 +16,6 @@ namespace Ml2.Fltr
   {
     public AddUserFields(Runtime<T> rt) : base(rt, new AddUserFields()) {}
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public AddUserFields<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AddUserFields)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

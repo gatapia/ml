@@ -37,14 +37,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public RandomSubset<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RandomSubset)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

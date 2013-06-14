@@ -22,14 +22,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public RemoveType<T> InputFormat (Runtime<T> instanceInfo) {
-      ((RemoveType)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// The type of attribute to remove.
     /// </summary>    
     public RemoveType<T> AttributeType (EAttributeType type) {

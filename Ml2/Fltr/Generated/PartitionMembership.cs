@@ -13,14 +13,6 @@ namespace Ml2.Fltr
   {
     public PartitionMembership(Runtime<T> rt) : base(rt, new PartitionMembership()) {}
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public PartitionMembership<T> InputFormat (Runtime<T> instanceInfo) {
-      ((PartitionMembership)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

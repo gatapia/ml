@@ -139,7 +139,7 @@
     </Compile>
     <Compile Include="Generator\AttrSel\AlgorithmsModel.cs" />
     <Compile Include="Generator\CodeGenerator.cs" />
-    <Compile Include="Generator\OptionModel.cs" />
+    <Compile Include="Generator\SetterModel.cs" />
     <Compile Include="Generator\IMl2CodeGenerator.cs" />
     <Compile Include="Generator\WekaTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

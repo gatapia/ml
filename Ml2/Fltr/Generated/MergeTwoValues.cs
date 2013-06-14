@@ -36,14 +36,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public MergeTwoValues<T> InputFormat (Runtime<T> instanceInfo) {
-      ((MergeTwoValues)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

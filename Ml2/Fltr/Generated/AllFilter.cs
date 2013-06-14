@@ -12,14 +12,6 @@ namespace Ml2.Fltr
   {
     public AllFilter(Runtime<T> rt) : base(rt, new AllFilter()) {}
 
-    /// <summary>
-    /// 
-    /// </summary>    
-    public AllFilter<T> InputFormat (Runtime<T> instanceInfo) {
-      ((AllFilter)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
         
         
   }

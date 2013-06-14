@@ -17,14 +17,6 @@ namespace Ml2.Fltr
     public TimeSeriesDelta(Runtime<T> rt) : base(rt, new TimeSeriesDelta()) {}
 
     /// <summary>
-    /// 
-    /// </summary>    
-    public TimeSeriesDelta<T> InputFormat (Runtime<T> instanceInfo) {
-      ((TimeSeriesDelta)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
     /// Specify range of attributes to act on. This is a comma separated list of
     /// attribute indices, with "first" and "last" valid values. Specify an
     /// inclusive range with "-". E.g: "first-3,5,6-10,last".

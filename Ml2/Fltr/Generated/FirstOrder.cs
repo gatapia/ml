@@ -30,14 +30,6 @@ namespace Ml2.Fltr
     /// <summary>
     /// 
     /// </summary>    
-    public FirstOrder<T> InputFormat (Runtime<T> instanceInfo) {
-      ((FirstOrder)Impl).setInputFormat(instanceInfo.Instances);
-      return this;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>    
     public FirstOrder<T> AttributeIndicesArray (int[] attributes) {
       ((FirstOrder)Impl).setAttributeIndicesArray(attributes);
       return this;

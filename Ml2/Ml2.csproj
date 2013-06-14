@@ -63,6 +63,7 @@
     <Compile Include="Arff\ILoader.cs" />
     <Compile Include="Arff\ILoaderFactory.cs" />
     <Compile Include="Arff\LoaderFactory.cs" />
+    <Compile Include="Arff\ArffUtils.cs" />
     <Compile Include="Asstn\Generated\Apriori.cs" />
     <Compile Include="Asstn\Generated\Associations.cs" />
     <Compile Include="Asstn\BaseAssociation.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="AttrSel\Evals\Generated\SymmetricalUncertAttribute.cs" />
     <Compile Include="AttrSel\Evals\Generated\WrapperSubset.cs" />
     <Compile Include="AttrSel\Evals\IAttributeSelectionEvaluator.cs" />
-    <Compile Include="Arff\ClassifierAttribute.cs" />
     <Compile Include="Clss\Generated\AdaBoostM1.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -315,8 +315,6 @@
     <Compile Include="Fltr\Generated\UnsupervisedInstanceFilters.cs" />
     <Compile Include="Fltr\UnsupervisedFilters.cs" />
     <Compile Include="Fltr\Filters.cs" />
-    <Compile Include="Misc\ClassifierIndexInferer.cs" />
-    <Compile Include="Misc\IClassifierIndexInferer.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Fltr\SupervisedFilters.cs" />

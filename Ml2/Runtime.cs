@@ -5,7 +5,6 @@ using Ml2.Asstn;
 using Ml2.Clss;
 using Ml2.Clstr;
 using Ml2.Fltr;
-using Ml2.Misc;
 using weka.core;
 using weka.core.converters;
 
@@ -17,27 +16,25 @@ namespace Ml2
       return lf.Get<T>().Load<T>(files);
     }
     
-    public Runtime(object[] data) : base(data) {}
+    public Runtime(object[] data, int classifier) : base(data, classifier) {}
   }
 
   public class Runtime<T> where T : new()
   {
     private readonly IArffInstanceBuilder arff = new ArffInstanceBuilder();
-    private readonly IClassifierIndexInferer classidx = new ClassifierIndexInferer();
     private readonly ILoaderFactory loaderFactory = new LoaderFactory();
 
-    public Runtime(params string[] files) {
+    public Runtime(int classifier, params string[] files) {
       Rows = loaderFactory.Get<T>().Load<T>(files);
       
       Instances = arff.Build(Rows);      
-      SetClassifierIndex(classidx.InferClassIndex<T>());
+      Instances.setClassIndex(classifier);
     }
 
-    public Runtime(T[] data) {
+    public Runtime(T[] data, int classifier) {
       Rows = data;
       Instances = arff.Build(Rows);      
-
-      SetClassifierIndex(classidx.InferClassIndex<T>());
+      Instances.setClassIndex(classifier);
     }
 
 
@@ -48,8 +45,6 @@ namespace Ml2
     internal Runtime(Instances instances, T[] rows) { 
       Instances = instances; 
       Rows = rows;
-
-      SetClassifierIndex(classidx.InferClassIndex<T>());
     }    
 
     public Instances Instances { get; private set; }
@@ -59,12 +54,7 @@ namespace Ml2
     public Clusterers<T> Clusterers { get { return new Clusterers<T>(this); } }
     public Filters<T> Filters { get { return new Filters<T>(this); } }
     public Associations<T> Associations { get { return new Associations<T>(this); } }
-    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }
-
-    public Runtime<T> SetClassifierIndex(int idx) {
-      Instances.setClassIndex(idx);
-      return this;
-    }
+    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }    
 
     public void FlushToFile(string file)
     {

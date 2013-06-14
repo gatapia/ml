@@ -38,6 +38,7 @@ namespace Ml2.Arff
 
     private static object CovertToType(string val, Type type) {
       if (String.IsNullOrEmpty(val)) return null;
+      type = ArffUtils.GetNonNullableType(type);
       if (type.IsEnum) return ConvertToEnum(val, type);
       return Convert.ChangeType(val, type);
     }

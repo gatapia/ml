@@ -18,7 +18,7 @@ namespace Ml2.Arff
       var type = data.Any() ? data.First().GetType() : typeof(T);
       var fields = GetProperties(type);
       var names = fields.Select(f => f.Name).ToArray();      
-      var fieldtypes = fields.Select(f => GetRealType(f.PropertyType)).ToArray();      
+      var fieldtypes = fields.Select(f => ArffUtils.GetNonNullableType(f.PropertyType)).ToArray();      
       var atttypes = fieldtypes.Select(EvaluateAttributeType).ToArray();
       var atts = BuildAttributes(atttypes, names, fieldtypes);
       var instances = new Instances(type.Name, atts, data.Length);      
@@ -50,14 +50,7 @@ namespace Ml2.Arff
       if (att.isString()) return att. addStringValue((string) v);
       if (att.isDate()) return att.parseDate((string) v);
       throw new NotSupportedException(att.type() + " is not a supported attribute atttype.");
-    }
-
-    private static Type GetRealType(Type t)
-    {
-      Trace.Assert(t != null);
-      if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(Nullable<>)) { return Nullable.GetUnderlyingType(t); }
-      return t;
-    }
+    }    
 
     private static EAttributeType EvaluateAttributeType(Type t)
     {

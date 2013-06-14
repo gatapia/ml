@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Ml2.Tests.Kaggle.Titanic;
+using Ml2.Tests.Kaggle.Titanic.Data;
 using NUnit.Framework;
 
 namespace Ml2.Tests
@@ -10,7 +10,7 @@ namespace Ml2.Tests
     private Runtime<TitanicDataRow> rt;
     [TestFixtureSetUp] public void TestFixtureSetUp()
     {
-      rt = new Runtime<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
+      rt = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
     }
 
     [Test] public void Test_loading_csv_file_loads_all_instances_as_expected()

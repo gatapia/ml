@@ -56,13 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Kaggle\Titanic\EPassengerClass.cs" />
-    <Compile Include="Kaggle\Titanic\EPort.cs" />
-    <Compile Include="Kaggle\Titanic\ESex.cs" />
-    <Compile Include="Kaggle\Titanic\ESurvival.cs" />
+    <Compile Include="Kaggle\Titanic\Data\EPassengerClass.cs" />
+    <Compile Include="Kaggle\Titanic\Data\EPort.cs" />
+    <Compile Include="Kaggle\Titanic\Data\ESex.cs" />
+    <Compile Include="Kaggle\Titanic\Data\ESurvival.cs" />
     <Compile Include="Kaggle\Titanic\TitanicMlPredictions.cs" />
     <Compile Include="MiscMl2SupportingFunctionalityTests.cs" />
-    <Compile Include="Kaggle\Titanic\TitanicDataRow.cs" />
+    <Compile Include="Kaggle\Titanic\Data\TitanicDataRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

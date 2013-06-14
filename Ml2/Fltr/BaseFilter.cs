@@ -29,6 +29,6 @@ namespace Ml2.Fltr
       while ((processed = Impl.output()) != null) { newData.add(processed); }
       var newrt = new Runtime<T>(newData, newrows.ToArray());
       return newrt;
-    }
+    }    
   }
 }

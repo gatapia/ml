@@ -18,10 +18,14 @@ namespace Ml2
 {
   public class Runtime : Runtime<object> {
     public static T[] Load<T>(params string[] files) where T : new() {
-      var lf = new LoaderFactory();
-      return lf.Get<T>().Load<T>(files);
+      return new LoaderFactory().Get<T>().Load<T>(files);
     }
-    
+
+    public static T[] LoadLines<T>(IEnumerable<string> lines) where T : new()
+    {
+      return new LoaderFactory().Get<T>().LoadLines<T>(lines);
+    }
+
     public Runtime(object[] data, int classifier) : base(data, classifier) {}
   }
 

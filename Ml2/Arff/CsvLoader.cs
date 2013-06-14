@@ -17,23 +17,35 @@ namespace Ml2.Arff
       return files.SelectMany(ReadFile<T>).ToArray();
     }
 
-    private static IEnumerable<T> ReadFile<T>(string file) where T : new() {
+    public T[] LoadLines<T>(IEnumerable<string> lines) where T : new()
+    {
+      var contents = String.Join("\n", lines);
+      using (var sr = new StringReader(contents)) { return ReadFileImpl<T>(sr); }
+    }
+
+    private static T[] ReadFile<T>(string file) where T : new() {           
+      using (var sr = new StreamReader(file)) { return ReadFileImpl<T>(sr); }      
+    }
+
+    private static T[] ReadFileImpl<T>(TextReader tr) where T : new()
+    {
       var targets = GetProperties<T>();
       var records = new List<T>();
-      using (var sr = new StreamReader(file)) {
-        using (var csv = new CsvReader(sr, true)) {          
-          int fieldCount = csv.FieldCount;
-          while (csv.ReadNextRecord()) {
-            var record = new T();            
-            for (int i = 0; i < fieldCount; i++) {
-              var field = targets[i];
-              field.SetValue(record, CovertToType(csv[i], field.PropertyType));
-            }
-            records.Add(record);
+      using (var csv = new CsvReader(tr, true))
+      {
+        var fieldCount = csv.FieldCount;
+        while (csv.ReadNextRecord())
+        {
+          var record = new T();
+          for (var i = 0; i < fieldCount; i++)
+          {
+            var field = targets[i];
+            field.SetValue(record, CovertToType(csv[i], field.PropertyType));
           }
+          records.Add(record);
         }
       }
-      return records;
+      return records.ToArray();
     }
 
     private static object CovertToType(string val, Type type) {

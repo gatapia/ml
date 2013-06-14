@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using Ml2.Tests.Kaggle.Titanic.Data;
 using NUnit.Framework;
+using weka.core;
 
 namespace Ml2.Tests.Kaggle.Titanic
 {
@@ -18,11 +20,11 @@ namespace Ml2.Tests.Kaggle.Titanic
     // 80.3591 % ?? Even with boosting
     [Test] public void Test_logistic_regression_with_boosting() {
       var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));      
-
       var classifier = train.Classifiers.Logistic();
 
       train.Classifiers.
-          AdaBoostM1().Seed(1).Classifier(classifier).NumIterations(10).Build().EvaluateWith10CrossValidateion();
+          AdaBoostM1().Seed(1).Classifier(classifier).
+              NumIterations(10).Build().EvaluateWith10CrossValidateion();
     }
 
     [Test] public void Test_logistic_regression_with_and_without_ages() {
@@ -32,15 +34,38 @@ namespace Ml2.Tests.Kaggle.Titanic
           Select(t => new {
             t.Survival, t.PassengerClass, t.Sex, t.NumSiblingsOrSpouses, t.NumParentsChildren, t.PassengerFare, t.PortOfEmbarkation
           }).
-          ToArray();
-      var twith = new Runtime<TitanicDataRow>(withage, 0);
-      var twithout = new Runtime(without, 0).RemoveAttributes(typeof(string));
+          ToArray();      
 
-      twith.Classifiers.
+      new Runtime<TitanicDataRow>(withage, 0).Classifiers.
             Logistic().Build().EvaluateWith10CrossValidateion();
 
-      twithout.Classifiers.
+      new Runtime(without, 0).RemoveAttributes(typeof(string)).Classifiers.
             Logistic().Build().EvaluateWith10CrossValidateion();
     }       
+
+    [Test] public void Test_creating_prediction_file()
+    {
+      var raw = File.ReadAllLines(@"resources\kaggle\titanic\test.csv");
+      var formatted = raw.Select(l => "1," + l).ToArray();
+
+      var testrows = Runtime.LoadLines<TitanicDataRow>(formatted);
+      var testset = new Runtime<TitanicDataRow>(testrows, 0).
+            RemoveAttributes(typeof(string));      
+
+      var classifier = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
+          RemoveAttributes(typeof(string)).
+          Classifiers.Logistic().Build();      
+
+      var testInstances = testset.Instances.enumerateInstances();
+      var idx = 1;
+      raw[0] = "survived," + raw[0];
+      while (testInstances.hasMoreElements()) {
+			  var instance = (Instance) testInstances.nextElement();
+			  var classification = (int) classifier.Impl.classifyInstance(instance);
+        raw[idx] = classification + "," + raw[idx];
+        idx++;
+      }
+      File.WriteAllLines("predict.csv", raw);
+    }
   }
 }

@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Linq;
 using weka.classifiers;
 using weka.core;
 
@@ -30,10 +32,7 @@ namespace Ml2.Clss
       return this;
     }
 
-    public double Classify(T row)
-    {
-      return Impl.classifyInstance(Runtime.GetRowInstance(row));
-    }
+    public double Classify(T row) { return Impl.classifyInstance(Runtime.GetRowInstance(row)); }
 
     public IBaseClassifier<T, I> Flush(string file) {
       if (File.Exists(file)) File.Delete(file);
@@ -41,7 +40,7 @@ namespace Ml2.Clss
       return this;
     }
 
-    public void EvaluateWith10CrossValidateion() { Runtime.EvaluateWith10CrossValidateion(Impl); }
+    public void EvaluateWith10CrossValidateion() { Runtime.EvaluateWith10CrossValidateion(Impl); }    
   }
 
   public static class BaseClassifier {

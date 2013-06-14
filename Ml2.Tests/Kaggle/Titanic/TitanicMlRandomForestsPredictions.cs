@@ -15,22 +15,19 @@ namespace Ml2.Tests.Kaggle.Titanic
   [TestFixture] public class TitanicMlRandomForestsPredictions
   {
     [Test] public void Build_titanic_random_forest_model() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
-      train.Instances.deleteStringAttributes();
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
 
       TrainImpl(train, 300, 7).Flush("titanic.model");
     }
 
     [Test] public void Evaluate_titanic_random_forest_model() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
-      train.Instances.deleteStringAttributes();
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
 
       EvalImpl(train, BaseClassifier.Read("titanic.model"));
     }
 
     [Test] public void Test_multiple_random_forest_args() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
-      train.Instances.deleteStringAttributes();
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
 
       // Success Rate: 81.8182% (300 and 7 seem to be the best values)
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
@@ -53,13 +50,11 @@ namespace Ml2.Tests.Kaggle.Titanic
     // 80.1347% 
     // 80.5836 % with new csv parser???
     [Test] public void Test_without_port_or_fare() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
-      train.Instances.deleteAttributeAt(10); // Port 
-      train.Instances.deleteAttributeAt(8); // Fare
-      train.Instances.deleteStringAttributes();                 
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
+          RemoveAttributes(typeof(string), "PortOfEmbarkation", "PassengerFare"); 
 
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
-    }
+    }    
 
     // 81.1448 % with tot family
     // 80.5836 % with has family (binary)
@@ -67,10 +62,7 @@ namespace Ml2.Tests.Kaggle.Titanic
     {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
       object[] newrows = rows.Select(t => new {
-                                  Survival = t.Survival,
-                                  PassengerClass = t.PassengerClass,
-                                  Sex = t.Sex,
-                                  Age = t.Age,
+        t.Survival, t.PassengerClass, t.Sex, t.Age,
                                   TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
                                     t.NumSiblingsOrSpouses.GetValueOrDefault()
                                 }).ToArray();
@@ -85,18 +77,13 @@ namespace Ml2.Tests.Kaggle.Titanic
     {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
       object[] newrows = rows.Select(t => new {
-                                  Survival = t.Survival,
-                                  PassengerClass = t.PassengerClass,
-                                  Sex = t.Sex,
-                                  Age = t.Age,
+        t.Survival, t.PassengerClass, t.Sex, t.Age,
                                   TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
                                     t.NumSiblingsOrSpouses.GetValueOrDefault(),
                                   TicketBin = GetTicketBin(t.TicketNumber)
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
-      train.Instances.numAttributes();
-      var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
-      var newtrain = filter.RunFilter();
+      var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }
 
@@ -105,18 +92,13 @@ namespace Ml2.Tests.Kaggle.Titanic
     {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
       object[] newrows = rows.Select(t => new {
-                                  Survival = t.Survival,
-                                  PassengerClass = t.PassengerClass,
-                                  Sex = t.Sex,
-                                  Age = t.Age,
+                                  t.Survival, t.PassengerClass, t.Sex, t.Age,
                                   TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
                                     t.NumSiblingsOrSpouses.GetValueOrDefault(),
                                   FareBin = GetFareBin(t.PassengerFare)
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
-      train.Instances.numAttributes();
-      var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
-      var newtrain = filter.RunFilter();
+      var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }    
     
@@ -125,16 +107,15 @@ namespace Ml2.Tests.Kaggle.Titanic
     {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
       object[] newrows = rows.Select(t => new {
-                                  Survival = t.Survival,
-                                  PassengerClass = t.PassengerClass,
-                                  Sex = t.Sex,
-                                  Age = t.Age,
-                                  TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
-                                    t.NumSiblingsOrSpouses.GetValueOrDefault(),
-                                  CabinBin = GetCabinBin(t.CabinNum)
-                                }).ToArray();
+        t.Survival,
+        t.PassengerClass,
+        t.Sex,
+        t.Age,
+        TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
+            t.NumSiblingsOrSpouses.GetValueOrDefault(),
+        CabinBin = GetCabinBin(t.CabinNum)
+      }).ToArray();
       var train = new Runtime(newrows, 0);
-      train.Instances.numAttributes();
       var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
       var newtrain = filter.RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
@@ -143,14 +124,12 @@ namespace Ml2.Tests.Kaggle.Titanic
     [Test] public void Test_only_on_genders() {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
           Where(t => t.Sex == ESex.Female).ToArray();
-      var train = new Runtime(rows, 0);
-      train.Instances.deleteStringAttributes();                 
+      var train = new Runtime(rows, 0).RemoveAttributes(typeof(string));
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
 
       rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
           Where(t => t.Sex == ESex.Male).ToArray();
-      train = new Runtime(rows, 0);
-      train.Instances.deleteStringAttributes();                 
+      train = new Runtime(rows, 0).RemoveAttributes(typeof(string));
       EvalImpl(train, TrainImpl(train, 300, 7).Impl);
     }
 

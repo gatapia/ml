@@ -12,8 +12,7 @@ namespace Ml2.Tests.Kaggle.Titanic
     
     // 80.3591 %
     [Test] public void Test_logistic_regression() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
-      train.Instances.deleteStringAttributes();
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
 
       var classifier = train.
         Classifiers.
@@ -25,8 +24,7 @@ namespace Ml2.Tests.Kaggle.Titanic
 
     // 80.3591 % ?? Even with boosting
     [Test] public void Test_logistic_regression_with_boosting() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
-      train.Instances.deleteStringAttributes();
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));      
 
       var classifier = train.
         Classifiers.
@@ -42,24 +40,30 @@ namespace Ml2.Tests.Kaggle.Titanic
       EvalImpl(train, booster.Impl);
     }
 
-    private string GetCabinBin(string cabin) {
-      if (String.IsNullOrEmpty(cabin)) { return "Unknown"; }
-      return cabin[0].ToString();
+    [Test] public void Test_logistic_regression_with_and_without_ages() {
+      var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv");
+      var withage = rows.Where(t => t.Age.HasValue).ToArray();
+      var without = rows.Where(t => !t.Age.HasValue).
+          Select(t => new {
+            t.Survival, t.PassengerClass, t.Sex, t.NumSiblingsOrSpouses, t.NumParentsChildren, t.PassengerFare, t.PortOfEmbarkation
+          }).
+          ToArray();
+      var twith = new Runtime<TitanicDataRow>(withage, 0);
+      var twithout = new Runtime(without, 0).RemoveAttributes(typeof(string));
+
+      var classifier = twith.
+        Classifiers.
+            Logistic().
+                Build();
+      EvalImpl(twith, classifier.Impl);
+
+      classifier = twithout.
+        Classifiers.
+            Logistic().
+                Build();
+      EvalImpl(twithout, classifier.Impl);
     }
-
-    private string GetTicketBin(string num) {
-      var t = num.Split(' ').First();
-      var bin = t.ToLower().Replace(".", String.Empty).Replace("/", String.Empty);
-      int val;
-      return Int32.TryParse(bin, out val) ? (val/1000).ToString() : bin;
-    }
-
-    private string GetFareBin(double? fare) {
-      if (!fare.HasValue) { return "Unknown"; }
-      var val = fare.Value;
-      return (val / 100).ToString();
-    }    
-
+    
     private void EvalImpl<T>(Runtime<T> runtime, Classifier classifier) where T : new() {
       Evaluation evaluation = new Evaluation(runtime.Instances);
       evaluation.crossValidateModel(classifier, runtime.Instances, 10, new Random(1));

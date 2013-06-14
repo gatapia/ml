@@ -13,6 +13,37 @@ namespace Ml2.Tests
       rt = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
     }
 
+    [Test] public void Test_removal_of_typed_attributes() {
+      Assert.AreEqual(11, rt.Instances.numAttributes());
+      rt.RemoveAttributes(typeof(string));
+      Assert.AreEqual(8, rt.Instances.numAttributes());
+    }
+
+    [Test] public void Test_removal_of_named_attributes() {
+      Assert.AreEqual(11, rt.Instances.numAttributes());
+      rt.RemoveAttributes("NumSiblingsOrSpouses");
+      Assert.AreEqual(10, rt.Instances.numAttributes());
+    }
+
+    [Test] public void Test_removal_of_indexed_attributes() {
+      Assert.AreEqual(11, rt.Instances.numAttributes());
+      rt.RemoveAttributes(4, 1, 5, 3);
+      Assert.AreEqual(7, rt.Instances.numAttributes());
+    }
+
+    [Test] public void Test_removal_of_mixed_attributes() {
+      Assert.AreEqual(11, rt.Instances.numAttributes());
+      rt.RemoveAttributes("NumSiblingsOrSpouses", typeof(string), 1);
+      Assert.AreEqual(6, rt.Instances.numAttributes());
+    }
+
+    // TODO: Implement
+    [Test] public void Test_removal_of_expression_attributes() {
+      Assert.AreEqual(11, rt.Instances.numAttributes());
+      rt.RemoveAttributes<TitanicDataRow>(t => t.NumSiblingsOrSpouses);
+      Assert.AreEqual(6, rt.Instances.numAttributes());
+    }
+
     [Test] public void Test_loading_csv_file_loads_all_instances_as_expected()
     {      
       Assert.AreEqual(891, rt.Instances.numInstances());

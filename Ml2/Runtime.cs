@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Ml2.Arff;
 using Ml2.Asstn;
 using Ml2.Clss;
@@ -69,6 +73,45 @@ namespace Ml2
     {
       var idx = Array.IndexOf(Rows, row);
       return Instances.instance(idx);
+    }
+
+    public Runtime<T> RemoveAttributes(params object[] attributes) {
+      if (attributes == null || attributes.Length == 0) return this;
+      var indexes = attributes.Where(a => a is int).Cast<int>();
+      var names = attributes.Where(a => a is string).Select(a => ((string)a).ToLower());
+      var types = attributes.Where(a => a is Type).Cast<Type>();
+      var nameidxs = GetNameIndexes(names);
+      var typeidxs = GetTypeIndexes(types);
+      var all = (indexes.Concat(nameidxs).Concat(typeidxs)).
+          Distinct().
+          OrderByDescending(i => i).
+          ToArray();
+      Array.ForEach(all, idx => Instances.deleteAttributeAt(idx));
+      return this;
+    }
+
+    private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
+      var fields = Rows.First().GetType().
+          GetProperties(BindingFlags.Instance | BindingFlags.Public).
+          Select(f => f.Name.ToLower()).
+          ToArray();
+      var idxs = names.Select(n => Array.IndexOf(fields, n)).ToArray();
+      
+      Trace.Assert(idxs.All(idx => idx >= 0));
+      return idxs;
+    }
+
+    private IEnumerable<int> GetTypeIndexes(IEnumerable<Type> types) {
+      var fields = Rows.First().GetType().
+          GetProperties(BindingFlags.Instance | BindingFlags.Public).
+          Select(f => f.PropertyType).
+          ToArray();
+      var idxs = Enumerable.Range(0, fields.Length).
+        Where(idx => types.Contains(fields[idx])).
+        ToArray();
+      
+      Trace.Assert(idxs.All(idx => idx >= 0));
+      return idxs;
     }
   }
 }

@@ -5,7 +5,10 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// A filter that removes a given range of instances of a dataset.
+  /// A filter that removes a given range of instances of a
+  /// dataset.<br/><br/>Options:<br/><br/>-R &lt;inst1,inst2-inst4,...&gt; = 	Specifies list of
+  /// instances to select. First and last<br/>	are valid indexes.
+  /// (required)<br/><br/>-V = 	Specifies if inverse of selection is to be output.<br/>
   /// </summary>
   public class RemoveRange<T> : BaseFilter<T, RemoveRange> where T : new()
   {

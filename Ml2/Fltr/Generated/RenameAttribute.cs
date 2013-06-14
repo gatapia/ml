@@ -5,10 +5,22 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// This filter is used for renaming attribute names. Regular expressions can
-  /// be used in the matching and replacing. See Javadoc of
-  /// java.util.regex.Pattern class for more information:
-  /// http://java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html
+  /// This filter is used for renaming attribute names.<br/>Regular expressions
+  /// can be used in the matching and replacing.<br/>See Javadoc of
+  /// java.util.regex.Pattern class for more
+  /// information:<br/>http://java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html<br/><br/>Options:<br/><br/>-find
+  /// &lt;regexp&gt; = 	The regular expression that the attribute names must
+  /// match.<br/>	(default: ([\s\S]+))<br/>-replace &lt;string&gt; = 	The string to replace
+  /// the regular expression of matching attributes with.<br/>	Cannot be used in
+  /// conjunction with '-remove'.<br/>	(default: $0)<br/>-remove = 	In case the
+  /// matching string needs to be removed instead of replaced.<br/>	Cannot be
+  /// used in conjunction with '-replace <string>'.<br/>	(default: off)<br/>-all =
+  /// 	Replaces all occurrences instead of just the first.<br/>	(default: only
+  /// first occurrence)<br/>-R &lt;range&gt; = 	The attribute range to work
+  /// on.<br/>This is a comma separated list of attribute indices, with "first" and
+  /// "last" valid values.<br/>	Specify an inclusive range with "-".<br/>	E.g:
+  /// "first-3,5,6-10,last".<br/>	(default: first-last)<br/>-V = 	Inverts the attribute
+  /// selection range.<br/>	(default: off)
   /// </summary>
   public class RenameAttribute<T> : BaseFilter<T, RenameAttribute> where T : new()
   {

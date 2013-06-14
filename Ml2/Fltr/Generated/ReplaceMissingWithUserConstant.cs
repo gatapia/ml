@@ -6,7 +6,17 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// Replaces all missing values for nominal, string, numeric and date
-  /// attributes in the dataset with user-supplied constant values.
+  /// attributes in the dataset with user-supplied constant
+  /// values.<br/><br/>Options:<br/><br/>-A &lt;index1,index2-index4,... | att-name1,att-name2,...&gt; =
+  /// 	Specify list of attributes to replace missing values for <br/>	(as weka range
+  /// list of indices or a comma separated list of attribute
+  /// names).<br/>	(default: consider all attributes)<br/>-N = 	Specify the replacement constant for
+  /// nominal/string attributes<br/>-R = 	Specify the replacement constant for
+  /// numeric attributes<br/>	(default: 0)<br/>-D = 	Specify the replacement
+  /// constant for date attributes<br/>-F = 	Specify the date format for parsing the
+  /// replacement date constant<br/>	(default:
+  /// yyyy-MM-dd'T'HH:mm:ss)<br/>-unset-class-temporarily = 	Unsets the class index temporarily before the filter
+  /// is<br/>	applied to the data.<br/>	(default: no)
   /// </summary>
   public class ReplaceMissingWithUserConstant<T> : BaseFilter<T, ReplaceMissingWithUserConstant> where T : new()
   {

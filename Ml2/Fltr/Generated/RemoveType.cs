@@ -5,7 +5,11 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Removes attributes of a given type.
+  /// Removes attributes of a given type.<br/><br/>Options:<br/><br/>-T
+  /// &lt;nominal|numeric|string|date|relational&gt; = 	Attribute type to delete. Valid
+  /// options are "nominal", <br/>	"numeric", "string", "date" and
+  /// "relational".<br/>	(default "string")<br/>-V = 	Invert matching sense (i.e. only keep
+  /// specified columns)
   /// </summary>
   public class RemoveType<T> : BaseFilter<T, RemoveType> where T : new()
   {

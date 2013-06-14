@@ -4,7 +4,14 @@ using weka.core;
 
 namespace Ml2.Clss
 {
-  public class BaseClassifier<T, I> where I : Classifier where T : new()
+  public interface IBaseClassifier<in T, out I> where T : new() where I : Classifier {
+    I Impl { get; }
+    IBaseClassifier<T, I> Build();
+    double Classify(T row);
+    IBaseClassifier<T, I> Flush(string file);
+  }
+
+  public class BaseClassifier<T, I> : IBaseClassifier<T, I> where I : Classifier where T : new()
   {
     protected readonly Runtime<T> rt;
     public I Impl { get; private set; }    
@@ -15,7 +22,7 @@ namespace Ml2.Clss
       Impl = impl;
     }
 
-    public BaseClassifier<T, I> Build()
+    public IBaseClassifier<T, I> Build()
     {
       Impl.buildClassifier(rt.Instances);
       return this;
@@ -26,7 +33,7 @@ namespace Ml2.Clss
       return Impl.classifyInstance(rt.GetRowInstance(row));
     }
 
-    public BaseClassifier<T, I> Flush(string file) {
+    public IBaseClassifier<T, I> Flush(string file) {
       if (File.Exists(file)) File.Delete(file);
       SerializationHelper.write(file, Impl);
       return this;

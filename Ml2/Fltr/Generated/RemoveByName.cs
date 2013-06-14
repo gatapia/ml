@@ -6,7 +6,11 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// Removes attributes based on a regular expression matched against their
-  /// names.
+  /// names.<br/><br/>Options:<br/><br/>-D = 	Turns on output of debugging
+  /// information.<br/>-E &lt;regular expression&gt; = 	The regular expression to match
+  /// the attribute names against.<br/>	(default: ^.*id$)<br/>-V = 	Flag for
+  /// inverting the matching sense. If set, attributes are kept<br/>	instead of
+  /// deleted.<br/>	(default: off)
   /// </summary>
   public class RemoveByName<T> : BaseFilter<T, RemoveByName> where T : new()
   {

@@ -7,7 +7,10 @@ namespace Ml2.Fltr
   /// <summary>
   /// A filter that removes a range of attributes from the dataset. Will
   /// re-order the remaining attributes if invert matching sense is turned on and the
-  /// attribute column indices are not specified in ascending order.
+  /// attribute column indices are not specified in ascending
+  /// order.<br/><br/>Options:<br/><br/>-R &lt;index1,index2-index4,...&gt; = 	Specify list of
+  /// columns to delete. First and last are valid<br/>	indexes. (default none)<br/>-V =
+  /// 	Invert matching sense (i.e. only keep specified columns)
   /// </summary>
   public class Remove<T> : BaseFilter<T, Remove> where T : new()
   {

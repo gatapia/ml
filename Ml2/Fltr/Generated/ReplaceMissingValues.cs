@@ -6,7 +6,9 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// Replaces all missing values for nominal and numeric attributes in a
-  /// dataset with the modes and means from the training data.
+  /// dataset with the modes and means from the training
+  /// data.<br/><br/>Options:<br/><br/>-unset-class-temporarily = 	Unsets the class index temporarily before
+  /// the filter is<br/>	applied to the data.<br/>	(default: no)
   /// </summary>
   public class ReplaceMissingValues<T> : BaseFilter<T, ReplaceMissingValues> where T : new()
   {

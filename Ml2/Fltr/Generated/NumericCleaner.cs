@@ -7,7 +7,24 @@ namespace Ml2.Fltr
   /// <summary>
   /// A filter that 'cleanses' the numeric data from values that are too small,
   /// too big or very close to a certain value (e.g., 0) and sets these values
-  /// to a pre-defined default.
+  /// to a pre-defined default.<br/><br/>Options:<br/><br/>-D = 	Turns on output
+  /// of debugging information.<br/>-min &lt;double&gt; = 	The minimum threshold.
+  /// (default -Double.MAX_VALUE)<br/>-min-default &lt;double&gt; = 	The
+  /// replacement for values smaller than the minimum threshold.<br/>	(default
+  /// -Double.MAX_VALUE)<br/>-max &lt;double&gt; = 	The maximum threshold. (default
+  /// Double.MAX_VALUE)<br/>-max-default &lt;double&gt; = 	The replacement for values
+  /// larger than the maximum threshold.<br/>	(default
+  /// Double.MAX_VALUE)<br/>-closeto &lt;double&gt; = 	The number values are checked for closeness. (default
+  /// 0)<br/>-closeto-default &lt;double&gt; = 	The replacement for values that
+  /// are close to '-closeto'.<br/>	(default 0)<br/>-closeto-tolerance
+  /// &lt;double&gt; = 	The tolerance below which numbers are considered being close to
+  /// <br/>	to each other. (default 1E-6)<br/>-decimals &lt;int&gt; = 	The number of
+  /// decimals to round to, -1 means no rounding at all.<br/>	(default -1)<br/>-R
+  /// &lt;col1,col2,...&gt; = 	The list of columns to cleanse, e.g., first-last
+  /// or first-3,5-last.<br/>	(default first-last)<br/>-V = 	Inverts the matching
+  /// sense.<br/>-include-class = 	Whether to include the class in the
+  /// cleansing.<br/>	The class column will always be skipped, if this flag is
+  /// not<br/>	present. (default no)
   /// </summary>
   public class NumericCleaner<T> : BaseFilter<T, NumericCleaner> where T : new()
   {

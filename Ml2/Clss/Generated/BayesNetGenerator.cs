@@ -6,10 +6,16 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// Bayes Network learning using various search algorithms and quality
-  /// measures. Base class for a Bayes Network classifier. Provides datastructures
-  /// (network structure, conditional probability distributions, etc.) and facilities
-  /// common to Bayes Network learning algorithms like K2 and B. For more
-  /// information see: http://www.cs.waikato.ac.nz/~remco/weka.pdf
+  /// measures.<br/>Base class for a Bayes Network classifier. Provides datastructures
+  /// (network structure, conditional probability distributions, etc.) and
+  /// facilities common to Bayes Network learning algorithms like K2 and
+  /// B.<br/><br/>For more information
+  /// see:<br/><br/>http://www.cs.waikato.ac.nz/~remco/weka.pdf<br/><br/>Options:<br/><br/>-B = 	Generate network (instead of
+  /// instances)<br/><br/>-N &lt;integer&gt; = 	Nr of nodes<br/><br/>-A &lt;integer&gt; =
+  /// 	Nr of arcs<br/><br/>-M &lt;integer&gt; = 	Nr of instances<br/><br/>-C
+  /// &lt;integer&gt; = 	Cardinality of the variables<br/><br/>-S &lt;integer&gt; =
+  /// 	Seed for random number generator<br/><br/>-F &lt;file&gt; = 	The BIF file to
+  /// obtain the structure from.<br/>
   /// </summary>
   public class BayesNetGenerator<T> : BaseClassifier<T, BayesNetGenerator> where T : new()
   {

@@ -6,10 +6,14 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// Bayes Network learning using various search algorithms and quality
-  /// measures. Base class for a Bayes Network classifier. Provides datastructures
-  /// (network structure, conditional probability distributions, etc.) and facilities
-  /// common to Bayes Network learning algorithms like K2 and B. For more
-  /// information see: http://www.cs.waikato.ac.nz/~remco/weka.pdf
+  /// measures.<br/>Base class for a Bayes Network classifier. Provides datastructures
+  /// (network structure, conditional probability distributions, etc.) and
+  /// facilities common to Bayes Network learning algorithms like K2 and
+  /// B.<br/><br/>For more information
+  /// see:<br/><br/>http://www.cs.waikato.ac.nz/~remco/weka.pdf<br/><br/>Options:<br/><br/>-D = 	Do not use ADTree data
+  /// structure<br/><br/>-B &lt;BIF file&gt; = 	BIF file to compare with<br/><br/>-Q
+  /// weka.classifiers.bayes.net.search.SearchAlgorithm = 	Search algorithm<br/><br/>-E
+  /// weka.classifiers.bayes.net.estimate.SimpleEstimator = 	Estimator algorithm<br/>
   /// </summary>
   public class BayesNet<T> : BaseClassifier<T, BayesNet> where T : new()
   {

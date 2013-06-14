@@ -9,7 +9,15 @@ namespace Ml2.Clss
   /// information gain/variance and prunes it using reduced-error pruning (with
   /// backfitting). Only sorts values for numeric attributes once. Missing values are
   /// dealt with by splitting the corresponding instances into pieces (i.e. as in
-  /// C4.5).
+  /// C4.5).<br/><br/>Options:<br/><br/>-M &lt;minimum number of instances&gt; =
+  /// 	Set minimum number of instances per leaf (default 2).<br/>-V &lt;minimum
+  /// variance for split&gt; = 	Set minimum numeric class variance
+  /// proportion<br/>	of train variance for split (default 1e-3).<br/>-N &lt;number of folds&gt;
+  /// = 	Number of folds for reduced error pruning (default 3).<br/>-S
+  /// &lt;seed&gt; = 	Seed for random data shuffling (default 1).<br/>-P = 	No
+  /// pruning.<br/>-L = 	Maximum tree depth (default -1, no maximum)<br/>-I = 	Initial class
+  /// value count (default 0)<br/>-R = 	Spread initial count over all class
+  /// values (i.e. don't use 1 per value)
   /// </summary>
   public class REPTree<T> : BaseClassifier<T, REPTree> where T : new()
   {

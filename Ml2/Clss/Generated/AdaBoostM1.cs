@@ -7,10 +7,19 @@ namespace Ml2.Clss
   /// <summary>
   /// Class for boosting a nominal class classifier using the Adaboost M1
   /// method. Only nominal class problems can be tackled. Often dramatically improves
-  /// performance, but sometimes overfits. For more information, see Yoav Freund,
-  /// Robert E. Schapire: Experiments with a new boosting algorithm. In:
-  /// Thirteenth International Conference on Machine Learning, San Francisco, 148-156,
-  /// 1996.
+  /// performance, but sometimes overfits.<br/><br/>For more information,
+  /// see<br/><br/>Yoav Freund, Robert E. Schapire: Experiments with a new boosting
+  /// algorithm. In: Thirteenth International Conference on Machine Learning, San
+  /// Francisco, 148-156, 1996.<br/><br/>Options:<br/><br/>-P &lt;num&gt; =
+  /// 	Percentage of weight mass to base training on.<br/>	(default 100, reduce to around
+  /// 90 speed up)<br/>-Q = 	Use resampling for boosting.<br/>-S &lt;num&gt; =
+  /// 	Random number seed.<br/>	(default 1)<br/>-I &lt;num&gt; = 	Number of
+  /// iterations.<br/>	(default 10)<br/>-D = 	If set, classifier is run in debug mode
+  /// and<br/>	may output additional info to the console<br/>-W = 	Full name of
+  /// base classifier.<br/>	(default:
+  /// weka.classifiers.trees.DecisionStump)<br/><br/>Options specific to classifier weka.classifiers.trees.DecisionStump: =
+  /// <br/>-D = 	If set, classifier is run in debug mode and<br/>	may output
+  /// additional info to the console
   /// </summary>
   public class AdaBoostM1<T> : BaseClassifier<T, AdaBoostM1> where T : new()
   {
@@ -51,7 +60,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdaBoostM1<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
+    public AdaBoostM1<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((AdaBoostM1)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

@@ -10,7 +10,19 @@ namespace Ml2.Clss
   /// built with and the incoming test instances' structure. Model attributes that
   /// are not found in the incoming instances receive missing values, so do
   /// incoming nominal attribute values that the classifier has not seen before. A new
-  /// classifier can be trained or an existing one loaded from a file.
+  /// classifier can be trained or an existing one loaded from a
+  /// file.<br/><br/>Options:<br/><br/>-I = 	Ignore case when matching attribute names and
+  /// nominal values.<br/>-M = 	Suppress the output of the mapping report.<br/>-trim =
+  /// 	Trim white space from either end of names before matching.<br/>-L &lt;path
+  /// to model to load&gt; = 	Path to a model to load. If set, this
+  /// model<br/>	will be used for prediction and any base classifier<br/>	specification will
+  /// be ignored. Environment variables<br/>	may be used in the path (e.g.
+  /// ${HOME}/myModel.model)<br/>-D = 	If set, classifier is run in debug mode
+  /// and<br/>	may output additional info to the console<br/>-W = 	Full name of base
+  /// classifier.<br/>	(default: weka.classifiers.rules.ZeroR)<br/><br/>Options
+  /// specific to classifier weka.classifiers.rules.ZeroR: = <br/>-D = 	If set,
+  /// classifier is run in debug mode and<br/>	may output additional info to the
+  /// console
   /// </summary>
   public class InputMappedClassifier<T> : BaseClassifier<T, InputMappedClassifier> where T : new()
   {
@@ -70,7 +82,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public InputMappedClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
+    public InputMappedClassifier<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((InputMappedClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

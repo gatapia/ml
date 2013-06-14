@@ -5,8 +5,16 @@ using weka.classifiers.trees;
 namespace Ml2.Clss
 {
   /// <summary>
-  /// Class for constructing a forest of random trees. For more information
-  /// see: Leo Breiman (2001). Random Forests. Machine Learning. 45(1):5-32.
+  /// Class for constructing a forest of random trees.<br/><br/>For more
+  /// information see: <br/><br/>Leo Breiman (2001). Random Forests. Machine Learning.
+  /// 45(1):5-32.<br/><br/>Options:<br/><br/>-I &lt;number of trees&gt; = 	Number
+  /// of trees to build.<br/>-K &lt;number of features&gt; = 	Number of features
+  /// to consider (<1=int(logM+1)).<br/>-S = 	Seed for random number
+  /// generator.<br/>	(default 1)<br/>-depth &lt;num&gt; = 	The maximum depth of the trees,
+  /// 0 for unlimited.<br/>	(default 0)<br/>-print = 	Print the individual trees
+  /// in the output<br/>-num-slots &lt;num&gt; = 	Number of execution
+  /// slots.<br/>	(default 1 - i.e. no parallelism)<br/>-D = 	If set, classifier is run in
+  /// debug mode and<br/>	may output additional info to the console
   /// </summary>
   public class RandomForest<T> : BaseClassifier<T, RandomForest> where T : new()
   {

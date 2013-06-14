@@ -6,7 +6,8 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// Converts a nominal attribute (that is, a set number of values) to string
-  /// (that is, an unspecified number of values).
+  /// (that is, an unspecified number of values).<br/><br/>Options:<br/><br/>-C
+  /// &lt;col&gt; = 	Sets the range of attributes to convert (default last).
   /// </summary>
   public class NominalToString<T> : BaseFilter<T, NominalToString> where T : new()
   {

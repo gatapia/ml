@@ -7,13 +7,33 @@ namespace Ml2.Asstn
   /// <summary>
   /// Class implementing an Apriori-type algorithm. Iteratively reduces the
   /// minimum support until it finds the required number of rules with the given
-  /// minimum confidence. The algorithm has an option to mine class association
-  /// rules. It is adapted as explained in the second reference. For more information
-  /// see: R. Agrawal, R. Srikant: Fast Algorithms for Mining Association Rules
-  /// in Large Databases. In: 20th International Conference on Very Large Data
-  /// Bases, 478-499, 1994. Bing Liu, Wynne Hsu, Yiming Ma: Integrating
-  /// Classification and Association Rule Mining. In: Fourth International Conference on
-  /// Knowledge Discovery and Data Mining, 80-86, 1998.
+  /// minimum confidence.<br/>The algorithm has an option to mine class association
+  /// rules. It is adapted as explained in the second reference.<br/><br/>For
+  /// more information see:<br/><br/>R. Agrawal, R. Srikant: Fast Algorithms for
+  /// Mining Association Rules in Large Databases. In: 20th International Conference
+  /// on Very Large Data Bases, 478-499, 1994.<br/><br/>Bing Liu, Wynne Hsu,
+  /// Yiming Ma: Integrating Classification and Association Rule Mining. In: Fourth
+  /// International Conference on Knowledge Discovery and Data Mining, 80-86,
+  /// 1998.<br/><br/>Options:<br/><br/>-N &lt;required number of rules output&gt; =
+  /// 	The required number of rules. (default = 10)<br/>-T &lt;0=confidence |
+  /// 1=lift | 2=leverage | 3=Conviction&gt; = 	The metric type by which to rank
+  /// rules. (default = confidence)<br/>-C &lt;minimum metric score of a rule&gt; =
+  /// 	The minimum confidence of a rule. (default = 0.9)<br/>-D &lt;delta for
+  /// minimum support&gt; = 	The delta by which the minimum support is decreased
+  /// in<br/>	each iteration. (default = 0.05)<br/>-U &lt;upper bound for minimum
+  /// support&gt; = 	Upper bound for minimum support. (default = 1.0)<br/>-M
+  /// &lt;lower bound for minimum support&gt; = 	The lower bound for the minimum
+  /// support. (default = 0.1)<br/>-S &lt;significance level&gt; = 	If used, rules are
+  /// tested for significance at<br/>	the given level. Slower. (default = no
+  /// significance testing)<br/>-I = 	If set the itemsets found are also output.
+  /// (default = no)<br/>-R = 	Remove columns that contain all missing values
+  /// (default = no)<br/>-V = 	Report progress iteratively. (default = no)<br/>-A = 	If
+  /// set class association rules are mined. (default = no)<br/>-Z = 	Treat zero
+  /// (i.e. first value of nominal attributes) as missing<br/>-B &lt;toString
+  /// delimiters&gt; = 	If used, two characters to use as rule delimiters<br/>	in
+  /// the result of toString: the first to delimit fields,<br/>	the second to
+  /// delimit items within fields.<br/>	(default = traditional toString result)<br/>-c
+  /// &lt;the class index&gt; = 	The class index. (default = last)
   /// </summary>
   public class Apriori<T> : BaseAssociation<T, Apriori> where T : new()
   {

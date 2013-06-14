@@ -6,7 +6,8 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// An instance filter that converts all incoming instances into sparse
-  /// format.
+  /// format.<br/><br/>Options:<br/><br/>-M = 	Treat missing values as zero.<br/>-F =
+  /// 	Add a dummy first value for nominal attributes.
   /// </summary>
   public class NonSparseToSparse<T> : BaseFilter<T, NonSparseToSparse> where T : new()
   {

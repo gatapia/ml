@@ -5,12 +5,14 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// CfsSubsetEval : Evaluates the worth of a subset of attributes by
-  /// considering the individual predictive ability of each feature along with the degree
-  /// of redundancy between them. Subsets of features that are highly correlated
-  /// with the class while having low intercorrelation are preferred. For more
-  /// information see: M. A. Hall (1998). Correlation-based Feature Subset
-  /// Selection for Machine Learning. Hamilton, New Zealand.
+  /// CfsSubsetEval :<br/><br/>Evaluates the worth of a subset of attributes by
+  /// considering the individual predictive ability of each feature along with
+  /// the degree of redundancy between them.<br/><br/>Subsets of features that are
+  /// highly correlated with the class while having low intercorrelation are
+  /// preferred.<br/><br/>For more information see:<br/><br/>M. A. Hall (1998).
+  /// Correlation-based Feature Subset Selection for Machine Learning. Hamilton, New
+  /// Zealand.<br/><br/>Options:<br/><br/>-M = 	Treat missing values as a
+  /// separate value.<br/>-L = 	Don't include locally predictive attributes.
   /// </summary>
   public class CfsSubset<T> : BaseAttributeSelectionEvaluator<T, CfsSubsetEval> where T : new()
   {

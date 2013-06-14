@@ -5,8 +5,13 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Algs
 {
   /// <summary>
-  /// Ranker : Ranks attributes by their individual evaluations. Use in
-  /// conjunction with attribute evaluators (ReliefF, GainRatio, Entropy etc).
+  /// Ranker : <br/><br/>Ranks attributes by their individual evaluations. Use
+  /// in conjunction with attribute evaluators (ReliefF, GainRatio, Entropy
+  /// etc).<br/><br/><br/>Options:<br/><br/>-P &lt;start set&gt; = 	Specify a starting
+  /// set of attributes.<br/>	Eg. 1,3,5-7.<br/>	Any starting attributes
+  /// specified are<br/>	ignored during the ranking.<br/>-T &lt;threshold&gt; = 	Specify
+  /// a theshold by which attributes<br/>	may be discarded from the
+  /// ranking.<br/>-N &lt;num to select&gt; = 	Specify number of attributes to select
   /// </summary>
   public class Ranker<T> : BaseAttributeSelectionAlgorithm<T, Ranker> where T : new()
   {

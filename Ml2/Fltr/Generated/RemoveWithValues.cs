@@ -5,7 +5,20 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Filters instances according to the value of an attribute.
+  /// Filters instances according to the value of an
+  /// attribute.<br/><br/>Options:<br/><br/>-C &lt;num&gt; = 	Choose attribute to be used for
+  /// selection.<br/>-S &lt;num&gt; = 	Numeric value to be used for selection on
+  /// numeric<br/>	attribute.<br/>	Instances with values smaller than given value will<br/>	be
+  /// selected. (default 0)<br/>-L &lt;index1,index2-index4,...&gt; = 	Range of
+  /// label indices to be used for selection on<br/>	nominal
+  /// attribute.<br/>	First and last are valid indexes. (default all values)<br/>-M = 	Missing values
+  /// count as a match. This setting is<br/>	independent of the -V
+  /// option.<br/>	(default missing values don't match)<br/>-V = 	Invert matching
+  /// sense.<br/>-H = 	When selecting on nominal attributes, removes header<br/>	references
+  /// to excluded values.<br/>-F = 	Do not apply the filter to instances that
+  /// arrive after the first<br/>	(training) batch. The default is to apply the
+  /// filter (i.e.<br/>	the filter may not return an instance if it matches the remove
+  /// criteria)
   /// </summary>
   public class RemoveWithValues<T> : BaseFilter<T, RemoveWithValues> where T : new()
   {

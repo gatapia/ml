@@ -6,7 +6,14 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// Class for using linear regression for prediction. Uses the Akaike
-  /// criterion for model selection, and is able to deal with weighted instances.
+  /// criterion for model selection, and is able to deal with weighted
+  /// instances.<br/><br/>Options:<br/><br/>-D = 	Produce debugging output.<br/>	(default no
+  /// debugging output)<br/>-S &lt;number of selection method&gt; = 	Set the attribute
+  /// selection method to use. 1 = None, 2 = Greedy.<br/>	(default 0 = M5'
+  /// method)<br/>-C = 	Do not try to eliminate colinear attributes.<br/><br/>-R
+  /// &lt;double&gt; = 	Set ridge parameter (default 1.0e-8).<br/><br/>-minimal =
+  /// 	Conserve memory, don't keep dataset header and means/stdevs.<br/>	Model cannot
+  /// be printed out if this option is enabled.	(default: keep data)
   /// </summary>
   public class LinearRegression<T> : BaseClassifier<T, LinearRegression> where T : new()
   {

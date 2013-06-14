@@ -6,25 +6,48 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// Implements John Platt's sequential minimal optimization algorithm for
-  /// training a support vector classifier. This implementation globally replaces
-  /// all missing values and transforms nominal attributes into binary ones. It
-  /// also normalizes all attributes by default. (In that case the coefficients in
-  /// the output are based on the normalized data, not the original data --- this
-  /// is important for interpreting the classifier.) Multi-class problems are
-  /// solved using pairwise classification (1-vs-1 and if logistic models are built
-  /// pairwise coupling according to Hastie and Tibshirani, 1998). To obtain
-  /// proper probability estimates, use the option that fits logistic regression
-  /// models to the outputs of the support vector machine. In the multi-class case
-  /// the predicted probabilities are coupled using Hastie and Tibshirani's
-  /// pairwise coupling method. Note: for improved speed normalization should be turned
-  /// off when operating on SparseInstances. For more information on the SMO
-  /// algorithm, see J. Platt: Fast Training of Support Vector Machines using
-  /// Sequential Minimal Optimization. In B. Schoelkopf and C. Burges and A. Smola,
-  /// editors, Advances in Kernel Methods - Support Vector Learning, 1998. S.S.
-  /// Keerthi, S.K. Shevade, C. Bhattacharyya, K.R.K. Murthy (2001). Improvements to
-  /// Platt's SMO Algorithm for SVM Classifier Design. Neural Computation.
-  /// 13(3):637-649. Trevor Hastie, Robert Tibshirani: Classification by Pairwise
-  /// Coupling. In: Advances in Neural Information Processing Systems, 1998.
+  /// training a support vector classifier.<br/><br/>This implementation globally
+  /// replaces all missing values and transforms nominal attributes into binary
+  /// ones. It also normalizes all attributes by default. (In that case the
+  /// coefficients in the output are based on the normalized data, not the original data
+  /// --- this is important for interpreting the
+  /// classifier.)<br/><br/>Multi-class problems are solved using pairwise classification (1-vs-1 and if logistic
+  /// models are built pairwise coupling according to Hastie and Tibshirani,
+  /// 1998).<br/><br/>To obtain proper probability estimates, use the option that
+  /// fits logistic regression models to the outputs of the support vector machine.
+  /// In the multi-class case the predicted probabilities are coupled using
+  /// Hastie and Tibshirani's pairwise coupling method.<br/><br/>Note: for improved
+  /// speed normalization should be turned off when operating on
+  /// SparseInstances.<br/><br/>For more information on the SMO algorithm, see<br/><br/>J. Platt:
+  /// Fast Training of Support Vector Machines using Sequential Minimal
+  /// Optimization. In B. Schoelkopf and C. Burges and A. Smola, editors, Advances in
+  /// Kernel Methods - Support Vector Learning, 1998.<br/><br/>S.S. Keerthi, S.K.
+  /// Shevade, C. Bhattacharyya, K.R.K. Murthy (2001). Improvements to Platt's SMO
+  /// Algorithm for SVM Classifier Design. Neural Computation.
+  /// 13(3):637-649.<br/><br/>Trevor Hastie, Robert Tibshirani: Classification by Pairwise Coupling.
+  /// In: Advances in Neural Information Processing Systems,
+  /// 1998.<br/><br/>Options:<br/><br/>-D = 	If set, classifier is run in debug mode and<br/>	may
+  /// output additional info to the console<br/>-no-checks = 	Turns off all checks
+  /// - use with caution!<br/>	Turning them off assumes that data is purely
+  /// numeric, doesn't<br/>	contain any missing values, and has a nominal class.
+  /// Turning them<br/>	off also means that no header information will be stored if
+  /// the<br/>	machine is linear. Finally, it also assumes that no instance
+  /// has<br/>	a weight equal to 0.<br/>	(default: checks on)<br/>-C &lt;double&gt; =
+  /// 	The complexity constant C. (default 1)<br/>-N = 	Whether to
+  /// 0=normalize/1=standardize/2=neither. (default 0=normalize)<br/>-L &lt;double&gt; = 	The
+  /// tolerance parameter. (default 1.0e-3)<br/>-P &lt;double&gt; = 	The epsilon for
+  /// round-off error. (default 1.0e-12)<br/>-M = 	Fit logistic models to SVM
+  /// outputs. <br/>-V &lt;double&gt; = 	The number of folds for the
+  /// internal<br/>	cross-validation. (default -1, use training data)<br/>-W &lt;double&gt; =
+  /// 	The random number seed. (default 1)<br/>-K &lt;classname and parameters&gt;
+  /// = 	The Kernel to use.<br/>	(default:
+  /// weka.classifiers.functions.supportVector.PolyKernel)<br/><br/>Options specific to kernel
+  /// weka.classifiers.functions.supportVector.PolyKernel: = <br/>-D = 	Enables debugging output (if
+  /// available) to be printed.<br/>	(default: off)<br/>-no-checks = 	Turns off all
+  /// checks - use with caution!<br/>	(default: checks on)<br/>-C &lt;num&gt; =
+  /// 	The size of the cache (a prime number), 0 for full cache and <br/>	-1 to
+  /// turn it off.<br/>	(default: 250007)<br/>-E &lt;num&gt; = 	The Exponent to
+  /// use.<br/>	(default: 1.0)<br/>-L = 	Use lower-order terms.<br/>	(default: no)
   /// </summary>
   public class SMO<T> : BaseClassifier<T, SMO> where T : new()
   {

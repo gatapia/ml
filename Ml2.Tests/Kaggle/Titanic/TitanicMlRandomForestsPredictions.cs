@@ -12,7 +12,7 @@ namespace Ml2.Tests.Kaggle.Titanic
   /// <summary>
   /// Random Forest with 300 trees and 7 features: 81.8182%.
   /// </summary>
-  [TestFixture] public class TitanicMlPredictions
+  [TestFixture] public class TitanicMlRandomForestsPredictions
   {
     [Test] public void Build_titanic_random_forest_model() {
       var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv");
@@ -140,6 +140,20 @@ namespace Ml2.Tests.Kaggle.Titanic
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }
 
+    [Test] public void Test_only_on_genders() {
+      var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
+          Where(t => t.Sex == ESex.Female).ToArray();
+      var train = new Runtime(rows, 0);
+      train.Instances.deleteStringAttributes();                 
+      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+
+      rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
+          Where(t => t.Sex == ESex.Male).ToArray();
+      train = new Runtime(rows, 0);
+      train.Instances.deleteStringAttributes();                 
+      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+    }
+
     private string GetCabinBin(string cabin) {
       if (String.IsNullOrEmpty(cabin)) { return "Unknown"; }
       return cabin[0].ToString();
@@ -158,7 +172,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       return (val / 100).ToString();
     }
 
-    private BaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features)  where T : new() {
+    private IBaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features)  where T : new() {
       return runtime.
         Classifiers.RandomForest().
         NumTrees(trees).

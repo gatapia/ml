@@ -10,7 +10,9 @@ namespace Ml2.Fltr
   /// zero, the value of the new attribute will be zero. If the value of the
   /// numeric attribute is missing, the value of the new attribute will be missing.
   /// Otherwise, the value of the new attribute will be one. The new attributes will
-  /// be nominal.
+  /// be nominal.<br/><br/>Options:<br/><br/>-unset-class-temporarily = 	Unsets
+  /// the class index temporarily before the filter is<br/>	applied to the
+  /// data.<br/>	(default: no)
   /// </summary>
   public class NumericToBinary<T> : BaseFilter<T, NumericToBinary> where T : new()
   {

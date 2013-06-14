@@ -11,7 +11,13 @@ namespace Ml2.Fltr
   /// original instances object. E.g. if you have the values "1,2,3,4" with the
   /// frequencies "10,5,5,3" and you chose to keep the 2 most common values, the
   /// values "1,2" would be returned, since the value "2" comes before "3", even
-  /// though they have the same frequency.
+  /// though they have the same frequency.<br/><br/>Options:<br/><br/>-C &lt;num&gt; =
+  /// 	Choose attribute to be used for selection.<br/>-N &lt;num&gt; = 	Number
+  /// of values to retain for the sepcified attribute, <br/>	i.e. the ones with
+  /// the most instances (default 2).<br/>-L = 	Instead of values with the most
+  /// instances the ones with the <br/>	least are retained.<br/><br/>-H = 	When
+  /// selecting on nominal attributes, removes header<br/>	references to excluded
+  /// values.<br/>-V = 	Invert matching sense.
   /// </summary>
   public class RemoveFrequentValues<T> : BaseFilter<T, RemoveFrequentValues> where T : new()
   {

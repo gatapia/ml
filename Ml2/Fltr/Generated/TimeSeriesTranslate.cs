@@ -9,7 +9,15 @@ namespace Ml2.Fltr
   /// replaces attribute values in the current instance with the equivalent attribute
   /// values of some previous (or future) instance. For instances where the
   /// desired value is unknown either the instance may be dropped, or missing values
-  /// used. Skips the class attribute if it is set.
+  /// used. Skips the class attribute if it is set.<br/><br/>Options:<br/><br/>-R
+  /// &lt;index1,index2-index4,...&gt; = 	Specify list of columns to translate in
+  /// time. First and<br/>	last are valid indexes. (default none)<br/>-V =
+  /// 	Invert matching sense (i.e. calculate for all non-specified columns)<br/>-I
+  /// &lt;num&gt; = 	The number of instances forward to translate
+  /// values<br/>	between. A negative number indicates taking values from<br/>	a past instance.
+  /// (default -1)<br/>-M = 	For instances at the beginning or end of the dataset
+  /// where<br/>	the translated values are not known, remove those
+  /// instances<br/>	(default is to use missing values).
   /// </summary>
   public class TimeSeriesTranslate<T> : BaseFilter<T, TimeSeriesTranslate> where T : new()
   {

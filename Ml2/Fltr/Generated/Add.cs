@@ -6,7 +6,15 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// An instance filter that adds a new attribute to the dataset. The new
-  /// attribute will contain all missing values.
+  /// attribute will contain all missing values.<br/><br/>Options:<br/><br/>-T
+  /// &lt;NUM|NOM|STR|DAT&gt; = 	The type of attribute to create:<br/>	NUM = Numeric
+  /// attribute<br/>	NOM = Nominal attribute<br/>	STR = String attribute<br/>	DAT =
+  /// Date attribute<br/>	(default: NUM)<br/>-C &lt;index&gt; = 	Specify where
+  /// to insert the column. First and last<br/>	are valid indexes.(default:
+  /// last)<br/>-N &lt;name&gt; = 	Name of the new attribute.<br/>	(default:
+  /// 'Unnamed')<br/>-L &lt;label1,label2,...&gt; = 	Create nominal attribute with given
+  /// labels<br/>	(default: numeric attribute)<br/>-F &lt;format&gt; = 	The format
+  /// of the date values (see ISO-8601)<br/>	(default: yyyy-MM-dd'T'HH:mm:ss)
   /// </summary>
   public class Add<T> : BaseFilter<T, Add> where T : new()
   {

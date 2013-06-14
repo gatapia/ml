@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using java.util;
 using weka.core;
 
 namespace Ml2.Tasks.Generator
@@ -33,8 +35,25 @@ namespace Ml2.Tasks.Generator
         Console.WriteLine("Type [" + t.FullName + "] does not have a valid globalInfo method.");
         return "No class description found.";
       }
-      var desc = (string) mi.Invoke(impl, null);
+      var desc = (string) mi.Invoke(impl, null);      
+      desc += GetOptionsDescriptions(impl);
+      desc = desc.Replace("\n", "<br/>");
       return String.Join("\n" + separator, SplitIntoChunks(desc, 75));
+    }
+
+    private static string GetOptionsDescriptions(object impl) {
+      var mi = impl.GetType().GetMethod("listOptions");
+      if (mi == null) return String.Empty;
+      var options = (Enumeration) mi.Invoke(impl, null);
+      var descs = new List<string>();
+      Option o;
+      while (options.hasMoreElements()) { 
+        o = (Option) options.nextElement();
+        var desc = o.synopsis().Replace("<", "&lt;").Replace(">", "&gt;") + 
+            " = " + o.description();
+        descs.Add(desc); 
+      }      
+      return "\n\nOptions:\n\n" + String.Join("\n", descs);
     }
 
     public static string[] SplitIntoChunks(string str, int chunksize)

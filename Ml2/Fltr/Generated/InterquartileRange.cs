@@ -6,11 +6,26 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// A filter for detecting outliers and extreme values based on interquartile
-  /// ranges. The filter skips the class attribute. Outliers: Q3 + OF*IQR < x <=
-  /// Q3 + EVF*IQR or Q1 - EVF*IQR <= x < Q1 - OF*IQR Extreme values: x > Q3 +
-  /// EVF*IQR or x < Q1 - EVF*IQR Key: Q1 = 25% quartile Q3 = 75% quartile IQR =
-  /// Interquartile Range, difference between Q1 and Q3 OF = Outlier Factor EVF =
-  /// Extreme Value Factor
+  /// ranges. The filter skips the class attribute.<br/><br/>Outliers:<br/> Q3 +
+  /// OF*IQR < x <= Q3 + EVF*IQR<br/> or<br/> Q1 - EVF*IQR <= x < Q1 -
+  /// OF*IQR<br/><br/>Extreme values:<br/> x > Q3 + EVF*IQR<br/> or<br/> x < Q1 -
+  /// EVF*IQR<br/><br/>Key:<br/> Q1 = 25% quartile<br/> Q3 = 75% quartile<br/> IQR =
+  /// Interquartile Range, difference between Q1 and Q3<br/> OF = Outlier Factor<br/>
+  /// EVF = Extreme Value Factor<br/><br/>Options:<br/><br/>-D = 	Turns on
+  /// output of debugging information.<br/>-R &lt;col1,col2-col4,...&gt; = 	Specifies
+  /// list of columns to base outlier/extreme value detection<br/>	on. If an
+  /// instance is considered in at least one of those<br/>	attributes an
+  /// outlier/extreme value, it is tagged accordingly.<br/> 'first' and 'last' are valid
+  /// indexes.<br/>	(default none)<br/>-O &lt;num&gt; = 	The factor for outlier
+  /// detection.<br/>	(default: 3)<br/>-E &lt;num&gt; = 	The factor for extreme values
+  /// detection.<br/>	(default: 2*Outlier Factor)<br/>-E-as-O = 	Tags extreme
+  /// values also as outliers.<br/>	(default: off)<br/>-P = 	Generates
+  /// Outlier/ExtremeValue pair for each numeric attribute in<br/>	the range, not just a
+  /// single indicator pair for all the attributes.<br/>	(default: off)<br/>-M =
+  /// 	Generates an additional attribute 'Offset' per Outlier/ExtremeValue<br/>	pair
+  /// that contains the multiplier that the value is off the median.<br/>	 value
+  /// = median + 'multiplier' * IQR<br/>Note: implicitely sets '-P'.	(default:
+  /// off)
   /// </summary>
   public class InterquartileRange<T> : BaseFilter<T, InterquartileRange> where T : new()
   {

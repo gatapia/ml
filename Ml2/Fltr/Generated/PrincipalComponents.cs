@@ -5,11 +5,18 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Performs a principal components analysis and transformation of the data.
-  /// Dimensionality reduction is accomplished by choosing enough eigenvectors to
-  /// account for some percentage of the variance in the original data --
-  /// default 0.95 (95%). Based on code of the attribute selection scheme
-  /// 'PrincipalComponents' by Mark Hall and Gabi Schmidberger.
+  /// Performs a principal components analysis and transformation of the
+  /// data.<br/>Dimensionality reduction is accomplished by choosing enough
+  /// eigenvectors to account for some percentage of the variance in the original data --
+  /// default 0.95 (95%).<br/>Based on code of the attribute selection scheme
+  /// 'PrincipalComponents' by Mark Hall and Gabi
+  /// Schmidberger.<br/><br/>Options:<br/><br/>-C = 	Center (rather than standardize) the<br/>	data and compute PCA
+  /// using the covariance (rather<br/>	 than the correlation) matrix.<br/>-R
+  /// &lt;num&gt; = 	Retain enough PC attributes to account<br/>	for this proportion
+  /// of variance in the original data.<br/>	(default: 0.95)<br/>-A &lt;num&gt; =
+  /// 	Maximum number of attributes to include in <br/>	transformed attribute
+  /// names.<br/>	(-1 = include all, default: 5)<br/>-M &lt;num&gt; = 	Maximum
+  /// number of PC attributes to retain.<br/>	(-1 = include all, default: -1)
   /// </summary>
   public class PrincipalComponents<T> : BaseFilter<T, PrincipalComponents> where T : new()
   {

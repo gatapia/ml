@@ -11,9 +11,29 @@ namespace Ml2.Clss
   /// predicted probabilities for each interval). This class now also supports
   /// conditional density estimation by building a univariate density estimator from
   /// the target values in the training data, weighted by the class
-  /// probabilities. For more information on this process, see Eibe Frank, Remco R.
-  /// Bouckaert: Conditional Density Estimation with Class Probability Estimators. In:
-  /// First Asian Conference on Machine Learning, Berlin, 65-81, 2009.
+  /// probabilities. <br/><br/>For more information on this process, see<br/><br/>Eibe Frank,
+  /// Remco R. Bouckaert: Conditional Density Estimation with Class Probability
+  /// Estimators. In: First Asian Conference on Machine Learning, Berlin, 65-81,
+  /// 2009.<br/><br/>Options:<br/><br/>-B &lt;int&gt; = 	Number of bins for
+  /// equal-width discretization<br/>	(default 10).<br/><br/>-E = 	Whether to delete
+  /// empty bins after discretization<br/>	(default false).<br/><br/>-A = 	Whether
+  /// to minimize absolute error, rather than squared error.<br/>	(default
+  /// false).<br/><br/>-F = 	Use equal-frequency instead of equal-width
+  /// discretization.<br/>-K = 	What type of density estimator to use:
+  /// 0=histogram/1=kernel/2=normal (default: 0).<br/>-D = 	If set, classifier is run in debug mode
+  /// and<br/>	may output additional info to the console<br/>-W = 	Full name of base
+  /// classifier.<br/>	(default: weka.classifiers.trees.J48)<br/><br/>Options
+  /// specific to classifier weka.classifiers.trees.J48: = <br/>-U = 	Use unpruned
+  /// tree.<br/>-O = 	Do not collapse tree.<br/>-C &lt;pruning confidence&gt; =
+  /// 	Set confidence threshold for pruning.<br/>	(default 0.25)<br/>-M &lt;minimum
+  /// number of instances&gt; = 	Set minimum number of instances per
+  /// leaf.<br/>	(default 2)<br/>-R = 	Use reduced error pruning.<br/>-N &lt;number of
+  /// folds&gt; = 	Set number of folds for reduced error<br/>	pruning. One fold is used
+  /// as pruning set.<br/>	(default 3)<br/>-B = 	Use binary splits only.<br/>-S
+  /// = 	Don't perform subtree raising.<br/>-L = 	Do not clean up after the tree
+  /// has been built.<br/>-A = 	Laplace smoothing for predicted
+  /// probabilities.<br/>-J = 	Do not use MDL correction for info gain on numeric
+  /// attributes.<br/>-Q &lt;seed&gt; = 	Seed for random data shuffling (default 1).
   /// </summary>
   public class RegressionByDiscretization<T> : BaseClassifier<T, RegressionByDiscretization> where T : new()
   {
@@ -63,7 +83,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RegressionByDiscretization<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
+    public RegressionByDiscretization<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((RegressionByDiscretization)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

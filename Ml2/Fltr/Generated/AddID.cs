@@ -6,8 +6,11 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// An instance filter that adds an ID attribute to the dataset. The new
-  /// attribute contains a unique ID for each instance. Note: The ID is not reset for
-  /// the second batch of files (using -b and -r and -s).
+  /// attribute contains a unique ID for each instance.<br/>Note: The ID is not reset
+  /// for the second batch of files (using -b and -r and
+  /// -s).<br/><br/>Options:<br/><br/>-C &lt;index&gt; = 	Specify where to insert the ID. First and
+  /// last<br/>	are valid indexes.(default first)<br/>-N &lt;name&gt; = 	Name of the
+  /// new attribute.<br/>	(default = 'ID')
   /// </summary>
   public class AddID<T> : BaseFilter<T, AddID> where T : new()
   {

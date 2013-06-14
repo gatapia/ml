@@ -5,27 +5,35 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Filters instances according to a user-specified expression. Grammar:
-  /// boolexpr_list ::= boolexpr_list boolexpr_part | boolexpr_part; boolexpr_part
-  /// ::= boolexpr:e {: parser.setResult(e); :} ; boolexpr ::= BOOLEAN | true |
-  /// false | expr < expr | expr <= expr | expr > expr | expr >= expr | expr = expr
-  /// | ( boolexpr ) | not boolexpr | boolexpr and boolexpr | boolexpr or
-  /// boolexpr | ATTRIBUTE is STRING ; expr ::= NUMBER | ATTRIBUTE | ( expr ) | opexpr |
-  /// funcexpr ; opexpr ::= expr + expr | expr - expr | expr * expr | expr /
-  /// expr ; funcexpr ::= abs ( expr ) | sqrt ( expr ) | log ( expr ) | exp ( expr )
-  /// | sin ( expr ) | cos ( expr ) | tan ( expr ) | rint ( expr ) | floor (
-  /// expr ) | pow ( expr for base , expr for exponent ) | ceil ( expr ) ; Notes: -
-  /// NUMBER any integer or floating point number (but not in scientific
-  /// notation!) - STRING any string surrounded by single quotes; the string may not
-  /// contain a single quote though. - ATTRIBUTE the following placeholders are
-  /// recognized for attribute values: - CLASS for the class value in case a class
-  /// attribute is set. - ATTxyz with xyz a number from 1 to # of attributes in the
-  /// dataset, representing the value of indexed attribute. Examples: -
-  /// extracting only mammals and birds from the 'zoo' UCI dataset: (CLASS is 'mammal') or
-  /// (CLASS is 'bird') - extracting only animals with at least 2 legs from the
-  /// 'zoo' UCI dataset: (ATT14 >= 2) - extracting only instances with
-  /// non-missing 'wage-increase-second-year' from the 'labor' UCI dataset: not
-  /// ismissing(ATT3)
+  /// Filters instances according to a user-specified
+  /// expression.<br/><br/>Grammar:<br/><br/>boolexpr_list ::= boolexpr_list boolexpr_part |
+  /// boolexpr_part;<br/><br/>boolexpr_part ::= boolexpr:e {: parser.setResult(e); :}
+  /// ;<br/><br/>boolexpr ::= BOOLEAN <br/> | true<br/> | false<br/> | expr < expr<br/> |
+  /// expr <= expr<br/> | expr > expr<br/> | expr >= expr<br/> | expr =
+  /// expr<br/> | ( boolexpr )<br/> | not boolexpr<br/> | boolexpr and boolexpr<br/> |
+  /// boolexpr or boolexpr<br/> | ATTRIBUTE is STRING<br/> ;<br/><br/>expr ::=
+  /// NUMBER<br/> | ATTRIBUTE<br/> | ( expr )<br/> | opexpr<br/> | funcexpr<br/>
+  /// ;<br/><br/>opexpr ::= expr + expr<br/> | expr - expr<br/> | expr * expr<br/> |
+  /// expr / expr<br/> ;<br/><br/>funcexpr ::= abs ( expr )<br/> | sqrt ( expr
+  /// )<br/> | log ( expr )<br/> | exp ( expr )<br/> | sin ( expr )<br/> | cos (
+  /// expr )<br/> | tan ( expr )<br/> | rint ( expr )<br/> | floor ( expr )<br/> |
+  /// pow ( expr for base , expr for exponent )<br/> | ceil ( expr )<br/>
+  /// ;<br/><br/>Notes:<br/>- NUMBER<br/> any integer or floating point number <br/>
+  /// (but not in scientific notation!)<br/>- STRING<br/> any string surrounded by
+  /// single quotes; <br/> the string may not contain a single quote though.<br/>-
+  /// ATTRIBUTE<br/> the following placeholders are recognized for <br/>
+  /// attribute values:<br/> - CLASS for the class value in case a class attribute is
+  /// set.<br/> - ATTxyz with xyz a number from 1 to # of attributes in the<br/>
+  /// dataset, representing the value of indexed
+  /// attribute.<br/><br/>Examples:<br/>- extracting only mammals and birds from the 'zoo' UCI dataset:<br/> (CLASS
+  /// is 'mammal') or (CLASS is 'bird')<br/>- extracting only animals with at
+  /// least 2 legs from the 'zoo' UCI dataset:<br/> (ATT14 >= 2)<br/>- extracting
+  /// only instances with non-missing 'wage-increase-second-year'<br/> from the
+  /// 'labor' UCI dataset:<br/> not
+  /// ismissing(ATT3)<br/><br/><br/>Options:<br/><br/>-E &lt;expr&gt; = 	The expression to use for filtering<br/>	(default:
+  /// true).<br/>-F = 	Apply the filter to instances that arrive after the
+  /// first<br/>	(training) batch. The default is to not apply the filter (i.e.<br/>	always
+  /// return the instance)
   /// </summary>
   public class SubsetByExpression<T> : BaseFilter<T, SubsetByExpression> where T : new()
   {

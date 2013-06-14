@@ -7,7 +7,9 @@ namespace Ml2.Fltr
   /// <summary>
   /// Converts a range of string attributes (unspecified number of values) to
   /// nominal (set number of values). You should ensure that all string values
-  /// that will appear are represented in the first batch of the data.
+  /// that will appear are represented in the first batch of the
+  /// data.<br/><br/>Options:<br/><br/>-R &lt;col&gt; = 	Sets the range of attribute indices
+  /// (default last).<br/>-V &lt;col&gt; = 	Invert the range specified by -R.
   /// </summary>
   public class StringToNominal<T> : BaseFilter<T, StringToNominal> where T : new()
   {

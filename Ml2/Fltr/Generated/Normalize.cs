@@ -9,7 +9,11 @@ namespace Ml2.Fltr
   /// attribute, if set). The resulting values are by default in [0,1] for the
   /// data used to compute the normalization intervals. But with the scale and
   /// translation parameters one can change that, e.g., with scale = 2.0 and
-  /// translation = -1.0 you get values in the range [-1,+1].
+  /// translation = -1.0 you get values in the range
+  /// [-1,+1].<br/><br/>Options:<br/><br/>-unset-class-temporarily = 	Unsets the class index temporarily before the
+  /// filter is<br/>	applied to the data.<br/>	(default: no)<br/>-S &lt;num&gt; =
+  /// 	The scaling factor for the output range.<br/>	(default: 1.0)<br/>-T
+  /// &lt;num&gt; = 	The translation of the output range.<br/>	(default: 0.0)
   /// </summary>
   public class Normalize<T> : BaseFilter<T, Normalize> where T : new()
   {

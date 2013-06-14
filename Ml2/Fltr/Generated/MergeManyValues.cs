@@ -5,7 +5,12 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Merges many values of a nominal attribute into one value.
+  /// Merges many values of a nominal attribute into one
+  /// value.<br/><br/>Options:<br/><br/>-C &lt;col&gt; = 	Sets the attribute index<br/>	(default:
+  /// last)<br/>-L &lt;label&gt; = 	Sets the label of the newly merged
+  /// classes<br/>	(default: 'merged')<br/>-R &lt;range&gt; = 	Sets the merge range. 'first and
+  /// 'last' are accepted as well.'<br/>	E.g.: first-5,7,9,20-last<br/>	(default:
+  /// 1,2)
   /// </summary>
   public class MergeManyValues<T> : BaseFilter<T, MergeManyValues> where T : new()
   {

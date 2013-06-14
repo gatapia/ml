@@ -35,7 +35,7 @@ namespace Ml2.Tasks.Generator
         tiptextmname = Char.ToLower(tiptextmname[0]) + tiptextmname.Substring(1);
         var mi = Model.ImplementationType.GetMethod(tiptextmname, BindingFlags.Instance | BindingFlags.Public);
         if (mi == null) return String.Empty;
-        var desc = (string) mi.Invoke(Activator.CreateInstance(Model.ImplementationType), null);
+        var desc = (string) mi.Invoke(Activator.CreateInstance(Model.ImplementationType), null);        
         return String.Join("\n    /// ", Utils.SplitIntoChunks(desc, 75));
       }
     }

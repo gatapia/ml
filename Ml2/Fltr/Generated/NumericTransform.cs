@@ -5,7 +5,13 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Transforms numeric attributes using a given transformation method.
+  /// Transforms numeric attributes using a given transformation
+  /// method.<br/><br/>Options:<br/><br/>-R &lt;index1,index2-index4,...&gt; = 	Specify list of
+  /// columns to transform. First and last are<br/>	valid indexes (default
+  /// none). Non-numeric columns are <br/>	skipped.<br/>-V = 	Invert matching
+  /// sense.<br/>-C &lt;string&gt; = 	Sets the class containing transformation
+  /// method.<br/>	(default java.lang.Math)<br/>-M &lt;string&gt; = 	Sets the method.
+  /// (default abs)
   /// </summary>
   public class NumericTransform<T> : BaseFilter<T, NumericTransform> where T : new()
   {

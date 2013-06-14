@@ -7,7 +7,10 @@ namespace Ml2.Fltr
   /// <summary>
   /// Chooses a random subset of attributes, either an absolute number or a
   /// percentage. The class is always included in the output (as the last
-  /// attribute).
+  /// attribute).<br/><br/>Options:<br/><br/>-D = 	Turns on output of debugging
+  /// information.<br/>-N &lt;double&gt; = 	The number of attributes to randomly
+  /// select.<br/>	If < 1 then percentage, >= 1 absolute number.<br/>	(default: 0.5)<br/>-S
+  /// &lt;int&gt; = 	The seed value.<br/>	(default: 1)
   /// </summary>
   public class RandomSubset<T> : BaseFilter<T, RandomSubset> where T : new()
   {

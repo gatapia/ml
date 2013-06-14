@@ -12,10 +12,14 @@ namespace Ml2.Clss
   /// UpdateableClassifier functionality, use the NaiveBayesUpdateable
   /// classifier. The NaiveBayesUpdateable classifier will use a default precision of 0.1
   /// for numeric attributes when buildClassifier is called with zero training
-  /// instances. For more information on Naive Bayes classifiers, see George H.
-  /// John, Pat Langley: Estimating Continuous Distributions in Bayesian Classifiers.
-  /// In: Eleventh Conference on Uncertainty in Artificial Intelligence, San
-  /// Mateo, 338-345, 1995.
+  /// instances.<br/><br/>For more information on Naive Bayes classifiers,
+  /// see<br/><br/>George H. John, Pat Langley: Estimating Continuous Distributions in
+  /// Bayesian Classifiers. In: Eleventh Conference on Uncertainty in Artificial
+  /// Intelligence, San Mateo, 338-345, 1995.<br/><br/>Options:<br/><br/>-K = 	Use
+  /// kernel density estimator rather than normal<br/>	distribution for numeric
+  /// attributes<br/>-D = 	Use supervised discretization to process numeric
+  /// attributes<br/><br/>-O = 	Display model in old format (good when there are many
+  /// classes)<br/>
   /// </summary>
   public class NaiveBayes<T> : BaseClassifier<T, NaiveBayes> where T : new()
   {

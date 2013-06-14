@@ -5,8 +5,17 @@ using weka.clusterers;
 namespace Ml2.Clstr
 {
   /// <summary>
-  /// Hierarchical clustering class. Implements a number of classic
-  /// agglomorative (i.e. bottom up) hierarchical clustering methodsbased on .
+  /// Hierarchical clustering class.<br/>Implements a number of classic
+  /// agglomorative (i.e. bottom up) hierarchical clustering methodsbased on
+  /// .<br/><br/>Options:<br/><br/>-D = 	If set, classifier is run in debug mode
+  /// and<br/>	may output additional info to the console<br/>-B = 	If set, distance is
+  /// interpreted as branch length<br/>	otherwise it is node height.<br/>-N &lt;Nr Of
+  /// Clusters&gt; = 	number of clusters<br/>-P = 	Flag to indicate the cluster
+  /// should be printed in Newick format.<br/>-L
+  /// [SINGLE|COMPLETE|AVERAGE|MEAN|CENTROID|WARD|ADJCOMLPETE|NEIGHBOR_JOINING] = Link type (Single, Complete,
+  /// Average, Mean, Centroid, Ward, Adjusted complete, Neighbor joining)<br/>-A
+  /// &lt;classname and options&gt; = 	Distance function to use.<br/>	(default:
+  /// weka.core.EuclideanDistance)
   /// </summary>
   public class Hierarchical<T> : BaseClusterer<T, HierarchicalClusterer> where T : new()
   {    

@@ -9,10 +9,22 @@ namespace Ml2.Clss
   /// with simple regression functions as base learners is used for fitting the
   /// logistic models. The optimal number of LogitBoost iterations to perform is
   /// cross-validated, which leads to automatic attribute selection. For more
-  /// information see: Niels Landwehr, Mark Hall, Eibe Frank (2005). Logistic Model
-  /// Trees. Marc Sumner, Eibe Frank, Mark Hall: Speeding up Logistic Model Tree
-  /// Induction. In: 9th European Conference on Principles and Practice of Knowledge
-  /// Discovery in Databases, 675-683, 2005.
+  /// information see:<br/>Niels Landwehr, Mark Hall, Eibe Frank (2005). Logistic Model
+  /// Trees.<br/><br/>Marc Sumner, Eibe Frank, Mark Hall: Speeding up Logistic
+  /// Model Tree Induction. In: 9th European Conference on Principles and Practice
+  /// of Knowledge Discovery in Databases, 675-683,
+  /// 2005.<br/><br/>Options:<br/><br/>-I &lt;iterations&gt; = 	Set fixed number of iterations for
+  /// LogitBoost<br/>-S = 	Use stopping criterion on training set (instead
+  /// of<br/>	cross-validation)<br/>-P = 	Use error on probabilities (rmse) instead
+  /// of<br/>	misclassification error for stopping criterion<br/>-M &lt;iterations&gt; = 	Set
+  /// maximum number of boosting iterations<br/>-H &lt;iterations&gt; = 	Set
+  /// parameter for heuristic for early stopping of<br/>	LogitBoost.<br/>	If enabled,
+  /// the minimum is selected greedily, stopping<br/>	if the current minimum has
+  /// not changed for iter iterations.<br/>	By default, heuristic is enabled with
+  /// value 50. Set to<br/>	zero to disable heuristic.<br/>-W &lt;beta&gt; =
+  /// 	Set beta for weight trimming for LogitBoost. Set to 0 for no weight
+  /// trimming.<br/><br/>-A = 	The AIC is used to choose the best iteration (instead of CV
+  /// or training error).<br/>
   /// </summary>
   public class SimpleLogistic<T> : BaseClassifier<T, SimpleLogistic> where T : new()
   {

@@ -8,10 +8,14 @@ namespace Ml2.Clss
   /// K* is an instance-based classifier, that is the class of a test instance
   /// is based upon the class of those training instances similar to it, as
   /// determined by some similarity function. It differs from other instance-based
-  /// learners in that it uses an entropy-based distance function. For more
-  /// information on K*, see John G. Cleary, Leonard E. Trigg: K*: An Instance-based
-  /// Learner Using an Entropic Distance Measure. In: 12th International Conference
-  /// on Machine Learning, 108-114, 1995.
+  /// learners in that it uses an entropy-based distance function.<br/><br/>For more
+  /// information on K*, see<br/><br/>John G. Cleary, Leonard E. Trigg: K*: An
+  /// Instance-based Learner Using an Entropic Distance Measure. In: 12th
+  /// International Conference on Machine Learning, 108-114,
+  /// 1995.<br/><br/>Options:<br/><br/>-B &lt;num&gt; = 	Manual blend setting (default 20%)<br/><br/>-E =
+  /// 	Enable entropic auto-blend setting (symbolic class only)<br/><br/>-M
+  /// &lt;char&gt; = 	Specify the missing value treatment mode (default a)<br/>	Valid
+  /// options are: a(verage), d(elete), m(axdiff), n(ormal)<br/>
   /// </summary>
   public class KStar<T> : BaseClassifier<T, KStar> where T : new()
   {

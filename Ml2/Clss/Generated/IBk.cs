@@ -6,9 +6,20 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// K-nearest neighbours classifier. Can select appropriate value of K based
-  /// on cross-validation. Can also do distance weighting. For more information,
-  /// see D. Aha, D. Kibler (1991). Instance-based learning algorithms. Machine
-  /// Learning. 6:37-66.
+  /// on cross-validation. Can also do distance weighting.<br/><br/>For more
+  /// information, see<br/><br/>D. Aha, D. Kibler (1991). Instance-based learning
+  /// algorithms. Machine Learning. 6:37-66.<br/><br/>Options:<br/><br/>-I = 	Weight
+  /// neighbours by the inverse of their distance<br/>	(use when k > 1)<br/>-F =
+  /// 	Weight neighbours by 1 - their distance<br/>	(use when k > 1)<br/>-K
+  /// &lt;number of neighbors&gt; = 	Number of nearest neighbours (k) used in
+  /// classification.<br/>	(Default = 1)<br/>-E = 	Minimise mean squared error rather
+  /// than mean absolute<br/>	error when using -X option with numeric
+  /// prediction.<br/>-W &lt;window size&gt; = 	Maximum number of training instances
+  /// maintained.<br/>	Training instances are dropped FIFO. (Default = no window)<br/>-X =
+  /// 	Select the number of nearest neighbours between 1<br/>	and the k value
+  /// specified using hold-one-out evaluation<br/>	on the training data (use when k
+  /// > 1)<br/>-A = 	The nearest neighbour search algorithm to use (default:
+  /// weka.core.neighboursearch.LinearNNSearch).<br/>
   /// </summary>
   public class IBk<T> : BaseClassifier<T, IBk> where T : new()
   {

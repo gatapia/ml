@@ -5,11 +5,28 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// WrapperSubsetEval: Evaluates attribute sets by using a learning scheme.
-  /// Cross validation is used to estimate the accuracy of the learning scheme for
-  /// a set of attributes. For more information see: Ron Kohavi, George H. John
-  /// (1997). Wrappers for feature subset selection. Artificial Intelligence.
-  /// 97(1-2):273-324.
+  /// WrapperSubsetEval:<br/><br/>Evaluates attribute sets by using a learning
+  /// scheme. Cross validation is used to estimate the accuracy of the learning
+  /// scheme for a set of attributes.<br/><br/>For more information
+  /// see:<br/><br/>Ron Kohavi, George H. John (1997). Wrappers for feature subset selection.
+  /// Artificial Intelligence. 97(1-2):273-324.<br/><br/>Options:<br/><br/>-B
+  /// &lt;base learner&gt; = 	class name of base learner to use for 	accuracy
+  /// estimation.<br/>	Place any classifier options LAST on the command
+  /// line<br/>	following a "--". eg.:<br/>		-B weka.classifiers.bayes.NaiveBayes ... --
+  /// -K<br/>	(default: weka.classifiers.rules.ZeroR)<br/>-F &lt;num&gt; = 	number of
+  /// cross validation folds to use for estimating accuracy.<br/>	(default=5)<br/>-R
+  /// &lt;seed&gt; = 	Seed for cross validation accuracy
+  /// testimation.<br/>	(default = 1)<br/>-T &lt;num&gt; = 	threshold by which to execute another cross
+  /// validation<br/>	(standard deviation---expressed as a percentage of the
+  /// mean).<br/>	(default: 0.01 (1%))<br/>-E &lt;acc | rmse | mae | f-meas | auc |
+  /// auprc&gt; = 	Performance evaluation measure to use for selecting
+  /// attributes.<br/>	(Default = accuracy for discrete class and rmse for numeric
+  /// class)<br/>-IRclass &lt;label | index&gt; = 	Optional class value (label or 1-based
+  /// index) to use in conjunction with<br/>	IR statistics (f-meas, auc or
+  /// auprc). Omitting this option will use<br/>	the class-weighted
+  /// average.<br/><br/>Options specific to scheme weka.classifiers.rules.ZeroR: = <br/>-D = 	If
+  /// set, classifier is run in debug mode and<br/>	may output additional info to
+  /// the console
   /// </summary>
   public class WrapperSubset<T> : BaseAttributeSelectionEvaluator<T, WrapperSubsetEval> where T : new()
   {
@@ -18,7 +35,7 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Classifier to use for estimating the accuracy of subsets
     /// </summary>    
-    public WrapperSubset<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
+    public WrapperSubset<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((WrapperSubsetEval)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

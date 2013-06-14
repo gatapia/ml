@@ -8,11 +8,21 @@ namespace Ml2.Clss
   /// Classifier for building 'logistic model trees', which are classification
   /// trees with logistic regression functions at the leaves. The algorithm can
   /// deal with binary and multi-class target variables, numeric and nominal
-  /// attributes and missing values. For more information see: Niels Landwehr, Mark
-  /// Hall, Eibe Frank (2005). Logistic Model Trees. Machine Learning.
-  /// 95(1-2):161-205. Marc Sumner, Eibe Frank, Mark Hall: Speeding up Logistic Model Tree
-  /// Induction. In: 9th European Conference on Principles and Practice of
-  /// Knowledge Discovery in Databases, 675-683, 2005.
+  /// attributes and missing values.<br/><br/>For more information see:
+  /// <br/><br/>Niels Landwehr, Mark Hall, Eibe Frank (2005). Logistic Model Trees. Machine
+  /// Learning. 95(1-2):161-205.<br/><br/>Marc Sumner, Eibe Frank, Mark Hall:
+  /// Speeding up Logistic Model Tree Induction. In: 9th European Conference on
+  /// Principles and Practice of Knowledge Discovery in Databases, 675-683,
+  /// 2005.<br/><br/>Options:<br/><br/>-B = 	Binary splits (convert nominal attributes to
+  /// binary ones)<br/>-R = 	Split on residuals instead of class values<br/>-C =
+  /// 	Use cross-validation for boosting at all nodes (i.e., disable
+  /// heuristic)<br/>-P = 	Use error on probabilities instead of misclassification error for
+  /// stopping criterion of LogitBoost.<br/>-I &lt;numIterations&gt; = 	Set fixed
+  /// number of iterations for LogitBoost (instead of using
+  /// cross-validation)<br/>-M &lt;numInstances&gt; = 	Set minimum number of instances at which a node
+  /// can be split (default 15)<br/>-W &lt;beta&gt; = 	Set beta for weight
+  /// trimming for LogitBoost. Set to 0 (default) for no weight trimming.<br/>-A = 	The
+  /// AIC is used to choose the best iteration.
   /// </summary>
   public class LMT<T> : BaseClassifier<T, LMT> where T : new()
   {

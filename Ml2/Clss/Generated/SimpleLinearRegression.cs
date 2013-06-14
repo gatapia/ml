@@ -7,7 +7,8 @@ namespace Ml2.Clss
   /// <summary>
   /// Learns a simple linear regression model. Picks the attribute that results
   /// in the lowest squared error. Missing values are not allowed. Can only deal
-  /// with numeric attributes.
+  /// with numeric attributes.<br/><br/>Options:<br/><br/>-D = 	If set,
+  /// classifier is run in debug mode and<br/>	may output additional info to the console
   /// </summary>
   public class SimpleLinearRegression<T> : BaseClassifier<T, SimpleLinearRegression> where T : new()
   {

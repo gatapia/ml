@@ -7,7 +7,19 @@ namespace Ml2.Clss
   /// <summary>
   /// A metaclassifier for handling multi-class datasets with 2-class
   /// classifiers. This classifier is also capable of applying error correcting output
-  /// codes for increased accuracy.
+  /// codes for increased accuracy.<br/><br/>Options:<br/><br/>-M &lt;num&gt; =
+  /// 	Sets the method to use. Valid values are 0 (1-against-all),<br/>	1 (random
+  /// codes), 2 (exhaustive code), and 3 (1-against-1). (default 0)<br/><br/>-R
+  /// &lt;num&gt; = 	Sets the multiplier when using random codes. (default
+  /// 2.0)<br/>-P = 	Use pairwise coupling (only has an effect for 1-against1)<br/>-S
+  /// &lt;num&gt; = 	Random number seed.<br/>	(default 1)<br/>-D = 	If set, classifier
+  /// is run in debug mode and<br/>	may output additional info to the
+  /// console<br/>-W = 	Full name of base classifier.<br/>	(default:
+  /// weka.classifiers.functions.Logistic)<br/><br/>Options specific to classifier
+  /// weka.classifiers.functions.Logistic: = <br/>-D = 	Turn on debugging output.<br/>-C = 	Use
+  /// conjugate gradient descent rather than BFGS updates.<br/>-R &lt;ridge&gt; = 	Set
+  /// the ridge in the log-likelihood.<br/>-M &lt;number&gt; = 	Set the maximum
+  /// number of iterations (default -1, until convergence).
   /// </summary>
   public class MultiClassClassifier<T> : BaseClassifier<T, MultiClassClassifier> where T : new()
   {
@@ -50,7 +62,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public MultiClassClassifier<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
+    public MultiClassClassifier<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((MultiClassClassifier)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

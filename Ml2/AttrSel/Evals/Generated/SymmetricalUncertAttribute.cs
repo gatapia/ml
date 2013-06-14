@@ -5,10 +5,11 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// SymmetricalUncertAttributeEval : Evaluates the worth of an attribute by
-  /// measuring the symmetrical uncertainty with respect to the class.
-  /// SymmU(Class, Attribute) = 2 * (H(Class) - H(Class | Attribute)) / H(Class) +
-  /// H(Attribute).
+  /// SymmetricalUncertAttributeEval :<br/><br/>Evaluates the worth of an
+  /// attribute by measuring the symmetrical uncertainty with respect to the class.
+  /// <br/><br/> SymmU(Class, Attribute) = 2 * (H(Class) - H(Class | Attribute)) /
+  /// H(Class) + H(Attribute).<br/><br/><br/>Options:<br/><br/>-M = 	treat
+  /// missing values as a seperate value.
   /// </summary>
   public class SymmetricalUncertAttribute<T> : BaseAttributeSelectionEvaluator<T, SymmetricalUncertAttributeEval> where T : new()
   {

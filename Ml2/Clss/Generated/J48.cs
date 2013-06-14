@@ -6,8 +6,19 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// Class for generating a pruned or unpruned C4.5 decision tree. For more
-  /// information, see Ross Quinlan (1993). C4.5: Programs for Machine Learning.
-  /// Morgan Kaufmann Publishers, San Mateo, CA.
+  /// information, see<br/><br/>Ross Quinlan (1993). C4.5: Programs for Machine
+  /// Learning. Morgan Kaufmann Publishers, San Mateo,
+  /// CA.<br/><br/>Options:<br/><br/>-U = 	Use unpruned tree.<br/>-O = 	Do not collapse tree.<br/>-C
+  /// &lt;pruning confidence&gt; = 	Set confidence threshold for pruning.<br/>	(default
+  /// 0.25)<br/>-M &lt;minimum number of instances&gt; = 	Set minimum number of
+  /// instances per leaf.<br/>	(default 2)<br/>-R = 	Use reduced error
+  /// pruning.<br/>-N &lt;number of folds&gt; = 	Set number of folds for reduced
+  /// error<br/>	pruning. One fold is used as pruning set.<br/>	(default 3)<br/>-B = 	Use
+  /// binary splits only.<br/>-S = 	Don't perform subtree raising.<br/>-L = 	Do not
+  /// clean up after the tree has been built.<br/>-A = 	Laplace smoothing for
+  /// predicted probabilities.<br/>-J = 	Do not use MDL correction for info gain on
+  /// numeric attributes.<br/>-Q &lt;seed&gt; = 	Seed for random data shuffling
+  /// (default 1).
   /// </summary>
   public class J48<T> : BaseClassifier<T, J48> where T : new()
   {

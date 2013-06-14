@@ -5,8 +5,13 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// OneRAttributeEval : Evaluates the worth of an attribute by using the OneR
-  /// classifier.
+  /// OneRAttributeEval :<br/><br/>Evaluates the worth of an attribute by using
+  /// the OneR classifier.<br/><br/><br/>Options:<br/><br/>-S &lt;seed&gt; =
+  /// 	Random number seed for cross validation<br/>	(default = 1)<br/>-F
+  /// &lt;folds&gt; = 	Number of folds for cross validation<br/>	(default = 10)<br/>-D =
+  /// 	Use training data for evaluation rather than cross validaton<br/>-B
+  /// &lt;minimum bucket size&gt; = 	Minimum number of objects in a bucket<br/>	(passed on
+  /// to OneR, default = 6)
   /// </summary>
   public class OneRAttribute<T> : BaseAttributeSelectionEvaluator<T, OneRAttributeEval> where T : new()
   {

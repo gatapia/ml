@@ -7,8 +7,10 @@ namespace Ml2.Clss
   /// <summary>
   /// Class for building and using a 1R classifier; in other words, uses the
   /// minimum-error attribute for prediction, discretizing numeric attributes. For
-  /// more information, see: R.C. Holte (1993). Very simple classification rules
-  /// perform well on most commonly used datasets. Machine Learning. 11:63-91.
+  /// more information, see:<br/><br/>R.C. Holte (1993). Very simple
+  /// classification rules perform well on most commonly used datasets. Machine Learning.
+  /// 11:63-91.<br/><br/>Options:<br/><br/>-B &lt;minimum bucket size&gt; = 	The
+  /// minimum number of objects in a bucket (default: 6).
   /// </summary>
   public class OneR<T> : BaseClassifier<T, OneR> where T : new()
   {

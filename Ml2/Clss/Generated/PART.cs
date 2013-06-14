@@ -7,9 +7,18 @@ namespace Ml2.Clss
   /// <summary>
   /// Class for generating a PART decision list. Uses separate-and-conquer.
   /// Builds a partial C4.5 decision tree in each iteration and makes the "best"
-  /// leaf into a rule. For more information, see: Eibe Frank, Ian H. Witten:
-  /// Generating Accurate Rule Sets Without Global Optimization. In: Fifteenth
-  /// International Conference on Machine Learning, 144-151, 1998.
+  /// leaf into a rule.<br/><br/>For more information, see:<br/><br/>Eibe Frank, Ian
+  /// H. Witten: Generating Accurate Rule Sets Without Global Optimization. In:
+  /// Fifteenth International Conference on Machine Learning, 144-151,
+  /// 1998.<br/><br/>Options:<br/><br/>-C &lt;pruning confidence&gt; = 	Set confidence
+  /// threshold for pruning.<br/>	(default 0.25)<br/>-M &lt;minimum number of
+  /// objects&gt; = 	Set minimum number of objects per leaf.<br/>	(default 2)<br/>-R =
+  /// 	Use reduced error pruning.<br/>-N &lt;number of folds&gt; = 	Set number of
+  /// folds for reduced error<br/>	pruning. One fold is used as pruning
+  /// set.<br/>	(default 3)<br/>-B = 	Use binary splits only.<br/>-U = 	Generate unpruned
+  /// decision list.<br/>-J = 	Do not use MDL correction for info gain on numeric
+  /// attributes.<br/>-Q &lt;seed&gt; = 	Seed for random data shuffling (default
+  /// 1).
   /// </summary>
   public class PART<T> : BaseClassifier<T, PART> where T : new()
   {

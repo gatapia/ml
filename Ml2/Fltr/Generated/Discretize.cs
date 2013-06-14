@@ -7,7 +7,21 @@ namespace Ml2.Fltr
   /// <summary>
   /// An instance filter that discretizes a range of numeric attributes in the
   /// dataset into nominal attributes. Discretization is by simple binning. Skips
-  /// the class attribute if set.
+  /// the class attribute if
+  /// set.<br/><br/>Options:<br/><br/>-unset-class-temporarily = 	Unsets the class index temporarily before the filter
+  /// is<br/>	applied to the data.<br/>	(default: no)<br/>-B &lt;num&gt; = 	Specifies the
+  /// (maximum) number of bins to divide numeric attributes into.<br/>	(default =
+  /// 10)<br/>-M &lt;num&gt; = 	Specifies the desired weight of instances per bin
+  /// for<br/>	equal-frequency binning. If this is set to a positive<br/>	number
+  /// then the -B option will be ignored.<br/>	(default = -1)<br/>-F = 	Use
+  /// equal-frequency instead of equal-width discretization.<br/>-O = 	Optimize number
+  /// of bins using leave-one-out estimate<br/>	of estimated entropy (for
+  /// equal-width discretization).<br/>	If this is set then the -B option will be
+  /// ignored.<br/>-R &lt;col1,col2-col4,...&gt; = 	Specifies list of columns to
+  /// Discretize. First and last are valid indexes.<br/>	(default: first-last)<br/>-V =
+  /// 	Invert matching sense of column indexes.<br/>-D = 	Output binary
+  /// attributes for discretized attributes.<br/>-Y = 	Use bin numbers rather than ranges
+  /// for discretized attributes.
   /// </summary>
   public class Discretize<T> : BaseFilter<T, Discretize> where T : new()
   {

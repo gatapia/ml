@@ -8,7 +8,8 @@ namespace Ml2.Clss
   /// Class for building and using a decision stump. Usually used in
   /// conjunction with a boosting algorithm. Does regression (based on mean-squared error)
   /// or classification (based on entropy). Missing is treated as a separate
-  /// value.
+  /// value.<br/><br/>Options:<br/><br/>-D = 	If set, classifier is run in debug mode
+  /// and<br/>	may output additional info to the console
   /// </summary>
   public class DecisionStump<T> : BaseClassifier<T, DecisionStump> where T : new()
   {

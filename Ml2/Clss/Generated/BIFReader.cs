@@ -6,9 +6,13 @@ namespace Ml2.Clss
 {
   /// <summary>
   /// Builds a description of a Bayes Net classifier stored in XML BIF 0.3
-  /// format. For more details on XML BIF see: Fabio Cozman, Marek Druzdzel, Daniel
-  /// Garcia (1998). XML BIF version 0.3. URL
-  /// http://www-2.cs.cmu.edu/~fgcozman/Research/InterchangeFormat/.
+  /// format.<br/><br/>For more details on XML BIF see:<br/><br/>Fabio Cozman, Marek
+  /// Druzdzel, Daniel Garcia (1998). XML BIF version 0.3. URL
+  /// http://www-2.cs.cmu.edu/~fgcozman/Research/InterchangeFormat/.<br/><br/>Options:<br/><br/>-D
+  /// = 	Do not use ADTree data structure<br/><br/>-B &lt;BIF file&gt; = 	BIF
+  /// file to compare with<br/><br/>-Q
+  /// weka.classifiers.bayes.net.search.SearchAlgorithm = 	Search algorithm<br/><br/>-E
+  /// weka.classifiers.bayes.net.estimate.SimpleEstimator = 	Estimator algorithm<br/>
   /// </summary>
   public class BIFReader<T> : BaseClassifier<T, BIFReader> where T : new()
   {

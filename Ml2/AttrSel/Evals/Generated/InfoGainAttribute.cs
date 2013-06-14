@@ -5,9 +5,11 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// InfoGainAttributeEval : Evaluates the worth of an attribute by measuring
-  /// the information gain with respect to the class. InfoGain(Class,Attribute) =
-  /// H(Class) - H(Class | Attribute).
+  /// InfoGainAttributeEval :<br/><br/>Evaluates the worth of an attribute by
+  /// measuring the information gain with respect to the
+  /// class.<br/><br/>InfoGain(Class,Attribute) = H(Class) - H(Class |
+  /// Attribute).<br/><br/><br/>Options:<br/><br/>-M = 	treat missing values as a seperate value.<br/>-B = 	just
+  /// binarize numeric attributes instead <br/>	of properly discretizing them.
   /// </summary>
   public class InfoGainAttribute<T> : BaseAttributeSelectionEvaluator<T, InfoGainAttributeEval> where T : new()
   {

@@ -5,7 +5,10 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// A filter that removes a given percentage of a dataset.
+  /// A filter that removes a given percentage of a
+  /// dataset.<br/><br/>Options:<br/><br/>-P &lt;percentage&gt; = 	Specifies percentage of instances to
+  /// select. (default 50)<br/><br/>-V = 	Specifies if inverse of selection is to be
+  /// output.<br/>
   /// </summary>
   public class RemovePercentage<T> : BaseFilter<T, RemovePercentage> where T : new()
   {

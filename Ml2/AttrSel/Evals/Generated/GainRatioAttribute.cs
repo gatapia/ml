@@ -5,9 +5,10 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// GainRatioAttributeEval : Evaluates the worth of an attribute by measuring
-  /// the gain ratio with respect to the class. GainR(Class, Attribute) =
-  /// (H(Class) - H(Class | Attribute)) / H(Attribute).
+  /// GainRatioAttributeEval :<br/><br/>Evaluates the worth of an attribute by
+  /// measuring the gain ratio with respect to the class.<br/><br/>GainR(Class,
+  /// Attribute) = (H(Class) - H(Class | Attribute)) /
+  /// H(Attribute).<br/><br/><br/>Options:<br/><br/>-M = 	treat missing values as a seperate value.
   /// </summary>
   public class GainRatioAttribute<T> : BaseAttributeSelectionEvaluator<T, GainRatioAttributeEval> where T : new()
   {

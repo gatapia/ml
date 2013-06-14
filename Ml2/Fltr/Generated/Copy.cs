@@ -8,7 +8,10 @@ namespace Ml2.Fltr
   /// An instance filter that copies a range of attributes in the dataset. This
   /// is used in conjunction with other filters that overwrite attribute values
   /// during the course of their operation -- this filter allows the original
-  /// attributes to be kept as well as the new attributes.
+  /// attributes to be kept as well as the new
+  /// attributes.<br/><br/>Options:<br/><br/>-R &lt;index1,index2-index4,...&gt; = 	Specify list of columns to copy.
+  /// First and last are valid<br/>	indexes. (default none)<br/>-V = 	Invert
+  /// matching sense (i.e. copy all non-specified columns)
   /// </summary>
   public class Copy<T> : BaseFilter<T, Copy> where T : new()
   {

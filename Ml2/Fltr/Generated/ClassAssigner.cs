@@ -5,7 +5,10 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Filter that can set and unset the class index.
+  /// Filter that can set and unset the class
+  /// index.<br/><br/>Options:<br/><br/>-D = 	Turns on output of debugging information.<br/>-C
+  /// &lt;num|first|last|0&gt; = 	The index of the class attribute. Index starts with 1,
+  /// 'first'<br/>	and 'last' are accepted, '0' unsets the class index.<br/>	(default: last)
   /// </summary>
   public class ClassAssigner<T> : BaseFilter<T, ClassAssigner> where T : new()
   {

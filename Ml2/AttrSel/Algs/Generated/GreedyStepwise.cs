@@ -5,12 +5,19 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Algs
 {
   /// <summary>
-  /// GreedyStepwise : Performs a greedy forward or backward search through the
-  /// space of attribute subsets. May start with no/all attributes or from an
-  /// arbitrary point in the space. Stops when the addition/deletion of any
-  /// remaining attributes results in a decrease in evaluation. Can also produce a
-  /// ranked list of attributes by traversing the space from one side to the other and
-  /// recording the order that attributes are selected.
+  /// GreedyStepwise :<br/><br/>Performs a greedy forward or backward search
+  /// through the space of attribute subsets. May start with no/all attributes or
+  /// from an arbitrary point in the space. Stops when the addition/deletion of
+  /// any remaining attributes results in a decrease in evaluation. Can also
+  /// produce a ranked list of attributes by traversing the space from one side to the
+  /// other and recording the order that attributes are
+  /// selected.<br/><br/><br/>Options:<br/><br/>-C = 	Use conservative forward search<br/>-B = 	Use a
+  /// backward search instead of a<br/>	forward one.<br/>-P &lt;start set&gt; =
+  /// 	Specify a starting set of attributes.<br/>	Eg. 1,3,5-7.<br/>-R = 	Produce a
+  /// ranked list of attributes.<br/>-T &lt;threshold&gt; = 	Specify a theshold by
+  /// which attributes<br/>	may be discarded from the ranking.<br/>	Use in
+  /// conjuction with -R<br/>-N &lt;num to select&gt; = 	Specify number of attributes to
+  /// select
   /// </summary>
   public class GreedyStepwise<T> : BaseAttributeSelectionAlgorithm<T, GreedyStepwise> where T : new()
   {

@@ -9,7 +9,9 @@ namespace Ml2.Fltr
   /// discretization, it just takes all numeric values and adds them to the list of
   /// nominal values of that attribute. Useful after CSV imports, to enforce certain
   /// attributes to become nominal, e.g., the class attribute, containing values
-  /// from 1 to 5.
+  /// from 1 to 5.<br/><br/>Options:<br/><br/>-R &lt;col1,col2-col4,...&gt; =
+  /// 	Specifies list of columns to Discretize. First and last are valid
+  /// indexes.<br/>	(default: first-last)<br/>-V = 	Invert matching sense of column indexes.
   /// </summary>
   public class NumericToNominal<T> : BaseFilter<T, NumericToNominal> where T : new()
   {

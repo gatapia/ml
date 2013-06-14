@@ -5,7 +5,10 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Merges two values of a nominal attribute into one value.
+  /// Merges two values of a nominal attribute into one
+  /// value.<br/><br/>Options:<br/><br/>-C &lt;col&gt; = 	Sets the attribute index (default
+  /// last).<br/>-F &lt;value index&gt; = 	Sets the first value's index (default
+  /// first).<br/>-S &lt;value index&gt; = 	Sets the second value's index (default last).
   /// </summary>
   public class MergeTwoValues<T> : BaseFilter<T, MergeTwoValues> where T : new()
   {

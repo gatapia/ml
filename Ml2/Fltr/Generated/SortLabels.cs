@@ -5,7 +5,13 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// A simple filter for sorting the labels of nominal attributes.
+  /// A simple filter for sorting the labels of nominal
+  /// attributes.<br/><br/>Options:<br/><br/>-D = 	Turns on output of debugging information.<br/>-R
+  /// &lt;index1,index2-index4,...&gt; = 	Specify list of string attributes to
+  /// convert to words.<br/>	(default: select all relational attributes)<br/>-V =
+  /// 	Inverts the matching sense of the selection.<br/>-S &lt;CASE|NON-CASE&gt; =
+  /// 	Determines the type of sorting:<br/>	CASE = Case-sensitive<br/>	NON-CASE =
+  /// Case-insensitive<br/>	(default: CASE)
   /// </summary>
   public class SortLabels<T> : BaseFilter<T, SortLabels> where T : new()
   {

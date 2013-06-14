@@ -7,9 +7,15 @@ namespace Ml2.Fltr
   /// <summary>
   /// Discretizes numeric attributes using equal frequency binning, where the
   /// number of bins is equal to the square root of the number of non-missing
-  /// values. For more information, see: Ying Yang, Geoffrey I. Webb: Proportional
-  /// k-Interval Discretization for Naive-Bayes Classifiers. In: 12th European
-  /// Conference on Machine Learning, 564-575, 2001.
+  /// values.<br/><br/>For more information, see:<br/><br/>Ying Yang, Geoffrey I.
+  /// Webb: Proportional k-Interval Discretization for Naive-Bayes Classifiers. In:
+  /// 12th European Conference on Machine Learning, 564-575,
+  /// 2001.<br/><br/>Options:<br/><br/>-unset-class-temporarily = 	Unsets the class index temporarily
+  /// before the filter is<br/>	applied to the data.<br/>	(default: no)<br/>-R
+  /// &lt;col1,col2-col4,...&gt; = 	Specifies list of columns to Discretize. First
+  /// and last are valid indexes.<br/>	(default: first-last)<br/>-V = 	Invert
+  /// matching sense of column indexes.<br/>-D = 	Output binary attributes for
+  /// discretized attributes.
   /// </summary>
   public class PKIDiscretize<T> : BaseFilter<T, PKIDiscretize> where T : new()
   {

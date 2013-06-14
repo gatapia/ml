@@ -5,13 +5,18 @@ using weka.classifiers.trees;
 namespace Ml2.Clss
 {
   /// <summary>
-  /// M5Base. Implements base routines for generating M5 Model trees and rules
-  /// The original algorithm M5 was invented by R. Quinlan and Yong Wang made
-  /// improvements. For more information see: Ross J. Quinlan: Learning with
-  /// Continuous Classes. In: 5th Australian Joint Conference on Artificial
-  /// Intelligence, Singapore, 343-348, 1992. Y. Wang, I. H. Witten: Induction of model trees
-  /// for predicting continuous classes. In: Poster papers of the 9th European
-  /// Conference on Machine Learning, 1997.
+  /// M5Base. Implements base routines for generating M5 Model trees and
+  /// rules<br/>The original algorithm M5 was invented by R. Quinlan and Yong Wang made
+  /// improvements.<br/><br/>For more information see:<br/><br/>Ross J. Quinlan:
+  /// Learning with Continuous Classes. In: 5th Australian Joint Conference on
+  /// Artificial Intelligence, Singapore, 343-348, 1992.<br/><br/>Y. Wang, I. H.
+  /// Witten: Induction of model trees for predicting continuous classes. In:
+  /// Poster papers of the 9th European Conference on Machine Learning,
+  /// 1997.<br/><br/>Options:<br/><br/>-N = 	Use unpruned tree/rules<br/>-U = 	Use unsmoothed
+  /// predictions<br/>-R = 	Build regression tree/rule rather than a model
+  /// tree/rule<br/>-M &lt;minimum number of instances&gt; = 	Set minimum number of
+  /// instances per leaf<br/>	(default 4)<br/>-L = 	Save instances at the nodes
+  /// in<br/>	the tree (for visualization purposes)
   /// </summary>
   public class M5P<T> : BaseClassifier<T, M5P> where T : new()
   {

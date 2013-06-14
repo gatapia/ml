@@ -5,12 +5,26 @@ using weka.classifiers.meta;
 namespace Ml2.Clss
 {
   /// <summary>
-  /// Class for performing additive logistic regression. This class performs
-  /// classification using a regression scheme as the base learner, and can handle
-  /// multi-class problems. For more information, see J. Friedman, T. Hastie, R.
-  /// Tibshirani (1998). Additive Logistic Regression: a Statistical View of
-  /// Boosting. Stanford University. Can do efficient internal cross-validation to
-  /// determine appropriate number of iterations.
+  /// Class for performing additive logistic regression. <br/>This class
+  /// performs classification using a regression scheme as the base learner, and can
+  /// handle multi-class problems. For more information, see<br/><br/>J. Friedman,
+  /// T. Hastie, R. Tibshirani (1998). Additive Logistic Regression: a
+  /// Statistical View of Boosting. Stanford University.<br/><br/>Can do efficient internal
+  /// cross-validation to determine appropriate number of
+  /// iterations.<br/><br/>Options:<br/><br/>-Q = 	Use resampling instead of reweighting for
+  /// boosting.<br/>-P &lt;percent&gt; = 	Percentage of weight mass to base training
+  /// on.<br/>	(default 100, reduce to around 90 speed up)<br/>-F &lt;num&gt; = 	Number
+  /// of folds for internal cross-validation.<br/>	(default 0 -- no
+  /// cross-validation)<br/>-R &lt;num&gt; = 	Number of runs for internal
+  /// cross-validation.<br/>	(default 1)<br/>-L &lt;num&gt; = 	Threshold on the improvement of the
+  /// likelihood.<br/>	(default -Double.MAX_VALUE)<br/>-H &lt;num&gt; = 	Shrinkage
+  /// parameter.<br/>	(default 1)<br/>-S &lt;num&gt; = 	Random number
+  /// seed.<br/>	(default 1)<br/>-I &lt;num&gt; = 	Number of iterations.<br/>	(default
+  /// 10)<br/>-D = 	If set, classifier is run in debug mode and<br/>	may output
+  /// additional info to the console<br/>-W = 	Full name of base
+  /// classifier.<br/>	(default: weka.classifiers.trees.DecisionStump)<br/><br/>Options specific to
+  /// classifier weka.classifiers.trees.DecisionStump: = <br/>-D = 	If set,
+  /// classifier is run in debug mode and<br/>	may output additional info to the console
   /// </summary>
   public class LogitBoost<T> : BaseClassifier<T, LogitBoost> where T : new()
   {
@@ -85,7 +99,7 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public LogitBoost<T> Classifier (Clss.BaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
+    public LogitBoost<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
       ((LogitBoost)Impl).setClassifier(newClassifier.Impl);
       return this;
     }

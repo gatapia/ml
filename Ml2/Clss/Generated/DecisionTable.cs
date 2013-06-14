@@ -5,9 +5,26 @@ using weka.classifiers.rules;
 namespace Ml2.Clss
 {
   /// <summary>
-  /// Class for building and using a simple decision table majority classifier.
-  /// For more information see: Ron Kohavi: The Power of Decision Tables. In:
-  /// 8th European Conference on Machine Learning, 174-189, 1995.
+  /// Class for building and using a simple decision table majority
+  /// classifier.<br/><br/>For more information see: <br/><br/>Ron Kohavi: The Power of
+  /// Decision Tables. In: 8th European Conference on Machine Learning, 174-189,
+  /// 1995.<br/><br/>Options:<br/><br/>-S &lt;search method specification&gt; = 	Full
+  /// class name of search method, followed<br/>	by its options.<br/>	eg:
+  /// "weka.attributeSelection.BestFirst -D 1"<br/>	(default
+  /// weka.attributeSelection.BestFirst)<br/>-X &lt;number of folds&gt; = 	Use cross validation to evaluate
+  /// features.<br/>	Use number of folds = 1 for leave one out CV.<br/>	(Default
+  /// = leave one out CV)<br/>-E &lt;acc | rmse | mae | auc&gt; = 	Performance
+  /// evaluation measure to use for selecting attributes.<br/>	(Default = accuracy
+  /// for discrete class and rmse for numeric class)<br/>-I = 	Use nearest
+  /// neighbour instead of global table majority.<br/>-R = 	Display decision table
+  /// rules.<br/><br/><br/>Options specific to search method
+  /// weka.attributeSelection.BestFirst: = <br/>-P &lt;start set&gt; = 	Specify a starting set of
+  /// attributes.<br/>	Eg. 1,3,5-7.<br/>-D &lt;0 = backward | 1 = forward | 2 =
+  /// bi-directional&gt; = 	Direction of search. (default = 1).<br/>-N &lt;num&gt; =
+  /// 	Number of non-improving nodes to<br/>	consider before terminating
+  /// search.<br/>-S &lt;num&gt; = 	Size of lookup cache for evaluated
+  /// subsets.<br/>	Expressed as a multiple of the number of<br/>	attributes in the data set. (default
+  /// = 1)
   /// </summary>
   public class DecisionTable<T> : BaseClassifier<T, DecisionTable> where T : new()
   {
@@ -26,7 +43,7 @@ namespace Ml2.Clss
     /// The search method used to find good attribute combinations for the
     /// decision table.
     /// </summary>    
-    public DecisionTable<T> Search (AttrSel.Algs.BaseAttributeSelectionAlgorithm<T, weka.attributeSelection.ASSearch> search) {
+    public DecisionTable<T> Search (AttrSel.Algs.IBaseAttributeSelectionAlgorithm<weka.attributeSelection.ASSearch> search) {
       ((DecisionTable)Impl).setSearch(search.Impl);
       return this;
     }

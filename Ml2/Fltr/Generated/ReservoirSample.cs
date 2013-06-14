@@ -7,7 +7,9 @@ namespace Ml2.Fltr
   /// <summary>
   /// Produces a random subsample of a dataset using the reservoir sampling
   /// Algorithm "R" by Vitter. The original data set does not have to fit into main
-  /// memory, but the reservoir does.
+  /// memory, but the reservoir does. <br/><br/>Options:<br/><br/>-S &lt;num&gt;
+  /// = 	Specify the random number seed (default 1)<br/>-Z &lt;num&gt; = 	The
+  /// size of the output dataset - number of instances<br/>	(default 100)
   /// </summary>
   public class ReservoirSample<T> : BaseFilter<T, ReservoirSample> where T : new()
   {

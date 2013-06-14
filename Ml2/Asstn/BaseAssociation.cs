@@ -2,10 +2,15 @@ using weka.associations;
 
 namespace Ml2.Asstn
 {
-  public class BaseAssociation<T, I> where I : AbstractAssociator where T : new()
+  public interface IBaseAssociation<out I> where I : AbstractAssociator {
+    I Impl { get; }
+    string GetRules();
+  }
+
+  public class BaseAssociation<T, I> : IBaseAssociation<I> where I : AbstractAssociator where T : new()
   {
     protected readonly Runtime<T> rt;
-    protected internal I Impl { get; private set; }
+    public I Impl { get; private set; }
 
     public BaseAssociation(Runtime<T> rt, I impl)
     {

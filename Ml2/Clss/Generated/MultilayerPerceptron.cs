@@ -5,11 +5,38 @@ using weka.classifiers.functions;
 namespace Ml2.Clss
 {
   /// <summary>
-  /// A Classifier that uses backpropagation to classify instances. This
-  /// network can be built by hand, created by an algorithm or both. The network can
-  /// also be monitored and modified during training time. The nodes in this
-  /// network are all sigmoid (except for when the class is numeric in which case the
-  /// the output nodes become unthresholded linear units).
+  /// A Classifier that uses backpropagation to classify instances.<br/>This
+  /// network can be built by hand, created by an algorithm or both. The network
+  /// can also be monitored and modified during training time. The nodes in this
+  /// network are all sigmoid (except for when the class is numeric in which case
+  /// the the output nodes become unthresholded linear
+  /// units).<br/><br/>Options:<br/><br/>-L &lt;learning rate&gt; = 	Learning Rate for the backpropagation
+  /// algorithm.<br/>	(Value should be between 0 - 1, Default = 0.3).<br/>-M
+  /// &lt;momentum&gt; = 	Momentum Rate for the backpropagation algorithm.<br/>	(Value
+  /// should be between 0 - 1, Default = 0.2).<br/>-N &lt;number of epochs&gt; =
+  /// 	Number of epochs to train through.<br/>	(Default = 500).<br/>-V
+  /// &lt;percentage size of validation set&gt; = 	Percentage size of validation set to
+  /// use to terminate<br/>	training (if this is non zero it can pre-empt num of
+  /// epochs.<br/>	(Value should be between 0 - 100, Default = 0).<br/>-S
+  /// &lt;seed&gt; = 	The value used to seed the random number generator<br/>	(Value
+  /// should be >= 0 and and a long, Default = 0).<br/>-E &lt;threshold for number of
+  /// consequetive errors&gt; = 	The consequetive number of errors allowed for
+  /// validation<br/>	testing before the netwrok terminates.<br/>	(Value should be
+  /// > 0, Default = 20).<br/>-G = 	GUI will be opened.<br/>	(Use this to bring
+  /// up a GUI).<br/>-A = 	Autocreation of the network connections will NOT be
+  /// done.<br/>	(This will be ignored if -G is NOT set)<br/>-B = 	A NominalToBinary
+  /// filter will NOT automatically be used.<br/>	(Set this to not use a
+  /// NominalToBinary filter).<br/>-H &lt;comma seperated numbers for nodes on each
+  /// layer&gt; = 	The hidden layers to be created for the network.<br/>	(Value
+  /// should be a list of comma separated Natural <br/>	numbers or the letters 'a' =
+  /// (attribs + classes) / 2, <br/>	'i' = attribs, 'o' = classes, 't' = attribs
+  /// .+ classes)<br/>	for wildcard values, Default = a).<br/>-C = 	Normalizing a
+  /// numeric class will NOT be done.<br/>	(Set this to not normalize the class
+  /// if it's numeric).<br/>-I = 	Normalizing the attributes will NOT be
+  /// done.<br/>	(Set this to not normalize the attributes).<br/>-R = 	Reseting the
+  /// network will NOT be allowed.<br/>	(Set this to not allow the network to
+  /// reset).<br/>-D = 	Learning rate decay will occur.<br/>	(Set this to cause the
+  /// learning rate to decay).
   /// </summary>
   public class MultilayerPerceptron<T> : BaseClassifier<T, MultilayerPerceptron> where T : new()
   {

@@ -5,7 +5,10 @@ using System.Linq;
 namespace Ml2.Fltr
 {
   /// <summary>
-  /// Swaps two values of a nominal attribute.
+  /// Swaps two values of a nominal attribute.<br/><br/>Options:<br/><br/>-C
+  /// &lt;col&gt; = 	Sets the attribute index (default last).<br/>-F &lt;value
+  /// index&gt; = 	Sets the first value's index (default first).<br/>-S &lt;value
+  /// index&gt; = 	Sets the second value's index (default last).
   /// </summary>
   public class SwapValues<T> : BaseFilter<T, SwapValues> where T : new()
   {

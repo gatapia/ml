@@ -6,6 +6,17 @@ namespace Ml2.Fltr
 {
   /// <summary>
   /// Modify numeric attributes according to a given expression
+  /// <br/><br/>Options:<br/><br/>-unset-class-temporarily = 	Unsets the class index temporarily
+  /// before the filter is<br/>	applied to the data.<br/>	(default: no)<br/>-E
+  /// &lt;expression&gt; = 	Specify the expression to apply. Eg.
+  /// pow(A,6)/(MEAN+MAX)<br/>	Supported operators are +, -, *, /, pow, log,<br/>	abs, cos, exp,
+  /// sqrt, tan, sin, ceil, floor, rint, (, ), <br/>	MEAN, MAX, MIN, SD, COUNT,
+  /// SUM, SUMSQUARED, ifelse. The 'A'<br/>	letter refers to the value of the
+  /// attribute being processed.<br/>	Other attribute values (numeric only) can be
+  /// accessed through<br/>	the variables A1, A2, A3, ...<br/>-R
+  /// &lt;index1,index2-index4,...&gt; = 	Specify list of columns to ignore. First and last are
+  /// valid<br/>	indexes. (default none)<br/>-V = 	Invert matching sense (i.e. only
+  /// modify specified columns)
   /// </summary>
   public class MathExpression<T> : BaseFilter<T, MathExpression> where T : new()
   {

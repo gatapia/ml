@@ -12,7 +12,10 @@ namespace Ml2.Fltr
   /// not change the header, only the class values of the instances, so there is
   /// not much point in using it in conjunction with the FilteredClassifier. The
   /// value can also be converted back using 'originalValue(double value)'
-  /// procedure.
+  /// procedure.<br/><br/>Options:<br/><br/>-R &lt;seed&gt; = 	Specify the seed of
+  /// randomization<br/>	used to randomize the class<br/>	order (default: 1)<br/>-C
+  /// &lt;order&gt; = 	Specify the class order to be<br/>	sorted, could be 0:
+  /// ascending<br/>	1: descending and 2: random.(default: 0)
   /// </summary>
   public class ClassOrder<T> : BaseFilter<T, ClassOrder> where T : new()
   {

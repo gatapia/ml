@@ -5,16 +5,27 @@ using weka.attributeSelection;
 namespace Ml2.AttrSel.Evals
 {
   /// <summary>
-  /// ReliefFAttributeEval : Evaluates the worth of an attribute by repeatedly
-  /// sampling an instance and considering the value of the given attribute for
-  /// the nearest instance of the same and different class. Can operate on both
-  /// discrete and continuous class data. For more information see: Kenji Kira,
-  /// Larry A. Rendell: A Practical Approach to Feature Selection. In: Ninth
-  /// International Workshop on Machine Learning, 249-256, 1992. Igor Kononenko:
-  /// Estimating Attributes: Analysis and Extensions of RELIEF. In: European Conference
-  /// on Machine Learning, 171-182, 1994. Marko Robnik-Sikonja, Igor Kononenko:
-  /// An adaptation of Relief for attribute estimation in regression. In:
-  /// Fourteenth International Conference on Machine Learning, 296-304, 1997.
+  /// ReliefFAttributeEval :<br/><br/>Evaluates the worth of an attribute by
+  /// repeatedly sampling an instance and considering the value of the given
+  /// attribute for the nearest instance of the same and different class. Can operate
+  /// on both discrete and continuous class data.<br/><br/>For more information
+  /// see:<br/><br/>Kenji Kira, Larry A. Rendell: A Practical Approach to Feature
+  /// Selection. In: Ninth International Workshop on Machine Learning, 249-256,
+  /// 1992.<br/><br/>Igor Kononenko: Estimating Attributes: Analysis and Extensions
+  /// of RELIEF. In: European Conference on Machine Learning, 171-182,
+  /// 1994.<br/><br/>Marko Robnik-Sikonja, Igor Kononenko: An adaptation of Relief for
+  /// attribute estimation in regression. In: Fourteenth International Conference on
+  /// Machine Learning, 296-304, 1997.<br/><br/>Options:<br/><br/>-M &lt;num
+  /// instances&gt; = 	Specify the number of instances to<br/>	sample when
+  /// estimating attributes.<br/>	If not specified, then all instances<br/>	will be
+  /// used.<br/>-D &lt;seed&gt; = 	Seed for randomly sampling instances.<br/>	(Default
+  /// = 1)<br/>-K &lt;number of neighbours&gt; = 	Number of nearest neighbours
+  /// (k) used<br/>	to estimate attribute relevances<br/>	(Default = 10).<br/>-W =
+  /// 	Weight nearest neighbours by distance<br/>-A &lt;num&gt; = 	Specify sigma
+  /// value (used in an exp<br/>	function to control how quickly<br/>	weights for
+  /// more distant instances<br/>	decrease. Use in conjunction with
+  /// -W.<br/>	Sensible value=1/5 to 1/10 of the<br/>	number of nearest
+  /// neighbours.<br/>	(Default = 2)
   /// </summary>
   public class ReliefFAttribute<T> : BaseAttributeSelectionEvaluator<T, ReliefFAttributeEval> where T : new()
   {

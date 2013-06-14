@@ -7,7 +7,11 @@ namespace Ml2.Fltr
   /// <summary>
   /// This filter takes a dataset and outputs a specified fold for cross
   /// validation. If you do not want the folds to be stratified use the unsupervised
-  /// version.
+  /// version.<br/><br/>Options:<br/><br/>-V = 	Specifies if inverse of selection
+  /// is to be output.<br/><br/>-N &lt;number of folds&gt; = 	Specifies number of
+  /// folds dataset is split into. <br/>	(default 10)<br/><br/>-F &lt;fold&gt; =
+  /// 	Specifies which fold is selected. (default 1)<br/><br/>-S &lt;seed&gt; =
+  /// 	Specifies random number seed. (default 0, no randomizing)<br/>
   /// </summary>
   public class StratifiedRemoveFolds<T> : BaseFilter<T, StratifiedRemoveFolds> where T : new()
   {

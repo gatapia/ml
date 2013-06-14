@@ -10,7 +10,14 @@ namespace Ml2.AttrSel.Evals
   /// accomplished by choosing enough eigenvectors to account for some percentage of
   /// the variance in the original data---default 0.95 (95%). Attribute noise can
   /// be filtered by transforming to the PC space, eliminating some of the worst
-  /// eigenvectors, and then transforming back to the original space.
+  /// eigenvectors, and then transforming back to the original
+  /// space.<br/><br/>Options:<br/><br/>-C = 	Center (rather than standardize) the<br/>	data and
+  /// compute PCA using the covariance (rather<br/>	 than the correlation)
+  /// matrix.<br/>-R = 	Retain enough PC attributes to account <br/>	for this proportion
+  /// of variance in the original data.<br/>	(default = 0.95)<br/>-O = 	Transform
+  /// through the PC space and <br/>	back to the original space.<br/>-A =
+  /// 	Maximum number of attributes to include in <br/>	transformed attribute names. (-1
+  /// = include all)
   /// </summary>
   public class PrincipalComponents<T> : BaseAttributeSelectionEvaluator<T, PrincipalComponents> where T : new()
   {

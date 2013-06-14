@@ -9,7 +9,12 @@ namespace Ml2.Fltr
   /// attribute with k values is transformed into k binary attributes if the class is
   /// nominal (using the one-attribute-per-value approach). Binary attributes are
   /// left binary, if option '-A' is not given.If the class is numeric, you might
-  /// want to use the supervised version of this filter.
+  /// want to use the supervised version of this
+  /// filter.<br/><br/>Options:<br/><br/>-N = 	Sets if binary attributes are to be coded as nominal ones.<br/>-A
+  /// = 	For each nominal value a new attribute is created, <br/>	not only if
+  /// there are more than 2 values.<br/>-R &lt;col1,col2-col4,...&gt; = 	Specifies
+  /// list of columns to act on. First and last are <br/>	valid
+  /// indexes.<br/>	(default: first-last)<br/>-V = 	Invert matching sense of column indexes.
   /// </summary>
   public class NominalToBinary<T> : BaseFilter<T, NominalToBinary> where T : new()
   {

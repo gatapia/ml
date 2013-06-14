@@ -1,16 +1,15 @@
 ﻿using System;
 using System.IO;
-using Ml2.Clss;
 using weka.classifiers;
 
 namespace Ml2.RuntimeHelpers
 {
-  public class ClassifierEvaluator<T, I> where I : Classifier where T : new()
+  public class ClassifierEvaluator<T> where T : new()
   {
     private readonly Runtime<T> runtime;
-    private readonly IBaseClassifier<T, I> classifier;
+    private readonly Classifier classifier;
 
-    public ClassifierEvaluator(Runtime<T> runtime, IBaseClassifier<T, I> classifier)
+    public ClassifierEvaluator(Runtime<T> runtime, Classifier classifier)
     {
       this.runtime = runtime;
       this.classifier = classifier;
@@ -21,7 +20,7 @@ namespace Ml2.RuntimeHelpers
       var evaluation = new Evaluation(runtime.Instances);
       var seed = DateTime.Now.Millisecond;
       var rng = new java.util.Random(seed);
-      evaluation.crossValidateModel(classifier.Impl, runtime.Instances, 10, rng);
+      evaluation.crossValidateModel(classifier, runtime.Instances, 10, rng);
       Console.WriteLine(FlushResultsToFile(seed, evaluation));
     }
 

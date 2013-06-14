@@ -3,9 +3,7 @@ using System.Linq;
 using Ml2.Clss;
 using Ml2.Tests.Kaggle.Titanic.Data;
 using NUnit.Framework;
-using weka.classifiers;
 using weka.classifiers.trees;
-using Random = java.util.Random;
 
 namespace Ml2.Tests.Kaggle.Titanic
 {
@@ -15,34 +13,35 @@ namespace Ml2.Tests.Kaggle.Titanic
   [TestFixture] public class TitanicMlRandomForestsPredictions
   {
     [Test] public void Build_titanic_random_forest_model() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
-
+      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
+          RemoveAttributes(typeof(string));
+      
       TrainImpl(train, 300, 7).Flush("titanic.model");
     }
 
     [Test] public void Evaluate_titanic_random_forest_model() {
-      var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
-
-      EvalImpl(train, BaseClassifier.Read("titanic.model"));
+      new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
+          RemoveAttributes(typeof(string)).
+          EvaluateWith10CrossValidateion(BaseClassifier.Read("titanic.model"));
     }
 
     [Test] public void Test_multiple_random_forest_args() {
       var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
 
       // Success Rate: 81.8182% (300 and 7 seem to be the best values)
-      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+      TrainImpl(train, 300, 7).EvaluateWith10CrossValidateion();
 
       /*
       for (int i = 1; i < 10; i++) {
         trees = 100 * i;
         Console.WriteLine("Trees: " + trees + " Features: " + features );
-        EvalImpl(TrainImpl(trees, features).Impl);
+        TrainImpl(trees, features).EvaluateWith10CrossValidateion();
       }      
       for (int i = 1; i < 9; i++) {
         features = i;
         var forest = TrainImpl(trees, features);
         Console.WriteLine("Trees: " + trees + " Features: " + features);
-        EvalImpl(forest.Impl);
+        forest.EvaluateWith10CrossValidateion();
       }
        */
     }
@@ -53,7 +52,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
           RemoveAttributes(typeof(string), "PortOfEmbarkation", "PassengerFare"); 
 
-      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+      TrainImpl(train, 300, 7).EvaluateWith10CrossValidateion();
     }    
 
     // 81.1448 % with tot family
@@ -66,9 +65,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                   TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
                                     t.NumSiblingsOrSpouses.GetValueOrDefault()
                                 }).ToArray();
-      var train = new Runtime(newrows, 0);
-
-      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+      TrainImpl(new Runtime(newrows, 0), 300, 7).EvaluateWith10CrossValidateion();
     }
        
 
@@ -84,7 +81,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
       var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
-      EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
+      TrainImpl(newtrain, 300, 7).EvaluateWith10CrossValidateion();
     }
 
     // 72.8395 %
@@ -99,7 +96,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                 }).ToArray();
       var train = new Runtime(newrows, 0);
       var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
-      EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
+      TrainImpl(newtrain, 300, 7).EvaluateWith10CrossValidateion();
     }    
     
     // 79.798  %
@@ -117,19 +114,19 @@ namespace Ml2.Tests.Kaggle.Titanic
       }).ToArray();
       var train = new Runtime(newrows, 0);
       var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
-      EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
+      TrainImpl(newtrain, 300, 7).EvaluateWith10CrossValidateion();
     }
 
     [Test] public void Test_only_on_genders() {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
           Where(t => t.Sex == ESex.Female).ToArray();
       var train = new Runtime(rows, 0).RemoveAttributes(typeof(string));
-      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+      TrainImpl(train, 300, 7).EvaluateWith10CrossValidateion();
 
       rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
           Where(t => t.Sex == ESex.Male).ToArray();
       train = new Runtime(rows, 0).RemoveAttributes(typeof(string));
-      EvalImpl(train, TrainImpl(train, 300, 7).Impl);
+      TrainImpl(train, 300, 7).EvaluateWith10CrossValidateion();
     }
 
     private string GetCabinBin(string cabin) {
@@ -159,13 +156,6 @@ namespace Ml2.Tests.Kaggle.Titanic
         Debug(true).
         Seed(1).
         Build();
-    }
-
-    private void EvalImpl<T>(Runtime<T> runtime, Classifier classifier) where T : new() {
-      var evaluation = new Evaluation(runtime.Instances);
-      evaluation.crossValidateModel(classifier, runtime.Instances, 10, new Random(1));
-      var results = evaluation.toSummaryString();
-      Console.WriteLine(results);
-    }
+    }    
   }
 }

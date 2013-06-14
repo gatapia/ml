@@ -15,25 +15,24 @@ namespace Ml2.Clss
 
   public class BaseClassifier<T, I> : IBaseClassifier<T, I> where I : Classifier where T : new()
   {
-    protected readonly Runtime<T> rt;
     public Runtime<T> Runtime { get; private set; }
     public I Impl { get; private set; }    
 
     public BaseClassifier(Runtime<T> rt, I impl)
     {
-      this.rt = rt;
+      Runtime = rt;
       Impl = impl;
     }
 
     public IBaseClassifier<T, I> Build()
     {
-      Impl.buildClassifier(rt.Instances);
+      Impl.buildClassifier(Runtime.Instances);
       return this;
     }
 
     public double Classify(T row)
     {
-      return Impl.classifyInstance(rt.GetRowInstance(row));
+      return Impl.classifyInstance(Runtime.GetRowInstance(row));
     }
 
     public IBaseClassifier<T, I> Flush(string file) {
@@ -42,10 +41,7 @@ namespace Ml2.Clss
       return this;
     }
 
-    public void EvaluateWith10CrossValidateion()
-    {
-      rt.EvaluateWith10CrossValidateion(this);
-    }
+    public void EvaluateWith10CrossValidateion() { Runtime.EvaluateWith10CrossValidateion(Impl); }
   }
 
   public static class BaseClassifier {

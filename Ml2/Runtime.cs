@@ -92,9 +92,9 @@ namespace Ml2
       return this;
     }
 
-    public Runtime<T> EvaluateWith10CrossValidateion<I>(IBaseClassifier<T, I> classifier) where I : Classifier
+    public Runtime<T> EvaluateWith10CrossValidateion(Classifier classifier)
     {
-      new ClassifierEvaluator<T, I>(this, classifier).EvaluateWith10CrossValidateion();
+      new ClassifierEvaluator<T>(this, classifier).EvaluateWith10CrossValidateion();
       return this;
     }
     

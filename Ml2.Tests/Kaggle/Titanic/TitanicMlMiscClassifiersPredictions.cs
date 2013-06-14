@@ -54,18 +54,17 @@ namespace Ml2.Tests.Kaggle.Titanic
 
       var classifier = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
           RemoveAttributes(typeof(string)).
-          Classifiers.Logistic().Build();      
+          Classifiers.Logistic().Build();
 
-      var testInstances = testset.Instances.enumerateInstances();
-      var idx = 1;
-      raw[0] = "survived," + raw[0];
-      while (testInstances.hasMoreElements()) {
-			  var instance = (Instance) testInstances.nextElement();
-			  var classification = (int) classifier.Impl.classifyInstance(instance);
-        raw[idx] = classification + "," + raw[idx];
-        idx++;
-      }
-      File.WriteAllLines("predict.csv", raw);
+      var classified = raw.Select((line, idx) =>
+      {
+        var classification = idx == 0 ? 
+            "survived" : 
+            classifier.Classify(testset.Instance(idx - 1)).ToString();
+        return classification + "," + line;
+      }).ToArray();
+
+      File.WriteAllLines("predict.csv", classified);
     }
   }
 }

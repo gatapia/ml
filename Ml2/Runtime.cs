@@ -125,5 +125,7 @@ namespace Ml2
       Trace.Assert(idxs.All(idx => idx >= 0));
       return idxs;
     }
+
+    public Instance Instance(int index) { return Instances.instance(index); }
   }
 }

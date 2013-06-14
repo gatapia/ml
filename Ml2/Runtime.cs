@@ -9,6 +9,8 @@ using Ml2.Asstn;
 using Ml2.Clss;
 using Ml2.Clstr;
 using Ml2.Fltr;
+using Ml2.RuntimeHelpers;
+using weka.classifiers;
 using weka.core;
 using weka.core.converters;
 
@@ -90,6 +92,12 @@ namespace Ml2
       return this;
     }
 
+    public Runtime<T> EvaluateWith10CrossValidateion<I>(IBaseClassifier<T, I> classifier) where I : Classifier
+    {
+      new ClassifierEvaluator<T, I>(this, classifier).EvaluateWith10CrossValidateion();
+      return this;
+    }
+    
     private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
       var fields = Rows.First().GetType().
           GetProperties(BindingFlags.Instance | BindingFlags.Public).

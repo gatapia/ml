@@ -37,13 +37,6 @@ namespace Ml2.Tests
       Assert.AreEqual(6, rt.Instances.numAttributes());
     }
 
-    // TODO: Implement
-    [Test] public void Test_removal_of_expression_attributes() {
-      Assert.AreEqual(11, rt.Instances.numAttributes());
-      rt.RemoveAttributes<TitanicDataRow>(t => t.NumSiblingsOrSpouses);
-      Assert.AreEqual(6, rt.Instances.numAttributes());
-    }
-
     [Test] public void Test_loading_csv_file_loads_all_instances_as_expected()
     {      
       Assert.AreEqual(891, rt.Instances.numInstances());

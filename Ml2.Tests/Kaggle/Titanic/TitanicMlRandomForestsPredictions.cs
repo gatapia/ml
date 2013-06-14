@@ -116,8 +116,7 @@ namespace Ml2.Tests.Kaggle.Titanic
         CabinBin = GetCabinBin(t.CabinNum)
       }).ToArray();
       var train = new Runtime(newrows, 0);
-      var filter = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5);
-      var newtrain = filter.RunFilter();
+      var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
       EvalImpl(newtrain, TrainImpl(newtrain, 300, 7).Impl);
     }
 
@@ -134,8 +133,9 @@ namespace Ml2.Tests.Kaggle.Titanic
     }
 
     private string GetCabinBin(string cabin) {
-      if (String.IsNullOrEmpty(cabin)) { return "Unknown"; }
-      return cabin[0].ToString();
+      return String.IsNullOrEmpty(cabin) 
+          ? "Unknown" : 
+          cabin[0].ToString();
     }
 
     private string GetTicketBin(string num) {
@@ -162,7 +162,7 @@ namespace Ml2.Tests.Kaggle.Titanic
     }
 
     private void EvalImpl<T>(Runtime<T> runtime, Classifier classifier) where T : new() {
-      Evaluation evaluation = new Evaluation(runtime.Instances);
+      var evaluation = new Evaluation(runtime.Instances);
       evaluation.crossValidateModel(classifier, runtime.Instances, 10, new Random(1));
       var results = evaluation.toSummaryString();
       Console.WriteLine(results);

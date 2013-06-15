@@ -2,8 +2,10 @@ using weka.core;
 
 namespace Ml2.Arff
 {
-  internal interface IArffInstanceBuilder
+  internal interface IArffInstanceBuilder<T>
   {
-    Instances Build();
+    IArffInstanceBuilder<T> Build();
+    Instances Instances { get; }
+    Observation<T>[] Observations { get; }
   }
 }

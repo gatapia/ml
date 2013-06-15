@@ -2,10 +2,10 @@ using weka.clusterers;
 
 namespace Ml2.Clstr
 {
-  public interface IBaseClusterer<in T, out I> where T : new() where I : Clusterer {
+  public interface IBaseClusterer<T, out I> where T : new() where I : Clusterer {
     I Impl { get; }
     IBaseClusterer<T, I> Build();
-    int Classify(T row);
+    int Classify(Observation<T> row);
   }
 
   public abstract class BaseClusterer<T, I> : IBaseClusterer<T, I> where I : Clusterer where T : new()
@@ -24,6 +24,6 @@ namespace Ml2.Clstr
       return this;
     }
 
-    public int Classify(T row) { return Impl.clusterInstance(rt.GetRowInstance(row)); }
+    public int Classify(Observation<T> row) { return Impl.clusterInstance(row.Instance); }
   }
 }

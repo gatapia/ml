@@ -2,28 +2,46 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using java.lang;
 using java.util;
 using weka.core;
 using Attribute = weka.core.Attribute;
+using Enum = System.Enum;
+using String = System.String;
 
 namespace Ml2.Arff
 {
-  internal class ArffInstanceBuilder<T> : IArffInstanceBuilder
+  internal class ArffInstanceBuilder<T> : IArffInstanceBuilder<T>
   {
     private const string ISO_8601_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     private readonly T[] data;
 
     public ArffInstanceBuilder(T[] data) { this.data = data; }
 
-    public Instances Build()
+    public IArffInstanceBuilder<T> Build()
     {            
+      if (Instances != null) throw new IllegalStateException("ArffInstanceBuilder has already built.");
+
       var type = data.Any() ? data.First().GetType() : typeof(T);
       var fields = GetProperties(type);
       var atts = BuildAttributes(fields);
-      var instances = new Instances(type.Name, atts, data.Length);      
-      Array.ForEach(data, r => instances.add(new DenseInstance(1.0, AddRow(r, atts))));
-      return instances;
+      var instance = new Instances(type.Name, atts, data.Length);
+      var obs = new List<Observation<T>>();
+      Array.ForEach(data, r =>
+      {
+        var inst = new DenseInstance(1.0, AddRow(r, atts));
+        obs.Add(new Observation<T> {Row = r, Instance = inst});
+        Instances.add(inst);
+      });
+
+      Instances = instance;
+      Observations = obs.ToArray();
+      
+      return this;
     }
+
+    public Instances Instances { get; private set; }
+    public Observation<T>[] Observations { get; private set; }
 
     private static PropertyInfo[] GetProperties(Type type) {      
       return type.GetProperties(BindingFlags.Instance | BindingFlags.Public).ToArray();

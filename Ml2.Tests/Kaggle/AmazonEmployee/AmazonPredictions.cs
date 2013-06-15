@@ -69,18 +69,18 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     {
       var train = new Runtime<AmazonTrainDataRow>(0, @"resources\kaggle\amazon-employee\train.csv");
       var test = new Runtime<AmazonTestDataRow>(0, @"resources\kaggle\amazon-employee\test.csv");
-      var testmgrs = test.Rows.Select(a => a.MGR_ID).Distinct().ToArray();
-      var trainmgrs = train.Rows.Select(a => a.MGR_ID).Distinct().ToArray();
+      var testmgrs = test.Observations.Select(a => a.Row.MGR_ID).Distinct().ToArray();
+      var trainmgrs = train.Observations.Select(a => a.Row.MGR_ID).Distinct().ToArray();
       var notrepresented = testmgrs.Except(trainmgrs);     
-      var rejectters = trainmgrs.Where(m => train.Rows.Count(a => a.MGR_ID == m && a.ACTION == 0) > 0).ToArray();
+      var rejectters = trainmgrs.Where(m => train.Observations.Count(a => a.Row.MGR_ID == m && a.Row.ACTION == 0) > 0).ToArray();
       var classifier = train.Classifiers.J48();
 
-      var lines = test.Rows.Select((row, idx) =>
+      var lines = test.Observations.Select((row, idx) =>
       {
-        var prediction = rejectters.Contains(row.MGR_ID) || notrepresented.Contains(row.MGR_ID)
-                          ? classifier.Classify(test.Instance(idx))
+        var prediction = rejectters.Contains(row.Row.MGR_ID) || notrepresented.Contains(row.Row.MGR_ID)
+                          ? classifier.Classify(row.Instance)
                           : 1;
-        return row.ID + "," + prediction;
+        return row.Row.ID + "," + prediction;
       }).ToList();
       lines.Insert(0, "id,ACTION");
       

@@ -56,38 +56,40 @@ namespace Ml2
     /// </param>
     public Runtime(int classifier, params string[] files) {
       if (!files.Any()) throw new ArgumentNullException("files");
-
-      Rows = LoadRowsFromFiles<T>(files);      
-      Instances = new ArffInstanceBuilder<T>(Rows).Build();      
+      
+      var arff = new ArffInstanceBuilder<T>(LoadRowsFromFiles<T>(files)).Build();      
+      Instances = arff.Instances;
+      Observations = arff.Observations;
       Instances.setClassIndex(classifier);
     }
 
     /// <summary>
     /// Creates an weka.core.Instances wrapper passing in the 
-    /// classifier (dependant variable) column index and the rows.  
+    /// classifier (dependant variable) column index and the observations.  
     /// </summary>
     /// <param name="classifier">The index of the classifier (dependant variable) column.</param>
-    /// <param name="data">The rows (instances) of data.</param>
+    /// <param name="data">The observations (instances) of data.</param>
     public Runtime(int classifier, T[] data) {
-      Rows = data;
-
-      Instances = new ArffInstanceBuilder<T>(Rows).Build();      
+      var arff = new ArffInstanceBuilder<T>(data);
+      arff.Build();
+      Instances = arff.Instances;
+      Observations = arff.Observations;
       Instances.setClassIndex(classifier);
     }
 
 
     /// <summary>
     /// This is used by instance filters to create a new Runtime with a 
-    /// specified set of Instances and Rows.
+    /// specified set of Instances and Observations.
     /// </summary>
-    internal Runtime(Instances instances, T[] rows) { 
+    internal Runtime(Instances instances, Observation<T>[] observations) { 
       Instances = instances; 
-      Rows = rows;
+      Observations = observations;
     }
 
     public Instances Instances { get; private set; }
 
-    public T[] Rows { get; private set; }
+    public Observation<T>[] Observations { get; private set; }
 
     public AttrSel.AttributeSelection<T> AttributeSelection { get { return new AttrSel.AttributeSelection<T>(this); } }
 
@@ -106,12 +108,6 @@ namespace Ml2
       saver.setInstances(Instances);
       saver.setFile(new java.io.File(file));
       saver.writeBatch();
-    }
-
-    public Instance GetRowInstance(T row)
-    {
-      var idx = Array.IndexOf(Rows, row);
-      return Instances.instance(idx);
     }
 
     public Runtime<T> RemoveAttributes(params object[] attributes) {
@@ -135,30 +131,8 @@ namespace Ml2
       return this;
     }
 
-    public string[] PrependClassifications(IBaseClassifier<T, Classifier> trained, IEnumerable<string> target)
-    {
-      return target.Select((line, idx) => GetRow(trained, idx, line)).ToArray();
-    }
-
-    public string[] PrependClassifications(Classifier trained, IEnumerable<string> target)
-    {
-      return target.Select((line, idx) => GetRow(trained, idx, line)).ToArray();
-    }
-
-    private string GetRow(IBaseClassifier<T, Classifier> trained, int idx, string line)
-    {
-      var classification = idx == 0 ? "header" : trained.Classify(Instance(idx - 1)).ToString();
-      return classification + "," + line;
-    }
-
-    private string GetRow(Classifier trained, int idx, string line)
-    {
-      var classification = idx == 0 ? "header" : trained.classifyInstance(Instance(idx - 1)).ToString();
-      return classification + "," + line;
-    }
-
     private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
-      var fields = Rows.First().GetType().
+      var fields = Observations.First().GetType().
           GetProperties(BindingFlags.Instance | BindingFlags.Public).
           Select(f => f.Name.ToLower()).
           ToArray();
@@ -169,7 +143,7 @@ namespace Ml2
     }
 
     private IEnumerable<int> GetTypeIndexes(IEnumerable<Type> types) {
-      var fields = Rows.First().GetType().
+      var fields = Observations.First().GetType().
           GetProperties(BindingFlags.Instance | BindingFlags.Public).
           Select(f => f.PropertyType).
           ToArray();
@@ -180,10 +154,6 @@ namespace Ml2
       if (!idxs.All(idx => idx >= 0)) throw new ArgumentException("types");
       return idxs;
     }
-
-    public Instance Instance(int index) { return Instances.instance(index); }
-
-
 
     protected static T2[] LoadRowsFromFiles<T2>(string[] files) where T2 : new()
     {

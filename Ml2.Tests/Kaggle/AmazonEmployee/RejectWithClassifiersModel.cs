@@ -67,7 +67,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var props = typeof (AmazonTestDataRow).GetProperties().Skip(2).ToArray();
       var test = new Runtime<AmazonTestDataRow>(0, @"resources\kaggle\amazon-employee\test.csv").
           RemoveAttributes("RESOURCE");
-      var lines = test.Rows.Select((row, idx) => row.ID + "," + Classify(row, test.Instance(idx), props, map)).ToList();
+      var lines = test.Observations.Select((row, idx) => row.Row.ID + "," + Classify(row.Row, row.Instance, props, map)).ToList();
       
       lines.Insert(0, "id,ACTION");
       File.WriteAllLines("classifier_based_model_predictions.csv", lines);

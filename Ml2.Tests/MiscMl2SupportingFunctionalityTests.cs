@@ -68,7 +68,7 @@ namespace Ml2.Tests
           Seed(1).
           Build();
 
-      var classes = rt.Rows.Take(10).Select(kmeans.Classify);
+      var classes = rt.Observations.Take(10).Select(kmeans.Classify);
       Console.WriteLine("First 10 Row Classifications: " + String.Join(", ", classes));
     }
 

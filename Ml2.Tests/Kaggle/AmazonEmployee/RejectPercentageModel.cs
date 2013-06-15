@@ -37,11 +37,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     [Test] public void load_and_classify_model()
     {            
       var map = LoadSavedModel();
-      Console.WriteLine(String.Join("\n", 
-          map.Select(kvp => kvp.Key + ": " + String.Join(", ", 
-              kvp.Value.Where(p => p.Value > 0.05).
-                OrderByDescending(kvp2 => kvp2.Value).
-                  Select(kvp3 => kvp3.Key + ":" + kvp3.Value)))));
+      // DebugModel(map);
       RunPredictions(map);
 
       var predictions = File.ReadAllLines("chance_based_model_predictions.csv"); 
@@ -49,7 +45,17 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var approvals = predictions.Count(r => r.EndsWith(",1"));
       Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
     }
-    
+
+    private static void DebugModel(Dictionary<string, Dictionary<string, double>> map)
+    {
+      Console.WriteLine(String.Join("\n\n",
+                                    map.Select(kvp => kvp.Key + ": " + String.Join(", ",
+                                                                                   kvp.Value.Where(p => p.Value > 0.05).
+                                                                                     OrderByDescending(kvp2 => kvp2.Value).
+                                                                                     Select(
+                                                                                       kvp3 => kvp3.Key + ":" + kvp3.Value)))));
+    }
+
     private Dictionary<string, Dictionary<string, double>> LoadSavedModel()
     {
       using (var stream = File.Open("model.osl", FileMode.Open))
@@ -69,11 +75,9 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
         return factors.ToDictionary(v => v.ToString(),
                                       v => GetProbabilityOfRejection(p, v, rejects, all));
       });
-      Console.WriteLine("Number of potential models: " + count);
       return model;
     }
 
-    private int count = 0;
     // TODO: We could also try building a J48 tree for each of these rejections instead of a simple probabilty.
     private double GetProbabilityOfRejection(PropertyInfo p, object v, IEnumerable<AmazonTrainDataRow> rejects, IEnumerable<AmazonTrainDataRow> all)
     {      
@@ -84,7 +88,6 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var prob = rejections/alls;      
       // Ignore very low probability events.
       if (prob < MIN_PROB_FOR_MODEL) return 0;
-      count++;
       return prob;
     }
 

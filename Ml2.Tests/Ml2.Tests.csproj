@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Kaggle\AmazonEmployee\AmazonPredictions.cs" />
+    <Compile Include="Kaggle\AmazonEmployee\RejectWithClassifiersModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\AmazonTestDataRow.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\AmazonTrainDataRow.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\EAction.cs" />

@@ -8,6 +8,7 @@ namespace Ml2.Clss
     Runtime<T> Runtime { get; }
     I Impl { get; }
     double Classify(Instance instance);
+    IBaseClassifier<T, I> Build();
     IBaseClassifier<T, I> FlushToFile(string file);
     IBaseClassifier<T, I> EvaluateWith10CrossValidation();
   }
@@ -48,12 +49,14 @@ namespace Ml2.Clss
 
     }
 
-    internal void Build()
+    public IBaseClassifier<T, I> Build()
     {
-      if (built) return;
+      if (built) return this;
       built = true;
 
       Impl.buildClassifier(Runtime.Instances);
+      
+      return this;
     }
   }
 

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Ml2.Clss;
-using Ml2.Tests.Kaggle.Titanic.Data;
 using NUnit.Framework;
-using weka.classifiers;
 using TR=Ml2.Tests.Kaggle.Titanic.Data.TitanicDataRow;
 
 namespace Ml2.Tests.Kaggle.Titanic
@@ -69,23 +65,7 @@ namespace Ml2.Tests.Kaggle.Titanic
           Classifiers.Logistic().
               Build();
 
-      WriteOutPrediction(testset, classifier, raw);
-    }
-
-    private static void WriteOutPrediction(
-          Runtime<TR> rt, 
-          IBaseClassifier<TR, Classifier> classifier, 
-          IEnumerable<string> testrows)
-    {
-      var classified = testrows.Select((line, idx) =>
-                                    {
-                                      var classification = idx == 0
-                                          ? "survived"
-                                          : classifier.Classify(rt.Instance(idx - 1)).ToString();
-                                      return classification + "," + line;
-                                    }).ToArray();
-
-      File.WriteAllLines("predict.csv", classified);
+      File.WriteAllLines("predict.csv", testset.PrependClassifications(classifier, raw));
     }
   }
 }

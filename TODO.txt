@@ -1,2 +1,4 @@
 TODO
 ====
+- It is possible not to have to call Build on classifiers and have the evaluators
+  call this if it has not been previously called.  To consider.

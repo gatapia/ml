@@ -9,7 +9,7 @@ namespace Ml2.Clss
     I Impl { get; }
     IBaseClassifier<T, I> Build();
     double Classify(Instance instance);
-    IBaseClassifier<T, I> Flush(string file);
+    IBaseClassifier<T, I> FlushToFile(string file);
     void EvaluateWith10CrossValidateion();
   }
 
@@ -35,7 +35,7 @@ namespace Ml2.Clss
       return Impl.classifyInstance(instance);
     }
 
-    public IBaseClassifier<T, I> Flush(string file) {
+    public IBaseClassifier<T, I> FlushToFile(string file) {
       if (File.Exists(file)) File.Delete(file);
       SerializationHelper.write(file, Impl);
       return this;

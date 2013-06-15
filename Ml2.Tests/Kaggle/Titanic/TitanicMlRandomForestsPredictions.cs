@@ -16,7 +16,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       var train = new Runtime<TitanicDataRow>(0, @"resources\kaggle\titanic\train.csv").
           RemoveAttributes(typeof(string));
       
-      TrainImpl(train, 300, 7).Flush("titanic.model");
+      TrainImpl(train, 300, 7).FlushToFile("titanic.model");
     }
 
     [Test] public void Evaluate_titanic_random_forest_model() {

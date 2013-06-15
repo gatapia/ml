@@ -4,6 +4,6 @@ namespace Ml2.Arff
 {
   internal interface IArffInstanceBuilder
   {
-    Instances Build<T>(T[] data);
+    Instances Build();
   }
 }

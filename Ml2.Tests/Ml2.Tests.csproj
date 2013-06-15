@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kaggle\AmazonEmployee\AmazonPredictions.cs" />
     <Compile Include="Kaggle\Titanic\TitanicMlMiscClassifiersPredictions.cs" />
     <Compile Include="Kaggle\Titanic\Data\EPassengerClass.cs" />
     <Compile Include="Kaggle\Titanic\Data\EPort.cs" />
@@ -67,6 +68,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\kaggle\amazon-employee\sampleSubmission.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\kaggle\amazon-employee\test.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\kaggle\amazon-employee\train.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="resources\kaggle\titanic\test.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -18,21 +17,32 @@ namespace Ml2
 {
   public class Runtime : Runtime<object> {
     public static T[] Load<T>(params string[] files) where T : new() {
-      return new LoaderFactory().Get<T>().Load<T>(files);
+      if (!files.Any()) throw new ArgumentNullException("files");
+      return LoadRowsFromFiles<T>(files);
     }
 
-    public static T[] LoadLines<T>(IEnumerable<string> lines) where T : new()
+    public static T[] LoadLines<T>(ICollection<string> lines, int opt_limit = 0) where T : new()
     {
+      if (!lines.Any()) throw new ArgumentNullException("lines");
+      if (opt_limit > 0)
+      {
+        var rng = new Random(1);      
+        var newlines = lines.
+            OrderBy(row => rng.Next()).
+            Take(opt_limit).
+            ToList();
+        newlines.Insert(0, lines.First());
+        lines = newlines;
+      }      
       return new LoaderFactory().Get<T>().LoadLines<T>(lines);
+      
     }
 
     public Runtime(int classifier, object[] data) : base(classifier, data) {}
   }
 
   public class Runtime<T> where T : new()
-  {
-    private readonly IArffInstanceBuilder arff = new ArffInstanceBuilder();
-    private readonly ILoaderFactory loaderFactory = new LoaderFactory();
+  {        
 
     /// <summary>
     /// Creates an weka.core.Instances wrapper passing in the 
@@ -45,9 +55,10 @@ namespace Ml2
     /// all in the same format and that format is defined by the properties of T.
     /// </param>
     public Runtime(int classifier, params string[] files) {
-      Rows = loaderFactory.Get<T>().Load<T>(files);
-      
-      Instances = arff.Build(Rows);      
+      if (!files.Any()) throw new ArgumentNullException("files");
+
+      Rows = LoadRowsFromFiles<T>(files);      
+      Instances = new ArffInstanceBuilder<T>(Rows).Build();      
       Instances.setClassIndex(classifier);
     }
 
@@ -59,7 +70,8 @@ namespace Ml2
     /// <param name="data">The rows (instances) of data.</param>
     public Runtime(int classifier, T[] data) {
       Rows = data;
-      Instances = arff.Build(Rows);      
+
+      Instances = new ArffInstanceBuilder<T>(Rows).Build();      
       Instances.setClassIndex(classifier);
     }
 
@@ -71,16 +83,21 @@ namespace Ml2
     internal Runtime(Instances instances, T[] rows) { 
       Instances = instances; 
       Rows = rows;
-    }    
+    }
 
     public Instances Instances { get; private set; }
+
     public T[] Rows { get; private set; }
 
     public AttrSel.AttributeSelection<T> AttributeSelection { get { return new AttrSel.AttributeSelection<T>(this); } }
+
     public Clusterers<T> Clusterers { get { return new Clusterers<T>(this); } }
+
     public Filters<T> Filters { get { return new Filters<T>(this); } }
+
     public Associations<T> Associations { get { return new Associations<T>(this); } }
-    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }    
+
+    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }
 
     public void FlushToFile(string file)
     {
@@ -117,7 +134,23 @@ namespace Ml2
       new ClassifierEvaluator<T>(this, classifier).EvaluateWith10CrossValidateion();
       return this;
     }
-    
+
+    public string[] PrependClassifications(IBaseClassifier<T, Classifier> trained, IEnumerable<string> target)
+    {
+      return target.Select((line, idx) => GetRow(trained.Impl, idx, line)).ToArray();
+    }
+
+    public string[] PrependClassifications(Classifier trained, IEnumerable<string> target)
+    {
+      return target.Select((line, idx) => GetRow(trained, idx, line)).ToArray();
+    }
+
+    private string GetRow(Classifier trained, int idx, string line)
+    {
+      var classification = idx == 0 ? "header" : trained.classifyInstance(Instance(idx - 1)).ToString();
+      return classification + "," + line;
+    }
+
     private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
       var fields = Rows.First().GetType().
           GetProperties(BindingFlags.Instance | BindingFlags.Public).
@@ -125,7 +158,7 @@ namespace Ml2
           ToArray();
       var idxs = names.Select(n => Array.IndexOf(fields, n)).ToArray();
       
-      Trace.Assert(idxs.All(idx => idx >= 0));
+      if (!idxs.All(idx => idx >= 0)) throw new ArgumentException("names");
       return idxs;
     }
 
@@ -138,10 +171,17 @@ namespace Ml2
         Where(idx => types.Contains(fields[idx])).
         ToArray();
       
-      Trace.Assert(idxs.All(idx => idx >= 0));
+      if (!idxs.All(idx => idx >= 0)) throw new ArgumentException("types");
       return idxs;
     }
 
     public Instance Instance(int index) { return Instances.instance(index); }
+
+
+
+    protected static T2[] LoadRowsFromFiles<T2>(string[] files) where T2 : new()
+    {
+      return new LoaderFactory().Get<T2>(files.First().Split('.').Last()).Load<T2>(files);
+    }
   }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -11,8 +10,8 @@ namespace Ml2.Arff
   internal class CsvLoader : ILoader
   {
     public T[] Load<T>(params string[] files) where T : new() {
-      Trace.Assert(files.Any());
-      Trace.Assert(files.All(File.Exists));
+      if(!files.Any()) throw new ArgumentNullException("files");
+      if(!files.All(File.Exists)) throw new ArgumentException("files");
 
       return files.SelectMany(ReadFile<T>).ToArray();
     }
@@ -40,7 +39,12 @@ namespace Ml2.Arff
           for (var i = 0; i < fieldCount; i++)
           {
             var field = targets[i];
-            field.SetValue(record, CovertToType(csv[i], field.PropertyType));
+            try { field.SetValue(record, CovertToType(csv[i], field.PropertyType)); }
+            catch 
+            {
+              Console.WriteLine("Could not parse row " + csv.CurrentRecordIndex);
+              throw;
+            }
           }
           records.Add(record);
         }

@@ -65,7 +65,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                   TotFamily = t.NumParentsChildren.GetValueOrDefault() + 
                                     t.NumSiblingsOrSpouses.GetValueOrDefault()
                                 }).ToArray();
-      TrainImpl(new Runtime(newrows, 0), 300, 7).EvaluateWith10CrossValidateion();
+      TrainImpl(new Runtime(0, newrows), 300, 7).EvaluateWith10CrossValidateion();
     }
        
 
@@ -79,7 +79,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                     t.NumSiblingsOrSpouses.GetValueOrDefault(),
                                   TicketBin = GetTicketBin(t.TicketNumber)
                                 }).ToArray();
-      var train = new Runtime(newrows, 0);
+      var train = new Runtime(0, newrows);
       var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
       TrainImpl(newtrain, 300, 7).EvaluateWith10CrossValidateion();
     }
@@ -94,7 +94,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                     t.NumSiblingsOrSpouses.GetValueOrDefault(),
                                   FareBin = GetFareBin(t.PassengerFare)
                                 }).ToArray();
-      var train = new Runtime(newrows, 0);
+      var train = new Runtime(0, newrows);
       var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
       TrainImpl(newtrain, 300, 7).EvaluateWith10CrossValidateion();
     }    
@@ -112,7 +112,7 @@ namespace Ml2.Tests.Kaggle.Titanic
             t.NumSiblingsOrSpouses.GetValueOrDefault(),
         CabinBin = GetCabinBin(t.CabinNum)
       }).ToArray();
-      var train = new Runtime(newrows, 0);
+      var train = new Runtime(0, newrows);
       var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
       TrainImpl(newtrain, 300, 7).EvaluateWith10CrossValidateion();
     }
@@ -120,12 +120,12 @@ namespace Ml2.Tests.Kaggle.Titanic
     [Test] public void Test_only_on_genders() {
       var rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
           Where(t => t.Sex == ESex.Female).ToArray();
-      var train = new Runtime(rows, 0).RemoveAttributes(typeof(string));
+      var train = new Runtime(0, rows).RemoveAttributes(typeof(string));
       TrainImpl(train, 300, 7).EvaluateWith10CrossValidateion();
 
       rows = Runtime.Load<TitanicDataRow>(@"resources\kaggle\titanic\train.csv").
           Where(t => t.Sex == ESex.Male).ToArray();
-      train = new Runtime(rows, 0).RemoveAttributes(typeof(string));
+      train = new Runtime(0, rows).RemoveAttributes(typeof(string));
       TrainImpl(train, 300, 7).EvaluateWith10CrossValidateion();
     }
 

@@ -26,7 +26,7 @@ namespace Ml2
       return new LoaderFactory().Get<T>().LoadLines<T>(lines);
     }
 
-    public Runtime(object[] data, int classifier) : base(data, classifier) {}
+    public Runtime(int classifier, object[] data) : base(classifier, data) {}
   }
 
   public class Runtime<T> where T : new()
@@ -34,6 +34,16 @@ namespace Ml2
     private readonly IArffInstanceBuilder arff = new ArffInstanceBuilder();
     private readonly ILoaderFactory loaderFactory = new LoaderFactory();
 
+    /// <summary>
+    /// Creates an weka.core.Instances wrapper passing in the 
+    /// classifier (dependant variable) column index and the raw data files.
+    /// Currently only supports CSV files.
+    /// </summary>
+    /// <param name="classifier">The index of the classifier (dependant variable) column.</param>
+    /// <param name="files">
+    /// Any number of data files.  It is expected that these files are 
+    /// all in the same format and that format is defined by the properties of T.
+    /// </param>
     public Runtime(int classifier, params string[] files) {
       Rows = loaderFactory.Get<T>().Load<T>(files);
       
@@ -41,7 +51,13 @@ namespace Ml2
       Instances.setClassIndex(classifier);
     }
 
-    public Runtime(T[] data, int classifier) {
+    /// <summary>
+    /// Creates an weka.core.Instances wrapper passing in the 
+    /// classifier (dependant variable) column index and the rows.  
+    /// </summary>
+    /// <param name="classifier">The index of the classifier (dependant variable) column.</param>
+    /// <param name="data">The rows (instances) of data.</param>
+    public Runtime(int classifier, T[] data) {
       Rows = data;
       Instances = arff.Build(Rows);      
       Instances.setClassIndex(classifier);

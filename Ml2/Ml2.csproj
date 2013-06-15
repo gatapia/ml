@@ -242,6 +242,7 @@
     <Compile Include="Clstr\Generated\Hierarchical.cs" />
     <Compile Include="Clstr\Generated\MakeDensityBased.cs" />
     <Compile Include="Clstr\Generated\SimpleKMeans.cs" />
+    <Compile Include="ListExtensions.cs" />
     <Compile Include="Fltr\Generated\Add.cs" />
     <Compile Include="Fltr\Generated\AddClassification.cs" />
     <Compile Include="Fltr\Generated\AddCluster.cs" />

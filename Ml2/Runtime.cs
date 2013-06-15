@@ -137,12 +137,18 @@ namespace Ml2
 
     public string[] PrependClassifications(IBaseClassifier<T, Classifier> trained, IEnumerable<string> target)
     {
-      return target.Select((line, idx) => GetRow(trained.Impl, idx, line)).ToArray();
+      return target.Select((line, idx) => GetRow(trained, idx, line)).ToArray();
     }
 
     public string[] PrependClassifications(Classifier trained, IEnumerable<string> target)
     {
       return target.Select((line, idx) => GetRow(trained, idx, line)).ToArray();
+    }
+
+    private string GetRow(IBaseClassifier<T, Classifier> trained, int idx, string line)
+    {
+      var classification = idx == 0 ? "header" : trained.Classify(Instance(idx - 1)).ToString();
+      return classification + "," + line;
     }
 
     private string GetRow(Classifier trained, int idx, string line)

@@ -7,14 +7,14 @@ namespace Ml2.Clss
   public interface IBaseClassifier<T, out I> where T : new() where I : Classifier {
     Runtime<T> Runtime { get; }
     I Impl { get; }
-    IBaseClassifier<T, I> Build();
     double Classify(Instance instance);
     IBaseClassifier<T, I> FlushToFile(string file);
-    void EvaluateWith10CrossValidateion();
+    IBaseClassifier<T, I> EvaluateWith10CrossValidation();
   }
 
   public class BaseClassifier<T, I> : IBaseClassifier<T, I> where I : Classifier where T : new()
   {
+    private bool built;
     public Runtime<T> Runtime { get; private set; }
     public I Impl { get; private set; }    
 
@@ -24,24 +24,37 @@ namespace Ml2.Clss
       Impl = impl;
     }
 
-    public IBaseClassifier<T, I> Build()
-    {
-      Impl.buildClassifier(Runtime.Instances);
-      return this;
-    }
-
     public double Classify(Instance instance)
     {
+      Build();
+
       return Impl.classifyInstance(instance);
     }
 
     public IBaseClassifier<T, I> FlushToFile(string file) {
+      Build();
+
       if (File.Exists(file)) File.Delete(file);
       SerializationHelper.write(file, Impl);
       return this;
     }
 
-    public void EvaluateWith10CrossValidateion() { Runtime.EvaluateWith10CrossValidateion(Impl); }    
+    public IBaseClassifier<T, I> EvaluateWith10CrossValidation()
+    {
+      Build();
+
+      Runtime.EvaluateWith10CrossValidateion(Impl);
+      return this;
+
+    }
+
+    internal void Build()
+    {
+      if (built) return;
+      built = true;
+
+      Impl.buildClassifier(Runtime.Instances);
+    }
   }
 
   public static class BaseClassifier {

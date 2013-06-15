@@ -13,7 +13,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       var train = new Runtime<TR>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof(string));
 
       train.Classifiers.
-          Logistic().Build().EvaluateWith10CrossValidateion();
+          Logistic().EvaluateWith10CrossValidation();
     }
 
     // 80.3591 % ?? Even with boosting
@@ -23,7 +23,7 @@ namespace Ml2.Tests.Kaggle.Titanic
 
       train.Classifiers.
           AdaBoostM1().Seed(1).Classifier(classifier).
-              NumIterations(10).Build().EvaluateWith10CrossValidateion();
+              NumIterations(10).EvaluateWith10CrossValidation();
     }
 
     [Test] public void Test_logistic_regression_with_and_without_ages() {
@@ -39,16 +39,12 @@ namespace Ml2.Tests.Kaggle.Titanic
       Console.WriteLine("With ages.");
       new Runtime<TR>(0, withage).
         RemoveAttributes(typeof(string)).
-            Classifiers.Logistic().
-                Build().
-                EvaluateWith10CrossValidateion();
+            Classifiers.Logistic().EvaluateWith10CrossValidation();
 
       Console.WriteLine("Without ages.");
       new Runtime(0, without).
           RemoveAttributes(typeof(string)).
-          Classifiers.Logistic().
-              Build().
-              EvaluateWith10CrossValidateion();
+          Classifiers.Logistic().EvaluateWith10CrossValidation();
     }
 
     [Test] public void Test_creating_prediction_file()
@@ -62,8 +58,7 @@ namespace Ml2.Tests.Kaggle.Titanic
 
       var classifier = new Runtime<TR>(0, @"resources\kaggle\titanic\train.csv").
           RemoveAttributes(typeof(string)).
-          Classifiers.Logistic().
-              Build();
+          Classifiers.Logistic();
 
       File.WriteAllLines("predict.csv", testset.PrependClassifications(classifier, raw));
     }

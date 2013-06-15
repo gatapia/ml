@@ -2,41 +2,114 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Ml2.Arff;
 using Ml2.Clss;
+using Ml2.Tests.Kaggle.AmazonEmployee.Data;
 using NUnit.Framework;
+using weka.core;
 
 namespace Ml2.Tests.Kaggle.AmazonEmployee
 {  
   [TestFixture] public class AmazonPredictions
   {    
     // With a small sub-sample of 500 we get 94% predictive power
-    [Test] public void Test_logistic_regression_on_small_subset()
+    [Test] public void logistic_regression_on_small_subset()
     {
       var lines = File.ReadAllLines(@"resources\kaggle\amazon-employee\train.csv");
-      var rows = Runtime.LoadLines<AmazonDataRow>(lines, 500).
+      var rows = Runtime.LoadLines<AmazonTrainDataRow>(lines, 500).
           Select(a => new { a.ACTION, a.MGR_ID, a.ROLE_ROLLUP_1, a.ROLE_FAMILY }).ToArray();
       var train = new Runtime(0, rows);
 
-      train.Classifiers.Logistic().Build().EvaluateWith10CrossValidateion();
+      train.Classifiers.Logistic().EvaluateWith10CrossValidation();
     }
 
-    [Test] public void Test_logistic_regression_on_small_subset_play_with_features()
+    [Test] public void logistic_regression_on_small_subset_play_with_features()
     {
       var lines = File.ReadAllLines(@"resources\kaggle\amazon-employee\train.csv");
-      var rows = Runtime.LoadLines<AmazonDataRow>(lines).
+      var rows = Runtime.LoadLines<AmazonTrainDataRow>(lines).
           Select(a => new { a.ACTION, a.MGR_ID }).ToArray();
       var train = new Runtime(0, rows);
 
-      train.Classifiers.Logistic().Build().
+      train.Classifiers.Logistic().
         FlushToFile("amazon-employee.model").
-        EvaluateWith10CrossValidateion();      
+        EvaluateWith10CrossValidation();      
     }
 
-    [Test] public void run_predictions()
+    [Test] public void decision_tree_experiments()
+    {
+      var lines = File.ReadAllLines(@"resources\kaggle\amazon-employee\train.csv");
+      var rows = Runtime.LoadLines<AmazonTrainDataRow>(lines).
+          Select(a => new { a.ACTION, a.MGR_ID, a.ROLE_ROLLUP_1, a.ROLE_DEPTNAME, a.ROLE_TITLE }).ToArray();
+      var train = new Runtime(0, rows);
+
+      train.Classifiers.J48().
+        FlushToFile("amazon-employee.model").
+        EvaluateWith10CrossValidation();
+
+      run_predictions();
+      var predictions = File.ReadAllLines("predict.csv"); 
+      var rejections = predictions.Count(r => r.EndsWith(",0"));
+      var approvals = predictions.Count(r => r.EndsWith(",1"));
+      Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
+    }
+
+    [Test] public void are_all_managers_represented()
+    {
+      var traindata = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\train.csv");
+      var trainmgrs = traindata.Select(a => a.MGR_ID).Distinct().ToArray();
+      var testmgrs = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\test.csv").Select(a => a.MGR_ID).Distinct().ToArray();
+
+      Console.WriteLine("Training Managers: " + trainmgrs.Length + " Test Managers: " + testmgrs.Length);
+      var rejectters = trainmgrs.Where(m => traindata.Count(a => a.MGR_ID == m && a.ACTION == 0) > 0).ToArray();
+      Console.WriteLine("Managers with rejections: " + rejectters.Count());
+      var notrepresented = testmgrs.Except(trainmgrs).Count();      
+      Assert.AreEqual(0, notrepresented);
+    }
+
+    [Test] public void j48_on_rejecters_and_1_otherwise()
+    {
+      var train = new Runtime<AmazonTrainDataRow>(0, @"resources\kaggle\amazon-employee\train.csv");
+      var test = new Runtime<AmazonTestDataRow>(0, @"resources\kaggle\amazon-employee\test.csv");
+      var testmgrs = test.Rows.Select(a => a.MGR_ID).Distinct().ToArray();
+      var trainmgrs = train.Rows.Select(a => a.MGR_ID).Distinct().ToArray();
+      var notrepresented = testmgrs.Except(trainmgrs);     
+      var rejectters = trainmgrs.Where(m => train.Rows.Count(a => a.MGR_ID == m && a.ACTION == 0) > 0).ToArray();
+      var classifier = train.Classifiers.J48();
+
+      var lines = test.Rows.Select((row, idx) =>
+      {
+        var prediction = rejectters.Contains(row.MGR_ID) || notrepresented.Contains(row.MGR_ID)
+                          ? classifier.Classify(test.Instance(idx))
+                          : 1;
+        return row.ID + "," + prediction;
+      }).ToList();
+      lines.Insert(0, "id,ACTION");
+      
+      File.WriteAllLines("predict_rejecters_or_1.csv", lines);
+      var rejections = lines.Count(r => r.EndsWith(",0"));
+      var approvals = lines.Count(r => r.EndsWith(",1"));
+      Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
+    }
+
+    [Test] public void train_on_50_50_data()
+    {
+      var rows = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\train.csv").
+          Randomize().ToArray();
+      
+      var rejects = rows.Where(r => r.ACTION == EAction.Rejected).ToArray();
+      var approved = rows.Where(r => r.ACTION == EAction.Approved).ToArray();
+      var approvedsample = approved.Take(rejects.Length);
+      var sample = rejects.Concat(approvedsample).Randomize().ToArray();
+      var train = new Runtime<AmazonTrainDataRow>(0, sample);
+
+      train.Classifiers.J48().
+        EvaluateWith10CrossValidation();
+    }
+
+    // Currently 50% (same as random) on test dataset.
+    [Test] public void run_predictions(Func<Instance,string> impl = null)
     {
       var raw = File.ReadAllLines(@"resources\kaggle\amazon-employee\test.csv");
-      var testrows = Runtime.LoadLines<AmazonDataRow>(raw).
+      var testrows = Runtime.LoadLines<AmazonTrainDataRow>(raw).
           Select(a => new { a.ACTION, a.MGR_ID }).ToArray();
       var testset = new Runtime(0, testrows);
 
@@ -45,29 +118,11 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var instances = testset.Instances;
       for (var i = 0; i < instances.numInstances(); i++)
       {
-        lines.Add((i + 1).ToString() + ',' + classifier.classifyInstance(instances.instance(i)));
+        var instance = instances.instance(i);
+        var outcome = impl == null ? classifier.classifyInstance(instance).ToString() : impl(instance);
+        lines.Add((i + 1).ToString() + ',' + outcome);
       }
       File.WriteAllLines("predict.csv", lines);
-    }
-  }
-
-  public class AmazonDataRow
-  {
-    public EAction ACTION { get; set; }
-    public int RESOURCE { get; set; }
-    [Nominal] public int MGR_ID { get; set; }
-    [Nominal] public int ROLE_ROLLUP_1 { get; set; }
-    [Nominal] public int ROLE_ROLLUP_2 { get; set; }
-    [Nominal] public int ROLE_DEPTNAME { get; set; }
-    [Nominal] public int ROLE_TITLE { get; set; }
-    [Nominal] public int ROLE_FAMILY_DESC { get; set; }
-    [Nominal] public int ROLE_FAMILY { get; set; }
-    [Nominal] public int ROLE_CODE { get; set; }    
-  }
-
-  public enum EAction
-  {
-    Rejected = 0,
-    Approved = 1
+    }    
   }
 }

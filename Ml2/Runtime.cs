@@ -16,7 +16,8 @@ using weka.core.converters;
 namespace Ml2
 {
   public class Runtime : Runtime<object> {
-    public static T[] Load<T>(params string[] files) where T : new() {
+    public static T[] Load<T>(params string[] files) where T : new()
+    {
       if (!files.Any()) throw new ArgumentNullException("files");
       return LoadRowsFromFiles<T>(files);
     }
@@ -132,7 +133,7 @@ namespace Ml2
     }
 
     private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
-      var fields = Observations.First().GetType().
+      var fields = Observations.First().Row.GetType().
           GetProperties(BindingFlags.Instance | BindingFlags.Public).
           Select(f => f.Name.ToLower()).
           ToArray();
@@ -143,7 +144,7 @@ namespace Ml2
     }
 
     private IEnumerable<int> GetTypeIndexes(IEnumerable<Type> types) {
-      var fields = Observations.First().GetType().
+      var fields = Observations.First().Row.GetType().
           GetProperties(BindingFlags.Instance | BindingFlags.Public).
           Select(f => f.PropertyType).
           ToArray();

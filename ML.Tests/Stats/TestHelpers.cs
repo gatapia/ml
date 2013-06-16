@@ -20,6 +20,6 @@ namespace ML.Tests.Stats
     public static void AlmostEqual(ICollection<double> a, ICollection<double> b) {
       Assert.AreEqual(a.Count, b.Count);
       for (int i = 0; i < a.Count; i++) { Assert.AreEqual(a.ElementAt(i), b.ElementAt(i), ACCEPTABLE_ERROR); }           
-    }
+    }    
   }
 }

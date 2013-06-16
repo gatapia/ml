@@ -25,16 +25,17 @@ namespace Ml2.Arff
       var type = data.Any() ? data.First().GetType() : typeof(T);
       var fields = GetProperties(type);
       var atts = BuildAttributes(fields);
-      var instance = new Instances(type.Name, atts, data.Length);
-      var obs = new List<Observation<T>>();
-      Array.ForEach(data, r =>
-      {
-        var inst = new DenseInstance(1.0, AddRow(r, atts));
-        obs.Add(new Observation<T> {Row = r, Instance = inst});
-        Instances.add(inst);
-      });
+      var instances = new Instances(type.Name, atts, data.Length);      
+      Array.ForEach(data, r => instances.add(new DenseInstance(1.0, AddRow(r, atts))));
 
-      Instances = instance;
+      Instances = instances;
+      var en = Instances.enumerateInstances();
+      var obs = new List<Observation<T>>();
+      var idx = 0;
+      while (en.hasMoreElements())
+      {
+        obs.Add(new Observation<T> {Row = data[idx++], Instance = (Instance) en.nextElement()});
+      }
       Observations = obs.ToArray();
       
       return this;
@@ -51,7 +52,7 @@ namespace Ml2.Arff
     {
       var fields = GetProperties(row.GetType());
       var rowvals = new double[fields.Length];
-      for (int i = 0; i < fields.Length; i++)
+      for (var i = 0; i < fields.Length; i++)
       {
         rowvals[i] = GetValue((Attribute) atts.get(i), fields[i].GetValue(row));        
       }

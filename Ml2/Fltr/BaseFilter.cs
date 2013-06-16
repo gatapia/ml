@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using weka.core;
 using weka.filters;
 
@@ -25,13 +25,22 @@ namespace Ml2.Fltr
     {
       Impl.setInputFormat(rt.Instances);
 
-      var observations = rt.Observations.Where(o => Impl.input(o.Instance)).ToArray();
-      Impl.batchFinished();
-
+      var num = rt.Instances.numInstances();
+      var observations = new List<Observation<T>>();
+      for (int i = 0; i < num; i++)
+      {
+        // var observations = rt.Observations.Where(o => Impl.input(o.Instance)).ToArray();        
+        var inst = rt.Instances.instance(i);
+        if (Impl.input(inst))
+        {
+          observations.Add(new Observation<T> {Instance = inst, Row = rt.Observations[i].Row});
+        }        
+      }      
+      Impl.batchFinished(); 
       var instances = Impl.getOutputFormat();
       Instance processed;
       while ((processed = Impl.output()) != null) { instances.add(processed); }
-      var newrt = new Runtime<T>(instances, observations);
+      var newrt = new Runtime<T>(instances, observations.ToArray());
       return newrt;
     }    
   }

@@ -11,6 +11,8 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 {  
   [TestFixture] public class AmazonPredictions
   {    
+    private readonly Random rng = new Random(1);
+
     // With a small sub-sample of 500 we get 94% predictive power
     [Test] public void logistic_regression_on_small_subset()
     {
@@ -79,7 +81,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       {
         var prediction = rejectters.Contains(row.Row.MGR_ID) || notrepresented.Contains(row.Row.MGR_ID)
                           ? classifier.Classify(row.Instance)
-                          : 1;
+                          : 1.0;
         return row.Row.ID + "," + prediction;
       }).ToList();
       lines.Insert(0, "id,ACTION");
@@ -90,20 +92,48 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
     }
 
-    [Test] public void train_on_50_50_data()
+    [Test] public void j48_on_rejecters_and_random_otherwise()
     {
-      var rows = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\train.csv").
-          Randomize().ToArray();
-      
-      var rejects = rows.Where(r => r.ACTION == EAction.Rejected).ToArray();
-      var approved = rows.Where(r => r.ACTION == EAction.Approved).ToArray();
-      var approvedsample = approved.Take(rejects.Length);
-      var sample = rejects.Concat(approvedsample).Randomize().ToArray();
-      var train = new Runtime<AmazonTrainDataRow>(0, sample);
+      var trainrows = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\train.csv");
+      var testrows = Runtime.Load<AmazonTestDataRow>(@"resources\kaggle\amazon-employee\test.csv");
+      Console.WriteLine("Total Training Rows: " + trainrows.Length + " Total Test Rows: " + testrows.Length);
 
-      train.Classifiers.J48().
-        EvaluateWith10CrossValidation();
-    }
+      var testmgrs = testrows.Select(a => a.MGR_ID).Distinct().ToArray();
+      var trainmgrs = trainrows.Select(a => a.MGR_ID).Distinct().ToArray();
+      var trainingmanagers = trainmgrs.Intersect(testmgrs).ToArray();     
+      var testingmanagers_not_represented = testmgrs.Except(trainmgrs).ToArray();     
+
+      var trainsubset = trainrows.Where(r => trainingmanagers.Contains(r.MGR_ID)).Select(r => new
+      {
+        r.ACTION,
+        r.MGR_ID,
+        r.ROLE_DEPTNAME
+      }).ToArray();
+      Console.WriteLine("Training Subset Created: " + trainsubset.Length);
+
+      var classifier = new Runtime(0, trainsubset).Classifiers.J48().Build();
+      Console.WriteLine("Training Classifier Created");
+      var testformatted = testrows.Select(r => new { ACTION=EAction.Approved, r.MGR_ID, r.ROLE_DEPTNAME, r.ID }).ToArray();
+      var testrt = new Runtime(0, testformatted);
+      var lines = testrt.Observations.Select((row, idx) =>
+      {
+        double prediction; 
+        if (testingmanagers_not_represented.Contains(TestingUtils.GetValue<int>(row.Row, "MGR_ID")))
+        {
+          prediction = rng.NextDouble() < 0.5 ? 1.0 : 0.0;
+        } else
+        {
+          prediction = classifier.Classify(row.Instance);
+        }
+        return TestingUtils.GetValue<int>(row.Row, "ID") + "," + prediction;
+      }).ToList();
+      lines.Insert(0, "id,ACTION");
+      
+      File.WriteAllLines("predict_rejecters_or_rnd.csv", lines);
+      var rejections = lines.Count(r => r.EndsWith(",0"));
+      var approvals = lines.Count(r => r.EndsWith(",1"));
+      Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
+    }    
 
     // Currently 50% (same as random) on test dataset.
     [Test] public void run_predictions(Func<Instance,string> impl = null)

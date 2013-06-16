@@ -26,7 +26,7 @@ namespace Ml2
       {
         if (rng.NextDouble() <= odds)
         {
-          var modded = idx % lst.Count;
+          var modded = idx % source.Count;
           var val = source[modded];
           sample.Add(val);
           source.RemoveAt(modded);

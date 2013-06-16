@@ -26,12 +26,8 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     [Test] public void build_and_save_model()
     {
-      var map = BuildModel();      
-      
-      using (var stream = File.Open("model.osl", FileMode.Create))
-      {
-        new BinaryFormatter().Serialize(stream, map);
-      }
+      var map = BuildModel();
+      TestingUtils.Serialise(map, "model.osl");
     }
 
     [Test] public void load_and_classify_model()
@@ -46,22 +42,9 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
     }
 
-    private static void DebugModel(Dictionary<string, Dictionary<string, double>> map)
-    {
-      Console.WriteLine(String.Join("\n\n",
-                                    map.Select(kvp => kvp.Key + ": " + String.Join(", ",
-                                                                                   kvp.Value.Where(p => p.Value > 0.05).
-                                                                                     OrderByDescending(kvp2 => kvp2.Value).
-                                                                                     Select(
-                                                                                       kvp3 => kvp3.Key + ":" + kvp3.Value)))));
-    }
-
     private Dictionary<string, Dictionary<string, double>> LoadSavedModel()
     {
-      using (var stream = File.Open("model.osl", FileMode.Open))
-      {
-        return new BinaryFormatter().Deserialize(stream) as Dictionary<string, Dictionary<string, double>>;
-      }
+      return TestingUtils.Deserialise<Dictionary<string, Dictionary<string, double>>>("model.osl");
     }
 
     private Dictionary<string, Dictionary<string, double>> BuildModel()

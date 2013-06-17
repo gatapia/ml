@@ -14,8 +14,22 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee.Data
     [Nominal] public int ROLE_TITLE { get; set; }
     [Nominal] public int ROLE_FAMILY_DESC { get; set; }
     [Nominal] public int ROLE_FAMILY { get; set; }
-    [Nominal] public int ROLE_CODE { get; set; } 
    
     public EAction GetAction() { return ACTION; }
+    
+    public object GetValue(string property) {
+      switch (property) {
+        case "ACTION" : return ACTION;
+        case "RESOURCE" : return RESOURCE;
+        case "MGR_ID" : return MGR_ID;
+        case "ROLE_ROLLUP_1" : return ROLE_ROLLUP_1;
+        case "ROLE_ROLLUP_2" : return ROLE_ROLLUP_2;
+        case "ROLE_DEPTNAME" : return ROLE_DEPTNAME;
+        case "ROLE_TITLE" : return ROLE_TITLE;
+        case "ROLE_FAMILY_DESC" : return ROLE_FAMILY_DESC;
+        case "ROLE_FAMILY" : return ROLE_FAMILY;
+        default: throw new ArgumentException("property: " + property + " not found in AmazonTrainDataRow");
+      }
+    }
   }
 }

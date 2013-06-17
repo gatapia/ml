@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Kaggle\AmazonEmployee\AmazonAttributeExperiments.cs" />
     <Compile Include="Kaggle\AmazonEmployee\AmazonPredictions.cs" />
+    <Compile Include="Kaggle\AmazonEmployee\TrimmingTrainingDataModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\ProportionBasedAttributesModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\CustomModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\IAmazonDataRow.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Kaggle\AmazonEmployee\Data\AmazonTrainDataRow.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\EAction.cs" />
     <Compile Include="Kaggle\AmazonEmployee\RejectPercentageModel.cs" />
+    <Compile Include="Kaggle\Titanic\TitanicCartPredictions.cs" />
     <Compile Include="Kaggle\Titanic\TitanicMlMiscClassifiersPredictions.cs" />
     <Compile Include="Kaggle\Titanic\Data\EPassengerClass.cs" />
     <Compile Include="Kaggle\Titanic\Data\EPort.cs" />
@@ -77,7 +79,6 @@
     <Compile Include="MiscMl2SupportingFunctionalityTests.cs" />
     <Compile Include="Kaggle\Titanic\Data\TitanicDataRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestingUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\kaggle\amazon-employee\sampleSubmission.csv">

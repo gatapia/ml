@@ -48,16 +48,16 @@ namespace Ml2.Tasks.Generator
       var types = GetBaseClassesOf(typeof (weka.filters.Filter)).
           ToArray();
       var supatt = types.
-          Where(t => t.Namespace == "weka.filters.supervised.attribute").
+          Where(t => t.Namespace.StartsWith("weka.filters.supervised.attribute")).
           ToArray();
       var supinst = types.
-          Where(t => t.Namespace == "weka.filters.supervised.instance").
+          Where(t => t.Namespace.StartsWith("weka.filters.supervised.instance")).
           ToArray();
       var unsupatt = types.
-          Where(t => t.Namespace == "weka.filters.unsupervised.attribute").
+          Where(t => t.Namespace.StartsWith("weka.filters.unsupervised.attribute")).
           ToArray();
       var unsupinst = types.
-          Where(t => t.Namespace == "weka.filters.unsupervised.instance").
+          Where(t => t.Namespace.StartsWith("weka.filters.unsupervised.instance")).
           ToArray();
 
 
@@ -81,8 +81,7 @@ namespace Ml2.Tasks.Generator
     {
       var types = GetBaseClassesOf(typeof (Classifier));
       Array.ForEach(types, t => 
-             RunT4Template(typeof(ClassifierAlgorithm), t, @"Clss\Generated"));
-
+             RunT4Template(typeof(ClassifierAlgorithm), t, @"Clss\Generated"));      
       RunT4TemplateImpl(new Classifiers(types), @"Clss\Generated\Classifiers");
     }
 

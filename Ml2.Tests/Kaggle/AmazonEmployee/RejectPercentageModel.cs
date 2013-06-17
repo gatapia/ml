@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using Ml2.Tests.Kaggle.AmazonEmployee.Data;
 using NUnit.Framework;
 using Console = System.Console;
@@ -27,7 +25,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     [Test] public void build_and_save_model()
     {
       var map = BuildModel();
-      TestingUtils.Serialise(map, "model.osl");
+      Helpers.Serialise(map, "model.osl");
     }
 
     [Test] public void load_and_classify_model()
@@ -44,7 +42,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     private Dictionary<string, Dictionary<string, double>> LoadSavedModel()
     {
-      return TestingUtils.Deserialise<Dictionary<string, Dictionary<string, double>>>("model.osl");
+      return Helpers.Deserialise<Dictionary<string, Dictionary<string, double>>>("model.osl");
     }
 
     private Dictionary<string, Dictionary<string, double>> BuildModel()

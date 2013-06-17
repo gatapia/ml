@@ -7,7 +7,7 @@ using NUnit.Framework;
 using weka.classifiers;
 
 namespace Ml2.Tests.Kaggle.AmazonEmployee
-{
+{  
   [TestFixture] public class ProportionBasedAttributesModel
   {
     private readonly Random rng = new Random(1);
@@ -30,11 +30,13 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     private static CustomModel[] GetTrainingCustomModels()
     {
       const string file = "custom_model_training_rows.osl";
-      if (File.Exists(file)) return TestingUtils.Deserialise<CustomModel[]>(file);
+      if (File.Exists(file)) return Helpers.Deserialise<CustomModel[]>(file);
 
       var rows = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\train.csv");
-      var subset = rows.Select((r, idx) => new CustomModel(r, rows, idx)).Where(c => c.GetTotalRejectionProportion() > 0).ToArray();
-      TestingUtils.Serialise(subset, file);
+      // Training set is only rows that have some rejection proportions.
+      var subset = rows.Select((r, idx) => new CustomModel(r, rows, idx)).
+          Where(c => c.GetTotalRejectionProportion() > 0).ToArray();
+      Helpers.Serialise(subset, file);
       return subset;
     }
 

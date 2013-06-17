@@ -41,7 +41,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee.Data
 
     private double GetTotal(string field)
     {
-      var val = TestingUtils.GetValue<int>(row, field);
+      var val = Helpers.GetValue<int>(row, field);
       var key = field + "." + val + ".TOTAL";      
       if (CACHE.ContainsKey(key)) return CACHE[key];
       GetRejectProportion(field); // This initialises both totals and proportion caches
@@ -51,10 +51,10 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee.Data
 
     private double GetRejectProportion(string field)
     {
-      var val = TestingUtils.GetValue<int>(row, field);
+      var val = Helpers.GetValue<int>(row, field);
       var key = field + "." + val + ".PROPORTION";      
       if (CACHE.ContainsKey(key)) return CACHE[key];      
-      var all = trainingrows.Where(r => TestingUtils.GetValue<int>(row, field) == val).ToArray();
+      var all = trainingrows.Where(r => Helpers.GetValue<int>(row, field) == val).ToArray();
       CACHE[field + "." + val + ".TOTAL"] = all.Length;
       return CACHE[key] = all.Count(r => r.GetAction() == EAction.Rejected) / (double) all.Length;
     }

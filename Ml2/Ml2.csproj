@@ -61,6 +61,7 @@
     <Compile Include="Arff\CsvLoader.cs" />
     <Compile Include="Arff\EAttributeType.cs" />
     <Compile Include="Arff\IArffInstanceBuilder.cs" />
+    <Compile Include="Arff\IGetValue.cs" />
     <Compile Include="Arff\ILoader.cs" />
     <Compile Include="Arff\ILoaderFactory.cs" />
     <Compile Include="Arff\LoaderFactory.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Clstr\Generated\Hierarchical.cs" />
     <Compile Include="Clstr\Generated\MakeDensityBased.cs" />
     <Compile Include="Clstr\Generated\SimpleKMeans.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="ListExtensions.cs" />
     <Compile Include="Fltr\Generated\Add.cs" />
     <Compile Include="Fltr\Generated\AddClassification.cs" />

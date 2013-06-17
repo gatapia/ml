@@ -118,14 +118,14 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var lines = testrt.Observations.Select((row, idx) =>
       {
         double prediction; 
-        if (testingmanagers_not_represented.Contains(TestingUtils.GetValue<int>(row.Row, "MGR_ID")))
+        if (testingmanagers_not_represented.Contains(Helpers.GetValue<int>(row.Row, "MGR_ID")))
         {
           prediction = rng.NextDouble() < 0.5 ? 1.0 : 0.0;
         } else
         {
           prediction = classifier.Classify(row.Instance);
         }
-        return TestingUtils.GetValue<int>(row.Row, "ID") + "," + prediction;
+        return Helpers.GetValue<int>(row.Row, "ID") + "," + prediction;
       }).ToList();
       lines.Insert(0, "id,ACTION");
       

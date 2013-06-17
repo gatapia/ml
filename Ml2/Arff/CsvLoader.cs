@@ -36,7 +36,7 @@ namespace Ml2.Arff
         while (csv.ReadNextRecord())
         {
           var record = new T();
-          for (var i = 0; i < fieldCount; i++)
+          for (var i = 0; i < Math.Min(fieldCount, targets.Length); i++)
           {
             var field = targets[i];
             try { field.SetValue(record, CovertToType(csv[i], field.PropertyType)); }

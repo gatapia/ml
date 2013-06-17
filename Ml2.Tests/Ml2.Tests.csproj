@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Kaggle\AmazonEmployee\AmazonAttributeExperiments.cs" />
     <Compile Include="Kaggle\AmazonEmployee\AmazonPredictions.cs" />
+    <Compile Include="Kaggle\AmazonEmployee\SpreadSubSampleTrainingDataModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\TrimmingTrainingDataModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\ProportionBasedAttributesModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\CustomModel.cs" />

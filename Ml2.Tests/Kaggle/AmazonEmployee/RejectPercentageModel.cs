@@ -47,7 +47,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     private Dictionary<string, Dictionary<string, double>> BuildModel()
     {
-      var props = typeof (AmazonTrainDataRow).GetProperties().Skip(2).ToArray();
+      var props = Helpers.GetProps(typeof(AmazonTrainDataRow)).Skip(2).ToArray();
       var all = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\train.csv");
       var rejects = all.Where(r => r.ACTION == EAction.Rejected).ToArray();
       var model = props.ToDictionary(p => p.Name, p =>
@@ -79,7 +79,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     private void RunPredictions(IReadOnlyDictionary<string, Dictionary<string, double>> rejectsperc)
     {
-      var props = typeof (AmazonTestDataRow).GetProperties().Skip(2).ToArray();
+      var props = Helpers.GetProps(typeof(AmazonTestDataRow)).Skip(2).ToArray();
       var test = Runtime.Load<AmazonTestDataRow>(@"resources\kaggle\amazon-employee\test.csv");
       var lines = test.Select(row => row.ID + "," + Classify(row, props, rejectsperc)).ToList();
       lines.Insert(0, "id,ACTION");

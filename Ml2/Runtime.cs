@@ -133,8 +133,7 @@ namespace Ml2
     }
 
     private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
-      var fields = Observations.First().Row.GetType().
-          GetProperties(BindingFlags.Instance | BindingFlags.Public).
+      var fields = Helpers.GetProps(Observations.First().Row.GetType()).
           Select(f => f.Name.ToLower()).
           ToArray();
       var idxs = names.Select(n => Array.IndexOf(fields, n)).ToArray();
@@ -144,8 +143,7 @@ namespace Ml2
     }
 
     private IEnumerable<int> GetTypeIndexes(IEnumerable<Type> types) {
-      var fields = Observations.First().Row.GetType().
-          GetProperties(BindingFlags.Instance | BindingFlags.Public).
+      var fields = Helpers.GetProps(Observations.First().Row.GetType()).
           Select(f => f.PropertyType).
           ToArray();
       var idxs = Enumerable.Range(0, fields.Length).

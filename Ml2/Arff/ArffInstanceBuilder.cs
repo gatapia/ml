@@ -23,10 +23,10 @@ namespace Ml2.Arff
       if (Instances != null) throw new IllegalStateException("ArffInstanceBuilder has already built.");
 
       var type = data.Any() ? data.First().GetType() : typeof(T);
-      var fields = GetProperties(type);
+      var fields = Helpers.GetProps(type);
       var atts = BuildAttributes(fields);
       var instances = new Instances(type.Name, atts, data.Length);      
-      Array.ForEach(data, r => instances.add(new DenseInstance(1.0, AddRow(r, atts))));
+      Array.ForEach(data, r => instances.add(new DenseInstance(1.0, AddRow(r, atts, fields))));
 
       Instances = instances;
       var en = Instances.enumerateInstances();
@@ -43,14 +43,9 @@ namespace Ml2.Arff
 
     public Instances Instances { get; private set; }
     public Observation<T>[] Observations { get; private set; }
-
-    private static PropertyInfo[] GetProperties(Type type) {      
-      return type.GetProperties(BindingFlags.Instance | BindingFlags.Public).ToArray();
-    }
-
-    private double[] AddRow(T row, ArrayList atts)
-    {
-      var fields = GetProperties(row.GetType());
+    
+    private double[] AddRow(T row, List atts, PropertyInfo[] fields)
+    {      
       var rowvals = new double[fields.Length];
       for (var i = 0; i < fields.Length; i++)
       {

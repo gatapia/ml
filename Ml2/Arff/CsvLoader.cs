@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using LumenWorks.Framework.IO.Csv;
 
 namespace Ml2.Arff
@@ -28,7 +27,7 @@ namespace Ml2.Arff
 
     private static T[] ReadFileImpl<T>(TextReader tr) where T : new()
     {
-      var targets = GetProperties<T>();
+      var targets = Helpers.GetProps(typeof(T));
       var records = new List<T>();
       using (var csv = new CsvReader(tr, true))
       {
@@ -75,10 +74,6 @@ namespace Ml2.Arff
         for (int i = 0; i < names.Length; i++) { if (c == names[i][0]) return values[i]; }
       }
       throw new ArgumentException(val + " could not be converted to " + type.Name);
-    }
-
-    private static PropertyInfo[] GetProperties<T>() where T : new() {
-      return typeof(T).GetProperties(BindingFlags.Instance | BindingFlags.Public);
-    }
+    }    
   }
 }

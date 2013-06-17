@@ -18,13 +18,12 @@ namespace Ml2
       if (size <= 0 || size > lst.Count) throw new ArgumentException("size");
       if (size == lst.Count) return lst;
       var odds = size / (double) lst.Count;
-      var rng = new Random(seed);
       var sample = new List<T>();
       var source = lst.ToList();
       var idx = 0;
       while (true)
       {
-        if (rng.NextDouble() <= odds)
+        if (Helpers.Random() <= odds)
         {
           var modded = idx % source.Count;
           var val = source[modded];

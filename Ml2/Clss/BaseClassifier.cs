@@ -8,6 +8,7 @@ namespace Ml2.Clss
     Runtime<T> Runtime { get; }
     I Impl { get; }
     double Classify(Instance instance);
+    double Classify(Observation<T> obs);
     IBaseClassifier<T, I> Build();
     IBaseClassifier<T, I> FlushToFile(string file);
     IBaseClassifier<T, I> EvaluateWith10CrossValidation();
@@ -28,13 +29,17 @@ namespace Ml2.Clss
     public double Classify(Instance instance)
     {
       Build();
-
       return Impl.classifyInstance(instance);
+    }
+
+    public double Classify(Observation<T> obs)
+    {
+      Build();
+      return Impl.classifyInstance(obs.Instance);
     }
 
     public IBaseClassifier<T, I> FlushToFile(string file) {
       Build();
-
       if (File.Exists(file)) File.Delete(file);
       SerializationHelper.write(file, Impl);
       return this;
@@ -43,7 +48,6 @@ namespace Ml2.Clss
     public IBaseClassifier<T, I> EvaluateWith10CrossValidation()
     {
       Build();
-
       Runtime.EvaluateWith10CrossValidateion(Impl);
       return this;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using Ml2.Arff;
 
@@ -36,6 +37,15 @@ namespace Ml2
       return value == null ? 
         data.Where(d => GetValue<object>(d, prop) == null) : 
         data.Where(d => value.Equals(GetValue<object>(d, prop)));
+    }
+
+    private static readonly IDictionary<Type, PropertyInfo[]> memoized_props = new Dictionary<Type, PropertyInfo[]>();
+
+    public static PropertyInfo[] GetProps(Type t)
+    {
+      return memoized_props.ContainsKey(t) ? 
+          memoized_props[t] : 
+          (memoized_props[t] = t.GetProperties().OrderBy(p => p.MetadataToken).ToArray());
     }
 
     private static readonly Random rng = new Random(1);

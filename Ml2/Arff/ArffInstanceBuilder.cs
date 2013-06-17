@@ -24,6 +24,7 @@ namespace Ml2.Arff
 
       var type = data.Any() ? data.First().GetType() : typeof(T);
       var fields = Helpers.GetProps(type);
+      // Console.WriteLine("Fields: " + String.Join(", ", fields.Select(f => f.Name)));
       var atts = BuildAttributes(fields);
       var instances = new Instances(type.Name, atts, data.Length);      
       Array.ForEach(data, r => instances.add(new DenseInstance(1.0, AddRow(r, atts, fields))));

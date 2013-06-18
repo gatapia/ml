@@ -41,8 +41,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public FilteredClassifier<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((FilteredClassifier)Impl).setClassifier(newClassifier.Impl);
+    public FilteredClassifier<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((FilteredClassifier)Impl).setClassifier(newClassifier);
       return this;
     }
 

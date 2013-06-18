@@ -48,8 +48,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public LWL<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((LWL)Impl).setClassifier(newClassifier.Impl);
+    public LWL<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((LWL)Impl).setClassifier(newClassifier);
       return this;
     }
 

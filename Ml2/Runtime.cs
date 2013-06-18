@@ -123,15 +123,20 @@ namespace Ml2
       return this;
     }
 
-    public ICollection<string> GeneratePredictions(Classifier classifier, 
+    public ICollection<string> GeneratePredictions(
         Func<double, Observation<T>, int, string> outputline,
-        string outheader = null)
+        string outheader,
+        params Classifier[] classifiers)
     {
       var outlines = new List<string>();
       if (!String.IsNullOrWhiteSpace(outheader)) outlines.Add(outheader);
       return Observations.Select((obs, idx) => 
-          outputline(classifier.classifyInstance(obs.Instance), obs, idx)).
+          outputline(ClassifyInstance(classifiers, obs), obs, idx)).
         ToArray();      
+    }
+
+    private static double ClassifyInstance(Classifier[] classifiers, Observation<T> obs) {
+      return classifiers.Select(c => c.classifyInstance(obs.Instance)).GetMajority();
     }
 
     protected static T2[] LoadRowsFromFiles<T2>(string[] files) where T2 : new()

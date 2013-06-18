@@ -45,8 +45,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifiers to be used.
     /// </summary>    
-    public Vote<T> Classifiers (Clss.IBaseClassifier<T, weka.classifiers.Classifier>[] classifiers) {
-      ((Vote)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
+    public Vote<T> Classifiers (weka.classifiers.Classifier[] classifiers) {
+      ((Vote)Impl).setClassifiers(classifiers);
       return this;
     }
 

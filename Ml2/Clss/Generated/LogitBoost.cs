@@ -99,8 +99,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public LogitBoost<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((LogitBoost)Impl).setClassifier(newClassifier.Impl);
+    public LogitBoost<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((LogitBoost)Impl).setClassifier(newClassifier);
       return this;
     }
 

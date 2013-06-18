@@ -34,8 +34,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The meta classifiers to be used.
     /// </summary>    
-    public Stacking<T> MetaClassifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> classifier) {
-      ((Stacking)Impl).setMetaClassifier(classifier.Impl);
+    public Stacking<T> MetaClassifier (weka.classifiers.Classifier classifier) {
+      ((Stacking)Impl).setMetaClassifier(classifier);
       return this;
     }
 
@@ -59,8 +59,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifiers to be used.
     /// </summary>    
-    public Stacking<T> Classifiers (Clss.IBaseClassifier<T, weka.classifiers.Classifier>[] classifiers) {
-      ((Stacking)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
+    public Stacking<T> Classifiers (weka.classifiers.Classifier[] classifiers) {
+      ((Stacking)Impl).setClassifiers(classifiers);
       return this;
     }
 

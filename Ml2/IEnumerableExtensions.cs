@@ -4,8 +4,13 @@ using System.Linq;
 
 namespace Ml2
 {
-  public static class ListExtensions
+  public static class IEnumerableExtensions
   {
+    public static T GetMajority<T>(this IEnumerable<T> data) {
+      return data.GroupBy(i=>i).OrderByDescending(grp=>grp.Count())
+        .Select(grp=>grp.Key).First();
+    }
+
     public static IEnumerable<T> Randomize<T>(this IEnumerable<T> data, int seed = 0)
     {
       var rng = new Random(seed);

@@ -26,8 +26,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public ClassificationViaRegression<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((ClassificationViaRegression)Impl).setClassifier(newClassifier.Impl);
+    public ClassificationViaRegression<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((ClassificationViaRegression)Impl).setClassifier(newClassifier);
       return this;
     }
 

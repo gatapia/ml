@@ -53,8 +53,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AttributeSelectedClassifier<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((AttributeSelectedClassifier)Impl).setClassifier(newClassifier.Impl);
+    public AttributeSelectedClassifier<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((AttributeSelectedClassifier)Impl).setClassifier(newClassifier);
       return this;
     }
 

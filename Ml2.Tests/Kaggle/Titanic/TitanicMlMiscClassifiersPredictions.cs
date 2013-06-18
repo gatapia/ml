@@ -29,7 +29,7 @@ namespace Ml2.Tests.Kaggle.Titanic
       var classifier = train.Classifiers.Logistic();
 
       train.Classifiers.
-        AdaBoostM1().Seed(1).Classifier(classifier).
+        AdaBoostM1().Seed(1).Classifier(classifier.Impl).
         NumIterations(10).EvaluateWithCrossValidation();
     }
 

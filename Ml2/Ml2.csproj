@@ -246,7 +246,7 @@
     <Compile Include="Clstr\Generated\SimpleKMeans.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="RuntimeHelpers\IAttributesRemover.cs" />
-    <Compile Include="ListExtensions.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="Fltr\Generated\Add.cs" />
     <Compile Include="Fltr\Generated\AddClassification.cs" />
     <Compile Include="Fltr\Generated\AddCluster.cs" />

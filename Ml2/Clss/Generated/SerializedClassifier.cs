@@ -20,8 +20,8 @@ namespace Ml2.Clss
     /// <summary>
     /// 
     /// </summary>    
-    public SerializedClassifier<T> Model (Clss.IBaseClassifier<T, weka.classifiers.Classifier> value) {
-      ((SerializedClassifier)Impl).setModel(value.Impl);
+    public SerializedClassifier<T> Model (weka.classifiers.Classifier value) {
+      ((SerializedClassifier)Impl).setModel(value);
       return this;
     }
 

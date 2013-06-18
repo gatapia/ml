@@ -60,8 +60,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdaBoostM1<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((AdaBoostM1)Impl).setClassifier(newClassifier.Impl);
+    public AdaBoostM1<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((AdaBoostM1)Impl).setClassifier(newClassifier);
       return this;
     }
 

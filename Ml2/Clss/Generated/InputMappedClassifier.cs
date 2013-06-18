@@ -82,8 +82,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public InputMappedClassifier<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((InputMappedClassifier)Impl).setClassifier(newClassifier.Impl);
+    public InputMappedClassifier<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((InputMappedClassifier)Impl).setClassifier(newClassifier);
       return this;
     }
 

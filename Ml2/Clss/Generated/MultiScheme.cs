@@ -33,8 +33,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The classifiers to be chosen from.
     /// </summary>    
-    public MultiScheme<T> Classifiers (Clss.IBaseClassifier<T, weka.classifiers.Classifier>[] classifiers) {
-      ((MultiScheme)Impl).setClassifiers(classifiers.Select(v => v.Impl).ToArray());
+    public MultiScheme<T> Classifiers (weka.classifiers.Classifier[] classifiers) {
+      ((MultiScheme)Impl).setClassifiers(classifiers);
       return this;
     }
 

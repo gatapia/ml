@@ -74,8 +74,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public Bagging<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((Bagging)Impl).setClassifier(newClassifier.Impl);
+    public Bagging<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((Bagging)Impl).setClassifier(newClassifier);
       return this;
     }
 

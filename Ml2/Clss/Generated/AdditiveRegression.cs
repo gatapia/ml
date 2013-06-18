@@ -44,8 +44,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public AdditiveRegression<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((AdditiveRegression)Impl).setClassifier(newClassifier.Impl);
+    public AdditiveRegression<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((AdditiveRegression)Impl).setClassifier(newClassifier);
       return this;
     }
 

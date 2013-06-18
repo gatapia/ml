@@ -30,10 +30,10 @@ namespace Ml2.Tasks.Generator
         return GetSetterTemplateImpl(o, name + ".Impl", "Asstn.IBaseAssociation<weka.associations.AbstractAssociator> " + mi.Name);
       }
       if (pt == typeof(Classifier)) {
-        return GetSetterTemplateImpl(o, name + ".Impl", "Clss.IBaseClassifier<T, weka.classifiers.Classifier> " + mi.Name);
+        return GetSetterTemplateImpl(o, name, "weka.classifiers.Classifier " + mi.Name);
       }
       if (pt == typeof(Classifier[])) {
-        return GetSetterTemplateImpl(o, name + ".Select(v => v.Impl).ToArray()", "Clss.IBaseClassifier<T, weka.classifiers.Classifier>[] " + mi.Name);
+        return GetSetterTemplateImpl(o, name, "weka.classifiers.Classifier[] " + mi.Name);
       }
       if (pt == typeof(ASEvaluation)) {
         return GetSetterTemplateImpl(o, name + ".Impl", "AttrSel.Evals.IBaseAttributeSelectionEvaluator<weka.attributeSelection.ASEvaluation> " + mi.Name);

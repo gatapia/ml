@@ -69,8 +69,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public MultiClassClassifierUpdateable<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((MultiClassClassifierUpdateable)Impl).setClassifier(newClassifier.Impl);
+    public MultiClassClassifierUpdateable<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((MultiClassClassifierUpdateable)Impl).setClassifier(newClassifier);
       return this;
     }
 

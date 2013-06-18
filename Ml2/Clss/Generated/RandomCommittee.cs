@@ -57,8 +57,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RandomCommittee<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((RandomCommittee)Impl).setClassifier(newClassifier.Impl);
+    public RandomCommittee<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((RandomCommittee)Impl).setClassifier(newClassifier);
       return this;
     }
 

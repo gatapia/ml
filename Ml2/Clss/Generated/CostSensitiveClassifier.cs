@@ -64,8 +64,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public CostSensitiveClassifier<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((CostSensitiveClassifier)Impl).setClassifier(newClassifier.Impl);
+    public CostSensitiveClassifier<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((CostSensitiveClassifier)Impl).setClassifier(newClassifier);
       return this;
     }
 

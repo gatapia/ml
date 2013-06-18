@@ -10,7 +10,7 @@ using weka.classifiers;
 
 namespace Ml2.Tests.Kaggle.AmazonEmployee
 {    
-  [TestFixture] public class RandomForestDataModel
+  [TestFixture] public class ClassifierExperiments
   {    
     private static readonly int UNKNOWN_VALUE = Int32.MinValue;
     private static readonly int MAX_TRAINING_ROWS = 0;
@@ -34,26 +34,100 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// With 200 trees (from 100): 90.2767% (Keeping)
     /// With Depth 3 (from 2): 91.1462 % (Saved!!)
     ///     Evaluator Seed: 2 - Model has 22310 rejections and 36611 approvals
+    ///     On Kaggle: 66.10822 %
     /// </summary>
-    [Test] public void build_classifier()
+    [Test] public void build_random_forest_classifier()
     {
-      var trainingrows = LoadTrainingData().ToArray();
-      var rt =  new Runtime<RFCustomModel>(0, trainingrows);
-      
-      var classifier = rt.Classifiers.RandomForest().          
+      evaluate_classifier(c => c.RandomForest().          
           NumExecutionSlots(2).
           MaxDepth(3).
           NumFeatures(2).
-          NumTrees(200).
-          EvaluateWithCrossValidation().
-          FlushToFile("RandomForestDataModel.model");
+          NumTrees(200));
+    }
+
+    /// <summary>
+    /// Max Its: 100: 67.9315 %
+    /// </summary>
+    [Test] public void build_logistic_regression_classifier() {
+      evaluate_classifier(c => c.Logistic().MaxIts(100));
+    }
+
+    /// <summary>
+    /// 94.5718 % with:
+    /// Model has 8782 rejections and 50139 approvals
+    /// Highly overfitted.
+    /// </summary>
+    [Test] public void build_j48_classifier()
+    {
+      evaluate_classifier(c => c.J48());
+    }
+
+    /// <summary>
+    /// K: 200 - 61.3175 %
+    /// K: 100 - 62.0553 %
+    /// K: 50 - 63.7945 %
+    /// K: 25 - 64.5586 %
+    /// K: 10 - 67.3254 %
+    /// K: 5 - 70.303  %
+    /// K: 4 - 70.9881 %
+    /// K: 3 - 72.7273 % Predictions: 35692 rejections and 23229 approvals
+    /// K: 2 - 72.6482 % 
+    /// </summary>
+    [Test] public void build_ibk_classifier()
+    {
+      evaluate_classifier(c => c.IBk().KNN(3));
+    }
+
+    /// <summary>    
+    /// Base: 52.5428 %
+    /// W/SupervisedDiscretization: 93.8867 % - 12278 rejections and 46643 approvals
+    /// W/KernelEstimator: 53.5968 %
+    /// W/Both: 93.8076 % - 12278 rejections and 46643 approvals
+    /// </summary>
+    [Test] public void build_nb_classifier()
+    {      
+      evaluate_classifier(c => c.NaiveBayes().
+          UseKernelEstimator(true).
+          UseSupervisedDiscretization(true));          
+    }
+
+    /// <summary>
+    /// Too slow.
+    /// </summary>
+    [Test] public void build_svm_classifier()
+    {
+      // evaluate_classifier(c => c.SMO());       
+    }
+
+    // Model has 17633 rejections and 41288 approvals
+    // On Kaggle: 0.70112
+    [Test] public void ensemble_classifier() {
+      var files = new [] {"NaiveBayes.model", "IbkDataModel.model", 
+          "LogisticDataModel.model", "RandomForestDataModel.model"};
+      var classifiers = files.Select(BaseClassifier.Read).ToArray();
+      
+      // No evaluation just predictions.
+      RunPredictions(LoadTrainingData().ToArray(), classifiers);
+    }
+
+    private void evaluate_classifier(
+          Func<Classifiers<RFCustomModel>, IBaseClassifier<RFCustomModel, Classifier>> builder) {
+      var trainingrows = LoadTrainingData().ToArray();
+      var rt =  new Runtime<RFCustomModel>(0, trainingrows);
+      
+      var classifier = builder(rt.Classifiers);
+
+      classifier.
+          FlushToFile(classifier.Impl.GetType().Name + ".model").
+          EvaluateWithCrossValidation(); 
        
       RunPredictions(trainingrows, classifier.Impl);
     }
-
+    
     [Test] public void load_model_and_run_predictions()
     {
-      var classifier = BaseClassifier.Read("RandomForestDataModel.model");
+      var model_to_load = "RandomForestDataModel.model";
+      var classifier = BaseClassifier.Read(model_to_load);
       RunPredictions(LoadTrainingData().ToArray(), classifier);
     }
 
@@ -76,16 +150,16 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       return joined;
     }
 
-    private void RunPredictions(RFCustomModel[] trainingrows, Classifier classifier)
+    private void RunPredictions(RFCustomModel[] trainingrows, params Classifier[] classifiers)
     {
       var testrows = LoadAndMassageTestRows(trainingrows);          
       var testset = new Runtime<RFCustomModel>(0, testrows);      
       Func<double, Observation<RFCustomModel>, int, string> formatter = 
           (outcome, obs, idx) => (idx + 1).ToString() + ',' + outcome;
       
-      var lines = testset.GeneratePredictions(classifier, formatter, "id,ACTION");
+      var lines = testset.GeneratePredictions(formatter, "id,ACTION", classifiers);
       
-      File.WriteAllLines("RandomForestDataModelPredictions.csv", lines);
+      File.WriteAllLines("EnsemblePredictions.csv", lines);
 
       var rejections = lines.Count(r => r.EndsWith(",0"));
       var approvals = lines.Count(r => r.EndsWith(",1"));

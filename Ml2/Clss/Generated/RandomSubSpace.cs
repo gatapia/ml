@@ -72,8 +72,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RandomSubSpace<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((RandomSubSpace)Impl).setClassifier(newClassifier.Impl);
+    public RandomSubSpace<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((RandomSubSpace)Impl).setClassifier(newClassifier);
       return this;
     }
 

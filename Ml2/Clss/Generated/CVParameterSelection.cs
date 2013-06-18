@@ -47,8 +47,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public CVParameterSelection<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((CVParameterSelection)Impl).setClassifier(newClassifier.Impl);
+    public CVParameterSelection<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((CVParameterSelection)Impl).setClassifier(newClassifier);
       return this;
     }
 

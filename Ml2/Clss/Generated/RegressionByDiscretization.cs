@@ -83,8 +83,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The base classifier to be used.
     /// </summary>    
-    public RegressionByDiscretization<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((RegressionByDiscretization)Impl).setClassifier(newClassifier.Impl);
+    public RegressionByDiscretization<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((RegressionByDiscretization)Impl).setClassifier(newClassifier);
       return this;
     }
 

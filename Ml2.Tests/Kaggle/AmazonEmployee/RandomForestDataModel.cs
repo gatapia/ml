@@ -40,7 +40,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var trainingrows = LoadTrainingData().ToArray();
       var rt =  new Runtime<RFCustomModel>(0, trainingrows);
       
-      var classifier = rt.Classifiers.RandomForest().          
+      var classifier = rt.Classifiers.Trees.RandomForest().          
           NumExecutionSlots(2).
           MaxDepth(3).
           NumFeatures(2).

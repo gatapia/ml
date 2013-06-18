@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Ml2.Tasks.Generator.Asstn;
@@ -19,70 +20,94 @@ namespace Ml2.Tasks.Generator
   {
     [Test] public void GenerateAttributeSelectionEvaluators()
     {
+      var dir = PrepDir(@"AttrSel\Evals\Generated");
+
       var types = GetBaseClassesOf(typeof (ASEvaluation)).
           ToArray();
       Array.ForEach(types, t => 
-            RunT4Template(typeof(AttributeSelectionEvaluator), t, @"AttrSel\Evals\Generated"));
-      RunT4TemplateImpl(new Evaluators(types), @"AttrSel\Evals\Generated\Evaluators");
+            RunT4Template(typeof(AttributeSelectionEvaluator), t, dir));
+      RunT4TemplateImpl(new Evaluators(types), dir);
     }
 
     [Test] public void GenerateAttributeSelectionAlgorithms()
     {
+      var dir = PrepDir(@"AttrSel\Algs\Generated");
+
       var types = GetBaseClassesOf(typeof (ASSearch));
       Array.ForEach(types, t => 
-            RunT4Template(typeof(AttributeSelectionAlgorithm), t, @"AttrSel\Algs\Generated"));
+            RunT4Template(typeof(AttributeSelectionAlgorithm), t, dir));
 
-      RunT4TemplateImpl(new Algorithms(types), @"AttrSel\Algs\Generated\Algorithms");
+      RunT4TemplateImpl(new Algorithms(types), dir);
     }
 
     [Test] public void GenerateClusterers()
     {
+      var dir = PrepDir(@"Clstr\Generated");
+
       var types = GetBaseClassesOf(typeof (AbstractClusterer));
       Array.ForEach(types, t => 
-             RunT4Template(typeof(ClustererAlgorithm), t, @"Clstr\Generated"));
+             RunT4Template(typeof(ClustererAlgorithm), t, dir));
 
-      RunT4TemplateImpl(new Clusterers(types), @"Clstr\Generated\Clusterers");
+      RunT4TemplateImpl(new Clusterers(types), dir);
     }
 
     [Test] public void GenerateAllFilters()
     {      
+      var dir = PrepDir(@"Fltr\Generated");
+
       var types = GetBaseClassesOf(typeof (Filter));
       var namespaces = types.
           Select(t => t.Namespace).
           Distinct().
           ToList();
-      namespaces.ForEach(GenerateCodeForFilterNamespace);
-      
-      Array.ForEach(types, t => RunT4Template(typeof(FilterAlgorithm), t, @"Fltr\Generated"));
-    }
-
-    private void GenerateCodeForFilterNamespace(string ns)
-    {
-      var types = GetBaseClassesOf(typeof (Filter)).
-          Where(t => t.Namespace == ns).
-          ToArray();
-      ns = ns.Substring(5);
-      var tokens = ns.Split('.');
-      var uppercamel = String.Join(String.Empty, tokens.Select(w => Char.ToUpper(w[0]) + w.Substring(1)));
-      if (uppercamel == "Filters") uppercamel += "General";
-      RunT4TemplateImpl(new Filters(types) { TypeName = uppercamel }, @"Fltr\Generated\" + uppercamel);
-    }
-
-    [Test] public void GenerateAllAssociations()
-    {
-      var types = GetBaseClassesOf(typeof (AbstractAssociator));
-      Array.ForEach(types, t => 
-             RunT4Template(typeof(AssociationAlgorithm), t, @"Asstn\Generated"));
-
-      RunT4TemplateImpl(new Associations(types), @"Asstn\Generated\Associations");
+      namespaces.ForEach(ns => GenerateCodeForNamespace(types, typeof(Filters), ns, "Fltr"));      
+      Array.ForEach(types, t => RunT4Template(typeof(FilterAlgorithm), t, dir));
     }
 
     [Test] public void GenerateAllClassifiers()
     {
+      var dir = PrepDir(@"Clss\Generated");
+
       var types = GetBaseClassesOf(typeof (Classifier));
+      var namespaces = types.
+          Select(t => t.Namespace).
+          Distinct().
+          ToList();
+      namespaces.ForEach(ns => GenerateCodeForNamespace(types, typeof(Classifiers), ns, "Clss"));      
+      Array.ForEach(types, t => RunT4Template(typeof(ClassifierAlgorithm), t, dir));
+    }
+
+    [Test] public void GenerateAllAssociations()
+    {
+      var dir = PrepDir(@"Asstn\Generated");
+
+      var types = GetBaseClassesOf(typeof (AbstractAssociator));
       Array.ForEach(types, t => 
-             RunT4Template(typeof(ClassifierAlgorithm), t, @"Clss\Generated"));      
-      RunT4TemplateImpl(new Classifiers(types), @"Clss\Generated\Classifiers");
+             RunT4Template(typeof(AssociationAlgorithm), t, dir));
+
+      RunT4TemplateImpl(new Associations(types), dir);
+    }
+
+    private static string PrepDir(string dir)
+    {      
+      if (Directory.Exists(dir)) Directory.Delete(dir);
+      Directory.CreateDirectory(dir);
+      return dir;
+    }
+
+    private void GenerateCodeForNamespace(IEnumerable<Type> alltypes, Type generator, string ns, string targetdir)
+    {
+      var types = alltypes.
+        Where(t => t.Namespace == ns).
+        ToArray();
+      ns = ns.Replace("weka.", String.Empty);
+      var tokens = ns.Split('.');
+      var typename = String.Join(String.Empty, tokens.Select(w => Char.ToUpper(w[0]) + w.Substring(1)));
+      if (tokens.Length == 1) typename += "General";
+      Console.WriteLine("Generating for type: " + typename);
+      var codegen = (ICodeGen) Activator.CreateInstance(generator, new object[] { types });
+      generator.GetProperty("TypeName").SetValue(codegen, typename);
+      RunT4TemplateImpl(codegen, targetdir + @"\Generated\" + typename);
     }
 
     private static Type[] GetBaseClassesOf(Type ancestor)

@@ -6,10 +6,10 @@
 // ReSharper disable once CheckNamespace
 namespace Ml2.Clss
 {
-  public class Classifiers<T> where T : new()
+  public class <#= TypeName #><T> where T : new()
   {
     private readonly Runtime<T> rt;    
-    public Classifiers(Runtime<T> rt) { this.rt = rt; }   
+    public <#= TypeName #>(Runtime<T> rt) { this.rt = rt; }   
 
 <# foreach (var ctr in AllClassifiers) { #>
     /// <summary>

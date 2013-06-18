@@ -22,7 +22,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           Bins(5).
           RunFilter();
 
-      rt.Classifiers.Logistic().
+      rt.Classifiers.Functions.Logistic().
           EvaluateWithCrossValidation().
           FlushToFile("custom_training_set_logistic.model");
     }

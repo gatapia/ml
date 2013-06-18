@@ -53,8 +53,8 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       if (alls.Length < MIN_SAMPLE_FOR_PROBABILITY) return null;
       var rt = new Runtime<AmazonTrainDataRow>(0, alls).RemoveAttributes("RESOURCE");
       return alls.Length > MIN_SAMPLE_FOR_COMPLEX_CLASSIFIER
-               ? (IBaseClassifier<AmazonTrainDataRow, Classifier>) rt.Classifiers.J48().Build()
-               : rt.Classifiers.ZeroR().Build();
+               ? (IBaseClassifier<AmazonTrainDataRow, Classifier>) rt.Classifiers.Trees.J48().Build()
+               : rt.Classifiers.Rules.ZeroR().Build();
     }
 
     private AmazonTrainDataRow[] GetMatches(PropertyInfo p, object val, IEnumerable<AmazonTrainDataRow> rows)

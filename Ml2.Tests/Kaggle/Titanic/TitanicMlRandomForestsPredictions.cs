@@ -150,7 +150,7 @@ namespace Ml2.Tests.Kaggle.Titanic
 
     private IBaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features)  where T : new() {
       return runtime.
-        Classifiers.RandomForest().
+        Classifiers.Trees.RandomForest().
         NumTrees(trees).
         NumFeatures(features).
         Debug(true).

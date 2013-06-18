@@ -105,8 +105,8 @@ namespace Ml2.Clss
     /// used for setting the initial weights of the connections betweem nodes, and
     /// also for shuffling the training data.
     /// </summary>    
-    public MultilayerPerceptron<T> Seed (int l) {
-      ((MultilayerPerceptron)Impl).setSeed(l);
+    public MultilayerPerceptron<T> Seed (int seed) {
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

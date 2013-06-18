@@ -33,7 +33,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomCommittee<T> Seed (int seed) {
-      ((RandomCommittee)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

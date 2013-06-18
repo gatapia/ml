@@ -27,11 +27,17 @@ namespace Ml2.Tasks.Generator
     {
       get
       {
-        return impl.GetMethods(BindingFlags.Instance | BindingFlags.Public).
+        var setters = impl.GetMethods(BindingFlags.Instance | BindingFlags.Public).
           Where(m => m.Name.StartsWith("set") && m.Name != "setOptions").
           Select(m => new SetterModel(this, m)).
           Where(o => o.IsSupported).
           ToArray();
+        
+        var found = new [] {"Seed", "RandomSeed"};
+        setters.Where(s => s.SetterName.ToLower().IndexOf("seed") >= 0).ToList().ForEach(s => {
+          Console.WriteLine("\n!!!!!!!!!!!!!!!!!!!Type[" + TypeName  +"] Setter[" + s.SetterName + "] SetterType[" + s.Method.GetParameters().Single().ParameterType.Name + "] \n");
+        });
+        return setters;
       }
     } 
 

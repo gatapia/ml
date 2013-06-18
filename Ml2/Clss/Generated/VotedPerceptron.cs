@@ -47,8 +47,8 @@ namespace Ml2.Clss
     /// <summary>
     /// Seed for the random number generator.
     /// </summary>    
-    public VotedPerceptron<T> Seed (int v) {
-      ((VotedPerceptron)Impl).setSeed(v);
+    public VotedPerceptron<T> Seed (int seed) {
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

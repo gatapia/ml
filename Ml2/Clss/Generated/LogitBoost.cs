@@ -84,7 +84,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public LogitBoost<T> Seed (int seed) {
-      ((LogitBoost)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

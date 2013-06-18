@@ -80,7 +80,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                   TicketBin = GetTicketBin(t.TicketNumber)
                                 }).ToArray();
       var train = new Runtime(0, newrows);
-      var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
+      var newtrain = train.Filters.UnsupervisedAttribute.StringToNominal().AttributeRange(5).RunFilter();
       TrainImpl(newtrain, 300, 7).EvaluateWithCrossValidation();
     }
 
@@ -95,7 +95,7 @@ namespace Ml2.Tests.Kaggle.Titanic
                                   FareBin = GetFareBin(t.PassengerFare)
                                 }).ToArray();
       var train = new Runtime(0, newrows);
-      var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
+      var newtrain = train.Filters.UnsupervisedAttribute.StringToNominal().AttributeRange(5).RunFilter();
       TrainImpl(newtrain, 300, 7).EvaluateWithCrossValidation();
     }    
     
@@ -113,7 +113,7 @@ namespace Ml2.Tests.Kaggle.Titanic
         CabinBin = GetCabinBin(t.CabinNum)
       }).ToArray();
       var train = new Runtime(0, newrows);
-      var newtrain = train.Filters.Unsupervised.Attribute.StringToNominal().AttributeRange(5).RunFilter();
+      var newtrain = train.Filters.UnsupervisedAttribute.StringToNominal().AttributeRange(5).RunFilter();
       TrainImpl(newtrain, 300, 7).EvaluateWithCrossValidation();
     }
 
@@ -150,7 +150,7 @@ namespace Ml2.Tests.Kaggle.Titanic
 
     private IBaseClassifier<T, RandomForest> TrainImpl<T>(Runtime<T> runtime, int trees, int features)  where T : new() {
       return runtime.
-        Classifiers.RandomForest().
+        Classifiers.Trees.RandomForest().
         NumTrees(trees).
         NumFeatures(features).
         Debug(true).

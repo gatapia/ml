@@ -48,7 +48,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public RandomSubSpace<T> Seed (int seed) {
-      ((RandomSubSpace)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

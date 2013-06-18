@@ -162,7 +162,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public SGDText<T> Seed (int seed) {
-      ((SGDText)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

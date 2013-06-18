@@ -57,7 +57,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CostSensitiveClassifier<T> Seed (int seed) {
-      ((CostSensitiveClassifier)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

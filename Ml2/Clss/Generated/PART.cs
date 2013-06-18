@@ -78,8 +78,8 @@ namespace Ml2.Clss
     /// The seed used for randomizing the data when reduced-error pruning is
     /// used.
     /// </summary>    
-    public PART<T> Seed (int newSeed) {
-      ((PART)Impl).setSeed(newSeed);
+    public PART<T> Seed (int seed) {
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

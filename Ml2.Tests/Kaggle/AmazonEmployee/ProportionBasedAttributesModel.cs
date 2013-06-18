@@ -17,12 +17,12 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var trainingrows = GetTrainingCustomModels();
       Console.WriteLine("Got Subset of Training Rows");
       var rt = new Runtime<CustomModel>(0, trainingrows);
-      rt.Filters.Supervised.Attribute.Discretize().
+      rt.Filters.SupervisedAttribute.Discretize().
           AttributeIndices("2-7").
           Bins(5).
           RunFilter();
 
-      rt.Classifiers.Logistic().
+      rt.Classifiers.Functions.Logistic().
           EvaluateWithCrossValidation().
           FlushToFile("custom_training_set_logistic.model");
     }

@@ -21,7 +21,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           Select(a => new { a.ACTION, a.MGR_ID, a.ROLE_ROLLUP_1, a.ROLE_FAMILY }).ToArray();
       var train = new Runtime(0, rows);
 
-      train.Classifiers.Logistic().EvaluateWithCrossValidation();
+      train.Classifiers.Functions.Logistic().EvaluateWithCrossValidation();
     }
 
     [Test] public void logistic_regression_on_small_subset_play_with_features()
@@ -31,7 +31,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           Select(a => new { a.ACTION, a.MGR_ID }).ToArray();
       var train = new Runtime(0, rows);
 
-      train.Classifiers.Logistic().
+      train.Classifiers.Functions.Logistic().
         FlushToFile("amazon-employee.model").
         EvaluateWithCrossValidation();      
     }
@@ -43,7 +43,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           Select(a => new { a.ACTION, a.MGR_ID, a.ROLE_ROLLUP_1, a.ROLE_DEPTNAME, a.ROLE_TITLE }).ToArray();
       var train = new Runtime(0, rows);
 
-      train.Classifiers.J48().
+      train.Classifiers.Trees.J48().
         FlushToFile("amazon-employee.model").
         EvaluateWithCrossValidation();
 
@@ -75,7 +75,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var trainmgrs = train.Observations.Select(a => a.Row.MGR_ID).Distinct().ToArray();
       var notrepresented = testmgrs.Except(trainmgrs);     
       var rejectters = trainmgrs.Where(m => train.Observations.Count(a => a.Row.MGR_ID == m && a.Row.ACTION == 0) > 0).ToArray();
-      var classifier = train.Classifiers.J48();
+      var classifier = train.Classifiers.Trees.J48();
 
       var lines = test.Observations.Select((row, idx) =>
       {
@@ -111,7 +111,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       }).ToArray();
       Console.WriteLine("Training Subset Created: " + trainsubset.Length);
 
-      var classifier = new Runtime(0, trainsubset).Classifiers.J48().Build();
+      var classifier = new Runtime(0, trainsubset).Classifiers.Trees.J48().Build();
       Console.WriteLine("Training Classifier Created");
       var testformatted = testrows.Select(r => new { ACTION=EAction.Approved, r.MGR_ID, r.ROLE_DEPTNAME, r.ID }).ToArray();
       var testrt = new Runtime(0, testformatted);

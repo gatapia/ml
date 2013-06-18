@@ -114,8 +114,8 @@ namespace Ml2.Clss
     /// <summary>
     /// Random number seed for the cross-validation.
     /// </summary>    
-    public SMO<T> RandomSeed (int newrandomSeed) {
-      ((SMO)Impl).setRandomSeed(newrandomSeed);
+    public SMO<T> RandomSeed (int seed) {
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

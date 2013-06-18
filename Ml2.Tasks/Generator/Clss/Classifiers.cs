@@ -18,56 +18,67 @@ namespace Ml2.Tasks.Generator.Clss
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+    #line 1 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "11.0.0.0")]
     public partial class Classifiers : ClassifiersBase
     {
-#line hidden
         /// <summary>
         /// Create the template output
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clss\r\n{\r\n  public class C" +
-                    "lassifiers<T> where T : new()\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n   " +
-                    " public Classifiers(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
+            this.Write("// ReSharper disable once CheckNamespace\r\nnamespace Ml2.Clss\r\n{\r\n  public class ");
             
-            #line 14 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            #line 9 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            
+            #line default
+            #line hidden
+            this.Write("<T> where T : new()\r\n  {\r\n    private readonly Runtime<T> rt;    \r\n    public ");
+            
+            #line 12 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TypeName));
+            
+            #line default
+            #line hidden
+            this.Write("(Runtime<T> rt) { this.rt = rt; }   \r\n\r\n");
+            
+            #line 14 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
  foreach (var ctr in AllClassifiers) { 
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    /// ");
             
-            #line 16 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            #line 16 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.GetClassDescription("    /// ")));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            #line 18 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T> ");
             
-            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            #line 18 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("() { return new ");
             
-            #line 18 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            #line 18 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ctr.TypeName));
             
             #line default
             #line hidden
             this.Write("<T>(rt); }\r\n\r\n");
             
-            #line 20 "j:\dev\projects\stats\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
+            #line 20 "c:\dev\projects\ml\Ml2.Tasks\Generator\Clss\Classifiers.tt"
  } 
             
             #line default

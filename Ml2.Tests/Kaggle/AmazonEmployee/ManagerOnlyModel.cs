@@ -17,7 +17,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var rows = LoadRows<AmazonTrainDataRow>("train.csv", null);
       Helpers.Serialise(rows, "manager_only_training_rows.osl");
       Console.WriteLine("Training Rows Saved");
-      LoadRuntime<AmazonTrainDataRow>("train.csv", null).Classifiers.J48().EvaluateWithCrossValidation().FlushToFile("manager_only.model");
+      LoadRuntime<AmazonTrainDataRow>("train.csv", null).Classifiers.Trees.J48().EvaluateWithCrossValidation().FlushToFile("manager_only.model");
       load_and_run_model();
     }
 

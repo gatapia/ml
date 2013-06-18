@@ -72,6 +72,21 @@
     <Compile Include="Asstn\BaseAssociation.cs" />
     <Compile Include="Asstn\Generated\FilteredAssociator.cs" />
     <Compile Include="Asstn\Generated\FPGrowth.cs" />
+    <Compile Include="Clss\Classifiers.cs" />
+    <Compile Include="Clss\Generated\ClassifiersBayes.cs" />
+    <Compile Include="Clss\Generated\ClassifiersBayesNet.cs" />
+    <Compile Include="Clss\Generated\ClassifiersFunctions.cs" />
+    <Compile Include="Clss\Generated\ClassifiersLazy.cs" />
+    <Compile Include="Clss\Generated\ClassifiersMeta.cs" />
+    <Compile Include="Clss\Generated\ClassifiersMisc.cs" />
+    <Compile Include="Clss\Generated\ClassifiersRules.cs" />
+    <Compile Include="Clss\Generated\ClassifiersTrees.cs" />
+    <Compile Include="Clss\Generated\ClassifiersTreesLmt.cs" />
+    <Compile Include="Fltr\Generated\FiltersGeneral.cs" />
+    <Compile Include="Fltr\Generated\FiltersSupervisedAttribute.cs" />
+    <Compile Include="Fltr\Generated\FiltersSupervisedInstance.cs" />
+    <Compile Include="Fltr\Generated\FiltersUnsupervisedAttribute.cs" />
+    <Compile Include="Fltr\Generated\FiltersUnsupervisedInstance.cs" />
     <Compile Include="RuntimeHelpers\AttributesRemover.cs" />
     <Compile Include="AttrSel\Algs\Generated\Algorithms.cs" />
     <Compile Include="AttrSel\Algs\BaseAttributeSelectionAlgorithm.cs" />
@@ -117,7 +132,6 @@
     <Compile Include="Clss\Generated\ClassificationViaRegression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Clss\Generated\Classifiers.cs" />
     <Compile Include="Clss\Generated\CostSensitiveClassifier.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -320,12 +334,10 @@
     <Compile Include="Fltr\Generated\TimeSeriesTranslate.cs" />
     <Compile Include="Fltr\Generated\UnsupervisedAttributeFilters.cs" />
     <Compile Include="Fltr\Generated\UnsupervisedInstanceFilters.cs" />
-    <Compile Include="Fltr\UnsupervisedFilters.cs" />
     <Compile Include="Fltr\Filters.cs" />
     <Compile Include="Observation.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Fltr\SupervisedFilters.cs" />
     <Compile Include="RuntimeHelpers\ClassifierEvaluator.cs" />
   </ItemGroup>
   <ItemGroup />

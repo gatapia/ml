@@ -17,7 +17,7 @@ namespace Ml2.Tests.Kaggle.Titanic
     {
       var train = new Runtime<TR>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof (string));
 
-      train.Classifiers.
+      train.Classifiers.Functions.
         Logistic().EvaluateWithCrossValidation();
     }
 
@@ -26,10 +26,10 @@ namespace Ml2.Tests.Kaggle.Titanic
     public void Test_logistic_regression_with_boosting()
     {
       var train = new Runtime<TR>(0, @"resources\kaggle\titanic\train.csv").RemoveAttributes(typeof (string));
-      var classifier = train.Classifiers.Logistic();
+      var classifier = train.Classifiers.Functions.Logistic();
 
-      train.Classifiers.
-        AdaBoostM1().Seed(1).Classifier(classifier.Impl).
+      train.Classifiers.Meta.
+        AdaBoostM1().Seed(1).Classifier(classifier).
         NumIterations(10).EvaluateWithCrossValidation();
     }
 
@@ -54,12 +54,12 @@ namespace Ml2.Tests.Kaggle.Titanic
       Console.WriteLine("With ages.");
       new Runtime<TR>(0, withage).
         RemoveAttributes(typeof (string)).
-        Classifiers.Logistic().EvaluateWithCrossValidation();
+        Classifiers.Functions.Logistic().EvaluateWithCrossValidation();
 
       Console.WriteLine("Without ages.");
       new Runtime(0, without).
         RemoveAttributes(typeof (string)).
-        Classifiers.Logistic().EvaluateWithCrossValidation();
+        Classifiers.Functions.Logistic().EvaluateWithCrossValidation();
     }
 
     [Test]
@@ -74,7 +74,7 @@ namespace Ml2.Tests.Kaggle.Titanic
 
       var classifier = new Runtime<TR>(0, @"resources\kaggle\titanic\train.csv").
         RemoveAttributes(typeof (string)).
-        Classifiers.Logistic();
+        Classifiers.Functions.Logistic();
 
       var lines = raw.Select((line, idx) => GetRow(classifier, idx, testset.Observations[idx - 1].Instance, line)).ToArray();
       File.WriteAllLines("predict.csv", lines);

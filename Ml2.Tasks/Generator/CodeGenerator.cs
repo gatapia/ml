@@ -11,6 +11,7 @@ using weka.associations;
 using weka.attributeSelection;
 using weka.classifiers;
 using weka.clusterers;
+using weka.filters;
 
 namespace Ml2.Tasks.Generator
 {
@@ -44,28 +45,27 @@ namespace Ml2.Tasks.Generator
     }
 
     [Test] public void GenerateAllFilters()
-    {
-      var types = GetBaseClassesOf(typeof (weka.filters.Filter)).
-          ToArray();
-      var supatt = types.
-          Where(t => t.Namespace.StartsWith("weka.filters.supervised.attribute")).
-          ToArray();
-      var supinst = types.
-          Where(t => t.Namespace.StartsWith("weka.filters.supervised.instance")).
-          ToArray();
-      var unsupatt = types.
-          Where(t => t.Namespace.StartsWith("weka.filters.unsupervised.attribute")).
-          ToArray();
-      var unsupinst = types.
-          Where(t => t.Namespace.StartsWith("weka.filters.unsupervised.instance")).
-          ToArray();
-
-
+    {      
+      var types = GetBaseClassesOf(typeof (Filter));
+      var namespaces = types.
+          Select(t => t.Namespace).
+          Distinct().
+          ToList();
+      namespaces.ForEach(GenerateCodeForFilterNamespace);
+      
       Array.ForEach(types, t => RunT4Template(typeof(FilterAlgorithm), t, @"Fltr\Generated"));
-      RunT4TemplateImpl(new Filters(supatt) { TypeName = "SupervisedAttributeFilters" }, @"Fltr\Generated\SupervisedAttributeFilters");
-      RunT4TemplateImpl(new Filters(supinst) { TypeName = "SupervisedInstanceFilters" }, @"Fltr\Generated\SupervisedInstanceFilters");
-      RunT4TemplateImpl(new Filters(unsupatt) { TypeName = "UnsupervisedAttributeFilters" }, @"Fltr\Generated\UnsupervisedAttributeFilters");
-      RunT4TemplateImpl(new Filters(unsupinst) { TypeName = "UnsupervisedInstanceFilters" }, @"Fltr\Generated\UnsupervisedInstanceFilters");
+    }
+
+    private void GenerateCodeForFilterNamespace(string ns)
+    {
+      var types = GetBaseClassesOf(typeof (Filter)).
+          Where(t => t.Namespace == ns).
+          ToArray();
+      ns = ns.Substring(5);
+      var tokens = ns.Split('.');
+      var uppercamel = String.Join(String.Empty, tokens.Select(w => Char.ToUpper(w[0]) + w.Substring(1)));
+      if (uppercamel == "Filters") uppercamel += "General";
+      RunT4TemplateImpl(new Filters(types) { TypeName = uppercamel }, @"Fltr\Generated\" + uppercamel);
     }
 
     [Test] public void GenerateAllAssociations()

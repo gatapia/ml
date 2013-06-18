@@ -22,7 +22,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           SearchTermination(10).
           StartSet("1-9");
 
-      var filter = train.Filters.Supervised.Attribute.AttributeSelection().
+      var filter = train.Filters.SupervisedAttribute.AttributeSelection().
           Evaluator(eval).
           Search(impl);
 

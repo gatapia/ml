@@ -27,6 +27,13 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// 75.1779%
     /// With new count properties: 87.7207 %
     /// With 100 trees: 90.3821 % !!!!!!
+    /// With Depth 4: 89.9341 % (Undoing)
+    /// With Depth 2: 90.0132 % (Keeping 2 as its quicker but 3 is better)
+    /// With 3 Features: 89.3281 % (Undoing)
+    /// With 50 trees (from 100): 89.6179 % (Undoing)
+    /// With 200 trees (from 100): 90.2767% (Keeping)
+    /// With Depth 3 (from 2): 91.1462 % (Saved!!)
+    ///     Evaluator Seed: 2 - Model has 22310 rejections and 36611 approvals
     /// </summary>
     [Test] public void build_classifier()
     {
@@ -37,7 +44,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           NumExecutionSlots(2).
           MaxDepth(3).
           NumFeatures(2).
-          NumTrees(100).
+          NumTrees(200).
           EvaluateWithCrossValidation().
           FlushToFile("RandomForestDataModel.model");
        
@@ -46,7 +53,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     [Test] public void load_model_and_run_predictions()
     {
-      var classifier = BaseClassifier.Read("RandomForestDataModelWithBoost.model");
+      var classifier = BaseClassifier.Read("RandomForestDataModel.model");
       RunPredictions(LoadTrainingData().ToArray(), classifier);
     }
 
@@ -78,7 +85,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       
       var lines = testset.GeneratePredictions(classifier, formatter, "id,ACTION");
       
-      File.WriteAllLines("RandomForestDataModel.csv", lines);
+      File.WriteAllLines("RandomForestDataModelPredictions.csv", lines);
 
       var rejections = lines.Count(r => r.EndsWith(",0"));
       var approvals = lines.Count(r => r.EndsWith(",1"));

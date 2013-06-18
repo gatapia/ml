@@ -16,6 +16,8 @@ namespace Ml2.Clstr
     protected BaseClusterer(Runtime<T> rt, I impl) { 
       this.rt = rt; 
       Impl = impl;
+
+      InternalHelpers.SetSeedOnInstance(impl);
     }
 
     public IBaseClusterer<T, I> Build()

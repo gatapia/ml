@@ -75,15 +75,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The seed used for randomizing the data when reduced-error pruning is
-    /// used.
-    /// </summary>    
-    public PART<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// Whether to use binary splits on nominal attributes when building the
     /// partial trees.
     /// </summary>    

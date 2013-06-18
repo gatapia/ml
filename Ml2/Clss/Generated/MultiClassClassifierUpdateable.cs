@@ -59,14 +59,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public MultiClassClassifierUpdateable<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// The base classifier to be used.
     /// </summary>    
     public MultiClassClassifierUpdateable<T> Classifier (weka.classifiers.Classifier newClassifier) {

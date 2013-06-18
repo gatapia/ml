@@ -38,7 +38,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// </summary>
     [Test] public void build_random_forest_classifier()
     {
-      evaluate_classifier(c => c.RandomForest().          
+      evaluate_classifier(c => c.Trees.RandomForest().          
           NumExecutionSlots(2).
           MaxDepth(3).
           NumFeatures(2).
@@ -49,7 +49,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// Max Its: 100: 67.9315 %
     /// </summary>
     [Test] public void build_logistic_regression_classifier() {
-      evaluate_classifier(c => c.Logistic().MaxIts(100));
+      evaluate_classifier(c => c.Functions.Logistic().MaxIts(100));
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// </summary>
     [Test] public void build_j48_classifier()
     {
-      evaluate_classifier(c => c.J48());
+      evaluate_classifier(c => c.Trees.J48());
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// </summary>
     [Test] public void build_ibk_classifier()
     {
-      evaluate_classifier(c => c.IBk().KNN(3));
+      evaluate_classifier(c => c.Lazy.IBk().KNN(3));
     }
 
     /// <summary>    
@@ -86,7 +86,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// </summary>
     [Test] public void build_nb_classifier()
     {      
-      evaluate_classifier(c => c.NaiveBayes().
+      evaluate_classifier(c => c.Bayes.NaiveBayes().
           UseKernelEstimator(true).
           UseSupervisedDiscretization(true));          
     }

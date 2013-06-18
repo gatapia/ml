@@ -112,14 +112,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// Random number seed for the cross-validation.
-    /// </summary>    
-    public SMO<T> RandomSeed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SMO<T> Debug (bool debug) {

@@ -92,14 +92,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public SGD<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public SGD<T> Debug (bool debug) {

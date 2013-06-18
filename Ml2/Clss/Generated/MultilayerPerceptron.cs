@@ -101,16 +101,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// Seed used to initialise the random number generator.Random numbers are
-    /// used for setting the initial weights of the connections betweem nodes, and
-    /// also for shuffling the training data.
-    /// </summary>    
-    public MultilayerPerceptron<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// Used to terminate validation testing.The value here dictates how many
     /// times in a row the validation set error can get worse before training is
     /// terminated.

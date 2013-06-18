@@ -39,14 +39,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The seed used for randomizing the data for cross-validation.
-    /// </summary>    
-    public MultiScheme<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// Whether debug information is output to console.
     /// </summary>    
     public MultiScheme<T> Debug (bool debug) {

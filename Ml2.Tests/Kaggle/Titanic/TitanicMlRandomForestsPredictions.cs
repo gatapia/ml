@@ -153,8 +153,7 @@ namespace Ml2.Tests.Kaggle.Titanic
         Classifiers.Trees.RandomForest().
         NumTrees(trees).
         NumFeatures(features).
-        Debug(true).
-        Seed(1);
+        Debug(true);
     }    
   }
 }

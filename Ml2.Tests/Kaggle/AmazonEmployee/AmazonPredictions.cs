@@ -11,8 +11,6 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 {  
   [TestFixture] public class AmazonPredictions
   {    
-    private readonly Random rng = new Random(1);
-
     // With a small sub-sample of 500 we get 94% predictive power
     [Test] public void logistic_regression_on_small_subset()
     {
@@ -120,7 +118,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
         double prediction; 
         if (testingmanagers_not_represented.Contains(Helpers.GetValue<int>(row.Row, "MGR_ID")))
         {
-          prediction = rng.NextDouble() < 0.5 ? 1.0 : 0.0;
+          prediction = Runtime.Random < 0.5 ? 1.0 : 0.0;
         } else
         {
           prediction = classifier.Classify(row.Instance);

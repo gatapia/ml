@@ -79,14 +79,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The seed used for randomizing the data.
-    /// </summary>    
-    public JRip<T> Seed (long s) {
-      ((JRip)Impl).setSeed(s);
-      return this;
-    }
-
-    /// <summary>
     /// The number of optimization runs.
     /// </summary>    
     public JRip<T> Optimizations (int run) {

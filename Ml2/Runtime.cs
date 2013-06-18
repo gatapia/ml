@@ -15,6 +15,21 @@ using weka.core.converters;
 namespace Ml2
 {
   public class Runtime : Runtime<object> {
+
+    private static int seed = 1;
+    public static int GlobalRandomSeed { 
+      get { return seed; } 
+      set { seed = value;  rng = null; } 
+    }
+
+    private static Random rng;
+    public static double Random { 
+      get { 
+        if (rng == null) rng = new Random(GlobalRandomSeed);
+        return rng.NextDouble(); 
+      } 
+    }
+
     public static T[] Load<T>(params string[] files) where T : new()
     {
       if (!files.Any()) throw new ArgumentNullException("files");
@@ -25,8 +40,7 @@ namespace Ml2
     {
       if (!lines.Any()) throw new ArgumentNullException("lines");
       if (opt_limit > 0)
-      {
-        var rng = new Random(1);      
+      {        
         var newlines = lines.
             OrderBy(row => rng.Next()).
             Take(opt_limit).
@@ -43,7 +57,7 @@ namespace Ml2
 
   public class Runtime<T> where T : new()
   {        
-    private readonly IAttributesRemover<T> attremover = new AttributesRemover<T>();
+    private readonly IAttributesRemover<T> attremover = new AttributesRemover<T>();       
 
     /// <summary>
     /// Creates an weka.core.Instances wrapper passing in the 
@@ -100,7 +114,7 @@ namespace Ml2
 
     public Associations<T> Associations { get { return new Associations<T>(this); } }
 
-    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }
+    public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }       
 
     public void SaveToArffFile(string file)
     {

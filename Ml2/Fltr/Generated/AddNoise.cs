@@ -41,14 +41,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// Random number seed.
-    /// </summary>    
-    public AddNoise<T> RandomSeed (int newSeed) {
-      ((AddNoise)Impl).setRandomSeed(newSeed);
-      return this;
-    }
-
         
         
   }

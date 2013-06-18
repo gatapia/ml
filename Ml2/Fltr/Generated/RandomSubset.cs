@@ -25,14 +25,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// The seed value for the random number generator.
-    /// </summary>    
-    public RandomSubset<T> Seed (int value) {
-      ((RandomSubset)Impl).setSeed(value);
-      return this;
-    }
-
-    /// <summary>
     /// Turns on output of debugging information.
     /// </summary>    
     public RandomSubset<T> Debug (bool value) {

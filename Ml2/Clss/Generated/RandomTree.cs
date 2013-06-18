@@ -39,14 +39,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The random number seed used for selecting attributes.
-    /// </summary>    
-    public RandomTree<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// Whether to allow unclassified instances.
     /// </summary>    
     public RandomTree<T> AllowUnclassifiedInstances (bool newAllowUnclassifiedInstances) {

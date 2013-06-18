@@ -17,6 +17,8 @@ namespace Ml2.Fltr
     {
       this.rt = rt;
       Impl = impl;
+
+      InternalHelpers.SetSeedOnInstance(impl);
     }
 
     public I Impl { get; private set;}

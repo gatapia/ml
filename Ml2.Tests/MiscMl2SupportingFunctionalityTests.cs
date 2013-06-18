@@ -65,7 +65,6 @@ namespace Ml2.Tests
       var kmeans = rt.Clusterers.
           SimpleKMeans().
           NumClusters(5).          
-          Seed(1).
           Build();
 
       var classes = rt.Observations.Take(10).Select(kmeans.Classify);

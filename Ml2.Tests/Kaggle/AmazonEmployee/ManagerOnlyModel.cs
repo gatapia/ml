@@ -9,9 +9,7 @@ using weka.classifiers;
 namespace Ml2.Tests.Kaggle.AmazonEmployee
 {
   [TestFixture] public class ManagerOnlyModel
-  {
-    private readonly Random rng = new Random(1);
-
+  {    
     [Test] public void build_and_run_model()
     {      
       var rows = LoadRows<AmazonTrainDataRow>("train.csv", null);
@@ -56,7 +54,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     private double Classify(Classifier classifier, Observation<ManagerOnlyRow> row)
     {
       var r = row.Row;
-      return r.IsUnknown() ? (rng.NextDouble() < 0.5 ? 1 : 0)
+      return r.IsUnknown() ? (Runtime.Random < 0.5 ? 1 : 0)
           : (r.TotalRejections()/r.TotalApprovals() < 0.05 ? 1.0 : 
               classifier.classifyInstance(row.Instance));
     }

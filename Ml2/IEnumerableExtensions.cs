@@ -11,10 +11,9 @@ namespace Ml2
         .Select(grp=>grp.Key).First();
     }
 
-    public static IEnumerable<T> Randomize<T>(this IEnumerable<T> data, int seed = 0)
+    public static IEnumerable<T> Randomize<T>(this IEnumerable<T> data)
     {
-      var rng = new Random(seed);
-      return data.OrderBy(d => rng.Next()).ToList();
+      return data.OrderBy(d => Runtime.Random).ToList();
     }
 
     public static IEnumerable<T> RandomSample<T>(this IEnumerable<T> data, int size, int seed = 0)
@@ -28,7 +27,7 @@ namespace Ml2
       var idx = 0;
       while (true)
       {
-        if (Helpers.Random() <= odds)
+        if (Runtime.Random <= odds)
         {
           var modded = idx % source.Count;
           var val = source[modded];

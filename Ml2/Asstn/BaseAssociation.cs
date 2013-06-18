@@ -16,6 +16,8 @@ namespace Ml2.Asstn
     {
       this.rt = rt;
       Impl = impl;
+
+      InternalHelpers.SetSeedOnInstance(impl);
     }
 
     public string GetRules()

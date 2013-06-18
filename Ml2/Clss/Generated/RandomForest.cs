@@ -21,14 +21,6 @@ namespace Ml2.Clss
     public RandomForest(Runtime<T> rt) : base(rt, new RandomForest()) {}
 
     /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public RandomForest<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// The maximum depth of the trees, 0 for unlimited.
     /// </summary>    
     public RandomForest<T> MaxDepth (int value) {

@@ -16,14 +16,6 @@ namespace Ml2.Fltr
     public ReservoirSample(Runtime<T> rt) : base(rt, new ReservoirSample()) {}
 
     /// <summary>
-    /// The seed used for random sampling.
-    /// </summary>    
-    public ReservoirSample<T> RandomSeed (int newSeed) {
-      ((ReservoirSample)Impl).setRandomSeed(newSeed);
-      return this;
-    }
-
-    /// <summary>
     /// Size of the subsample (reservoir). i.e. the number of instances.
     /// </summary>    
     public ReservoirSample<T> SampleSize (int newSampleSize) {

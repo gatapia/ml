@@ -64,8 +64,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The classifier to use for classification.
     /// </summary>    
-    public AddClassification<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> value) {
-      ((AddClassification)Impl).setClassifier(value.Impl);
+    public AddClassification<T> Classifier (weka.classifiers.Classifier value) {
+      ((AddClassification)Impl).setClassifier(value);
       return this;
     }
 

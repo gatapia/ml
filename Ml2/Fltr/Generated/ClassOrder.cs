@@ -22,14 +22,6 @@ namespace Ml2.Fltr
     public ClassOrder(Runtime<T> rt) : base(rt, new ClassOrder()) {}
 
     /// <summary>
-    /// Specify the seed of randomization of the class order
-    /// </summary>    
-    public ClassOrder<T> Seed (long seed) {
-      ((ClassOrder)Impl).setSeed(seed);
-      return this;
-    }
-
-    /// <summary>
     /// 
     /// </summary>    
     public ClassOrder<T> SetClassOrder (int order) {

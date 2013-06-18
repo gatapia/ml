@@ -41,15 +41,6 @@ namespace Ml2.Fltr
       return this;
     }
 
-    /// <summary>
-    /// the random number seed for shuffling the dataset. If seed is negative,
-    /// shuffling will not be performed.
-    /// </summary>    
-    public StratifiedRemoveFolds<T> Seed (long seed) {
-      ((StratifiedRemoveFolds)Impl).setSeed(seed);
-      return this;
-    }
-
         
         
   }

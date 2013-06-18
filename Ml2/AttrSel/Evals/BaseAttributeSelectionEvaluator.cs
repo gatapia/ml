@@ -13,6 +13,8 @@ namespace Ml2.AttrSel.Evals
     public BaseAttributeSelectionEvaluator(Runtime<T> rt, I impl) { 
       this.rt = rt;
       Impl = impl; 
+
+      InternalHelpers.SetSeedOnInstance(impl);
     }    
   }
 }

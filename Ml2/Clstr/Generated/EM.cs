@@ -136,14 +136,6 @@ namespace Ml2.Clstr
       return this;
     }
 
-    /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public EM<T> Seed (int value) {
-      ((EM)Impl).setSeed(value);
-      return this;
-    }
-
             
 
         

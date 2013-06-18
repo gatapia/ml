@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Ml2.Tests.Kaggle.AmazonEmployee.Data;
@@ -14,8 +13,6 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     private const int MIN_SAMPLE_FOR_PROBABILITY = 3;
     private const double MIN_PROB_FOR_MODEL = 0.02;
 
-    private readonly Random rng = new Random(1);    
-    
     [Test] public void build_and_run_model()
     {
       var rejectsperc = BuildModel();      
@@ -94,7 +91,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
         var val = p.GetValue(row).ToString();                                   
         return propvals.ContainsKey(val) ? propvals[val] : 0;
       });
-      return rng.NextDouble() < percs.Max() ? 0 : 1;
+      return Runtime.Random < percs.Max() ? 0 : 1;
     }
   }
 }

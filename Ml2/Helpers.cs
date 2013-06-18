@@ -46,9 +46,6 @@ namespace Ml2
       return memoized_props.ContainsKey(t) ? 
           memoized_props[t] : 
           (memoized_props[t] = t.GetProperties().OrderBy(p => p.MetadataToken).ToArray());
-    }
-
-    private static readonly Random rng = new Random(1);
-    public static double Random() { return rng.NextDouble(); }
+    }    
   }
 }

@@ -14,14 +14,6 @@ namespace Ml2.Fltr
   {
     public Randomize(Runtime<T> rt) : base(rt, new Randomize()) {}
 
-    /// <summary>
-    /// Seed for the random number generator.
-    /// </summary>    
-    public Randomize<T> RandomSeed (int newRandomSeed) {
-      ((Randomize)Impl).setRandomSeed(newRandomSeed);
-      return this;
-    }
-
         
         
   }

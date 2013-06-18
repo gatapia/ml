@@ -26,8 +26,8 @@ namespace Ml2.Fltr
     /// <summary>
     /// The classifier upon which to base the misclassifications.
     /// </summary>    
-    public RemoveMisclassified<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> classifier) {
-      ((RemoveMisclassified)Impl).setClassifier(classifier.Impl);
+    public RemoveMisclassified<T> Classifier (weka.classifiers.Classifier classifier) {
+      ((RemoveMisclassified)Impl).setClassifier(classifier);
       return this;
     }
 

@@ -45,14 +45,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// Seed for the random number generator.
-    /// </summary>    
-    public VotedPerceptron<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// If set to true, classifier may output additional info to the console.
     /// </summary>    
     public VotedPerceptron<T> Debug (bool debug) {

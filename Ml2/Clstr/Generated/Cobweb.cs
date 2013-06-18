@@ -47,14 +47,6 @@ namespace Ml2.Clstr
       return this;
     }
 
-    /// <summary>
-    /// The random number seed to be used. Use -1 for no randomization.
-    /// </summary>    
-    public Cobweb<T> Seed (int value) {
-      ((Cobweb)Impl).setSeed(value);
-      return this;
-    }
-
             
 
         

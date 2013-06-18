@@ -82,6 +82,7 @@
     <Compile Include="Clss\Generated\ClassifiersRules.cs" />
     <Compile Include="Clss\Generated\ClassifiersTrees.cs" />
     <Compile Include="Clss\Generated\ClassifiersTreesLmt.cs" />
+    <Compile Include="InternalHelpers.cs" />
     <Compile Include="Fltr\Generated\FiltersGeneral.cs" />
     <Compile Include="Fltr\Generated\FiltersSupervisedAttribute.cs" />
     <Compile Include="Fltr\Generated\FiltersSupervisedInstance.cs" />

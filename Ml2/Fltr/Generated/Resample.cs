@@ -20,14 +20,6 @@ namespace Ml2.Fltr
     public Resample(Runtime<T> rt) : base(rt, new Resample()) {}
 
     /// <summary>
-    /// The seed used for random sampling.
-    /// </summary>    
-    public Resample<T> RandomSeed (int newSeed) {
-      ((Resample)Impl).setRandomSeed(newSeed);
-      return this;
-    }
-
-    /// <summary>
     /// Size of the subsample as a percentage of the original dataset.
     /// </summary>    
     public Resample<T> SampleSizePercent (double newSampleSizePercent) {

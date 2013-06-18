@@ -49,14 +49,6 @@ namespace Ml2.AttrSel.Evals
     }
 
     /// <summary>
-    /// Random seed for sampling instances.
-    /// </summary>    
-    public ReliefFAttribute<T> Seed (int s) {
-      ((ReliefFAttributeEval)Impl).setSeed(s);
-      return this;
-    }
-
-    /// <summary>
     /// Number of nearest neighbours for attribute estimation.
     /// </summary>    
     public ReliefFAttribute<T> NumNeighbours (int n) {

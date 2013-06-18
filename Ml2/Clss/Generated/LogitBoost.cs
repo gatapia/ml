@@ -81,14 +81,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public LogitBoost<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// The number of iterations to be performed.
     /// </summary>    
     public LogitBoost<T> NumIterations (int numIterations) {

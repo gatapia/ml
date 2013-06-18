@@ -51,15 +51,6 @@ namespace Ml2.Fltr
     }
 
     /// <summary>
-    /// The random seed used by the random number generator used for generating
-    /// the random matrix
-    /// </summary>    
-    public RandomProjection<T> RandomSeed (long seed) {
-      ((RandomProjection)Impl).setRandomSeed(seed);
-      return this;
-    }
-
-    /// <summary>
     /// The distribution to use for calculating the random matrix. Sparse1 is:
     /// sqrt(3) * { -1 with prob(1/6), 0 with prob(2/3), +1 with prob(1/6) } Sparse2
     /// is: { -1 with prob(1/2), +1 with prob(1/2) }

@@ -25,15 +25,6 @@ namespace Ml2.Clss
     public J48(Runtime<T> rt) : base(rt, new J48()) {}
 
     /// <summary>
-    /// The seed used for randomizing the data when reduced-error pruning is
-    /// used.
-    /// </summary>    
-    public J48<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// Whether counts at leaves are smoothed based on Laplace.
     /// </summary>    
     public J48<T> UseLaplace (bool newuseLaplace) {

@@ -15,6 +15,8 @@ namespace Ml2.AttrSel.Algs
     public BaseAttributeSelectionAlgorithm(Runtime<T> rt, I impl) { 
       this.rt = rt;
       Impl = impl; 
+
+      InternalHelpers.SetSeedOnInstance(impl);
     }
 
     public int[] Search<E>(IBaseAttributeSelectionEvaluator<E> eval) where E : ASEvaluation { 

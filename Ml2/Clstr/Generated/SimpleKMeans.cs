@@ -95,14 +95,6 @@ namespace Ml2.Clstr
       return this;
     }
 
-    /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public SimpleKMeans<T> Seed (int value) {
-      ((SimpleKMeans)Impl).setSeed(value);
-      return this;
-    }
-
             
 
         

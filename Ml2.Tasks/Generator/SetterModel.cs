@@ -43,7 +43,8 @@ namespace Ml2.Tasks.Generator
     public bool IsSupported
     {
       get
-      {
+      { 
+        if (Method.Name == "setSeed" || Method.Name == "setRandomSeed") { return false; }
         try { 
           return !String.IsNullOrEmpty(TemplatedSetters.GetSetterTemplate(this)) || SetterArgsTypes != null; 
         } catch (NotSupportedException)

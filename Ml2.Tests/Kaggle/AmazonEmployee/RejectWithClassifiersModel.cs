@@ -18,8 +18,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
   [TestFixture] public class RejectWithClassifiersModel
   {
     private const int MIN_SAMPLE_FOR_PROBABILITY = 3;
-    private const int MIN_SAMPLE_FOR_COMPLEX_CLASSIFIER = 100;
-    private readonly Random rng = new Random(1);
+    private const int MIN_SAMPLE_FOR_COMPLEX_CLASSIFIER = 100;    
 
     [Test] public void build_and_run_model()
     {
@@ -82,7 +81,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
         var classifier = propvals.ContainsKey(val) && propvals[val] != null ? propvals[val] : null;
 
         try { return classifier == null ? 1 : classifier.Classify(instance); }
-        catch (IndexOutOfRangeException) { return rng.NextDouble() >= 0.5 ? 1 : 0; }
+        catch (IndexOutOfRangeException) { return Runtime.Random >= 0.5 ? 1 : 0; }
       });
       return percs.Average() >= 0.5 ? 1 : 0;
     }

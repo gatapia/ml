@@ -50,14 +50,6 @@ namespace Ml2.Clss
     }
 
     /// <summary>
-    /// The seed used for randomizing the data.
-    /// </summary>    
-    public REPTree<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// Determines the amount of data used for pruning. One fold is used for
     /// pruning, the rest for growing the rules.
     /// </summary>    

@@ -35,8 +35,8 @@ namespace Ml2.AttrSel.Evals
     /// <summary>
     /// Classifier to use for estimating the accuracy of subsets
     /// </summary>    
-    public WrapperSubset<T> Classifier (Clss.IBaseClassifier<T, weka.classifiers.Classifier> newClassifier) {
-      ((WrapperSubsetEval)Impl).setClassifier(newClassifier.Impl);
+    public WrapperSubset<T> Classifier (weka.classifiers.Classifier newClassifier) {
+      ((WrapperSubsetEval)Impl).setClassifier(newClassifier);
       return this;
     }
 
@@ -45,14 +45,6 @@ namespace Ml2.AttrSel.Evals
     /// </summary>    
     public WrapperSubset<T> Folds (int f) {
       ((WrapperSubsetEval)Impl).setFolds(f);
-      return this;
-    }
-
-    /// <summary>
-    /// Seed to use for randomly generating xval splits.
-    /// </summary>    
-    public WrapperSubset<T> Seed (int s) {
-      ((WrapperSubsetEval)Impl).setSeed(s);
       return this;
     }
 

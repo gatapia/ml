@@ -10,8 +10,6 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 {  
   [TestFixture] public class ProportionBasedAttributesModel
   {
-    private readonly Random rng = new Random(1);
-
     [Test] public void build_classifier()
     {
       var trainingrows = GetTrainingCustomModels();

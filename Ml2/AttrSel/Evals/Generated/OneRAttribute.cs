@@ -18,14 +18,6 @@ namespace Ml2.AttrSel.Evals
     public OneRAttribute(Runtime<T> rt) : base(rt, new OneRAttributeEval()) {}
     
     /// <summary>
-    /// Set the seed for use in cross validation.
-    /// </summary>    
-    public OneRAttribute<T> Seed (int seed) {
-      ((OneRAttributeEval)Impl).setSeed(seed);
-      return this;
-    }
-
-    /// <summary>
     /// Set the number of folds for cross validation.
     /// </summary>    
     public OneRAttribute<T> Folds (int folds) {

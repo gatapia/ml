@@ -23,14 +23,6 @@ namespace Ml2.Fltr
     public SpreadSubsample(Runtime<T> rt) : base(rt, new SpreadSubsample()) {}
 
     /// <summary>
-    /// Sets the random number seed for subsampling.
-    /// </summary>    
-    public SpreadSubsample<T> RandomSeed (int newSeed) {
-      ((SpreadSubsample)Impl).setRandomSeed(newSeed);
-      return this;
-    }
-
-    /// <summary>
     /// The maximum class distribution spread. (0 = no maximum spread, 1 =
     /// uniform distribution, 10 = allow at most a 10:1 ratio between the classes).
     /// </summary>    

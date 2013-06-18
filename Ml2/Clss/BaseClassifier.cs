@@ -25,6 +25,8 @@ namespace Ml2.Clss
     {
       Runtime = rt;
       Impl = impl;
+      
+      InternalHelpers.SetSeedOnInstance(impl);
     }
 
     public double Classify(Instance instance)

@@ -30,14 +30,6 @@ namespace Ml2.Clss
     public RandomCommittee(Runtime<T> rt) : base(rt, new RandomCommittee()) {}
 
     /// <summary>
-    /// The random number seed to be used.
-    /// </summary>    
-    public RandomCommittee<T> Seed (int seed) {
-      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
-      return this;
-    }
-
-    /// <summary>
     /// The number of execution slots (threads) to use for constructing the
     /// ensemble.
     /// </summary>    

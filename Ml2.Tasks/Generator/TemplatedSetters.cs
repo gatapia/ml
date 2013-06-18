@@ -19,11 +19,7 @@ namespace Ml2.Tasks.Generator
       if (args.Length > 1) return String.Empty;
       var mi = args.Single();
       var pt = mi.ParameterType;
-      var name = args[0].Name;
-      if (pt == typeof(int) && (o.Method.Name == "setSeed" || o.Method.Name == "setRandomSeed")) {
-        return Utils.GetSetterCode(o.SetterDescription, o.Model.TypeName, o.SetterName, 
-            new [] {"int seed"}, "throw new System.NotSupportedException(\"Seeds are handled internally by the system for reproducability.\")");
-      }
+      var name = args[0].Name;      
       if (pt == typeof(Filter)) {
         return GetSetterTemplateImpl(o, name + ".Impl", "Fltr.IBaseFilter<T, weka.filters.Filter> " + mi.Name);
       }

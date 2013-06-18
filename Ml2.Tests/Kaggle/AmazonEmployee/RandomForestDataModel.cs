@@ -14,7 +14,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
   {    
     private static readonly int UNKNOWN_VALUE = Int32.MinValue;
     private static readonly int MAX_TRAINING_ROWS = 0;
-    private static readonly int MAX_TEST_ROWS = 3000;
+    private static readonly int MAX_TEST_ROWS = 0;
 
     /// <summary>
     /// Full Model - D: 3, T: 10, F: 2 Success: 75.0988 %
@@ -25,6 +25,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// (No Boost) D:5 T:20 F:3 74.5982%
     /// D:5, NO F, T:20 71.9368 %
     /// 75.1779%
+    /// With new count properties: 87.7207 %
     /// </summary>
     [Test] public void build_classifier()
     {
@@ -57,6 +58,8 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var joined = rejects.Concat(approved).Select(SelectAttributes).ToList();
       if (MAX_TRAINING_ROWS > 0) joined = joined.RandomSample(MAX_TRAINING_ROWS).ToList();
 
+      SetAdditionalCountInfoOn(joined, joined);
+
       Console.WriteLine("Trainign Data Loaded, total: " + joined.Count);
       
       // Add one row with unknown values as these are nominals and 
@@ -67,7 +70,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     private void RunPredictions(RFCustomModel[] trainingrows, Classifier classifier)
     {
-      var testrows = LoadAndMassageTestRows(trainingrows);    
+      var testrows = LoadAndMassageTestRows(trainingrows);          
       var testset = new Runtime<RFCustomModel>(0, testrows);      
       Func<double, Observation<RFCustomModel>, int, string> formatter = 
           (outcome, obs, idx) => (idx + 1).ToString() + ',' + outcome;
@@ -81,6 +84,51 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       Console.WriteLine("Model has " + rejections + " rejections and " + approvals + " approvals.");
     }
 
+    private void SetAdditionalCountInfoOn(ICollection<RFCustomModel> target, ICollection<RFCustomModel> traininset) {
+      var countsreject = new Dictionary<string, IDictionary<string, int>>();
+      var countsapprove = new Dictionary<string, IDictionary<string, int>>();
+      var props = Helpers.GetProps(typeof(RFCustomModel)).
+          Skip(1).
+          Select(p => p.Name).
+          Where(p => !p.EndsWith("_COUNTS")).
+          ToArray();
+
+      foreach (var r in traininset) {        
+        foreach (var prop in props) {
+          if (!countsreject.ContainsKey(prop)) countsreject[prop] = new Dictionary<string, int>();          
+          if (!countsapprove.ContainsKey(prop)) countsapprove[prop] = new Dictionary<string, int>();          
+
+          var val = Helpers.GetValue<int>(r, prop);
+          var key = val.ToString();          
+
+          if (countsreject[prop].ContainsKey(key)) continue;
+
+          var withval = Helpers.RowsWherePropIsValue(traininset, prop, val).ToArray();
+          countsreject[prop][key] = withval.Count(r2 => r2.ACTION == EAction.Rejected);
+          countsapprove[prop][key] = withval.Count(r2 => r2.ACTION == EAction.Approved);
+        }
+      }
+
+      props = Helpers.GetProps(typeof(RFCustomModel)).
+          Skip(1).
+          Select(p => p.Name).
+          Where(p => p.EndsWith("_COUNTS")).
+          ToArray();
+
+      foreach (var r in target) {
+        foreach (var countprop in props) {
+          var reject = countprop.EndsWith("_REJECT_COUNTS");
+          var prop = countprop.Substring(0, countprop.Length - 14); 
+          var val = Helpers.GetValue<int>(r, prop);
+          var key = val.ToString();        
+          if (!countsreject[prop].ContainsKey(key)) continue;
+          var count = (reject ? countsreject : countsapprove)[prop][key];
+          
+          Helpers.SetValue(r, countprop, count);
+        }
+      }
+    }
+
     private static RFCustomModel CreateUnknownRFModel() {
       var props = Helpers.GetProps(typeof(RFCustomModel)).Skip(1).ToArray();
       var cm = new RFCustomModel { ACTION = EAction.Approved };
@@ -92,13 +140,20 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       var testrows = Runtime.Load<AmazonTrainDataRow>(@"resources\kaggle\amazon-employee\test.csv");
       if (MAX_TEST_ROWS > 0) testrows = testrows.RandomSample(MAX_TEST_ROWS).ToArray();
       var formatted = testrows.Select(r => CreateCustomModelFromTestRow(r, trainingrows)).ToArray();
+      
+      SetAdditionalCountInfoOn(formatted, trainingrows);
+      
       return formatted;
     }
 
     private RFCustomModel CreateCustomModelFromTestRow(AmazonTrainDataRow r, RFCustomModel[] trainingrows) {
-      var props = Helpers.GetProps(typeof(RFCustomModel)).Skip(1).ToArray();
+      var props = Helpers.GetProps(typeof(RFCustomModel)).
+          Skip(1).
+          Select(p => p.Name).
+          Where(p => !p.EndsWith("_COUNTS")).
+          ToArray();
       var cm = new RFCustomModel { ACTION = EAction.Approved };
-      Array.ForEach(props, p => Helpers.SetValue(cm, p.Name, GetNominalValueOrUnknown(r, trainingrows, p.Name)));
+      Array.ForEach(props, p => Helpers.SetValue(cm, p, GetNominalValueOrUnknown(r, trainingrows, p)));
       return cm;
     }
 
@@ -122,9 +177,12 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     private RFCustomModel SelectAttributes(AmazonTrainDataRow r)
     {
       // All Fields: ACTION, RESOURCE, MGR_ID, ROLE_ROLLUP_1, ROLE_ROLLUP_2, ROLE_DEPTNAME, ROLE_TITLE, ROLE_FAMILY_DESC, ROLE_FAMILY
-      var props = Helpers.GetProps(typeof(RFCustomModel));
+      var props = Helpers.GetProps(typeof(RFCustomModel)).
+          Select(p => p.Name).
+          Where(p => !p.EndsWith("_COUNTS")).
+          ToArray();
       var newm = new RFCustomModel();
-      Array.ForEach(props, p => Helpers.SetValue(newm, p.Name, Helpers.GetValue<object>(r, p.Name)));
+      Array.ForEach(props, p => Helpers.SetValue(newm, p, Helpers.GetValue<object>(r, p)));
       return newm;
     }    
   }
@@ -148,6 +206,20 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     [Nominal] public int ROLE_DEPTNAME { get; set; } // Needed: 0.5% loss if removed
     [Nominal] public int ROLE_TITLE { get; set; } // Needed: 1% loss if removed
     [Nominal] public int ROLE_FAMILY_DESC { get; set; } // Needed: 1% loss if removed
+    public int RESOURCE_REJECT_COUNTS { get; set;}
+    public int RESOURCE_ACCEPT_COUNTS { get; set;}
+    public int MGR_ID_REJECT_COUNTS { get; set;}
+    public int MGR_ID_ACCEPT_COUNTS { get; set;}
+    public int ROLE_ROLLUP_1_REJECT_COUNTS { get; set;}
+    public int ROLE_ROLLUP_1_ACCEPT_COUNTS { get; set;}
+    public int ROLE_ROLLUP_2_REJECT_COUNTS { get; set;}
+    public int ROLE_ROLLUP_2_ACCEPT_COUNTS { get; set;}
+    public int ROLE_DEPTNAME_REJECT_COUNTS { get; set;}
+    public int ROLE_DEPTNAME_ACCEPT_COUNTS { get; set;}
+    public int ROLE_TITLE_REJECT_COUNTS { get; set;}
+    public int ROLE_TITLE_ACCEPT_COUNTS { get; set;}
+    public int ROLE_FAMILY_DESC_REJECT_COUNTS { get; set;}
+    public int ROLE_FAMILY_DESC_ACCEPT_COUNTS { get; set;}
     // [Nominal] public int ROLE_FAMILY { get; set; } // Not needed
   }
 }

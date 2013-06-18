@@ -26,6 +26,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// D:5, NO F, T:20 71.9368 %
     /// 75.1779%
     /// With new count properties: 87.7207 %
+    /// With 100 trees: 90.3821 % !!!!!!
     /// </summary>
     [Test] public void build_classifier()
     {
@@ -36,7 +37,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           NumExecutionSlots(2).
           MaxDepth(3).
           NumFeatures(2).
-          NumTrees(10).
+          NumTrees(100).
           EvaluateWithCrossValidation().
           FlushToFile("RandomForestDataModel.model");
        

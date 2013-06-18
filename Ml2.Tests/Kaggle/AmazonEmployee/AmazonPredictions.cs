@@ -21,7 +21,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           Select(a => new { a.ACTION, a.MGR_ID, a.ROLE_ROLLUP_1, a.ROLE_FAMILY }).ToArray();
       var train = new Runtime(0, rows);
 
-      train.Classifiers.Logistic().EvaluateWith10CrossValidation();
+      train.Classifiers.Logistic().EvaluateWithCrossValidation();
     }
 
     [Test] public void logistic_regression_on_small_subset_play_with_features()
@@ -33,7 +33,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
       train.Classifiers.Logistic().
         FlushToFile("amazon-employee.model").
-        EvaluateWith10CrossValidation();      
+        EvaluateWithCrossValidation();      
     }
 
     [Test] public void decision_tree_experiments()
@@ -45,7 +45,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
       train.Classifiers.J48().
         FlushToFile("amazon-employee.model").
-        EvaluateWith10CrossValidation();
+        EvaluateWithCrossValidation();
 
       run_predictions();
       var predictions = File.ReadAllLines("predict.csv"); 

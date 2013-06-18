@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using weka.classifiers;
 using weka.core;
@@ -11,7 +12,7 @@ namespace Ml2.Clss
     double Classify(Observation<T> obs);
     IBaseClassifier<T, I> Build();
     IBaseClassifier<T, I> FlushToFile(string file);
-    IBaseClassifier<T, I> EvaluateWith10CrossValidation();
+    IBaseClassifier<T, I> EvaluateWithCrossValidation(int numfolds = 10);
   }
 
   public class BaseClassifier<T, I> : IBaseClassifier<T, I> where I : Classifier where T : new()
@@ -45,10 +46,10 @@ namespace Ml2.Clss
       return this;
     }
 
-    public IBaseClassifier<T, I> EvaluateWith10CrossValidation()
+    public IBaseClassifier<T, I> EvaluateWithCrossValidation(int numfolds = 10)
     {
       Build();
-      Runtime.EvaluateWith10CrossValidateion(Impl);
+      Runtime.EvaluateWithCrossValidation(Impl, numfolds);
       return this;
 
     }
@@ -57,8 +58,11 @@ namespace Ml2.Clss
     {
       if (built) return this;
       built = true;
-
+      var start = DateTime.Now;
       Impl.buildClassifier(Runtime.Instances);
+      var took = DateTime.Now.Subtract(start).TotalMilliseconds;
+      
+      Console.WriteLine("Building Classifier Took {0}ms", took);
       
       return this;
     }

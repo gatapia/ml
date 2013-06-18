@@ -15,21 +15,24 @@ namespace Ml2.RuntimeHelpers
       this.classifier = classifier;
     }
 
-    public void EvaluateWith10CrossValidateion()
+    public void EvaluateWithCrossValidateion(int numfolds = 10)
     {
+      var start = DateTime.Now;
       var evaluation = new Evaluation(runtime.Instances);
       var seed = DateTime.Now.Millisecond;
       var rng = new java.util.Random(seed);
-      evaluation.crossValidateModel(classifier, runtime.Instances, 10, rng);
-      Console.WriteLine(FlushResultsToFile(seed, evaluation));
+      evaluation.crossValidateModel(classifier, runtime.Instances, numfolds, rng);
+      var took = DateTime.Now.Subtract(start).TotalMilliseconds;
+      Console.WriteLine("\n" + FlushResultsToFile(took, seed, evaluation));
     }
 
-    private string FlushResultsToFile(int seed, Evaluation eval)
+    private string FlushResultsToFile(double took, int seed, Evaluation eval)
     {
       var date = DateTime.Now;
       var filename = date.ToString("yyyyMMddTHHmmss.") + classifier.GetType().Name.ToLower() + ".eval";
       if (File.Exists(filename)) File.Delete(filename);
-      var contents = eval.toSummaryString("Summary:\n=======\n\n", true) +
+      var contents = "Evaluation Took " + took + "ms\n\n" +
+                      eval.toSummaryString("Summary:\n=======\n\n", true) +                      
                      eval.toClassDetailsString("\n\nClass Details:\n=============\n\n") +
                      "\n\nEvaluator Seed: " + seed;
           

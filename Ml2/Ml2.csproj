@@ -72,6 +72,7 @@
     <Compile Include="Asstn\BaseAssociation.cs" />
     <Compile Include="Asstn\Generated\FilteredAssociator.cs" />
     <Compile Include="Asstn\Generated\FPGrowth.cs" />
+    <Compile Include="RuntimeHelpers\AttributesRemover.cs" />
     <Compile Include="AttrSel\Algs\Generated\Algorithms.cs" />
     <Compile Include="AttrSel\Algs\BaseAttributeSelectionAlgorithm.cs" />
     <Compile Include="AttrSel\Algs\Generated\BestFirst.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Clstr\Generated\MakeDensityBased.cs" />
     <Compile Include="Clstr\Generated\SimpleKMeans.cs" />
     <Compile Include="Helpers.cs" />
+    <Compile Include="RuntimeHelpers\IAttributesRemover.cs" />
     <Compile Include="ListExtensions.cs" />
     <Compile Include="Fltr\Generated\Add.cs" />
     <Compile Include="Fltr\Generated\AddClassification.cs" />

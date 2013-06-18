@@ -6,7 +6,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee.Data
   [Serializable] public class AmazonTrainDataRow : IAmazonDataRow
   {
     public EAction ACTION { get; set; }
-    public int RESOURCE { get; set; }
+    [Nominal] public int RESOURCE { get; set; }
     [Nominal] public int MGR_ID { get; set; }    
     [Nominal] public int ROLE_ROLLUP_1 { get; set; }
     [Nominal] public int ROLE_ROLLUP_2 { get; set; }

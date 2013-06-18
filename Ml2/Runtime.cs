@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Ml2.Arff;
 using Ml2.Asstn;
 using Ml2.Clss;
@@ -44,6 +43,7 @@ namespace Ml2
 
   public class Runtime<T> where T : new()
   {        
+    private readonly IAttributesRemover<T> attremover = new AttributesRemover<T>();
 
     /// <summary>
     /// Creates an weka.core.Instances wrapper passing in the 
@@ -102,7 +102,7 @@ namespace Ml2
 
     public Classifiers<T> Classifiers { get { return new Classifiers<T>(this); } }
 
-    public void FlushToFile(string file)
+    public void SaveToArffFile(string file)
     {
       if (File.Exists(file)) File.Delete(file);
       var saver = new ArffSaver();
@@ -112,46 +112,26 @@ namespace Ml2
     }
 
     public Runtime<T> RemoveAttributes(params object[] attributes) {
-      if (attributes == null || attributes.Length == 0) return this;
-      var indexes = attributes.Where(a => a is int).Cast<int>();
-      var names = attributes.Where(a => a is string).Select(a => ((string)a).ToLower());
-      var types = attributes.Where(a => a is Type).Cast<Type>();
-      var nameidxs = GetNameIndexes(names);
-      var typeidxs = GetTypeIndexes(types);
-      var all = (indexes.Concat(nameidxs).Concat(typeidxs)).
-          Distinct().
-          OrderByDescending(i => i).
-          ToArray();
-      Array.ForEach(all, idx => Instances.deleteAttributeAt(idx));
-      return this;
+      attremover.RemoveAttributes(this, attributes);
+      return this;            
     }
 
-    public Runtime<T> EvaluateWith10CrossValidateion(Classifier classifier)
+    public Runtime<T> EvaluateWithCrossValidation(Classifier classifier, int numfolds = 10)
     {
-      new ClassifierEvaluator<T>(this, classifier).EvaluateWith10CrossValidateion();
+      new ClassifierEvaluator<T>(this, classifier).
+        EvaluateWithCrossValidateion(numfolds);
       return this;
     }
 
-    private IEnumerable<int> GetNameIndexes(IEnumerable<string> names) {
-      var fields = Helpers.GetProps(Observations.First().Row.GetType()).
-          Select(f => f.Name.ToLower()).
-          ToArray();
-      var idxs = names.Select(n => Array.IndexOf(fields, n)).ToArray();
-      
-      if (!idxs.All(idx => idx >= 0)) throw new ArgumentException("names");
-      return idxs;
-    }
-
-    private IEnumerable<int> GetTypeIndexes(IEnumerable<Type> types) {
-      var fields = Helpers.GetProps(Observations.First().Row.GetType()).
-          Select(f => f.PropertyType).
-          ToArray();
-      var idxs = Enumerable.Range(0, fields.Length).
-        Where(idx => types.Contains(fields[idx])).
-        ToArray();
-      
-      if (!idxs.All(idx => idx >= 0)) throw new ArgumentException("types");
-      return idxs;
+    public ICollection<string> GeneratePredictions(Classifier classifier, 
+        Func<double, Observation<T>, int, string> outputline,
+        string outheader = null)
+    {
+      var outlines = new List<string>();
+      if (!String.IsNullOrWhiteSpace(outheader)) outlines.Add(outheader);
+      return Observations.Select((obs, idx) => 
+          outputline(classifier.classifyInstance(obs.Instance), obs, idx)).
+        ToArray();      
     }
 
     protected static T2[] LoadRowsFromFiles<T2>(string[] files) where T2 : new()

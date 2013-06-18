@@ -35,7 +35,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
       Console.WriteLine("Training Data Loaded");
 
       training.Classifiers.J48().
-          EvaluateWith10CrossValidation().
+          EvaluateWithCrossValidation().
           FlushToFile("TrimmingTrainingDataModel.model");
       
       var predictions = RunPredictions(counts);

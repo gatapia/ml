@@ -23,7 +23,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           RunFilter();
 
       rt.Classifiers.Logistic().
-          EvaluateWith10CrossValidation().
+          EvaluateWithCrossValidation().
           FlushToFile("custom_training_set_logistic.model");
     }
 

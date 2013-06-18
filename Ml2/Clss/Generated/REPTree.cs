@@ -52,8 +52,8 @@ namespace Ml2.Clss
     /// <summary>
     /// The seed used for randomizing the data.
     /// </summary>    
-    public REPTree<T> Seed (int newSeed) {
-      ((REPTree)Impl).setSeed(newSeed);
+    public REPTree<T> Seed (int seed) {
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

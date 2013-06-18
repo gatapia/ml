@@ -42,7 +42,7 @@ namespace Ml2.Clss
     /// The random number seed used for selecting attributes.
     /// </summary>    
     public RandomTree<T> Seed (int seed) {
-      ((RandomTree)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

@@ -40,7 +40,7 @@ namespace Ml2.Clss
     /// The random number seed to be used.
     /// </summary>    
     public CVParameterSelection<T> Seed (int seed) {
-      ((CVParameterSelection)Impl).setSeed(seed);
+      throw new System.NotSupportedException("Seeds are handled internally by the system for reproducability.")
       return this;
     }
 

@@ -16,18 +16,23 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     /// <summary>
     /// Without smote - With Depth 3 (from 2): 91.1462 % - Predictions: 22310 rejections and 36611 approvals
-    ///
+    /// With smote - D2 F2 T24: 89.0265 % - Predictions: 11148 rejections and 47773 approvals
+    /// D3 F2 T10: 88.473  % - Predictions: 13422 rejections and 45499 approvals.
     /// 
-    /// On Kaggle: 66.10822 %
     /// </summary>
     [Test] public void build_random_forest_classifier()
     {
       evaluate_classifier(c => c.Trees.RandomForest().          
-          NumExecutionSlots(2).
-          MaxDepth(2).
+          NumExecutionSlots(4).
+          MaxDepth(3).
           NumFeatures(2).
-          NumTrees(25),
-        flushModelToDisk: false);
+          NumTrees(25).
+          Debug(true).
+          Build().
+          Impl,
+          
+          // Causes outof memory errors
+          flushModelToDisk: false); 
     }
 
     /// <summary>
@@ -35,12 +40,12 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// With smote - Too slow...
     /// </summary>
     [Test] public void build_logistic_regression_classifier() {
-      evaluate_classifier(c => c.Functions.Logistic().MaxIts(50));
+      evaluate_classifier(c => c.Functions.Logistic().MaxIts(50).Build().Impl);
     }  
 
     // Too slow
     [Test] public void build_svm_classifier() { 
-      evaluate_classifier(c => c.Functions.SMO()); 
+      evaluate_classifier(c => c.Functions.SMO().Build().Impl); 
     }
 
     /// <summary>
@@ -49,27 +54,27 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     /// </summary>
     [Test] public void build_j48_classifier()
     {
-      evaluate_classifier(c => c.Trees.J48());
+      evaluate_classifier(c => c.Trees.J48().Build().Impl);
     }
 
     /// <summary>
     /// Without smote - k=3 - 72.7273 % Predictions: 35692 rejections and 23229 approvals
     /// With smote - k=2 - 84.9411 % Predictions: 27991 rejections and 30930 approvals.
+    /// Submitted to Kaggle - Wed, 19 Jun 2013 05:27:38 -> 0.46404 !!!!! TERRIBLE
     /// </summary>
     [Test] public void build_ibk_classifier() {
-      evaluate_classifier(c => c.Lazy.IBk().KNN(2));
+      evaluate_classifier(c => c.Lazy.IBk().KNN(2).Build().Impl);
     }
 
     /// <summary>        
     /// Without smote - 93.8076 % - Predictions: 12278 rejections and 46643 approvals
     /// With smote - 84.9323 % - Predictions: 13746 rejections and 45175 approvals
-    /// Seems to suggest that without smote it was highly biased (overfitted).
     /// </summary>
     [Test] public void build_nb_classifier()
     {      
       evaluate_classifier(c => c.Bayes.NaiveBayes().
           UseKernelEstimator(true).
-          UseSupervisedDiscretization(true));
+          UseSupervisedDiscretization(true).Build().Impl);
     }    
 
     private Runtime<AmazonTrainDataRow> LoadTrainingRuntime() {          
@@ -110,19 +115,19 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     }
 
     private void evaluate_classifier(
-      Func<Classifiers<AmazonTrainDataRow>, IBaseClassifier<AmazonTrainDataRow, Classifier>> builder,
+      Func<Classifiers<AmazonTrainDataRow>, Classifier> builder,
+      bool crossFoldsEvaluate = true,
       bool runPredictions = true,
+      bool loadModelfromDisk = false,
       bool flushModelToDisk = true) {
       var training = LoadTrainingRuntime();      
       var classifier = builder(training.Classifiers);
+      var file = GetType().Name + "_" + classifier.GetType().Name + ".model";
 
-      if (flushModelToDisk) {
-        var file = GetType().Name + "_" + classifier.Impl.GetType().Name + ".model";
-        classifier.FlushToFile(file);
-      }
-      classifier.EvaluateWithCrossValidation(); 
-
-      if (runPredictions) run_predictions(classifier.Impl);
+      if (loadModelfromDisk) classifier = BaseClassifier.Read(file);
+      else if (flushModelToDisk) BaseClassifier.FlushToFile(classifier, file);
+      if (crossFoldsEvaluate) training.EvaluateWithCrossValidation(classifier); 
+      if (runPredictions) run_predictions(classifier);
       
       SystemSounds.Beep.Play(); // I'm finnished
     }
@@ -134,8 +139,8 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
           (outcome, obs, idx) => (idx + 1).ToString() + ',' + outcome;
       
       var lines = testset.GeneratePredictions(formatter, "id,ACTION", classifiers);
-      
-      File.WriteAllLines(GetType().Name + "_" + classifiers.GetType().Name + "_predictions.csv", lines);
+      var classifiernames = String.Join("_", classifiers.Select(c => c.GetType().Name));
+      File.WriteAllLines(GetType().Name + "_" + classifiernames + "_predictions.csv", lines);
 
       var rejections = lines.Count(r => r.EndsWith(",0"));
       var approvals = lines.Count(r => r.EndsWith(",1"));

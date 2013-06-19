@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using weka.classifiers;
+using weka.classifiers.misc;
 using weka.core;
 
 namespace Ml2.Clss
@@ -43,8 +44,7 @@ namespace Ml2.Clss
 
     public IBaseClassifier<T, I> FlushToFile(string file) {
       Build();
-      if (File.Exists(file)) File.Delete(file);
-      SerializationHelper.write(file, Impl);
+      BaseClassifier.FlushToFile(Impl, file);      
       return this;
     }
 
@@ -72,7 +72,21 @@ namespace Ml2.Clss
 
   public static class BaseClassifier {
     public static Classifier Read(string file) {
-      return (Classifier) SerializationHelper.read(file);
+      SerializedClassifier classifier = new SerializedClassifier();
+      classifier.setModelFile(new java.io.File(file));
+      return classifier;
+    }
+
+    public static void FlushToFile(Classifier classifier, string file) {
+      var start = DateTime.Now;
+      if (File.Exists(file)) File.Delete(file);
+      try {
+        Debug.saveToFile(file, classifier);
+        Console.WriteLine("Saving model to disk took: {0}ms", DateTime.Now.Subtract(start).TotalMilliseconds);
+      } catch (Exception e) {
+        Console.WriteLine("Could not save model to disk: {0}", e.Message);
+      }
+      
     }
   }
 }

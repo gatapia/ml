@@ -112,11 +112,15 @@ namespace Ml2.Tasks.Generator
 
     private static Type[] GetBaseClassesOf(Type ancestor)
     {
-      return typeof (CfsSubsetEval).Assembly.
-        GetTypes().
-        Where(t => !t.IsAbstract && 
-            t.DeclaringType == null &&  // No nested classes
-            ancestor.IsAssignableFrom(t) && Utils.IsSupportedType(t)).
+      
+      return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => {
+          var name = a.GetName().Name;
+        if (name.StartsWith("System.") || name.StartsWith("JetBrains.") || 
+          name.StartsWith("nunit.") || name.StartsWith("IKVM.")) { return new Type[0]; }
+          return a.GetTypes().Where(t => !t.IsAbstract && 
+              t.DeclaringType == null &&  // No nested classes
+              ancestor.IsAssignableFrom(t) && Utils.IsSupportedType(t));
+      }).
         ToArray();
     }
 

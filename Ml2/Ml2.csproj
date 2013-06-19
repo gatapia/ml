@@ -43,6 +43,9 @@
     <Reference Include="LumenWorks.Framework.IO">
       <HintPath>..\lib\LumenWorks.Framework.IO.dll</HintPath>
     </Reference>
+    <Reference Include="SMOTE.jar">
+      <HintPath>..\lib\weka\packages\SMOTE.jar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -82,6 +85,7 @@
     <Compile Include="Clss\Generated\ClassifiersRules.cs" />
     <Compile Include="Clss\Generated\ClassifiersTrees.cs" />
     <Compile Include="Clss\Generated\ClassifiersTreesLmt.cs" />
+    <Compile Include="Fltr\Generated\SMOTE.cs" />
     <Compile Include="InternalHelpers.cs" />
     <Compile Include="Fltr\Generated\FiltersGeneral.cs" />
     <Compile Include="Fltr\Generated\FiltersSupervisedAttribute.cs" />

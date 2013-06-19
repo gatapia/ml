@@ -59,6 +59,7 @@
     <Compile Include="Kaggle\AmazonEmployee\AmazonAttributeExperiments.cs" />
     <Compile Include="Kaggle\AmazonEmployee\AmazonPredictions.cs" />
     <Compile Include="Kaggle\AmazonEmployee\ClassifierExperiments.cs" />
+    <Compile Include="Kaggle\AmazonEmployee\ClassifierExperimentsWithSmote.cs" />
     <Compile Include="Kaggle\AmazonEmployee\TrimmingTrainingDataModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\ProportionBasedAttributesModel.cs" />
     <Compile Include="Kaggle\AmazonEmployee\Data\CustomModel.cs" />

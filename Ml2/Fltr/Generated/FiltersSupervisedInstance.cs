@@ -52,6 +52,22 @@ namespace Ml2.Fltr
     /// </summary>
     public StratifiedRemoveFolds<T> StratifiedRemoveFolds() { return new StratifiedRemoveFolds<T>(rt); }
 
+    /// <summary>
+    /// Resamples a dataset by applying the Synthetic Minority Oversampling
+    /// TEchnique (SMOTE). The original dataset must fit entirely in memory. The amount
+    /// of SMOTE and number of nearest neighbors may be specified. For more
+    /// information, see <br/><br/>Nitesh V. Chawla et. al. (2002). Synthetic Minority
+    /// Over-sampling Technique. Journal of Artificial Intelligence Research.
+    /// 16:321-357.<br/><br/>Options:<br/><br/>-S &lt;num&gt; = 	Specifies the random
+    /// number seed<br/>	(default 1)<br/>-P &lt;percentage&gt; = 	Specifies percentage
+    /// of SMOTE instances to create.<br/>	(default 100.0)<br/><br/>-K
+    /// &lt;nearest-neighbors&gt; = 	Specifies the number of nearest neighbors to
+    /// use.<br/>	(default 5)<br/><br/>-C &lt;value-index&gt; = 	Specifies the index of the
+    /// nominal class value to SMOTE<br/>	(default 0: auto-detect non-empty minority
+    /// class))<br/>
+    /// </summary>
+    public SMOTE<T> SMOTE() { return new SMOTE<T>(rt); }
+
     
   }
 }

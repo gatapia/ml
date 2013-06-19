@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using System.Media;
 using Ml2.Clss;
 using Ml2.Tests.Kaggle.AmazonEmployee.Data;
 using NUnit.Framework;
@@ -14,23 +15,62 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     [Test] public void prepare_training_data() { LoadTrainingRuntime(); }
 
     /// <summary>
+    /// Without smote - With Depth 3 (from 2): 91.1462 % - Predictions: 22310 rejections and 36611 approvals
+    ///
+    /// 
+    /// On Kaggle: 66.10822 %
+    /// </summary>
+    [Test] public void build_random_forest_classifier()
+    {
+      evaluate_classifier(c => c.Trees.RandomForest().          
+          NumExecutionSlots(2).
+          MaxDepth(2).
+          NumFeatures(2).
+          NumTrees(25),
+        flushModelToDisk: false);
+    }
+
+    /// <summary>
+    /// Without smote - Max Its: 100: 67.9315 %
+    /// With smote - Too slow...
+    /// </summary>
+    [Test] public void build_logistic_regression_classifier() {
+      evaluate_classifier(c => c.Functions.Logistic().MaxIts(50));
+    }  
+
+    // Too slow
+    [Test] public void build_svm_classifier() { 
+      evaluate_classifier(c => c.Functions.SMO()); 
+    }
+
+    /// <summary>
+    /// Without smote - 94.5718 % - Predictions: has 8782 rejections and 50139 approvals
+    /// With smote - 80.5131 % - Predictions: 26744 rejections and 32177 approvals.
+    /// </summary>
+    [Test] public void build_j48_classifier()
+    {
+      evaluate_classifier(c => c.Trees.J48());
+    }
+
+    /// <summary>
     /// Without smote - k=3 - 72.7273 % Predictions: 35692 rejections and 23229 approvals
-    /// With smote - k=2 - 84.9411 % Predictions: 28863 rejections and 30058 approvals
+    /// With smote - k=2 - 84.9411 % Predictions: 27991 rejections and 30930 approvals.
     /// </summary>
     [Test] public void build_ibk_classifier() {
       evaluate_classifier(c => c.Lazy.IBk().KNN(2));
     }
 
     /// <summary>        
-    /// Without smote - 93.8076 % - 12278 rejections and 46643 approvals
-    /// With smote - 93.8076 % - 12278 rejections and 46643 approvals
+    /// Without smote - 93.8076 % - Predictions: 12278 rejections and 46643 approvals
+    /// With smote - 84.9323 % - Predictions: 13746 rejections and 45175 approvals
+    /// Seems to suggest that without smote it was highly biased (overfitted).
     /// </summary>
     [Test] public void build_nb_classifier()
     {      
       evaluate_classifier(c => c.Bayes.NaiveBayes().
           UseKernelEstimator(true).
-          UseSupervisedDiscretization(true));          
-    }
+          UseSupervisedDiscretization(true));
+    }    
 
     private Runtime<AmazonTrainDataRow> LoadTrainingRuntime() {          
       var file = "training_runtime.arff";
@@ -71,15 +111,20 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
 
     private void evaluate_classifier(
       Func<Classifiers<AmazonTrainDataRow>, IBaseClassifier<AmazonTrainDataRow, Classifier>> builder,
-      bool runPredictions = true) {
+      bool runPredictions = true,
+      bool flushModelToDisk = true) {
       var training = LoadTrainingRuntime();      
       var classifier = builder(training.Classifiers);
 
-      classifier.
-        FlushToFile(GetType().Name + "_" + classifier.Impl.GetType().Name + ".model").
-        EvaluateWithCrossValidation(); 
+      if (flushModelToDisk) {
+        var file = GetType().Name + "_" + classifier.Impl.GetType().Name + ".model";
+        classifier.FlushToFile(file);
+      }
+      classifier.EvaluateWithCrossValidation(); 
 
       if (runPredictions) run_predictions(classifier.Impl);
+      
+      SystemSounds.Beep.Play(); // I'm finnished
     }
 
     private void run_predictions(params Classifier[] classifiers)

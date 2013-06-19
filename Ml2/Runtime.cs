@@ -171,17 +171,33 @@ namespace Ml2
 
       var instances = Instances.enumerateInstances();      
       var idx = 0;
+      var failures = 0;
       while (instances.hasMoreElements()) {
         var instance = (Instance) instances.nextElement();
-        var classifier = ClassifyInstance(classifiers, instance);
+        int thesefails;
+        var classifier = ClassifyInstance(classifiers, instance, out thesefails);
+        failures += thesefails;
         var line = outputline(classifier, instance, idx++);
         outlines.Add(line);
+      }
+      if (failures > 0) {
+        if (classifiers.Length > 1)
+          Console.WriteLine("GeneratePredictions had " + failures + ". These values were ignored from the ensemble.");
+        else
+          Console.WriteLine("GeneratePredictions had " + failures + ". These were classified as 0.0");
       }
       return outlines; 
     }
 
-    private static double ClassifyInstance(Classifier[] classifiers, Instance instance) {
-      return classifiers.Select(c => c.classifyInstance(instance)).GetMajority();
+    private static double ClassifyInstance(Classifier[] classifiers, Instance instance, out int failures) {
+      int thesefailures = 0;
+      var valids = new List<double>();
+      Array.ForEach(classifiers, c => {
+        try { valids.Add(c.classifyInstance(instance)); } 
+        catch { thesefailures++; }        
+      });    
+      failures = thesefailures;
+      return valids.Count == 0 ? 0 : valids.GetMajority();
     }
 
     protected static T2[] LoadRowsFromFiles<T2>(string[] files) where T2 : new()

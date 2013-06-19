@@ -8,9 +8,11 @@ using Ml2.Clss;
 using Ml2.Clstr;
 using Ml2.Fltr;
 using Ml2.RuntimeHelpers;
+using java.lang;
 using weka.classifiers;
 using weka.core;
 using weka.core.converters;
+using String = System.String;
 
 namespace Ml2
 {
@@ -70,9 +72,31 @@ namespace Ml2
     /// all in the same format and that format is defined by the properties of T.
     /// </param>
     public Runtime(int classifier, params string[] files) {
-      if (!files.Any()) throw new ArgumentNullException("files");
+      if (!files.Any()) throw new ArgumentNullException("files");            
       
-      var arff = new ArffInstanceBuilder<T>(LoadRowsFromFiles<T>(files)).Build();      
+      var extension = files.First().Split('.').Last();
+      if (extension == "arff") {
+        LoadRuntimFromArffFile(classifier, files);
+      } else {
+        LoadRuntimeFromNonArffFiles(classifier, files);
+      }
+      if (Instances.numInstances() <= 0) 
+        throw new IllegalStateException("Could not load any instances from the files provided");
+    }
+
+    private void LoadRuntimFromArffFile(int classifier, string[] files) { 
+      // Only single file supported. files.Single will throw otherwise.
+      var arfffile = files.Single();
+      var loader = new ArffLoader();
+      loader.setFile(new java.io.File(arfffile));
+
+      Instances = loader.getDataSet();
+      Observations = null;
+      Instances.setClassIndex(classifier);
+    }
+
+    private void LoadRuntimeFromNonArffFiles(int classifier, string[] files) {
+      var arff = new ArffInstanceBuilder<T>(LoadRowsFromFiles<T>(files)).Build();
       Instances = arff.Instances;
       Observations = arff.Observations;
       Instances.setClassIndex(classifier);
@@ -138,19 +162,26 @@ namespace Ml2
     }
 
     public ICollection<string> GeneratePredictions(
-        Func<double, Observation<T>, int, string> outputline,
+        Func<double, Instance, int, string> outputline,
         string outheader,
         params Classifier[] classifiers)
     {
       var outlines = new List<string>();
       if (!String.IsNullOrWhiteSpace(outheader)) outlines.Add(outheader);
-      return Observations.Select((obs, idx) => 
-          outputline(ClassifyInstance(classifiers, obs), obs, idx)).
-        ToArray();      
+
+      var instances = Instances.enumerateInstances();      
+      var idx = 0;
+      while (instances.hasMoreElements()) {
+        var instance = (Instance) instances.nextElement();
+        var classifier = ClassifyInstance(classifiers, instance);
+        var line = outputline(classifier, instance, idx++);
+        outlines.Add(line);
+      }
+      return outlines; 
     }
 
-    private static double ClassifyInstance(Classifier[] classifiers, Observation<T> obs) {
-      return classifiers.Select(c => c.classifyInstance(obs.Instance)).GetMajority();
+    private static double ClassifyInstance(Classifier[] classifiers, Instance instance) {
+      return classifiers.Select(c => c.classifyInstance(instance)).GetMajority();
     }
 
     protected static T2[] LoadRowsFromFiles<T2>(string[] files) where T2 : new()

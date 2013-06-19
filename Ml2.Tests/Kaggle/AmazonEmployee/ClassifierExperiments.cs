@@ -7,6 +7,7 @@ using Ml2.Clss;
 using Ml2.Tests.Kaggle.AmazonEmployee.Data;
 using NUnit.Framework;
 using weka.classifiers;
+using weka.core;
 
 namespace Ml2.Tests.Kaggle.AmazonEmployee
 {    
@@ -154,7 +155,7 @@ namespace Ml2.Tests.Kaggle.AmazonEmployee
     {
       var testrows = LoadAndMassageTestRows(trainingrows);          
       var testset = new Runtime<RFCustomModel>(0, testrows);      
-      Func<double, Observation<RFCustomModel>, int, string> formatter = 
+      Func<double, Instance, int, string> formatter = 
           (outcome, obs, idx) => (idx + 1).ToString() + ',' + outcome;
       
       var lines = testset.GeneratePredictions(formatter, "id,ACTION", classifiers);
